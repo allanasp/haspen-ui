@@ -28,6 +28,7 @@ haspen-ui/
 ├── apps/              # Demo and documentation applications
 ├── packages/          # Design system packages
 │   ├── core/         # Core package with types, constants and base components
+│   ├── shared/       # Shared utilities, helpers and formatters
 │   ├── components/   # Vue components
 │   ├── tokens/       # Design tokens
 │   └── utils/        # Shared utilities
@@ -48,6 +49,17 @@ The core package provides the fundamental building blocks of the design system:
 - Common constants and utilities
 
 See [core package README](./packages/core/README.md) for detailed documentation.
+
+### @haspen-ui/shared
+
+The shared package provides common utilities and helpers used across the design system:
+
+- Formatting utilities (currency, dates, phone numbers)
+- Validation helpers (CPR, email, phone)
+- Common helper functions
+- Shared types and interfaces
+
+See [shared package README](./packages/shared/README.md) for detailed documentation.
 
 ## Available Scripts
 
