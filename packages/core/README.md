@@ -1,0 +1,57 @@
+# @haspen-ui/core
+
+Core package for the HäspenUI design system. This package contains the fundamental building blocks, types, and utilities that form the foundation of the design system.
+
+## Installation
+
+```bash
+pnpm add @haspen-ui/core
+```
+
+## Usage
+
+```typescript
+import { DEFAULT_THEME, type ThemeConfig } from '@haspen-ui/core'
+
+// Use the default theme
+const theme: ThemeConfig = DEFAULT_THEME
+```
+
+## Exports
+
+### Types
+
+- `ComponentProps` - Base interface for component props
+- `ThemeConfig` - Theme configuration interface
+- `Size` - Common size variants ('sm' | 'md' | 'lg')
+- `Variant` - Common component variants ('primary' | 'secondary' | 'tertiary')
+
+### Constants
+
+- `DEFAULT_THEME` - Default theme configuration
+
+## Development
+
+1. Install dependencies:
+```bash
+pnpm install
+```
+
+2. Start development server:
+```bash
+pnpm dev
+```
+
+3. Build package:
+```bash
+pnpm build
+```
+
+4. Run tests:
+```bash
+pnpm test
+```
+
+## Contributing
+
+Please refer to the main project README for contribution guidelines. 
