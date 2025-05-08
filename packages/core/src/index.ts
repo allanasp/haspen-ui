@@ -5,3 +5,6 @@ export * from './types'
 export * from './constants'
 
 // Components will be exported here as they are created 
+
+// Export styles
+import './style.css' 

@@ -19,15 +19,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { ButtonProps } from './types'
 
-interface Props {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
-  size?: 'sm' | 'md' | 'lg'
-  loading?: boolean
-  disabled?: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<ButtonProps>(), {
   variant: 'primary',
   size: 'md',
   loading: false,
@@ -36,5 +30,5 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <style lang="scss">
-@import './Button.scss';
+@use './Button.scss';
 </style> 
