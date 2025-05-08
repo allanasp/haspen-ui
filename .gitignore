@@ -27,14 +27,14 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Testing
+coverage
+.nyc_output
+
 # Environment files
 .env
 .env.*
 !.env.example
-
-# Testing
-coverage
-.nyc_output
 
 # TypeScript
 *.tsbuildinfo
@@ -43,7 +43,6 @@ coverage
 .cache
 .temp
 .eslintcache
-.stylelintcache
 
 # Volta
 .volta

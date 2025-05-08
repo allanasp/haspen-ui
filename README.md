@@ -25,9 +25,9 @@ pnpm dev
 haspen-ui/
 ├── apps/              # Demo and documentation applications
 ├── packages/          # Design system packages
-│   ├── core/         # Core components
-│   ├── theme/        # Theme configuration
-│   └── utils/        # Shared utilities
+│   ├── components/    # Vue components
+│   ├── tokens/        # Design tokens
+│   └── utils/         # Shared utilities
 ├── package.json
 ├── turbo.json
 └── pnpm-workspace.yaml
