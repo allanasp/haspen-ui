@@ -55,6 +55,24 @@ export default defineNuxtConfig({
 | `composables` | `boolean` | `true` | Whether to automatically import composables |
 | `prefix` | `string` | `'Haspen'` | Prefix for component names |
 
+## TypeScript-konfiguration
+
+Denne pakke bruger en specifik `tsconfig.json`, som udvider rodens `tsconfig.build.json`. Konfigurationen er tilpasset til Nuxt 3 moduler:
+
+- outDir: `dist`
+- rootDir: `src`
+- Types genereres automatisk ved build
+- module: `NodeNext`
+- moduleResolution: `NodeNext`
+
+Dette sikrer korrekt typesætning og kompatibilitet med Nuxt 3 modul-systemet.
+
+Byg pakken med:
+
+```sh
+pnpm build
+```
+
 ## License
 
 MIT

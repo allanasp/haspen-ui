@@ -98,3 +98,17 @@ pnpm build
 ## Licens
 
 MIT 
+
+## TypeScript-konfiguration
+
+Denne pakke bruger en specifik `tsconfig.json`, som udvider rodens `tsconfig.build.json`. Konfigurationen sikrer at kildekoden i `src/` og types i `types/` bliver korrekt transpileret og at types genereres i `dist/types`.
+
+- outDir: `dist`
+- rootDir: `src`
+- Types genereres automatisk ved build
+
+Byg pakken med:
+
+```sh
+pnpm build
+``` 

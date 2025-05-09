@@ -102,6 +102,24 @@ ComponentName/
 - Definer props interfaces
 - Eksporter typer når nødvendigt
 
+## TypeScript-konfiguration
+
+Denne pakke bruger en specifik `tsconfig.json`, som udvider rodens `tsconfig.build.json`. Konfigurationen er tilpasset til Vue 3 og understøtter:
+
+- outDir: `dist`
+- rootDir: `src`
+- Types genereres automatisk ved build
+- JSX support (`jsx: preserve`, `jsxImportSource: vue`)
+- Vue template compiler options
+
+Dette sikrer korrekt typesætning og udvikling med både SFC og JSX i Vue 3.
+
+Byg pakken med:
+
+```sh
+pnpm build
+```
+
 ## Licens
 
 MIT 
