@@ -1,5 +1,6 @@
 import { defineConfig } from 'tsup'
-import { vuePreset } from '@tsup-preset/vue'
+import { vuePreset } from '@haspen-ui/shared'
+
 
 export default defineConfig((options) => {
   const preset = vuePreset({

@@ -1,23 +1,46 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2020",
     "module": "ESNext",
     "moduleResolution": "Node",
+    "lib": ["ES2020", "DOM"],
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowJs": false,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "allowSyntheticDefaultImports": true,
+    "types": ["vitest", "node", "vue"],
     "baseUrl": ".",
-    "types": ["vitest", "vue"]
+    "paths": {
+      "@haspen-ui/*": ["packages/*/src"]
+    }
   },
-  "include": ["packages/*/src"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "packages/*/src",
+    "packages/*/types",
+    "packages/*/index.ts",
+    "packages/*/index.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ],
+  "vueCompilerOptions": {
+    "target": 3,
+    "extensions": [".vue"]
+  }
 } 

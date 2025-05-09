@@ -87,6 +87,9 @@ importers:
       '@haspen-ui/core':
         specifier: workspace:*
         version: link:../core
+      '@haspen-ui/shared':
+        specifier: workspace:*
+        version: link:../shared
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.8.3)

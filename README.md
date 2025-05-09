@@ -230,4 +230,46 @@ Example:
 feat(button): add new primary button variant
 fix(modal): resolve z-index stacking issue
 docs(readme): update installation instructions
-``` 
+```
+
+## TypeScript konfiguration
+
+Dette monorepo bruger en central TypeScript konfiguration for alle pakker, optimeret til et Vue 3 designsystem med høj typesikkerhed.
+
+### Rodniveau tsconfig.json
+- **Strict mode**: Alle relevante strict-flags er slået til for maksimal typesikkerhed og robusthed.
+- **Target**: ES2020 og ESNext module for moderne JavaScript og tree-shaking.
+- **Path aliases**: `@haspen-ui/*` peger på `packages/*/src` så du kan importere på tværs af pakker med korte imports.
+- **Lib**: Både ES2020 og DOM for browser- og moderne JS-API'er.
+- **Types**: Understøtter `vitest`, `node` og `vue` globalt.
+- **Vue 3 support**: Konfigureret til at forstå `.vue` filer og bruge Vue 3's compiler.
+
+### tsconfig.build.json
+- Udvider root-konfigurationen.
+- Ekskluderer testfiler og test-mapper fra builds.
+- Optimerer til produktion: ingen source maps, ingen kommentarer i output.
+
+### Path aliases
+- `@haspen-ui/*` bruges til at importere kode på tværs af pakker, fx:
+  ```ts
+  import { Button } from '@haspen-ui/components'
+  ```
+- Dette gør det nemt at refaktorere og giver bedre editor-support.
+
+### TypeScript version
+- Projektet bruger TypeScript version 5.8.3 (se root package.json).
+
+---
+
+## Forklaring af vigtige indstillinger
+
+- **strict**: Aktiverer alle strenge typechecks for at fange fejl tidligt.
+- **noImplicitAny**: Forhindrer implicit `any` typer, så alle typer skal være eksplicitte.
+- **strictNullChecks**: Gør at `null` og `undefined` skal håndteres eksplicit.
+- **forceConsistentCasingInFileNames**: Undgår fejl på tværs af OS ved at kræve ensartet brug af store/små bogstaver.
+- **esModuleInterop/allowSyntheticDefaultImports**: Gør det lettere at importere CommonJS/ESM moduler.
+- **paths**: Gør det muligt at bruge aliaser til imports på tværs af pakker.
+- **types**: Sikrer at globale typer fra fx `vitest` og `vue` altid er tilgængelige.
+- **vueCompilerOptions**: Gør at TypeScript forstår og kan typechecke `.vue` filer med Vue 3.
+
+Denne opsætning sikrer et moderne, robust og skalerbart TypeScript-setup til et Vue 3 designsystem. 
