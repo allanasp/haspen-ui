@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "types": ["vitest"]
   },
   "include": ["packages/*/src"],
   "exclude": ["node_modules", "dist"]

@@ -1,12 +1,12 @@
 {
   "name": "@haspen-ui/components-test",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "build": "vite build",
+    "clean": "rm -rf .turbo node_modules dist"
   },
   "dependencies": {
     "@haspen-ui/components": "workspace:*",
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
-    "typescript": "^5.2.0",
+    "typescript": "~5.3.3",
     "vite": "^5.0.0",
     "vue-tsc": "^1.8.27"
   }

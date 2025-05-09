@@ -1,17 +1,30 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
+  "globalDependencies": [".env", "tsconfig.json"],
+  "globalEnv": ["GITHUB_TOKEN", "PACKAGE_VERSION", "NODE_ENV"],
+  "globalPassThroughEnv": ["GITHUB_TOKEN"],
+  "ui": "tui",
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", ".nuxt/**", ".output/**"],
+      "outputLogs": "new-only"
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"],
+      "interactive": true
     },
     "lint": {
       "outputs": []
     },
-    "dev": {
-      "cache": false,
-      "persistent": true
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"]
+    },
+    "clean": {
+      "cache": false
     }
   }
 } 

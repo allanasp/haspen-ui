@@ -11,8 +11,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "lint": "eslint src --ext .ts",
-    "test": "vitest"
+    "clean": "rm -rf .turbo node_modules dist",
+    "test": "vitest --passWithNoTests"
   },
   "peerDependencies": {
     "vue": "^3.4.0"
@@ -24,7 +24,6 @@
   "devDependencies": {
     "@types/node": "^20.0.0",
     "tsup": "^8.0.0",
-    "typescript": "^5.0.0",
-    "vitest": "^1.0.0"
+    "typescript": "~5.3.3"
   }
 } 

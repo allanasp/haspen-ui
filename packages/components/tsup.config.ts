@@ -1,19 +1,18 @@
 import { defineConfig } from 'tsup'
+import { vuePreset } from '@tsup-preset/vue'
 
-export default defineConfig({
-  entry: ['src/index.ts'],
-  format: ['esm', 'cjs'],
-  dts: true,
-  clean: true,
-  sourcemap: true,
-  external: ['vue'],
-  esbuildOptions(options) {
-    options.loader = {
-      ...options.loader,
-      '.vue': 'jsx'
-    }
-  },
-  splitting: false,
-  treeshake: true,
-  minify: false
+export default defineConfig((options) => {
+  const preset = vuePreset({
+    entry: ['src/index.ts'],
+    clean: true,
+    sourcemap: true,
+    format: ['cjs', 'esm'],
+    external: ['vue']
+  })
+
+  return {
+    ...preset,
+    dts: true,
+    splitting: false
+  }
 }) 

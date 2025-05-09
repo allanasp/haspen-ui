@@ -1,6 +1,50 @@
 # HäspenUI
 
-A modern, accessible, and customizable design system for Vue 3 applications.
+A modern design system built with Vue 3 and Nuxt 3.
+
+## Monorepo Structure
+
+```
+haspen-ui/
+├── apps/                 # Example applications
+│   └── components-test/  # Component testing app
+├── packages/            # Core packages
+│   ├── components/      # Vue components
+│   ├── composables/     # Vue composables
+│   └── nuxt/           # Nuxt module
+└── docs/               # Documentation
+```
+
+## Getting Started
+
+```bash
+# Install dependencies
+pnpm install
+
+# Build all packages
+pnpm build
+
+# Run development server
+pnpm dev
+
+# Run tests
+pnpm test
+
+# Run linting
+pnpm lint
+```
+
+## Development
+
+This project uses:
+- [pnpm](https://pnpm.io/) for package management
+- [Turborepo](https://turbo.build/) for build orchestration
+- [Vue 3](https://vuejs.org/) for components
+- [Nuxt 3](https://nuxt.com/) for the module
+
+## License
+
+MIT
 
 ## Packages
 
@@ -66,45 +110,6 @@ const { isOpen, toggle } = useToggle()
 <template>
   <HaspenButton variant="primary">Click me</HaspenButton>
 </template>
-```
-
-## Development
-
-```bash
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-
-# Build packages
-pnpm build
-
-# Run tests
-pnpm test
-```
-
-## License
-
-MIT
-
-## Prerequisites
-
-- [Volta](https://volta.sh/) for Node.js version management
-- [pnpm](https://pnpm.io/) for package management
-- [Git](https://git-scm.com/) for version control
-- [GitFlow](https://github.com/nvie/gitflow) for branching strategy
-
-## Getting Started
-
-1. Install dependencies:
-```bash
-pnpm install
-```
-
-2. Start development server:
-```bash
-pnpm dev
 ```
 
 ## Project Structure
