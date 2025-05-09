@@ -12,7 +12,10 @@ type HydrationStrategies = {
 }
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
-      'ScriptAriaLoadingIndicator': typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptAriaLoadingIndicator.vue")['default']
+      'HaspenButtonTest': typeof import("../../components/src/atoms/Button/Button.test")['default']
+    'HaspenButton': typeof import("../../components/src/atoms/Button/Button.vue")['default']
+    'HaspenTypes': typeof import("../../components/src/atoms/Button/types")['default']
+    'ScriptAriaLoadingIndicator': typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptAriaLoadingIndicator.vue")['default']
     'ScriptCarbonAds': typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptCarbonAds.vue")['default']
     'ScriptCrisp': typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptCrisp.vue")['default']
     'ScriptGoogleAdsense': typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptGoogleAdsense.vue")['default']
@@ -47,7 +50,10 @@ interface _GlobalComponents {
     'Body': typeof import("../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtIsland': typeof import("../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyScriptAriaLoadingIndicator': LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptAriaLoadingIndicator.vue")['default']>
+      'LazyHaspenButtonTest': LazyComponent<typeof import("../../components/src/atoms/Button/Button.test")['default']>
+    'LazyHaspenButton': LazyComponent<typeof import("../../components/src/atoms/Button/Button.vue")['default']>
+    'LazyHaspenTypes': LazyComponent<typeof import("../../components/src/atoms/Button/types")['default']>
+    'LazyScriptAriaLoadingIndicator': LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptAriaLoadingIndicator.vue")['default']>
     'LazyScriptCarbonAds': LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptCarbonAds.vue")['default']>
     'LazyScriptCrisp': LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptCrisp.vue")['default']>
     'LazyScriptGoogleAdsense': LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptGoogleAdsense.vue")['default']>
@@ -88,6 +94,9 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const HaspenButtonTest: typeof import("../../components/src/atoms/Button/Button.test")['default']
+export const HaspenButton: typeof import("../../components/src/atoms/Button/Button.vue")['default']
+export const HaspenTypes: typeof import("../../components/src/atoms/Button/types")['default']
 export const ScriptAriaLoadingIndicator: typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptAriaLoadingIndicator.vue")['default']
 export const ScriptCarbonAds: typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptCarbonAds.vue")['default']
 export const ScriptCrisp: typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptCrisp.vue")['default']
@@ -123,6 +132,9 @@ export const Html: typeof import("../../../node_modules/.pnpm/nuxt@3.17.2_@parce
 export const Body: typeof import("../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazyHaspenButtonTest: LazyComponent<typeof import("../../components/src/atoms/Button/Button.test")['default']>
+export const LazyHaspenButton: LazyComponent<typeof import("../../components/src/atoms/Button/Button.vue")['default']>
+export const LazyHaspenTypes: LazyComponent<typeof import("../../components/src/atoms/Button/types")['default']>
 export const LazyScriptAriaLoadingIndicator: LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptAriaLoadingIndicator.vue")['default']>
 export const LazyScriptCarbonAds: LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptCarbonAds.vue")['default']>
 export const LazyScriptCrisp: LazyComponent<typeof import("../../../node_modules/.pnpm/@nuxt+scripts@0.11.6_@unhead+vue@2.0.8_vue@3.5.13_typescript@5.8.3___db0@0.3.2_ioredis@_9d36dbf5d3a9f09f0b23abff4b0b867c/node_modules/@nuxt/scripts/dist/runtime/components/ScriptCrisp.vue")['default']>

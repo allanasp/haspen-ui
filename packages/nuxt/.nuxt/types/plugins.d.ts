@@ -13,7 +13,8 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/app/plugins/navigation-repaint.client.js")> &
   InjectionType<typeof import("../../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/app/plugins/check-outdated-build.client.js")> &
   InjectionType<typeof import("../../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/app/plugins/revive-payload.server.js")> &
-  InjectionType<typeof import("../../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/app/plugins/chunk-reload.client.js")>
+  InjectionType<typeof import("../../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/app/plugins/chunk-reload.client.js")> &
+  InjectionType<typeof import("../components.plugin.mjs")>
 
 declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }

@@ -1,5 +1,9 @@
 export default defineNuxtConfig({
   modules: ['../src/module'],
-  myModule: {},
+  haspen: {
+    components: true,
+    composables: true,
+    prefix: 'Haspen'
+  },
   devtools: { enabled: true },
 })

@@ -42,7 +42,7 @@ export default defineNuxtModule<ModuleOptions>({
     // Auto-import components
     if (options.components) {
       addComponentsDir({
-        path: resolver.resolve('../node_modules/@haspen-ui/components/src/atoms'),
+        path: resolver.resolve('../../components/src/atoms'),
         pathPrefix: false,
         prefix: options.prefix
       })
@@ -50,14 +50,14 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Auto-import composables
     if (options.composables) {
-      addImportsDir(resolver.resolve('../node_modules/@haspen-ui/composables/src'))
+      addImportsDir(resolver.resolve('../../composables/src'))
     }
 
     // Expose module options to runtime
     nuxt.options.runtimeConfig.public.haspen = {
-      components: options.components,
-      composables: options.composables,
-      prefix: options.prefix
+      components: options.components ?? true,
+      composables: options.composables ?? true,
+      prefix: options.prefix ?? 'Haspen'
     }
   }
 }) as NuxtModule<ModuleOptions>
