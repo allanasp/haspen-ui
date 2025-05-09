@@ -1,6 +1,92 @@
 # HäspenUI
 
-A Vue 3 based design system built with modern tooling.
+A modern, accessible, and customizable design system for Vue 3 applications.
+
+## Packages
+
+- `@haspen-ui/core`: Core styles, types, and utilities
+- `@haspen-ui/components`: Vue 3 components
+- `@haspen-ui/composables`: Vue 3 composables
+- `@haspen-ui/nuxt`: Nuxt 3 module for seamless integration
+
+## Installation
+
+### Vue 3
+
+```bash
+# Core package
+pnpm add @haspen-ui/core
+
+# Components
+pnpm add @haspen-ui/components
+
+# Composables
+pnpm add @haspen-ui/composables
+```
+
+### Nuxt 3
+
+```bash
+# Install Nuxt module
+pnpm add @haspen-ui/nuxt
+```
+
+Then add the module to your `nuxt.config.ts`:
+
+```ts
+export default defineNuxtConfig({
+  modules: ['@haspen-ui/nuxt']
+})
+```
+
+## Usage
+
+### Vue 3
+
+```vue
+<script setup>
+import { Button } from '@haspen-ui/components'
+import { useToggle } from '@haspen-ui/composables'
+</script>
+
+<template>
+  <Button variant="primary">Click me</Button>
+</template>
+```
+
+### Nuxt 3
+
+Components and composables are automatically available:
+
+```vue
+<script setup>
+const { isOpen, toggle } = useToggle()
+</script>
+
+<template>
+  <HaspenButton variant="primary">Click me</HaspenButton>
+</template>
+```
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Build packages
+pnpm build
+
+# Run tests
+pnpm test
+```
+
+## License
+
+MIT
 
 ## Prerequisites
 
