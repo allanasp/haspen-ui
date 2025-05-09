@@ -15,7 +15,7 @@
     "test": "vitest --passWithNoTests"
   },
   "peerDependencies": {
-    "vue": "^3.4.0"
+    "vue": "^3.5.13"
   },
   "dependencies": {
     "@haspen-ui/core": "workspace:*",
@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "tsup": "^8.0.0",
-    "typescript": "~5.3.3"
+    "tsup": "^8.0.0"
   }
 } 

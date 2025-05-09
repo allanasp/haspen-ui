@@ -16,7 +16,7 @@
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "types": ["vitest"]
+    "types": ["vitest", "vue"]
   },
   "include": ["packages/*/src"],
   "exclude": ["node_modules", "dist"]

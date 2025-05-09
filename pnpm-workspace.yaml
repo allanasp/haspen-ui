@@ -1,8 +1,9 @@
 packages:
-  - 'packages/*'
-  - 'apps/*'
-  - 'docs'
+  - packages/*
+  - apps/*
+  - docs
 ignoredBuiltDependencies:
   - unrs-resolver
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - esbuild
