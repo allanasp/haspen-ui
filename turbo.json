@@ -8,23 +8,29 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".nuxt/**", ".output/**"],
-      "outputLogs": "new-only"
+      "outputLogs": "new-only",
+      "cache": true
     },
     "dev": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["^build"],
       "interactive": true
     },
     "lint": {
-      "outputs": []
+      "outputs": [],
+      "cache": true
     },
     "test": {
-      "dependsOn": ["^build"],
-      "outputs": ["coverage/**"]
+      "dependsOn": ["build"],
+      "outputs": ["coverage/**"],
+      "cache": true
     },
     "clean": {
       "cache": false
+    },
+    "typecheck": {
+      "outputs": [],
+      "cache": true
     }
   }
 } 

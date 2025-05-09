@@ -1,6 +1,91 @@
-# HäspenUI
+# HäspenUI Design System
 
-A modern design system built with Vue 3 and Nuxt 3.
+Et moderne Vue 3-baseret designsystem bygget med TypeScript, Turborepo og pnpm.
+
+## Turborepo Pipeline
+
+HäspenUI bruger Turborepo til at håndtere byggeprocessen på tværs af alle pakker. Dette giver os:
+
+- Hurtigere byggetider gennem intelligent caching
+- Parallelle builds af uafhængige pakker
+- Konsistent udviklingsmiljø
+- Automatisk håndtering af afhængigheder
+
+### Pipeline Tasks
+
+```bash
+# Byg alle pakker
+pnpm build
+
+# Start udviklingsserver for alle pakker
+pnpm dev
+
+# Kør linting på tværs af alle pakker
+pnpm lint
+
+# Kør tests for alle pakker
+pnpm test
+
+# Ryd op i alle pakker
+pnpm clean
+
+# Typecheck alle pakker
+pnpm typecheck
+```
+
+### Caching
+
+Turborepo cacher output fra hver task baseret på:
+- Kildekode
+- Afhængigheder
+- Miljøvariabler
+- Task-konfiguration
+
+Dette betyder at:
+- Når du ændrer én pakke, genbygges kun den og dens afhængige pakker
+- Uændrede pakker genbruger deres cachede output
+- Byggetiden reduceres betydeligt efter første build
+
+### Pipeline Struktur
+
+```
+build
+  ├── core (bygger først)
+  ├── shared (bygger først)
+  ├── components (afhænger af core, shared)
+  ├── composables (afhænger af core)
+  └── nuxt (afhænger af alle andre)
+
+test
+  └── afhænger af build
+
+lint
+  └── kører parallelt
+
+dev
+  └── kører parallelt
+```
+
+## Udvikling
+
+1. Installer dependencies:
+```bash
+pnpm install
+```
+
+2. Start udviklingsserver:
+```bash
+pnpm dev
+```
+
+3. Byg alle pakker:
+```bash
+pnpm build
+```
+
+## Licens
+
+MIT
 
 ## Monorepo Structure
 
