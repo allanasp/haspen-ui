@@ -7,6 +7,58 @@ Find and replace all on all files (CMD+SHIFT+F):
 - Description: My new Nuxt module
 -->
 
+# @haspen-ui/nuxt
+
+Nuxt 3 module for HäspenUI design system.
+
+## Installation
+
+```bash
+# Using pnpm
+pnpm add -D @haspen-ui/nuxt
+
+# Using npm
+npm install -D @haspen-ui/nuxt
+
+# Using yarn
+yarn add -D @haspen-ui/nuxt
+```
+
+## Usage
+
+Add `@haspen-ui/nuxt` to your Nuxt modules in `nuxt.config.ts`:
+
+```ts
+export default defineNuxtConfig({
+  modules: ['@haspen-ui/nuxt'],
+  haspen: {
+    // Module options
+    components: true, // Auto-import components
+    composables: true, // Auto-import composables
+    prefix: 'Haspen' // Component name prefix
+  }
+})
+```
+
+## Features
+
+- 🎨 Automatic component registration
+- 🔄 Composable auto-imports
+- ⚙️ Configurable options
+- 🎯 TypeScript support
+
+## Configuration
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `components` | `boolean` | `true` | Whether to automatically import components |
+| `composables` | `boolean` | `true` | Whether to automatically import composables |
+| `prefix` | `string` | `'Haspen'` | Prefix for component names |
+
+## License
+
+MIT
+
 # My Module
 
 [![npm version][npm-version-src]][npm-version-href]

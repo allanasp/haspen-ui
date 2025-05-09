@@ -1,5 +1,5 @@
 {
-  "name": "my-module",
+  "name": "@haspen-ui/nuxt",
   "version": "1.0.0",
   "description": "My new Nuxt module",
   "repository": "your-org/my-module",
@@ -34,6 +34,8 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
+    "@haspen-ui/components": "workspace:*",
+    "@haspen-ui/composables": "workspace:*",
     "@nuxt/kit": "^3.17.2"
   },
   "devDependencies": {

@@ -1,19 +1,63 @@
-import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
+import { defineNuxtModule, addComponentsDir, addImportsDir, createResolver } from '@nuxt/kit'
+import type { NuxtModule } from '@nuxt/schema'
 
 // Module options TypeScript interface definition
-export interface ModuleOptions {}
+export interface ModuleOptions {
+  /**
+   * Whether to automatically import components
+   * @default true
+   */
+  components?: boolean
+
+  /**
+   * Whether to automatically import composables
+   * @default true
+   */
+  composables?: boolean
+
+  /**
+   * Prefix for component names
+   * @default 'Haspen'
+   */
+  prefix?: string
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'my-module',
-    configKey: 'myModule',
+    name: '@haspen-ui/nuxt',
+    configKey: 'haspen',
+    compatibility: {
+      nuxt: '^3.0.0'
+    }
   },
   // Default configuration options of the Nuxt module
-  defaults: {},
-  setup(_options, _nuxt) {
+  defaults: {
+    components: true,
+    composables: true,
+    prefix: 'Haspen'
+  },
+  setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-    addPlugin(resolver.resolve('./runtime/plugin'))
-  },
-})
+    // Auto-import components
+    if (options.components) {
+      addComponentsDir({
+        path: resolver.resolve('../node_modules/@haspen-ui/components/src/atoms'),
+        pathPrefix: false,
+        prefix: options.prefix
+      })
+    }
+
+    // Auto-import composables
+    if (options.composables) {
+      addImportsDir(resolver.resolve('../node_modules/@haspen-ui/composables/src'))
+    }
+
+    // Expose module options to runtime
+    nuxt.options.runtimeConfig.public.haspen = {
+      components: options.components,
+      composables: options.composables,
+      prefix: options.prefix
+    }
+  }
+}) as NuxtModule<ModuleOptions>
