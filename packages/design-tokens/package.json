@@ -1,0 +1,20 @@
+{
+  "name": "@haspen-ui/design-tokens",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "scss"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf .turbo node_modules dist"
+  },
+  "devDependencies": {
+    "sass": "^1.87.0"
+  }
+}

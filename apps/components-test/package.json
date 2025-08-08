@@ -9,7 +9,7 @@
     "clean": "rm -rf .turbo node_modules dist"
   },
   "dependencies": {
-    "@haspen-ui/components": "workspace:*",
+    "@haspen-ui/ui": "workspace:*",
     "@haspen-ui/core": "workspace:*"
   },
   "devDependencies": {

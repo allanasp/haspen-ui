@@ -1,5 +1,5 @@
 {
-  "name": "@haspen-ui/components",
+  "name": "@haspen-ui/ui",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
