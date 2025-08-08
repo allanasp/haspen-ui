@@ -1,13 +1,13 @@
 import { $fetch } from '@nuxt/test-utils/e2e';
 // Utils
-export * from './utils/format'
-export * from './utils/validation'
+export * from './utils/format';
+export * from './utils/validation';
 
 // Types
-export * from './types'
+export * from './types';
 
 // Helpers
-export * from './helpers' 
+export * from './helpers';
 
 // Presets
-export * from './presets/vue-preset'
+export * from './presets/vue-preset';

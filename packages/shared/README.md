@@ -1,6 +1,7 @@
 # @haspen-ui/shared
 
-Shared utilities package for the HäspenUI design system. This package contains common helper functions, formatters, and validators used across the design system.
+Shared utilities package for the HäspenUI design system. This package contains common helper
+functions, formatters, and validators used across the design system.
 
 ## Installation
 
@@ -11,13 +12,13 @@ pnpm add @haspen-ui/shared
 ## Usage
 
 ```typescript
-import { formatCurrency, isValidEmail } from '@haspen-ui/shared'
+import { formatCurrency, isValidEmail } from '@haspen-ui/shared';
 
 // Format currency
-const price = formatCurrency(199.99) // "199,99 kr."
+const price = formatCurrency(199.99); // "199,99 kr."
 
 // Validate email
-const isValid = isValidEmail('test@example.com') // true
+const isValid = isValidEmail('test@example.com'); // true
 ```
 
 ## Available Utilities
@@ -42,21 +43,25 @@ const isValid = isValidEmail('test@example.com') // true
 ## Development
 
 1. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 2. Start development server:
+
 ```bash
 pnpm dev
 ```
 
 3. Build package:
+
 ```bash
 pnpm build
 ```
 
 4. Run tests:
+
 ```bash
 pnpm test
 ```
@@ -67,7 +72,9 @@ Please refer to the main project README for contribution guidelines.
 
 ## TypeScript-konfiguration
 
-Denne pakke bruger en specifik `tsconfig.json`, som udvider rodens `tsconfig.build.json`. Konfigurationen sikrer at kildekoden i `src/` og types i `types/` bliver korrekt transpileret og at types genereres i `dist/types`.
+Denne pakke bruger en specifik `tsconfig.json`, som udvider rodens `tsconfig.build.json`.
+Konfigurationen sikrer at kildekoden i `src/` og types i `types/` bliver korrekt transpileret og at
+types genereres i `dist/types`.
 
 - outDir: `dist`
 - rootDir: `src`
@@ -77,4 +84,4 @@ Byg pakken med:
 
 ```sh
 pnpm build
-``` 
+```

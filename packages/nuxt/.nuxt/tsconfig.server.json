@@ -13,21 +13,11 @@
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
     "paths": {
-      "#imports": [
-        "./types/nitro-imports"
-      ],
-      "~/*": [
-        "../*"
-      ],
-      "@/*": [
-        "../*"
-      ],
-      "~~/*": [
-        "../*"
-      ],
-      "@@/*": [
-        "../*"
-      ],
+      "#imports": ["./types/nitro-imports"],
+      "~/*": ["../*"],
+      "@/*": ["../*"],
+      "~~/*": ["../*"],
+      "@@/*": ["../*"],
       "nitropack/types": [
         "../../../node_modules/.pnpm/nitropack@2.11.11/node_modules/nitropack/types"
       ],
@@ -37,12 +27,8 @@
       "nitropack": [
         "../../../node_modules/.pnpm/nitropack@2.11.11/node_modules/nitropack"
       ],
-      "defu": [
-        "../../../node_modules/.pnpm/defu@6.1.4/node_modules/defu"
-      ],
-      "h3": [
-        "../../../node_modules/.pnpm/h3@1.15.3/node_modules/h3"
-      ],
+      "defu": ["../../../node_modules/.pnpm/defu@6.1.4/node_modules/defu"],
+      "h3": ["../../../node_modules/.pnpm/h3@1.15.3/node_modules/h3"],
       "consola": [
         "../../../node_modules/.pnpm/consola@3.4.2/node_modules/consola"
       ],
@@ -76,21 +62,11 @@
       "@nuxt/schema/builder-env": [
         "../../../node_modules/.pnpm/@nuxt+schema@3.17.2/node_modules/@nuxt/schema"
       ],
-      "#shared": [
-        "../shared"
-      ],
-      "assets": [
-        "../assets"
-      ],
-      "public": [
-        "../public"
-      ],
-      "#build": [
-        "./"
-      ],
-      "#build/*": [
-        "./*"
-      ],
+      "#shared": ["../shared"],
+      "assets": ["../assets"],
+      "public": ["../public"],
+      "#build": ["./"],
+      "#build/*": ["./*"],
       "#internal/nuxt/paths": [
         "../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/core/runtime/nitro/utils/paths"
       ],
@@ -107,11 +83,7 @@
         "../../../node_modules/.pnpm/nuxt@3.17.2_@parcel+watcher@2.5.1_@types+node@22.15.17_db0@0.3.2_eslint@9.26.0_jiti@2.4_5c0abc3862bdbd2a062081184b1842bb/node_modules/nuxt/dist/head/runtime/composables/v3"
       ]
     },
-    "lib": [
-      "esnext",
-      "webworker",
-      "dom.iterable"
-    ]
+    "lib": ["esnext", "webworker", "dom.iterable"]
   },
   "include": [
     "./types/nitro-nuxt.d.ts",

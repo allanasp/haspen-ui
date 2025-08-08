@@ -1,6 +1,7 @@
 # Organisms
 
-Organisms er komplekse UI-komponenter der kombinerer molecules og atoms til større, funktionelle enheder. De repræsenterer distinkte sektioner af en interface.
+Organisms er komplekse UI-komponenter der kombinerer molecules og atoms til større, funktionelle
+enheder. De repræsenterer distinkte sektioner af en interface.
 
 ## Komponenter
 
@@ -18,4 +19,4 @@ Organisms er komplekse UI-komponenter der kombinerer molecules og atoms til stø
 - Håndter kompleks state og logik
 - Implementer routing og navigation
 - Fokuser på brugeroplevelse
-- Dokumenter komponent-hierarki 
+- Dokumenter komponent-hierarki

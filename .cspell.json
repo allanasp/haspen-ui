@@ -1,0 +1,32 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "haspen",
+    "Haspen",
+    "nuxt",
+    "Nuxt",
+    "Turborepo",
+    "autodocs",
+    "storybook",
+    "Storybook",
+    "composables",
+    "pnpm",
+    "monorepo",
+    "tsup",
+    "vitest",
+    "Vitest",
+    "jsdom",
+    "ESLint",
+    "Prettier",
+    "stylelint",
+    "commitlint"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    "coverage/**",
+    ".turbo/**",
+    "storybook-static/**"
+  ]
+}

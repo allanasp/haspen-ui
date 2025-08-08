@@ -1,1 +1,1 @@
-import "@nuxt/schema/builder-env";
+import '@nuxt/schema/builder-env';

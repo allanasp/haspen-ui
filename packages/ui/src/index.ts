@@ -1,5 +1,5 @@
 // Atoms
-export { Button } from './atoms/Button'
+export { Button } from './atoms/Button';
 
 // Molecules
 // export { InputGroup } from './molecules/InputGroup'
@@ -17,4 +17,4 @@ export { Button } from './atoms/Button'
 
 // Pages
 // export { HomePage } from './pages/HomePage'
-// export { LoginPage } from './pages/LoginPage' 
+// export { LoginPage } from './pages/LoginPage'

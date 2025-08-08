@@ -1,6 +1,7 @@
 # Atoms
 
-Atoms er de grundlæggende byggeblokke i vores designsystem. De er de mindste, mest basale komponenter der kan bruges til at bygge mere komplekse komponenter.
+Atoms er de grundlæggende byggeblokke i vores designsystem. De er de mindste, mest basale
+komponenter der kan bruges til at bygge mere komplekse komponenter.
 
 ## Komponenter
 
@@ -18,4 +19,4 @@ Atoms er de grundlæggende byggeblokke i vores designsystem. De er de mindste, m
 - Brug TypeScript for type-sikkerhed
 - Implementer tilgængelighed (a11y) fra starten
 - Følg BEM metodologi for CSS
-- Skriv tests for alle komponenter 
+- Skriv tests for alle komponenter

@@ -1,10 +1,10 @@
 // Types
-export * from './types'
+export * from './types';
 
 // Constants
-export * from './constants'
+export * from './constants';
 
-// Components will be exported here as they are created 
+// Components will be exported here as they are created
 
 // Export styles
-import './style.css' 
+import './style.css';

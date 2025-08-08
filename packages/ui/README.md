@@ -16,13 +16,11 @@ pnpm add @haspen-ui/components
 
 ```vue
 <template>
-  <Button variant="primary" size="md">
-    Click me
-  </Button>
+  <Button variant="primary" size="md"> Click me </Button>
 </template>
 
 <script setup>
-import { Button } from '@haspen-ui/components'
+  import { Button } from '@haspen-ui/components';
 </script>
 ```
 
@@ -31,34 +29,44 @@ import { Button } from '@haspen-ui/components'
 Komponenterne er organiseret efter Atomic Design principper:
 
 ### Atoms
+
 Grundlæggende byggeblokke som:
+
 - Button
 - Input
 - Icon
 - Typography
 
 ### Molecules
+
 Kombinationer af atomer som:
+
 - InputGroup
 - FormField
 - Card
 - Alert
 
 ### Organisms
+
 Komplekse UI-komponenter som:
+
 - Header
 - Footer
 - Modal
 - Navigation
 
 ### Templates
+
 Sidelayout-strukturer og skabeloner:
+
 - DefaultLayout
 - AuthLayout
 - DashboardLayout
 
 ### Pages
+
 Komplette sideskabeloner:
+
 - HomePage
 - LoginPage
 - DashboardPage
@@ -66,16 +74,19 @@ Komplette sideskabeloner:
 ## Udvikling
 
 1. Installer dependencies:
+
 ```bash
 pnpm install
 ```
 
 2. Start udviklingsserver:
+
 ```bash
 pnpm dev
 ```
 
 3. Byg pakken:
+
 ```bash
 pnpm build
 ```
@@ -83,7 +94,9 @@ pnpm build
 ## Konventioner
 
 ### Komponentstruktur
+
 Hver komponent skal følge denne struktur:
+
 ```
 ComponentName/
   ├── ComponentName.vue    # Komponent-implementation
@@ -93,18 +106,21 @@ ComponentName/
 ```
 
 ### SCSS Konventioner
+
 - Brug BEM metodologi
 - Hold styling i separate SCSS-filer
 - Brug CSS variabler fra @haspen-ui/core
 
 ### TypeScript
+
 - Brug TypeScript for alle komponenter
 - Definer props interfaces
 - Eksporter typer når nødvendigt
 
 ## TypeScript-konfiguration
 
-Denne pakke bruger en specifik `tsconfig.json`, som udvider rodens `tsconfig.build.json`. Konfigurationen er tilpasset til Vue 3 og understøtter:
+Denne pakke bruger en specifik `tsconfig.json`, som udvider rodens `tsconfig.build.json`.
+Konfigurationen er tilpasset til Vue 3 og understøtter:
 
 - outDir: `dist`
 - rootDir: `src`
@@ -122,4 +138,4 @@ pnpm build
 
 ## Licens
 
-MIT 
+MIT

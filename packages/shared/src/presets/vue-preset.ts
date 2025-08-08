@@ -1,14 +1,14 @@
 // vue-preset.ts
-import { Options } from 'tsup'
-import * as fs from 'fs'
-import * as path from 'path'
+import { Options } from 'tsup';
+import * as fs from 'fs';
+import * as path from 'path';
 
 interface VuePresetOptions {
-  entry: string[]
-  clean?: boolean
-  sourcemap?: boolean | 'inline'
-  format?: Array<'cjs' | 'esm' | 'iife'>
-  external?: string[]
+  entry: string[];
+  clean?: boolean;
+  sourcemap?: boolean | 'inline';
+  format?: Array<'cjs' | 'esm' | 'iife'>;
+  external?: string[];
 }
 
 export function vuePreset(options: VuePresetOptions): Options {
@@ -23,9 +23,9 @@ export function vuePreset(options: VuePresetOptions): Options {
         name: 'vue-files',
         setup(build) {
           // Håndter .vue filer
-          build.onLoad({ filter: /\.vue$/ }, async (args) => {
-            const source = fs.readFileSync(args.path, 'utf8')
-            // Her ville vi normalt bruge vue-compiler, men for 
+          build.onLoad({ filter: /\.vue$/ }, async args => {
+            const source = fs.readFileSync(args.path, 'utf8');
+            // Her ville vi normalt bruge vue-compiler, men for
             // en simpel implementation gør vi følgende:
             return {
               contents: `
@@ -34,18 +34,18 @@ export function vuePreset(options: VuePresetOptions): Options {
                   template: ${JSON.stringify(source)}
                 })
               `,
-              loader: 'js'
-            }
-          })
-        }
-      }
+              loader: 'js',
+            };
+          });
+        },
+      },
     ],
     // Flere options der er nyttige til Vue-biblioteker
     esbuildOptions(options) {
       options.banner = {
         js: `/**\n * Vue Component Library\n * @license MIT\n */`,
-      }
-      return options
-    }
-  }
+      };
+      return options;
+    },
+  };
 }

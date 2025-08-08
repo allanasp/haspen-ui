@@ -7,4 +7,4 @@
     "declarationDir": "dist/types"
   },
   "include": ["src/**/*", "types/**/*"]
-} 
+}

@@ -23,4 +23,4 @@
 /// <reference path="types/nitro.d.ts" />
 /// <reference path="./eslint-typegen.d.ts" />
 
-export {}
+export {};

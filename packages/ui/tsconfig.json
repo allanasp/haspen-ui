@@ -13,4 +13,4 @@
     "jsx": true
   },
   "include": ["src/**/*", "types/**/*"]
-} 
+}

@@ -1,19 +1,18 @@
-import { defineConfig } from 'tsup'
-import { vuePreset } from '@haspen-ui/shared'
+import { defineConfig } from 'tsup';
+import { vuePreset } from '@haspen-ui/shared';
 
-
-export default defineConfig((options) => {
+export default defineConfig(options => {
   const preset = vuePreset({
     entry: ['src/index.ts'],
     clean: true,
     sourcemap: true,
     format: ['cjs', 'esm'],
-    external: ['vue']
-  })
+    external: ['vue'],
+  });
 
   return {
     ...preset,
     dts: true,
-    splitting: false
-  }
-}) 
+    splitting: false,
+  };
+});

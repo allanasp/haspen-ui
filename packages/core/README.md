@@ -1,6 +1,7 @@
 # @haspen-ui/core
 
-Core package for the HäspenUI design system. This package contains the fundamental building blocks, types, and utilities that form the foundation of the design system.
+Core package for the HäspenUI design system. This package contains the fundamental building blocks,
+types, and utilities that form the foundation of the design system.
 
 ## Installation
 
@@ -11,10 +12,10 @@ pnpm add @haspen-ui/core
 ## Usage
 
 ```typescript
-import { DEFAULT_THEME, type ThemeConfig } from '@haspen-ui/core'
+import { DEFAULT_THEME, type ThemeConfig } from '@haspen-ui/core';
 
 // Use the default theme
-const theme: ThemeConfig = DEFAULT_THEME
+const theme: ThemeConfig = DEFAULT_THEME;
 ```
 
 ## Exports
@@ -33,21 +34,25 @@ const theme: ThemeConfig = DEFAULT_THEME
 ## Development
 
 1. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 2. Start development server:
+
 ```bash
 pnpm dev
 ```
 
 3. Build package:
+
 ```bash
 pnpm build
 ```
 
 4. Run tests:
+
 ```bash
 pnpm test
 ```
@@ -58,7 +63,9 @@ Please refer to the main project README for contribution guidelines.
 
 ## TypeScript-konfiguration
 
-Denne pakke bruger en specifik `tsconfig.json`, som udvider rodens `tsconfig.build.json`. Konfigurationen sikrer at kildekoden i `src/` og types i `types/` bliver korrekt transpileret og at types genereres i `dist/types`.
+Denne pakke bruger en specifik `tsconfig.json`, som udvider rodens `tsconfig.build.json`.
+Konfigurationen sikrer at kildekoden i `src/` og types i `types/` bliver korrekt transpileret og at
+types genereres i `dist/types`.
 
 - outDir: `dist`
 - rootDir: `src`
@@ -68,4 +75,4 @@ Byg pakken med:
 
 ```sh
 pnpm build
-``` 
+```

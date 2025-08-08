@@ -33,14 +33,9 @@
     "packages/*/index.ts",
     "packages/*/index.js"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/*.test.ts",
-    "**/*.spec.ts"
-  ],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"],
   "vueCompilerOptions": {
     "target": 3,
     "extensions": [".vue"]
   }
-} 
+}

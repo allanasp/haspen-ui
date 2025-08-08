@@ -1,6 +1,7 @@
 # Pages
 
-Pages er komplette sideskabeloner der implementerer specifikke sider i applikationen. De kombinerer templates med specifik indhold og funktionalitet.
+Pages er komplette sideskabeloner der implementerer specifikke sider i applikationen. De kombinerer
+templates med specifik indhold og funktionalitet.
 
 ## Komponenter
 
@@ -16,4 +17,4 @@ Pages er komplette sideskabeloner der implementerer specifikke sider i applikati
 - Implementer side-specifik logik
 - Håndter data-fetching
 - Fokuser på bruger-flow
-- Dokumenter side-specifikke krav 
+- Dokumenter side-specifikke krav

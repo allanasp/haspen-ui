@@ -5,7 +5,7 @@
       `haspen-button--${variant}`,
       `haspen-button--${size}`,
       { 'haspen-button--loading': loading },
-      { 'haspen-button--disabled': disabled }
+      { 'haspen-button--disabled': disabled },
     ]"
     :disabled="disabled || loading"
     v-bind="$attrs"
@@ -18,17 +18,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { ButtonProps } from './types'
+  import { computed } from 'vue';
+  import { ButtonProps } from './types';
 
-const props = withDefaults(defineProps<ButtonProps>(), {
-  variant: 'primary',
-  size: 'md',
-  loading: false,
-  disabled: false
-})
+  const props = withDefaults(defineProps<ButtonProps>(), {
+    variant: 'primary',
+    size: 'md',
+    loading: false,
+    disabled: false,
+  });
 </script>
 
 <style lang="scss">
-@use './Button.scss';
-</style> 
+  @use './Button';
+</style>

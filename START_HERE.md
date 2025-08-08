@@ -1,10 +1,12 @@
 # 🚀 Welcome to HäspenUI Design System
 
-Welcome! This guide will help you get started with the HäspenUI Design System in less than 5 minutes.
+Welcome! This guide will help you get started with the HäspenUI Design System in less than 5
+minutes.
 
 ## 📋 Prerequisites
 
 Before you begin, ensure you have:
+
 - **Node.js** 22+ installed ([download](https://nodejs.org/))
 - **pnpm** 10.14+ installed (`npm install -g pnpm@10.14.0`)
 - **Git** installed
@@ -91,7 +93,8 @@ pnpm build --filter=@haspen-ui/ui
 ## 📚 Next Steps
 
 1. **[Read DEVELOPMENT.md](./DEVELOPMENT.md)** - Detailed development guide
-2. **[View Storybook](http://localhost:6006)** - Component documentation (after running `pnpm storybook`)
+2. **[View Storybook](http://localhost:6006)** - Component documentation (after running
+   `pnpm storybook`)
 3. **[Explore Playground](http://localhost:5173)** - Live demo (after running `pnpm dev:playground`)
 
 ## 🆘 Need Help?
@@ -104,6 +107,7 @@ pnpm build --filter=@haspen-ui/ui
 ## 🎉 Ready to Code!
 
 You're all set! Start by:
+
 1. Running `pnpm storybook` to see all components
 2. Exploring the `packages/ui/src/atoms/Button` folder to understand the structure
 3. Creating your first component or improving an existing one

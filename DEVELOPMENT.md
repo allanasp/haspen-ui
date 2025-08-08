@@ -71,23 +71,23 @@ packages/ui/src/atoms/ComponentName/
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { ComponentNameProps } from './types';
+  import { computed } from 'vue';
+  import type { ComponentNameProps } from './types';
 
-const props = withDefaults(defineProps<ComponentNameProps>(), {
-  variant: 'primary',
-  size: 'md',
-});
+  const props = withDefaults(defineProps<ComponentNameProps>(), {
+    variant: 'primary',
+    size: 'md',
+  });
 
-const classes = computed(() => [
-  'haspen-component-name',
-  `haspen-component-name--${props.variant}`,
-  `haspen-component-name--${props.size}`,
-]);
+  const classes = computed(() => [
+    'haspen-component-name',
+    `haspen-component-name--${props.variant}`,
+    `haspen-component-name--${props.size}`,
+  ]);
 </script>
 
 <style lang="scss" scoped>
-@import './ComponentName.scss';
+  @import './ComponentName.scss';
 </style>
 ```
 
@@ -299,16 +299,19 @@ pnpm clean
 ### Common Issues
 
 **Issue**: Component not showing in Storybook
+
 - Check story file naming (`.stories.ts`)
 - Verify story exports
 - Restart Storybook server
 
 **Issue**: TypeScript errors
+
 - Run `pnpm typecheck`
 - Check for missing types
 - Ensure proper imports
 
 **Issue**: Build failures
+
 - Clean node_modules: `pnpm clean && pnpm install`
 - Check for circular dependencies
 - Verify package.json exports

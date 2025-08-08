@@ -1,6 +1,7 @@
 # Templates
 
-Templates definerer sidens grundlæggende struktur og layout. De er skabeloner for hvordan organisms, molecules og atoms skal arrangeres.
+Templates definerer sidens grundlæggende struktur og layout. De er skabeloner for hvordan organisms,
+molecules og atoms skal arrangeres.
 
 ## Komponenter
 
@@ -16,4 +17,4 @@ Templates definerer sidens grundlæggende struktur og layout. De er skabeloner f
 - Definer grid-systemer
 - Håndter responsive design
 - Implementer konsistent spacing
-- Dokumenter layout-regler 
+- Dokumenter layout-regler

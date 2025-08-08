@@ -1,6 +1,7 @@
 # Molecules
 
-Molecules er kombinationer af atoms der danner mere komplekse komponenter. De har ofte deres egen funktionalitet og kan genbruges på tværs af applikationen.
+Molecules er kombinationer af atoms der danner mere komplekse komponenter. De har ofte deres egen
+funktionalitet og kan genbruges på tværs af applikationen.
 
 ## Komponenter
 
@@ -18,4 +19,4 @@ Molecules er kombinationer af atoms der danner mere komplekse komponenter. De ha
 - Implementer samspil mellem komponenter
 - Håndter state og events
 - Følg samme TypeScript og a11y standarder som atoms
-- Dokumenter komponent-samspil 
+- Dokumenter komponent-samspil

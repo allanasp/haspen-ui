@@ -19,28 +19,28 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from '@haspen-ui/components'
+  import { Button } from '@haspen-ui/components';
 </script>
 
 <style>
-.app {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
+  .app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
 
-.components {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+  .components {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-.button-demo {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
-}
-</style> 
+  .button-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+</style>

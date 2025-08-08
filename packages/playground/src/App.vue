@@ -13,30 +13,30 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from '@haspen-ui/ui';
+  import { Button } from '@haspen-ui/ui';
 </script>
 
 <style scoped>
-.playground {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  .playground {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-.demo-section {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin: 1rem 0;
-}
+  .demo-section {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
 
-h2 {
-  font-size: 1.5rem;
-  margin: 2rem 0 1rem;
-}
+  h2 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+  }
 </style>

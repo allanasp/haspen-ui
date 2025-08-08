@@ -36,12 +36,14 @@ pnpm typecheck
 ### Caching
 
 Turborepo cacher output fra hver task baseret på:
+
 - Kildekode
 - Afhængigheder
 - Miljøvariabler
 - Task-konfiguration
 
 Dette betyder at:
+
 - Når du ændrer én pakke, genbygges kun den og dens afhængige pakker
 - Uændrede pakker genbruger deres cachede output
 - Byggetiden reduceres betydeligt efter første build
@@ -69,16 +71,19 @@ dev
 ## Udvikling
 
 1. Installer dependencies:
+
 ```bash
 pnpm install
 ```
 
 2. Start udviklingsserver:
+
 ```bash
 pnpm dev
 ```
 
 3. Byg alle pakker:
+
 ```bash
 pnpm build
 ```
@@ -122,6 +127,7 @@ pnpm lint
 ## Development
 
 This project uses:
+
 - [pnpm](https://pnpm.io/) for package management
 - [Turborepo](https://turbo.build/) for build orchestration
 - [Vue 3](https://vuejs.org/) for components
@@ -164,8 +170,8 @@ Then add the module to your `nuxt.config.ts`:
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['@haspen-ui/nuxt']
-})
+  modules: ['@haspen-ui/nuxt'],
+});
 ```
 
 ## Usage
@@ -174,8 +180,8 @@ export default defineNuxtConfig({
 
 ```vue
 <script setup>
-import { Button } from '@haspen-ui/components'
-import { useToggle } from '@haspen-ui/composables'
+  import { Button } from '@haspen-ui/components';
+  import { useToggle } from '@haspen-ui/composables';
 </script>
 
 <template>
@@ -189,7 +195,7 @@ Components and composables are automatically available:
 
 ```vue
 <script setup>
-const { isOpen, toggle } = useToggle()
+  const { isOpen, toggle } = useToggle();
 </script>
 
 <template>
@@ -259,31 +265,37 @@ This project uses GitFlow as its branching strategy. Here's how to work with it:
 ### Common GitFlow Commands
 
 1. Start a new feature:
+
 ```bash
 git flow feature start feature-name
 ```
 
 2. Finish a feature:
+
 ```bash
 git flow feature finish feature-name
 ```
 
 3. Start a release:
+
 ```bash
 git flow release start v1.0.0
 ```
 
 4. Finish a release:
+
 ```bash
 git flow release finish v1.0.0
 ```
 
 5. Start a hotfix:
+
 ```bash
 git flow hotfix start hotfix-name
 ```
 
 6. Finish a hotfix:
+
 ```bash
 git flow hotfix finish hotfix-name
 ```
@@ -311,6 +323,7 @@ We follow the [Conventional Commits](https://www.conventionalcommits.org/) speci
 - `chore:` - Build process or auxiliary tool changes
 
 Example:
+
 ```
 feat(button): add new primary button variant
 fix(modal): resolve z-index stacking issue
@@ -319,29 +332,35 @@ docs(readme): update installation instructions
 
 ## TypeScript konfiguration
 
-Dette monorepo bruger en central TypeScript konfiguration for alle pakker, optimeret til et Vue 3 designsystem med høj typesikkerhed.
+Dette monorepo bruger en central TypeScript konfiguration for alle pakker, optimeret til et Vue 3
+designsystem med høj typesikkerhed.
 
 ### Rodniveau tsconfig.json
+
 - **Strict mode**: Alle relevante strict-flags er slået til for maksimal typesikkerhed og robusthed.
 - **Target**: ES2020 og ESNext module for moderne JavaScript og tree-shaking.
-- **Path aliases**: `@haspen-ui/*` peger på `packages/*/src` så du kan importere på tværs af pakker med korte imports.
+- **Path aliases**: `@haspen-ui/*` peger på `packages/*/src` så du kan importere på tværs af pakker
+  med korte imports.
 - **Lib**: Både ES2020 og DOM for browser- og moderne JS-API'er.
 - **Types**: Understøtter `vitest`, `node` og `vue` globalt.
 - **Vue 3 support**: Konfigureret til at forstå `.vue` filer og bruge Vue 3's compiler.
 
 ### tsconfig.build.json
+
 - Udvider root-konfigurationen.
 - Ekskluderer testfiler og test-mapper fra builds.
 - Optimerer til produktion: ingen source maps, ingen kommentarer i output.
 
 ### Path aliases
+
 - `@haspen-ui/*` bruges til at importere kode på tværs af pakker, fx:
   ```ts
-  import { Button } from '@haspen-ui/components'
+  import { Button } from '@haspen-ui/components';
   ```
 - Dette gør det nemt at refaktorere og giver bedre editor-support.
 
 ### TypeScript version
+
 - Projektet bruger TypeScript version 5.8.3 (se root package.json).
 
 ---
@@ -351,10 +370,12 @@ Dette monorepo bruger en central TypeScript konfiguration for alle pakker, optim
 - **strict**: Aktiverer alle strenge typechecks for at fange fejl tidligt.
 - **noImplicitAny**: Forhindrer implicit `any` typer, så alle typer skal være eksplicitte.
 - **strictNullChecks**: Gør at `null` og `undefined` skal håndteres eksplicit.
-- **forceConsistentCasingInFileNames**: Undgår fejl på tværs af OS ved at kræve ensartet brug af store/små bogstaver.
-- **esModuleInterop/allowSyntheticDefaultImports**: Gør det lettere at importere CommonJS/ESM moduler.
+- **forceConsistentCasingInFileNames**: Undgår fejl på tværs af OS ved at kræve ensartet brug af
+  store/små bogstaver.
+- **esModuleInterop/allowSyntheticDefaultImports**: Gør det lettere at importere CommonJS/ESM
+  moduler.
 - **paths**: Gør det muligt at bruge aliaser til imports på tværs af pakker.
 - **types**: Sikrer at globale typer fra fx `vitest` og `vue` altid er tilgængelige.
 - **vueCompilerOptions**: Gør at TypeScript forstår og kan typechecke `.vue` filer med Vue 3.
 
-Denne opsætning sikrer et moderne, robust og skalerbart TypeScript-setup til et Vue 3 designsystem. 
+Denne opsætning sikrer et moderne, robust og skalerbart TypeScript-setup til et Vue 3 designsystem.

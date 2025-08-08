@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   haspen: {
     components: true,
     composables: true,
-    prefix: 'Haspen'
+    prefix: 'Haspen',
   },
   devtools: { enabled: true },
-})
+});

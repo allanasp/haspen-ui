@@ -1,5 +1,10 @@
-import { defineNuxtModule, addComponentsDir, addImportsDir, createResolver } from '@nuxt/kit'
-import type { NuxtModule } from '@nuxt/schema'
+import {
+  defineNuxtModule,
+  addComponentsDir,
+  addImportsDir,
+  createResolver,
+} from '@nuxt/kit';
+import type { NuxtModule } from '@nuxt/schema';
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {
@@ -7,19 +12,19 @@ export interface ModuleOptions {
    * Whether to automatically import components
    * @default true
    */
-  components?: boolean
+  components?: boolean;
 
   /**
    * Whether to automatically import composables
    * @default true
    */
-  composables?: boolean
+  composables?: boolean;
 
   /**
    * Prefix for component names
    * @default 'Haspen'
    */
-  prefix?: string
+  prefix?: string;
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -27,37 +32,37 @@ export default defineNuxtModule<ModuleOptions>({
     name: '@haspen-ui/nuxt',
     configKey: 'haspen',
     compatibility: {
-      nuxt: '^3.0.0'
-    }
+      nuxt: '^3.0.0',
+    },
   },
   // Default configuration options of the Nuxt module
   defaults: {
     components: true,
     composables: true,
-    prefix: 'Haspen'
+    prefix: 'Haspen',
   },
   setup(options, nuxt) {
-    const resolver = createResolver(import.meta.url)
+    const resolver = createResolver(import.meta.url);
 
     // Auto-import components
     if (options.components) {
       addComponentsDir({
         path: resolver.resolve('../../components/src/atoms'),
         pathPrefix: false,
-        prefix: options.prefix
-      })
+        prefix: options.prefix,
+      });
     }
 
     // Auto-import composables
     if (options.composables) {
-      addImportsDir(resolver.resolve('../../composables/src'))
+      addImportsDir(resolver.resolve('../../composables/src'));
     }
 
     // Expose module options to runtime
     nuxt.options.runtimeConfig.public.haspen = {
       components: options.components ?? true,
       composables: options.composables ?? true,
-      prefix: options.prefix ?? 'Haspen'
-    }
-  }
-}) as NuxtModule<ModuleOptions>
+      prefix: options.prefix ?? 'Haspen',
+    };
+  },
+}) as NuxtModule<ModuleOptions>;
