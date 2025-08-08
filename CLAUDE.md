@@ -326,10 +326,75 @@ export const AccessibilityDemo: StoryObj<typeof meta> = {};
 export const ErrorStates: StoryObj<typeof meta> = {};
 ```
 
-### Code Enforcement
+### Code Enforcement and Quality Standards
 
-- Pre-commit hooks ensure all tests pass
-- CI fails if test coverage drops below 90%
-- ESLint rules enforce clean code standards
-- Storybook build fails if components lack stories
-- TypeScript strict mode catches type issues
+**Linting and Formatting (MANDATORY)**
+
+- **ESLint**: JavaScript/TypeScript/Vue code quality enforcement
+  - Run: `pnpm lint:js` to lint and auto-fix JS/TS/Vue files
+  - Configured for basic code quality rules (no complex TypeScript/Vue rules to avoid conflicts)
+  - Covers: unused variables, console warnings, prefer const, modern JavaScript
+- **Stylelint**: SCSS/CSS code quality enforcement
+  - Run: `pnpm lint:styles` to lint and auto-fix SCSS/CSS/Vue style blocks
+  - Rules: basic CSS validation, SCSS syntax, Vue component styles
+  - Vue file support with postcss-html parser
+  - Ignores formatting conflicts (handled by Prettier)
+- **Prettier**: Consistent code formatting across all file types
+  - Run: `pnpm format` to format all files
+  - Formats: TypeScript, Vue, SCSS, JSON, Markdown, YAML
+  - Vue-specific formatting with proper indentation
+  - Markdown with prose wrapping at 100 characters
+- **Commitlint**: Conventional commit message validation
+  - Required format: `type(scope): description`
+  - Valid types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`,
+    `revert`
+  - Valid scopes: `ui`, `core`, `shared`, `composables`, `design-tokens`, `nuxt`, `playground`,
+    `storybook`, `deps`, `config`, `ci`, `docs`, `release`
+  - Example: `feat(ui): add new button variant`
+
+**Pre-commit Hooks (AUTOMATIC)**
+
+- **Husky**: Runs quality checks before each commit
+  - Pre-commit: Formats staged files with Prettier
+  - Commit-msg: Validates commit message format
+  - Files processed: Only staged files in packages/, apps/, .storybook/ directories
+  - TEMPLATES directory excluded from all processing
+
+**File Organization Rules**
+
+- **TEMPLATES/ directory**: Completely ignored by all linting, formatting, and git hooks
+- **Linting scope**: Only `{packages,apps,.storybook}/` directories are processed
+- **Module system**: Project uses ES modules (`"type": "module"` in package.json)
+- **Node.js compatibility**: Minimum version 20.0.0 required
+
+**Development Workflow Standards**
+
+1. **Before committing**:
+   - Pre-commit hooks automatically format your staged files
+   - Commit message must follow conventional commit format
+   - Only files in packages/apps/.storybook are processed
+2. **Manual quality checks**:
+
+   ```bash
+   pnpm lint:js        # Check JavaScript/TypeScript/Vue files
+   pnpm lint:styles    # Check SCSS/CSS/Vue style blocks
+   pnpm format         # Format all files
+   pnpm lint:format    # Check if files need formatting
+   ```
+
+3. **Quality enforcement**:
+   - Pre-commit hooks ensure all tests pass
+   - CI fails if test coverage drops below 90%
+   - Linting rules enforce clean code standards
+   - Storybook build fails if components lack stories
+   - TypeScript strict mode catches type issues
+   - Commit messages must follow conventional format
+
+## Important Development Guidelines
+
+**TEMPLATES Directory**
+
+- **NEVER work on or develop anything inside the TEMPLATES/ directory**
+- This directory contains third-party template files that should remain completely untouched
+- All development work should focus only on the monorepo packages and apps directories
+- The TEMPLATES directory is excluded from all linting, formatting, and git hooks

@@ -5,5 +5,20 @@ export default defineConfig({
   plugins: [vue()],
   test: {
     environment: 'jsdom',
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html', 'lcov'],
+      exclude: [
+        'node_modules/',
+        'dist/',
+        '**/*.stories.{js,ts}',
+        '**/*.test.{js,ts}',
+        '**/*.config.{js,ts}',
+      ],
+    },
+    reporters: ['default', 'junit'],
+    outputFile: {
+      junit: './test-results.xml',
+    },
   },
 });

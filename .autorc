@@ -1,8 +1,33 @@
 {
   "plugins": [
     "npm",
+    [
+      "conventional-commits",
+      {
+        "preset": "angular"
+      }
+    ],
     "released",
-    "first-time-contributor"
+    "first-time-contributor",
+    [
+      "all-contributors",
+      {
+        "exclude": ["dependabot", "dependabot[bot]"]
+      }
+    ],
+    [
+      "upload-assets",
+      {
+        "assets": ["dist/**/*"]
+      }
+    ],
+    [
+      "omit-commits",
+      {
+        "subject": ["^chore", "^ci", "^build", "^style"]
+      }
+    ],
+    "magic-zero"
   ],
   "labels": [
     {
@@ -35,5 +60,7 @@
       "releaseType": "skip"
     }
   ],
-  "baseBranch": "main"
+  "baseBranch": "develop",
+  "prereleaseBranches": ["next", "canary"],
+  "onlyPublishWithReleaseLabel": false
 }
