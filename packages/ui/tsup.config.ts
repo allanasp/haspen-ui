@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 import { vuePreset } from '@haspen-ui/shared';
 
-export default defineConfig(options => {
+export default defineConfig(_options => {
   const preset = vuePreset({
     entry: ['src/index.ts'],
     clean: true,

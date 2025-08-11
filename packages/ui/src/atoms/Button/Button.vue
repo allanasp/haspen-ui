@@ -18,10 +18,9 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
   import { ButtonProps } from './types';
 
-  const props = withDefaults(defineProps<ButtonProps>(), {
+  withDefaults(defineProps<ButtonProps>(), {
     variant: 'primary',
     size: 'md',
     loading: false,

@@ -1,4 +1,3 @@
-import { $fetch } from '@nuxt/test-utils/e2e';
 // Utils
 export * from './utils/format';
 export * from './utils/validation';

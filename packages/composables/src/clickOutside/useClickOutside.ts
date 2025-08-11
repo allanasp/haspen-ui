@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref } from 'vue';
 
 export interface UseClickOutsideOptions {
   enabled?: boolean;
@@ -9,9 +9,8 @@ export interface UseClickOutsideReturn {
 }
 
 export function useClickOutside(
-  options: UseClickOutsideOptions = {},
+  _options: UseClickOutsideOptions = {},
 ): UseClickOutsideReturn {
-  const { enabled = true } = options;
   const isOutside = ref(false);
 
   // TODO: Implement click outside detection

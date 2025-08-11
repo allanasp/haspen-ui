@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="5" failures="0" errors="0" time="0.015954625">
+    <testsuite name="src/atoms/Button/Button.test.ts" timestamp="2025-08-11T20:07:43.953Z" hostname="Mac.localdomain" tests="5" failures="0" errors="0" skipped="0" time="0.015954625">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; renders properly" time="0.008416333">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; applies variant class" time="0.001366083">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; applies size class" time="0.000872833">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; shows loader when loading" time="0.003738583">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; is disabled when disabled prop is true" time="0.001176292">
+        </testcase>
+    </testsuite>
+</testsuites>

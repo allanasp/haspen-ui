@@ -1,7 +1,6 @@
 // vue-preset.ts
 import { Options } from 'tsup';
 import * as fs from 'fs';
-import * as path from 'path';
 
 interface VuePresetOptions {
   entry: string[];
