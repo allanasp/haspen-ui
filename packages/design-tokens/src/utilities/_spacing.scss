@@ -1,0 +1,90 @@
+// DKFDS Spacing Utilities
+@use '../core/breakpoints' as *;
+
+// Spacing scale based on DKFDS
+$spacers: (
+  0: 0,
+  1: 0.25rem,
+  // 2px
+  2: 0.5rem,
+  // 4px
+  3: 1rem,
+  // 8px
+  305: 1.5rem,
+  // 12px
+  4: 2rem,
+  // 16px
+  405: 2.5rem,
+  // 20px
+  5: 3rem,
+  // 24px
+  505: 3.5rem,
+  // 28px
+  6: 4rem,
+  // 32px
+  605: 4.5rem,
+  // 36px
+  7: 5rem,
+  // 40px
+  705: 5.5rem,
+  // 44px
+  8: 6rem,
+  // 48px
+  805: 6.5rem,
+  // 52px
+  9: 7rem,
+  // 56px
+  905: 7.5rem, // 60px
+);
+
+// Generate margin and padding utilities
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spacers {
+        .#{$abbrev}#{$infix}-#{$size} {
+          #{$prop}: $length !important;
+        }
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length !important;
+        }
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length !important;
+        }
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $length !important;
+        }
+      }
+    }
+
+    // Auto margins
+    .m#{$infix}-auto {
+      margin: auto !important;
+    }
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-top: auto !important;
+    }
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-right: auto !important;
+    }
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-bottom: auto !important;
+    }
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-left: auto !important;
+    }
+  }
+}

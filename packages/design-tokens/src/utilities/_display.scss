@@ -1,0 +1,29 @@
+// DKFDS Display Utilities
+@use '../core/breakpoints' as *;
+
+// Display values
+$displays:
+  none, inline, inline-block, block, table, table-row, table-cell, flex,
+  inline-flex;
+
+// Generate display utilities
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint);
+
+    @each $display in $displays {
+      .d#{$infix}-#{$display} {
+        display: $display !important;
+      }
+    }
+  }
+}
+
+// Print utilities
+@media print {
+  @each $display in $displays {
+    .d-print-#{$display} {
+      display: $display !important;
+    }
+  }
+}

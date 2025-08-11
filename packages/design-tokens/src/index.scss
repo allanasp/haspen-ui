@@ -1,0 +1,18 @@
+// Haspen UI Design Tokens
+// Complete DKFDS system implementation
+
+// Core design tokens (must be imported first)
+@forward 'core/colors';
+@forward 'core/typography';
+@forward 'core/spacing';
+@forward 'core/breakpoints';
+@forward 'core/shadows';
+@forward 'core/radius';
+@forward 'core/z-index';
+
+// Functions and mixins (depend on core)
+@forward 'functions';
+@forward 'mixins';
+
+// Utility classes (depend on functions/mixins)
+@forward 'utilities';

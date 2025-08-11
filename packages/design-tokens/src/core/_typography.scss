@@ -1,0 +1,213 @@
+// DKFDS Typography System
+// Complete typography from Det Fælles Designsystem
+
+// Font Family
+$font-family-system:
+  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$font-family-primary: 'IBM Plex Sans', $font-family-system !default;
+$font-family-sans-serif: $font-family-primary !default;
+$font-family-serif: Georgia, Cambria, 'Times New Roman', Times, serif !default;
+$font-family-monospace:
+  SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace !default;
+
+// Font Sizes (rem-based)
+$font-sizes: (
+  '2xs': 1.2rem,
+  // 12px
+  'xs': 1.3rem,
+  // 13px
+  'sm': 1.4rem,
+  // 14px
+  'md': 1.6rem,
+  // 16px (base)
+  'lg': 1.8rem,
+  // 18px
+  'xl': 2rem,
+  // 20px
+  '2xl': 2.2rem,
+  // 22px
+  '3xl': 2.4rem,
+  // 24px
+  '4xl': 2.8rem,
+  // 28px
+  '5xl': 3.2rem,
+  // 32px
+  '6xl': 4rem,
+  // 40px
+  '7xl': 4.8rem, // 48px
+);
+
+// Font Weights
+$font-weight-thin: false !default; // Not used in DKFDS
+$font-weight-extralight: false !default; // Not used in DKFDS
+$font-weight-light: false !default; // Not used in DKFDS
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-extrabold: false !default; // Not used in DKFDS
+$font-weight-black: false !default; // Not used in DKFDS
+
+// Line Heights
+$line-heights: (
+  'none': 1,
+  'tight': 1.25,
+  'snug': 1.375,
+  'normal': 1.5,
+  'relaxed': 1.625,
+  'loose': 2,
+);
+
+// Letter Spacing
+$letter-spacings: (
+  'tighter': -0.05em,
+  'tight': -0.025em,
+  'normal': 0,
+  'wide': 0.025em,
+  'wider': 0.05em,
+  'widest': 0.1em,
+);
+
+// Heading Sizes (Responsive)
+$h1-font-size: 3.2rem !default; // 32px
+$h1-font-size-md: 3.6rem !default; // 36px
+$h1-font-size-lg: 4rem !default; // 40px
+$h1-font-size-xl: 4.8rem !default; // 48px
+
+$h2-font-size: 2.4rem !default; // 24px
+$h2-font-size-md: 2.8rem !default; // 28px
+$h2-font-size-lg: 3.2rem !default; // 32px
+
+$h3-font-size: 2rem !default; // 20px
+$h3-font-size-md: 2.2rem !default; // 22px
+$h3-font-size-lg: 2.4rem !default; // 24px
+
+$h4-font-size: 1.8rem !default; // 18px
+$h4-font-size-md: 2rem !default; // 20px
+
+$h5-font-size: 1.6rem !default; // 16px
+$h5-font-size-md: 1.8rem !default; // 18px
+
+$h6-font-size: 1.3rem !default; // 13px
+$h6-font-size-md: 1.6rem !default; // 16px
+
+// Display Sizes (Larger than headings)
+$display-font-sizes: (
+  '1': 5.6rem,
+  // 56px
+  '2': 4.8rem,
+  // 48px
+  '3': 4rem,
+  // 40px
+  '4': 3.2rem, // 32px
+);
+
+// Text Configuration
+$font-size-base: 1.6rem !default; // 16px
+$font-size-small: 1.4rem !default; // 14px
+$font-size-xs: 1.2rem !default; // 12px
+
+$line-height-base: 1.5 !default;
+$line-height-heading: 1.2 !default;
+$line-height-display: 1.2 !default;
+
+// Component-specific Typography
+$font-size-lead: 2rem !default; // 20px
+$font-size-form-label: 1.8rem !default; // 18px
+$font-size-form-hint: 1.4rem !default; // 14px
+$font-size-form-error: 1.4rem !default; // 14px
+$font-size-button: 1.6rem !default; // 16px
+$font-size-tag: 1.3rem !default; // 13px
+$font-size-badge: 1.2rem !default; // 12px
+
+// Responsive Typography Map
+$responsive-typography: (
+  'h1': (
+    'base': $h1-font-size,
+    'md': $h1-font-size-md,
+    'lg': $h1-font-size-lg,
+    'xl': $h1-font-size-xl,
+  ),
+  'h2': (
+    'base': $h2-font-size,
+    'md': $h2-font-size-md,
+    'lg': $h2-font-size-lg,
+  ),
+  'h3': (
+    'base': $h3-font-size,
+    'md': $h3-font-size-md,
+    'lg': $h3-font-size-lg,
+  ),
+  'h4': (
+    'base': $h4-font-size,
+    'md': $h4-font-size-md,
+  ),
+  'h5': (
+    'base': $h5-font-size,
+    'md': $h5-font-size-md,
+  ),
+  'h6': (
+    'base': $h6-font-size,
+    'md': $h6-font-size-md,
+  ),
+);
+
+// Text Transforms
+$text-transforms: (
+  'none': none,
+  'capitalize': capitalize,
+  'uppercase': uppercase,
+  'lowercase': lowercase,
+);
+
+// Text Decoration
+$text-decorations: (
+  'none': none,
+  'underline': underline,
+  'line-through': line-through,
+);
+
+// Export for CSS custom properties
+:root {
+  // Font families
+  --font-family-primary: #{$font-family-primary};
+  --font-family-sans-serif: #{$font-family-sans-serif};
+  --font-family-serif: #{$font-family-serif};
+  --font-family-monospace: #{$font-family-monospace};
+
+  // Font sizes
+  --font-size-base: #{$font-size-base};
+  --font-size-small: #{$font-size-small};
+  --font-size-xs: #{$font-size-xs};
+
+  // Font weights
+  --font-weight-normal: #{$font-weight-normal};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold: #{$font-weight-bold};
+
+  // Line heights
+  --line-height-base: #{$line-height-base};
+  --line-height-heading: #{$line-height-heading};
+
+  // Heading sizes
+  --h1-font-size: #{$h1-font-size};
+  --h2-font-size: #{$h2-font-size};
+  --h3-font-size: #{$h3-font-size};
+  --h4-font-size: #{$h4-font-size};
+  --h5-font-size: #{$h5-font-size};
+  --h6-font-size: #{$h6-font-size};
+}
+
+// Base HTML font-size setup (62.5% = 10px)
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-weight: $font-weight-normal;
+}

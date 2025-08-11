@@ -1,0 +1,15 @@
+// DKFDS Background Utilities
+@use '../core/colors' as *;
+
+// Background colors
+.bg-normal {
+  background-color: $color-white !important;
+}
+
+.bg-alternative {
+  background-color: $color-gray-100 !important;
+}
+
+.bg-modal {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}

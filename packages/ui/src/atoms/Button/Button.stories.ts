@@ -11,7 +11,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary'],
+      options: ['primary', 'secondary', 'outline', 'ghost'],
     },
     size: {
       control: 'select',
@@ -45,10 +45,17 @@ export const Secondary: Story = {
   },
 };
 
-export const Tertiary: Story = {
+export const Outline: Story = {
   args: {
-    variant: 'tertiary',
-    default: 'Tertiary Button',
+    variant: 'outline',
+    default: 'Outline Button',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    default: 'Ghost Button',
   },
 };
 
