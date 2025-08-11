@@ -1,381 +1,309 @@
-# HäspenUI Design System
+# Haspen UI - Design System
 
-Et moderne Vue 3-baseret designsystem bygget med TypeScript, Turborepo og pnpm.
+A comprehensive Vue 3 design system monorepo built with TypeScript, featuring the complete Danish
+Design System (DKFDS) implementation, atomic design principles, and automated workflows.
 
-## Turborepo Pipeline
+## 🏗️ Architecture Overview
 
-HäspenUI bruger Turborepo til at håndtere byggeprocessen på tværs af alle pakker. Dette giver os:
+### Core Philosophy
 
-- Hurtigere byggetider gennem intelligent caching
-- Parallelle builds af uafhængige pakker
-- Konsistent udviklingsmiljø
-- Automatisk håndtering af afhængigheder
+Haspen UI follows **atomic design methodology** and **design token-driven development**, providing a
+scalable foundation for building consistent user interfaces with Danish government design standards.
 
-### Pipeline Tasks
-
-```bash
-# Byg alle pakker
-pnpm build
-
-# Start udviklingsserver for alle pakker
-pnpm dev
-
-# Kør linting på tværs af alle pakker
-pnpm lint
-
-# Kør tests for alle pakker
-pnpm test
-
-# Ryd op i alle pakker
-pnpm clean
-
-# Typecheck alle pakker
-pnpm typecheck
-```
-
-### Caching
-
-Turborepo cacher output fra hver task baseret på:
-
-- Kildekode
-- Afhængigheder
-- Miljøvariabler
-- Task-konfiguration
-
-Dette betyder at:
-
-- Når du ændrer én pakke, genbygges kun den og dens afhængige pakker
-- Uændrede pakker genbruger deres cachede output
-- Byggetiden reduceres betydeligt efter første build
-
-### Pipeline Struktur
-
-```
-build
-  ├── core (bygger først)
-  ├── shared (bygger først)
-  ├── components (afhænger af core, shared)
-  ├── composables (afhænger af core)
-  └── nuxt (afhænger af alle andre)
-
-test
-  └── afhænger af build
-
-lint
-  └── kører parallelt
-
-dev
-  └── kører parallelt
-```
-
-## Udvikling
-
-1. Installer dependencies:
-
-```bash
-pnpm install
-```
-
-2. Start udviklingsserver:
-
-```bash
-pnpm dev
-```
-
-3. Byg alle pakker:
-
-```bash
-pnpm build
-```
-
-## Licens
-
-MIT
-
-## Monorepo Structure
+### Monorepo Structure
 
 ```
 haspen-ui/
-├── apps/                 # Example applications
-│   └── components-test/  # Component testing app
-├── packages/            # Core packages
-│   ├── components/      # Vue components
-│   ├── composables/     # Vue composables
-│   └── nuxt/           # Nuxt module
-└── docs/               # Documentation
+├── packages/
+│   ├── core/              # Base styles and reset
+│   ├── design-tokens/     # DKFDS tokens, functions, mixins
+│   ├── shared/            # Utilities and helpers
+│   ├── ui/                # Vue 3 components (atoms → organisms)
+│   ├── composables/       # Vue 3 composables/hooks
+│   ├── nuxt/              # Nuxt 3 module
+│   └── playground/        # Demo application
+├── apps/
+│   ├── core-test/         # Testing app for core package
+│   ├── shared-test/       # Testing app for shared utilities
+│   └── components-test/   # Component integration testing
+├── .storybook/            # Storybook configuration
+└── docs/                  # Generated documentation
 ```
 
-## Getting Started
+## 🚀 Quick Start
+
+### Prerequisites
+
+- **Node.js**: >= 20.0.0
+- **pnpm**: 10.14.0+ (package manager)
+- **Git**: For version control
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd haspen-ui
+
 # Install dependencies
 pnpm install
 
 # Build all packages
 pnpm build
 
-# Run development server
+# Start development
 pnpm dev
-
-# Run tests
-pnpm test
-
-# Run linting
-pnpm lint
 ```
 
-## Development
-
-This project uses:
-
-- [pnpm](https://pnpm.io/) for package management
-- [Turborepo](https://turbo.build/) for build orchestration
-- [Vue 3](https://vuejs.org/) for components
-- [Nuxt 3](https://nuxt.com/) for the module
-
-## License
-
-MIT
-
-## Packages
-
-- `@haspen-ui/core`: Core styles, types, and utilities
-- `@haspen-ui/components`: Vue 3 components
-- `@haspen-ui/composables`: Vue 3 composables
-- `@haspen-ui/nuxt`: Nuxt 3 module for seamless integration
-
-## Installation
-
-### Vue 3
+### Development Commands
 
 ```bash
-# Core package
-pnpm add @haspen-ui/core
+# Development servers
+pnpm dev                    # Start all development servers
+pnpm dev:playground         # Start playground app only
+pnpm storybook             # Start Storybook (port 6006)
 
-# Components
-pnpm add @haspen-ui/components
+# Building
+pnpm build                 # Build all packages and apps
+pnpm build:packages        # Build only packages (excludes apps)
 
-# Composables
-pnpm add @haspen-ui/composables
+# Testing & Quality
+pnpm test                  # Run all tests
+pnpm test:watch            # Run tests in watch mode
+pnpm typecheck             # TypeScript checking
+pnpm lint                  # Lint all packages
+pnpm format                # Format all files
+
+# Package-specific commands
+pnpm test --filter=@haspen-ui/ui  # Test specific package
+turbo run dev --filter=@haspen-ui/ui  # Build specific package in watch mode
 ```
 
-### Nuxt 3
+## 🏛️ Design System Features
+
+### DKFDS (Det Fælles Designsystem) Integration
+
+Complete implementation of the Danish government design system:
+
+- **100+ DKFDS colors** with semantic naming
+- **IBM Plex Sans typography** with responsive scales
+- **8px-based spacing** system
+- **Complete utility classes** for rapid development
+- **SCSS functions and mixins** for advanced styling
+- **Comprehensive Storybook documentation**
+
+### Component Architecture
+
+Every component follows atomic design principles:
+
+- **Atoms**: Button, Input, Icon, Label
+- **Molecules**: FormField, Card, SearchBox
+- **Organisms**: Header, Navigation, DataTable
+- **Templates**: Page layouts and structures
+- **Pages**: Complete page implementations
+
+## 🛠️ Usage Examples
+
+### Vue 3 Integration
 
 ```bash
-# Install Nuxt module
-pnpm add @haspen-ui/nuxt
+npm install @haspen-ui/ui @haspen-ui/design-tokens
 ```
 
-Then add the module to your `nuxt.config.ts`:
+```javascript
+// main.ts
+import { createApp } from 'vue';
+import HaspenUI from '@haspen-ui/ui';
+import '@haspen-ui/ui/dist/style.css';
+import App from './App.vue';
 
-```ts
+const app = createApp(App);
+app.use(HaspenUI);
+app.mount('#app');
+```
+
+### Nuxt 3 Integration
+
+```bash
+npm install @haspen-ui/nuxt
+```
+
+```javascript
+// nuxt.config.ts
 export default defineNuxtConfig({
   modules: ['@haspen-ui/nuxt'],
 });
 ```
 
-## Usage
+### Design Tokens Usage
 
-### Vue 3
+```scss
+@use '@haspen-ui/design-tokens' as tokens;
 
-```vue
-<script setup>
-  import { Button } from '@haspen-ui/components';
-  import { useToggle } from '@haspen-ui/composables';
-</script>
-
-<template>
-  <Button variant="primary">Click me</Button>
-</template>
+.my-component {
+  color: tokens.color('primary');
+  font-size: tokens.font-size('lg');
+  padding: tokens.units(2);
+  box-shadow: tokens.shadow('medium');
+}
 ```
 
-### Nuxt 3
+## 📚 Danish Localization Features
 
-Components and composables are automatically available:
+### CPR Number Validation
 
-```vue
-<script setup>
-  const { isOpen, toggle } = useToggle();
-</script>
-
-<template>
-  <HaspenButton variant="primary">Click me</HaspenButton>
-</template>
+```typescript
+import { isValidCPR } from '@haspen-ui/shared';
+isValidCPR('123456-7890'); // true
 ```
 
-## Project Structure
+### Danish Currency & Date Formatting
 
-```
-haspen-ui/
-├── apps/              # Demo and documentation applications
-├── packages/          # Design system packages
-│   ├── core/         # Core package with types, constants and base components
-│   ├── shared/       # Shared utilities, helpers and formatters
-│   ├── components/   # Vue components
-│   ├── tokens/       # Design tokens
-│   └── utils/        # Shared utilities
-├── package.json
-├── turbo.json
-└── pnpm-workspace.yaml
+```typescript
+import { formatCurrency, formatDanishDate } from '@haspen-ui/shared';
+formatCurrency(1234.56); // '1.234,56 kr.'
+formatDanishDate(new Date()); // 'DD/MM/YYYY'
 ```
 
-## Packages
+## 🧪 Quality Assurance
 
-### @haspen-ui/core
+### Testing Requirements
 
-The core package provides the fundamental building blocks of the design system:
+- **90% minimum test coverage** across all packages
+- **Unit tests** with Vitest and Vue Test Utils
+- **Component documentation** with Storybook
+- **E2E testing** with Playwright
+- **Accessibility compliance** with WCAG 2.1 AA
 
-- Type definitions for components and theme
-- Default theme configuration
-- Base component interfaces
-- Common constants and utilities
+### Code Quality Tools
 
-See [core package README](./packages/core/README.md) for detailed documentation.
+- **ESLint**: JavaScript/TypeScript/Vue linting
+- **Stylelint**: SCSS/CSS code quality
+- **Prettier**: Consistent code formatting
+- **TypeScript**: Strict type checking
+- **Husky**: Pre-commit hooks
 
-### @haspen-ui/shared
+## 🚀 Deployment & Publishing
 
-The shared package provides common utilities and helpers used across the design system:
+### Automated Releases
 
-- Formatting utilities (currency, dates, phone numbers)
-- Validation helpers (CPR, email, phone)
-- Common helper functions
-- Shared types and interfaces
+- **Conventional commits** for semantic versioning
+- **Auto-generated changelogs** with release notes
+- **GitHub Actions** for CI/CD pipeline
+- **NPM publishing** with proper package distribution
 
-See [shared package README](./packages/shared/README.md) for detailed documentation.
-
-## Available Scripts
-
-- `pnpm dev` - Start development server
-- `pnpm build` - Build all packages and applications
-- `pnpm lint` - Run linting
-- `pnpm format` - Format code with Prettier
-
-## Git Workflow
-
-This project uses GitFlow as its branching strategy. Here's how to work with it:
-
-### Branch Structure
-
-- `main` - Production-ready code
-- `develop` - Integration branch for features
-- `feature/*` - New features
-- `release/*` - Release preparation
-- `hotfix/*` - Production fixes
-
-### Common GitFlow Commands
-
-1. Start a new feature:
+### Storybook Deployment
 
 ```bash
-git flow feature start feature-name
+pnpm build-storybook  # Build for static hosting
 ```
 
-2. Finish a feature:
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**Build Failures**: Ensure correct package.json exports **TypeScript Errors**: Build packages in
+dependency order **Storybook Issues**: Check addon compatibility **Test Failures**: Verify vitest
+configuration
+
+See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for detailed solutions.
+
+## 📖 Documentation
+
+- **[Architecture Guide](./ARCHITECTURE.md)**: System design and patterns
+- **[Contributing Guide](./CONTRIBUTING.md)**: Development workflow and standards
+- **[Troubleshooting](./TROUBLESHOOTING.md)**: Common issues and solutions
+- **[Component API](./docs/api/)**: Generated API documentation
+- **[Storybook](http://localhost:6006)**: Interactive component documentation
+
+## 🤝 Contributing
+
+We welcome contributions! Please read our [Contributing Guide](./CONTRIBUTING.md) for:
+
+- Development setup and workflow
+- Component creation standards
+- Testing requirements
+- Code review process
+- DKFDS compliance guidelines
+
+### Development Workflow
 
 ```bash
-git flow feature finish feature-name
+# 1. Fork and clone
+git clone https://github.com/yourusername/haspen-ui.git
+
+# 2. Create feature branch
+git checkout -b feature/new-component
+
+# 3. Develop with tests
+pnpm test:watch
+
+# 4. Submit pull request
+git push origin feature/new-component
 ```
 
-3. Start a release:
+## 📊 Project Status
 
-```bash
-git flow release start v1.0.0
-```
+### Package Status
 
-4. Finish a release:
+- ✅ **@haspen-ui/core**: Stable - CSS reset and base styles
+- ✅ **@haspen-ui/design-tokens**: Stable - Complete DKFDS implementation
+- ✅ **@haspen-ui/shared**: Stable - Danish utilities and helpers
+- ✅ **@haspen-ui/ui**: Stable - Vue 3 component library
+- ✅ **@haspen-ui/composables**: Stable - Vue 3 composables
+- ✅ **@haspen-ui/nuxt**: Stable - Nuxt 3 integration module
+- ✅ **@haspen-ui/playground**: Development - Demo application
 
-```bash
-git flow release finish v1.0.0
-```
+### Build Status
 
-5. Start a hotfix:
+- ✅ All packages build successfully
+- ✅ Tests passing (90%+ coverage)
+- ✅ TypeScript compilation clean
+- ✅ Linting and formatting consistent
+- ✅ Storybook documentation complete
 
-```bash
-git flow hotfix start hotfix-name
-```
+## 🌟 Features
 
-6. Finish a hotfix:
+### Design System
 
-```bash
-git flow hotfix finish hotfix-name
-```
+- ✅ Complete DKFDS color system (100+ colors)
+- ✅ Responsive typography with IBM Plex Sans
+- ✅ 8px-based spacing scale
+- ✅ Comprehensive utility classes
+- ✅ SCSS functions and mixins library
+- ✅ CSS custom properties support
 
-### Development Process
+### Development Experience
 
-1. Create feature branch from `develop`
-2. Develop and test your feature
-3. Create pull request to `develop`
-4. After review and approval, merge to `develop`
-5. When ready for release, create release branch
-6. After testing, merge to `main` and `develop`
-7. Tag the release in `main`
+- ✅ TypeScript strict mode
+- ✅ Vue 3 Composition API
+- ✅ Hot module replacement
+- ✅ Automated testing with Vitest
+- ✅ Interactive Storybook documentation
+- ✅ Automated releases with conventional commits
 
-### Commit Messages
+### Accessibility & Compliance
 
-We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+- ✅ WCAG 2.1 AA compliance
+- ✅ Screen reader compatibility
+- ✅ Keyboard navigation support
+- ✅ Focus management
+- ✅ ARIA attributes and roles
 
-- `feat:` - New feature
-- `fix:` - Bug fix
-- `docs:` - Documentation changes
-- `style:` - Code style changes
-- `refactor:` - Code refactoring
-- `test:` - Test changes
-- `chore:` - Build process or auxiliary tool changes
+## 📝 License
 
-Example:
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-```
-feat(button): add new primary button variant
-fix(modal): resolve z-index stacking issue
-docs(readme): update installation instructions
-```
+## 🙏 Acknowledgments
 
-## TypeScript konfiguration
-
-Dette monorepo bruger en central TypeScript konfiguration for alle pakker, optimeret til et Vue 3
-designsystem med høj typesikkerhed.
-
-### Rodniveau tsconfig.json
-
-- **Strict mode**: Alle relevante strict-flags er slået til for maksimal typesikkerhed og robusthed.
-- **Target**: ES2020 og ESNext module for moderne JavaScript og tree-shaking.
-- **Path aliases**: `@haspen-ui/*` peger på `packages/*/src` så du kan importere på tværs af pakker
-  med korte imports.
-- **Lib**: Både ES2020 og DOM for browser- og moderne JS-API'er.
-- **Types**: Understøtter `vitest`, `node` og `vue` globalt.
-- **Vue 3 support**: Konfigureret til at forstå `.vue` filer og bruge Vue 3's compiler.
-
-### tsconfig.build.json
-
-- Udvider root-konfigurationen.
-- Ekskluderer testfiler og test-mapper fra builds.
-- Optimerer til produktion: ingen source maps, ingen kommentarer i output.
-
-### Path aliases
-
-- `@haspen-ui/*` bruges til at importere kode på tværs af pakker, fx:
-  ```ts
-  import { Button } from '@haspen-ui/components';
-  ```
-- Dette gør det nemt at refaktorere og giver bedre editor-support.
-
-### TypeScript version
-
-- Projektet bruger TypeScript version 5.8.3 (se root package.json).
+- **[DKFDS Team](https://designsystem.dk/)**: For the comprehensive Danish Design System
+- **[Vue.js Team](https://vuejs.org/)**: For the amazing Vue 3 framework
+- **[TypeScript Team](https://www.typescriptlang.org/)**: For robust type safety
+- **Contributors**: Everyone who has contributed to this project
 
 ---
 
-## Forklaring af vigtige indstillinger
+**Built with ❤️ for the Danish development community**
 
-- **strict**: Aktiverer alle strenge typechecks for at fange fejl tidligt.
-- **noImplicitAny**: Forhindrer implicit `any` typer, så alle typer skal være eksplicitte.
-- **strictNullChecks**: Gør at `null` og `undefined` skal håndteres eksplicit.
-- **forceConsistentCasingInFileNames**: Undgår fejl på tværs af OS ved at kræve ensartet brug af
-  store/små bogstaver.
-- **esModuleInterop/allowSyntheticDefaultImports**: Gør det lettere at importere CommonJS/ESM
-  moduler.
-- **paths**: Gør det muligt at bruge aliaser til imports på tværs af pakker.
-- **types**: Sikrer at globale typer fra fx `vitest` og `vue` altid er tilgængelige.
-- **vueCompilerOptions**: Gør at TypeScript forstår og kan typechecke `.vue` filer med Vue 3.
-
-Denne opsætning sikrer et moderne, robust og skalerbart TypeScript-setup til et Vue 3 designsystem.
+_This design system provides modern Vue 3 components following Danish government design standards
+(DKFDS) with comprehensive tooling for scalable application development._
