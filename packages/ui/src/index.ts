@@ -2,6 +2,10 @@
 export { Button } from './atoms/Button';
 
 // Molecules
+export { ThemeProvider } from './molecules/ThemeProvider';
+
+// Types
+export * from './types';
 // export { InputGroup } from './molecules/InputGroup'
 // export { FormField } from './molecules/FormField'
 // export { Card } from './molecules/Card'

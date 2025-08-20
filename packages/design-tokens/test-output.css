@@ -1,0 +1,21 @@
+/* Error: Two forwarded modules both define a function named border.
+ *     ,
+ * 5   | @forward 'core/color-palette';
+ *     | ============================= original @forward
+ * ... |
+ * 17  | @forward 'functions' hide color;
+ *     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ new @forward
+ *     '
+ *   src/index.scss 17:1          @use
+ *   test-accessibility.scss 2:1  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Two forwarded modules both define a function named border.\a     \2577 \a 5   \2502  @forward 'core/color-palette';\a     \2502  \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501  original @forward\a... \2502 \a 17  \2502  @forward 'functions' hide color;\a     \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ new @forward\a     \2575 \a   src/index.scss 17:1          @use\a   test-accessibility.scss 2:1  root stylesheet";
+}

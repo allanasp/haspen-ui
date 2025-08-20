@@ -1,0 +1,233 @@
+// CSS Custom Properties Generation for Color System
+// Automatically generates CSS custom properties from SASS color maps
+
+@use '_color-palette' as palette;
+
+// =============================================================================
+// MIXINS FOR CSS CUSTOM PROPERTIES
+// =============================================================================
+
+@use 'sass:meta';
+
+/// Generate CSS custom properties from a color map
+/// @param {Map} $map - The color map to convert
+/// @param {String} $prefix - Prefix for the CSS custom properties
+/// @example
+///   @include generate-color-properties($colors, 'color');
+@mixin generate-color-properties($map, $prefix) {
+  @each $family, $shades in $map {
+    @if meta.type-of($shades) == 'map' {
+      @each $shade, $color in $shades {
+        --#{$prefix}-#{$family}-#{$shade}: #{$color};
+      }
+    } @else {
+      --#{$prefix}-#{$family}: #{$shades};
+    }
+  }
+}
+
+/// Generate semantic color properties
+/// @param {Map} $map - The semantic color map
+/// @param {String} $prefix - Prefix for the CSS custom properties
+@mixin generate-semantic-properties($map, $prefix) {
+  @each $name, $color in $map {
+    --#{$prefix}-#{$name}: #{$color};
+  }
+}
+
+// =============================================================================
+// CSS CUSTOM PROPERTIES EXPORT
+// =============================================================================
+
+:root {
+  // Generate all color palette properties
+  @include generate-color-properties(palette.$colors, 'color');
+  
+  // Generate semantic color properties
+  @include generate-semantic-properties(palette.$semantic-colors, 'semantic');
+  
+  // Generate surface color properties
+  @include generate-semantic-properties(palette.$surface-colors, 'surface');
+  
+  // Generate text color properties
+  @include generate-semantic-properties(palette.$text-colors, 'text');
+  
+  // Generate border color properties
+  @include generate-semantic-properties(palette.$border-colors, 'border');
+  
+  // Additional utility colors
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  
+  // Alpha variants for common colors (10%, 20%, 50%, 80%)
+  --color-black-10: #{rgba(#000000, 0.1)};
+  --color-black-20: #{rgba(#000000, 0.2)};
+  --color-black-50: #{rgba(#000000, 0.5)};
+  --color-black-80: #{rgba(#000000, 0.8)};
+  
+  --color-white-10: #{rgba(#ffffff, 0.1)};
+  --color-white-20: #{rgba(#ffffff, 0.2)};
+  --color-white-50: #{rgba(#ffffff, 0.5)};
+  --color-white-80: #{rgba(#ffffff, 0.8)};
+  
+  // Primary color alpha variants
+  --color-primary-10: #{rgba(palette.semantic('primary'), 0.1)};
+  --color-primary-20: #{rgba(palette.semantic('primary'), 0.2)};
+  --color-primary-50: #{rgba(palette.semantic('primary'), 0.5)};
+  --color-primary-80: #{rgba(palette.semantic('primary'), 0.8)};
+}
+
+// =============================================================================
+// HELPER FUNCTIONS FOR CSS CUSTOM PROPERTIES
+// =============================================================================
+
+/// Get a CSS custom property value for a color
+/// @param {String} $family - Color family name
+/// @param {Number} $shade - Color shade (optional, defaults to 500)
+/// @return {String} CSS custom property reference
+/// @example
+///   color: css-color('blue', 500); // Returns var(--color-blue-500)
+@function css-color($family, $shade: 500) {
+  @return var(--color-#{$family}-#{$shade});
+}
+
+/// Get a CSS custom property value for a semantic color
+/// @param {String} $name - Semantic color name
+/// @return {String} CSS custom property reference
+/// @example
+///   color: css-semantic('primary'); // Returns var(--semantic-primary)
+@function css-semantic($name) {
+  @return var(--semantic-#{$name});
+}
+
+/// Get a CSS custom property value for a surface color
+/// @param {String} $name - Surface color name
+/// @return {String} CSS custom property reference
+/// @example
+///   background-color: css-surface('background'); // Returns var(--surface-background)
+@function css-surface($name) {
+  @return var(--surface-#{$name});
+}
+
+/// Get a CSS custom property value for a text color
+/// @param {String} $name - Text color name
+/// @return {String} CSS custom property reference
+/// @example
+///   color: css-text('primary'); // Returns var(--text-primary)
+@function css-text($name) {
+  @return var(--text-#{$name});
+}
+
+/// Get a CSS custom property value for a border color
+/// @param {String} $name - Border color name
+/// @return {String} CSS custom property reference
+/// @example
+///   border-color: css-border('medium'); // Returns var(--border-medium)
+@function css-border($name) {
+  @return var(--border-#{$name});
+}
+
+// =============================================================================
+// UTILITY MIXINS FOR COMPONENT DEVELOPMENT
+// =============================================================================
+
+/// Apply a consistent color scheme to a component
+/// @param {String} $bg - Background color (semantic name or CSS var)
+/// @param {String} $text - Text color (semantic name or CSS var)
+/// @param {String} $border - Border color (optional)
+/// @example
+///   @include color-scheme('primary', 'white');
+@mixin color-scheme($bg, $text, $border: null) {
+  @if str-index($bg, 'var(') {
+    background-color: #{$bg};
+  } @else {
+    background-color: css-semantic($bg);
+  }
+  
+  @if str-index($text, 'var(') {
+    color: #{$text};
+  } @else if $text == 'white' or $text == 'black' {
+    color: var(--color-#{$text});
+  } @else {
+    color: css-text($text);
+  }
+  
+  @if $border {
+    @if str-index($border, 'var(') {
+      border-color: #{$border};
+    } @else {
+      border-color: css-border($border);
+    }
+  }
+}
+
+/// Create hover state for interactive elements
+/// @param {String} $family - Color family
+/// @param {Number} $base-shade - Base shade
+/// @param {Number} $hover-shade - Hover shade
+/// @example
+///   @include hover-color('blue', 500, 600);
+@mixin hover-color($family, $base-shade, $hover-shade) {
+  background-color: css-color($family, $base-shade);
+  
+  &:hover {
+    background-color: css-color($family, $hover-shade);
+  }
+}
+
+/// Apply focus styles with consistent colors
+/// @param {String} $color - Focus color (defaults to primary)
+/// @example
+///   @include focus-styles();
+@mixin focus-styles($color: 'primary') {
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid css-semantic($color);
+    outline-offset: 2px;
+  }
+}
+
+/// Apply a consistent color scheme to a component
+/// @param {String} $bg - Background color (semantic name or CSS var)
+/// @param {String} $text - Text color (semantic name or CSS var)
+/// @param {String} $border - Border color (optional)
+/// @example
+///   @include color-scheme('primary', 'white');
+@mixin color-scheme($bg, $text, $border: null) {
+  @if str-index($bg, 'var(') {
+    background-color: #{$bg};
+  } @else {
+    background-color: css-semantic($bg);
+  }
+  
+  @if str-index($text, 'var(') {
+    color: #{$text};
+  } @else if $text == 'white' or $text == 'black' {
+    color: var(--color-#{$text});
+  } @else {
+    color: css-text($text);
+  }
+  
+  @if $border {
+    @if str-index($border, 'var(') {
+      border-color: #{$border};
+    } @else {
+      border-color: css-border($border);
+    }
+  }
+}
+
+/// Create hover state for interactive elements
+/// @param {String} $family - Color family
+/// @param {Number} $base-shade - Base shade
+/// @param {Number} $hover-shade - Hover shade
+/// @example
+///   @include hover-color('blue', 500, 600);
+@mixin hover-color($family, $base-shade, $hover-shade) {
+  background-color: css-color($family, $base-shade);
+  
+  &:hover {
+    background-color: css-color($family, $hover-shade);
+  }
+}

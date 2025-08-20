@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "lint": "eslint src --ext .ts,.tsx",
+    "lint": "eslint src",
     "test": "vitest --passWithNoTests",
     "clean": "rimraf .turbo node_modules dist"
   },

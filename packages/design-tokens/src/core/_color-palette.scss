@@ -1,0 +1,369 @@
+// Modern SASS Color Token Structure
+// Following 2025 best practices with 9-shade palette system
+// Based on Tailwind CSS and Material Design color systems
+
+// =============================================================================
+// BASE COLOR PALETTE (50-900 Scale)
+// =============================================================================
+
+// Gray color family (neutral)
+$gray-50: #fafafa;
+$gray-100: #f5f5f5;
+$gray-200: #e5e5e5;
+$gray-300: #d4d4d4;
+$gray-400: #a3a3a3;
+$gray-500: #737373;
+$gray-600: #525252;
+$gray-700: #404040;
+$gray-800: #262626;
+$gray-900: #171717;
+
+// Blue color family (primary)
+$blue-50: #eff6ff;
+$blue-100: #dbeafe;
+$blue-200: #bfdbfe;
+$blue-300: #93c5fd;
+$blue-400: #60a5fa;
+$blue-500: #3b82f6;
+$blue-600: #2563eb;
+$blue-700: #1d4ed8;
+$blue-800: #1e40af;
+$blue-900: #1e3a8a;
+
+// Green color family (success)
+$green-50: #f0fdf4;
+$green-100: #dcfce7;
+$green-200: #bbf7d0;
+$green-300: #86efac;
+$green-400: #4ade80;
+$green-500: #22c55e;
+$green-600: #16a34a;
+$green-700: #15803d;
+$green-800: #166534;
+$green-900: #14532d;
+
+// Red color family (error)
+$red-50: #fef2f2;
+$red-100: #fee2e2;
+$red-200: #fecaca;
+$red-300: #fca5a5;
+$red-400: #f87171;
+$red-500: #ef4444;
+$red-600: #dc2626;
+$red-700: #b91c1c;
+$red-800: #991b1b;
+$red-900: #7f1d1d;
+
+// Yellow color family (warning)
+$yellow-50: #fefce8;
+$yellow-100: #fef3c7;
+$yellow-200: #fde68a;
+$yellow-300: #fcd34d;
+$yellow-400: #fbbf24;
+$yellow-500: #f59e0b;
+$yellow-600: #d97706;
+$yellow-700: #b45309;
+$yellow-800: #92400e;
+$yellow-900: #78350f;
+
+// Indigo color family (alternative primary)
+$indigo-50: #eef2ff;
+$indigo-100: #e0e7ff;
+$indigo-200: #c7d2fe;
+$indigo-300: #a5b4fc;
+$indigo-400: #818cf8;
+$indigo-500: #6366f1;
+$indigo-600: #4f46e5;
+$indigo-700: #4338ca;
+$indigo-800: #3730a3;
+$indigo-900: #312e81;
+
+// =============================================================================
+// SASS COLOR MAPS FOR EASY ACCESS
+// =============================================================================
+
+// Complete color palette map
+$colors: (
+  // Gray family
+  'gray': (
+    50: $gray-50,
+    100: $gray-100,
+    200: $gray-200,
+    300: $gray-300,
+    400: $gray-400,
+    500: $gray-500,
+    600: $gray-600,
+    700: $gray-700,
+    800: $gray-800,
+    900: $gray-900,
+  ),
+  
+  // Blue family
+  'blue': (
+    50: $blue-50,
+    100: $blue-100,
+    200: $blue-200,
+    300: $blue-300,
+    400: $blue-400,
+    500: $blue-500,
+    600: $blue-600,
+    700: $blue-700,
+    800: $blue-800,
+    900: $blue-900,
+  ),
+  
+  // Green family
+  'green': (
+    50: $green-50,
+    100: $green-100,
+    200: $green-200,
+    300: $green-300,
+    400: $green-400,
+    500: $green-500,
+    600: $green-600,
+    700: $green-700,
+    800: $green-800,
+    900: $green-900,
+  ),
+  
+  // Red family
+  'red': (
+    50: $red-50,
+    100: $red-100,
+    200: $red-200,
+    300: $red-300,
+    400: $red-400,
+    500: $red-500,
+    600: $red-600,
+    700: $red-700,
+    800: $red-800,
+    900: $red-900,
+  ),
+  
+  // Yellow family
+  'yellow': (
+    50: $yellow-50,
+    100: $yellow-100,
+    200: $yellow-200,
+    300: $yellow-300,
+    400: $yellow-400,
+    500: $yellow-500,
+    600: $yellow-600,
+    700: $yellow-700,
+    800: $yellow-800,
+    900: $yellow-900,
+  ),
+  
+  // Indigo family
+  'indigo': (
+    50: $indigo-50,
+    100: $indigo-100,
+    200: $indigo-200,
+    300: $indigo-300,
+    400: $indigo-400,
+    500: $indigo-500,
+    600: $indigo-600,
+    700: $indigo-700,
+    800: $indigo-800,
+    900: $indigo-900,
+  ),
+);
+
+// Semantic color aliases for easier usage
+$semantic-colors: (
+  'primary': $blue-600,
+  'primary-light': $blue-500,
+  'primary-dark': $blue-700,
+  
+  'secondary': $gray-600,
+  'secondary-light': $gray-500,
+  'secondary-dark': $gray-700,
+  
+  'success': $green-600,
+  'success-light': $green-500,
+  'success-dark': $green-700,
+  
+  'warning': $yellow-500,
+  'warning-light': $yellow-400,
+  'warning-dark': $yellow-600,
+  
+  'error': $red-600,
+  'error-light': $red-500,
+  'error-dark': $red-700,
+  
+  'info': $blue-500,
+  'info-light': $blue-400,
+  'info-dark': $blue-600,
+);
+
+// Surface colors for backgrounds and containers
+$surface-colors: (
+  'background': #ffffff,
+  'background-alt': $gray-50,
+  'surface': #ffffff,
+  'surface-alt': $gray-100,
+  'surface-raised': #ffffff,
+  'surface-overlay': rgba(255, 255, 255, 0.95),
+);
+
+// Text colors for different content types
+$text-colors: (
+  'primary': $gray-900,
+  'secondary': $gray-700,
+  'tertiary': $gray-500,
+  'inverse': #ffffff,
+  'placeholder': $gray-400,
+  'disabled': $gray-300,
+);
+
+// Border colors for different emphasis levels
+$border-colors: (
+  'light': $gray-200,
+  'medium': $gray-300,
+  'strong': $gray-400,
+  'inverse': rgba(255, 255, 255, 0.2),
+);
+
+// =============================================================================
+// HELPER FUNCTIONS FOR COLOR ACCESS
+// =============================================================================
+
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:list';
+@use 'sass:math';
+
+/// Get a color from the main color palette
+/// @param {String} $family - Color family name (e.g., 'blue', 'gray')
+/// @param {Number} $shade - Color shade (50-900)
+/// @return {Color} The requested color
+/// @example
+///   color: color('blue', 500); // Returns $blue-500
+@function color($family, $shade: 500) {
+  $family-map: map.get($colors, $family);
+  
+  @if not $family-map {
+    @error 'Color family "#{$family}" not found. Available families: #{map.keys($colors)}';
+  }
+  
+  $color: map.get($family-map, $shade);
+  
+  @if not $color {
+    @error 'Shade "#{$shade}" not found in "#{$family}" family. Available shades: #{map.keys($family-map)}';
+  }
+  
+  @return $color;
+}
+
+/// Get a semantic color
+/// @param {String} $name - Semantic color name
+/// @return {Color} The requested semantic color
+/// @example
+///   color: semantic('primary'); // Returns primary color
+@function semantic($name) {
+  $color: map.get($semantic-colors, $name);
+  
+  @if not $color {
+    @error 'Semantic color "#{$name}" not found. Available colors: #{map.keys($semantic-colors)}';
+  }
+  
+  @return $color;
+}
+
+/// Get a surface color
+/// @param {String} $name - Surface color name
+/// @return {Color} The requested surface color
+/// @example
+///   background-color: surface('background-alt');
+@function surface($name) {
+  $color: map.get($surface-colors, $name);
+  
+  @if not $color {
+    @error 'Surface color "#{$name}" not found. Available colors: #{map.keys($surface-colors)}';
+  }
+  
+  @return $color;
+}
+
+/// Get a text color
+/// @param {String} $name - Text color name
+/// @return {Color} The requested text color
+/// @example
+///   color: text('secondary');
+@function text($name) {
+  $color: map.get($text-colors, $name);
+  
+  @if not $color {
+    @error 'Text color "#{$name}" not found. Available colors: #{map.keys($text-colors)}';
+  }
+  
+  @return $color;
+}
+
+/// Get a border color
+/// @param {String} $name - Border color name
+/// @return {Color} The requested border color
+/// @example
+///   border-color: border('medium');
+@function border($name) {
+  $color: map.get($border-colors, $name);
+  
+  @if not $color {
+    @error 'Border color "#{$name}" not found. Available colors: #{map.keys($border-colors)}';
+  }
+  
+  @return $color;
+}
+
+/// Get a lighter shade of a color
+/// @param {String} $family - Color family name
+/// @param {Number} $shade - Current shade
+/// @param {Number} $steps - Number of steps lighter (default: 1)
+/// @return {Color} The lighter color
+/// @example
+///   color: lighter('blue', 500, 2); // Returns blue-300
+@function lighter($family, $shade, $steps: 1) {
+  $shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
+  $current-index: list.index($shades, $shade);
+  
+  @if not $current-index {
+    @error 'Invalid shade "#{$shade}". Must be one of: #{$shades}';
+  }
+  
+  $new-index: math.max(1, $current-index - $steps);
+  $new-shade: list.nth($shades, $new-index);
+  
+  @return color($family, $new-shade);
+}
+
+/// Get a darker shade of a color
+/// @param {String} $family - Color family name
+/// @param {Number} $shade - Current shade
+/// @param {Number} $steps - Number of steps darker (default: 1)
+/// @return {Color} The darker color
+/// @example
+///   color: darker('blue', 500, 2); // Returns blue-700
+@function darker($family, $shade, $steps: 1) {
+  $shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
+  $current-index: list.index($shades, $shade);
+  
+  @if not $current-index {
+    @error 'Invalid shade "#{$shade}". Must be one of: #{$shades}';
+  }
+  
+  $new-index: math.min(list.length($shades), $current-index + $steps);
+  $new-shade: list.nth($shades, $new-index);
+  
+  @return color($family, $new-shade);
+}
+
+/// Create an alpha variant of a color
+/// @param {String} $family - Color family name
+/// @param {Number} $shade - Color shade
+/// @param {Number} $alpha - Alpha value (0-1)
+/// @return {Color} The color with alpha
+/// @example
+///   background-color: alpha('blue', 500, 0.1);
+@function alpha($family, $shade, $alpha) {
+  @return rgba(color($family, $shade), $alpha);
+}

@@ -11,10 +11,12 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', '@haspen-ui/core', '@haspen-ui/shared'],
       output: {
         globals: {
           vue: 'Vue',
+          '@haspen-ui/core': 'HaspenUICore',
+          '@haspen-ui/shared': 'HaspenUIShared',
         },
       },
     },

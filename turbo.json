@@ -4,6 +4,7 @@
   "globalEnv": ["GITHUB_TOKEN", "PACKAGE_VERSION", "NODE_ENV"],
   "globalPassThroughEnv": ["GITHUB_TOKEN"],
   "ui": "tui",
+  "concurrency": "15",
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
