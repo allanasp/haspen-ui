@@ -150,23 +150,27 @@
     }
   }
 
-  // Base theme variables for SSR compatibility
+  // Base theme variables with modern CSS light-dark() support
   :root {
+    // Set color scheme preference for better native support
+    color-scheme: light dark;
+    
+    // Modern light-dark() function for automatic theme switching
     // Colors
-    --haspen-color-primary: #0059b3;
-    --haspen-color-secondary: #6c757d;
-    --haspen-color-tertiary: #17a2b8;
-    --haspen-color-error: #d32f2f;
-    --haspen-color-warning: #f57c00;
-    --haspen-color-success: #388e3c;
-    --haspen-color-info: #0288d1;
-    --haspen-color-neutral: #757575;
-    --haspen-color-background: #ffffff;
-    --haspen-color-surface: #f5f5f5;
-    --haspen-color-text: #212529;
-    --haspen-color-textSecondary: #6c757d;
-    --haspen-color-border: #dee2e6;
-    --haspen-color-divider: #e0e0e0;
+    --haspen-color-primary: light-dark(#0059b3, #1976d2);
+    --haspen-color-secondary: light-dark(#6c757d, #adb5bd);
+    --haspen-color-tertiary: light-dark(#17a2b8, #26c6da);
+    --haspen-color-error: light-dark(#d32f2f, #f44336);
+    --haspen-color-warning: light-dark(#f57c00, #ff9800);
+    --haspen-color-success: light-dark(#388e3c, #4caf50);
+    --haspen-color-info: light-dark(#0288d1, #03a9f4);
+    --haspen-color-neutral: light-dark(#757575, #9e9e9e);
+    --haspen-color-background: light-dark(#ffffff, #121212);
+    --haspen-color-surface: light-dark(#f5f5f5, #1e1e1e);
+    --haspen-color-text: light-dark(#212529, #ffffff);
+    --haspen-color-textSecondary: light-dark(#6c757d, #adb5bd);
+    --haspen-color-border: light-dark(#dee2e6, #495057);
+    --haspen-color-divider: light-dark(#e0e0e0, #424242);
 
     // Spacing
     --haspen-spacing-xs: 0.25rem;
@@ -249,8 +253,10 @@
     --haspen-transition-timing-linear: linear;
   }
 
-  // Dark theme overrides
+  // Legacy data-attribute overrides for manual theme control
+  // These provide fallback support for browsers without light-dark() and explicit theme switching
   [data-theme='dark'] {
+    color-scheme: dark;
     --haspen-color-primary: #1976d2;
     --haspen-color-secondary: #adb5bd;
     --haspen-color-tertiary: #26c6da;
@@ -265,5 +271,29 @@
     --haspen-color-textSecondary: #adb5bd;
     --haspen-color-border: #495057;
     --haspen-color-divider: #424242;
+  }
+
+  [data-theme='light'] {
+    color-scheme: light;
+    --haspen-color-primary: #0059b3;
+    --haspen-color-secondary: #6c757d;
+    --haspen-color-tertiary: #17a2b8;
+    --haspen-color-error: #d32f2f;
+    --haspen-color-warning: #f57c00;
+    --haspen-color-success: #388e3c;
+    --haspen-color-info: #0288d1;
+    --haspen-color-neutral: #757575;
+    --haspen-color-background: #ffffff;
+    --haspen-color-surface: #f5f5f5;
+    --haspen-color-text: #212529;
+    --haspen-color-textSecondary: #6c757d;
+    --haspen-color-border: #dee2e6;
+    --haspen-color-divider: #e0e0e0;
+  }
+
+  // Auto mode: respects system preference via light-dark() function
+  [data-theme='auto'] {
+    color-scheme: light dark;
+    // light-dark() values are already set in :root, no overrides needed
   }
 </style>

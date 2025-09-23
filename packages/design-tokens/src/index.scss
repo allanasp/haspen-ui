@@ -19,4 +19,5 @@
 @forward 'mixins';
 
 // Utility classes (depend on functions/mixins)
-@forward 'utilities';
+// Hide conflicting variables from utilities
+@forward 'utilities' hide $spacers;

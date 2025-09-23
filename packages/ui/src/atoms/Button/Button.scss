@@ -10,41 +10,42 @@
   outline: none;
   position: relative;
 
-  // Variants
+  // Variants with modern light-dark() support
   &--primary {
-    background-color: var(--haspen-primary);
-    color: white;
+    background-color: var(--haspen-color-primary);
+    color: var(--color-white);
 
     &:hover:not(:disabled) {
-      background-color: var(--haspen-primary-dark);
+      background-color: var(--haspen-color-primary);
+      filter: brightness(0.9);
     }
   }
 
   &--secondary {
-    background-color: var(--haspen-secondary);
-    color: white;
+    background-color: var(--color-auto-gray-200);
+    color: var(--color-auto-text);
 
     &:hover:not(:disabled) {
-      background-color: var(--haspen-secondary-dark);
+      background-color: var(--color-auto-gray-300);
     }
   }
 
   &--outline {
     background-color: transparent;
-    border: 1px solid var(--haspen-primary);
-    color: var(--haspen-primary);
+    border: 1px solid var(--haspen-color-primary);
+    color: var(--haspen-color-primary);
 
     &:hover:not(:disabled) {
-      background-color: var(--haspen-primary-light);
+      background-color: var(--color-auto-gray-50);
     }
   }
 
   &--ghost {
     background-color: transparent;
-    color: var(--haspen-primary);
+    color: var(--haspen-color-primary);
 
     &:hover:not(:disabled) {
-      background-color: var(--haspen-primary-light);
+      background-color: var(--color-auto-gray-50);
     }
   }
 

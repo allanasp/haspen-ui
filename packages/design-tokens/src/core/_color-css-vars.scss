@@ -35,6 +35,19 @@
   }
 }
 
+/// Generate light-dark() color properties for automatic theme switching
+/// @param {Map} $light-map - Light theme color map
+/// @param {Map} $dark-map - Dark theme color map
+/// @param {String} $prefix - Prefix for the CSS custom properties
+@mixin generate-light-dark-properties($light-map, $dark-map, $prefix) {
+  @each $name, $light-color in $light-map {
+    $dark-color: map.get($dark-map, $name);
+    @if $dark-color {
+      --#{$prefix}-auto-#{$name}: light-dark(#{$light-color}, #{$dark-color});
+    }
+  }
+}
+
 // =============================================================================
 // CSS CUSTOM PROPERTIES EXPORT
 // =============================================================================
@@ -55,10 +68,28 @@
   // Generate border color properties
   @include generate-semantic-properties(palette.$border-colors, 'border');
   
-  // Additional utility colors
+  // Additional utility colors with modern CSS light-dark() support
   --color-white: #ffffff;
   --color-black: #000000;
   --color-transparent: transparent;
+  
+  // Modern light-dark() variants for common color combinations
+  --color-auto-bg: light-dark(#ffffff, #121212);
+  --color-auto-surface: light-dark(#f5f5f5, #1e1e1e);
+  --color-auto-text: light-dark(#212529, #ffffff);
+  --color-auto-text-secondary: light-dark(#6c757d, #adb5bd);
+  --color-auto-border: light-dark(#dee2e6, #495057);
+  --color-auto-divider: light-dark(#e0e0e0, #424242);
+  
+  // Gray scale auto variants for component styling
+  --color-auto-gray-50: light-dark(#f9fafb, #374151);
+  --color-auto-gray-100: light-dark(#f3f4f6, #4b5563);
+  --color-auto-gray-200: light-dark(#e5e7eb, #6b7280);
+  --color-auto-gray-300: light-dark(#d1d5db, #9ca3af);
+  --color-auto-gray-400: light-dark(#9ca3af, #d1d5db);
+  --color-auto-gray-500: light-dark(#6b7280, #e5e7eb);
+  --color-auto-gray-600: light-dark(#4b5563, #f3f4f6);
+  --color-auto-gray-700: light-dark(#374151, #f9fafb);
   
   // Alpha variants for common colors (10%, 20%, 50%, 80%)
   --color-black-10: #{rgba(#000000, 0.1)};
@@ -128,6 +159,15 @@
   @return var(--border-#{$name});
 }
 
+/// Get a CSS custom property value for auto theme colors (light-dark)
+/// @param {String} $name - Auto color name
+/// @return {String} CSS custom property reference
+/// @example
+///   background-color: css-auto('bg'); // Returns var(--color-auto-bg)
+@function css-auto($name) {
+  @return var(--color-auto-#{$name});
+}
+
 // =============================================================================
 // UTILITY MIXINS FOR COMPONENT DEVELOPMENT
 // =============================================================================
@@ -185,6 +225,34 @@
   &:focus-visible {
     outline: 2px solid css-semantic($color);
     outline-offset: 2px;
+  }
+}
+
+/// Apply modern light-dark() theming to a component
+/// @param {String} $bg - Background type ('bg', 'surface', etc.)
+/// @param {String} $text - Text type ('text', 'text-secondary', etc.)
+/// @param {String} $border - Border type (optional)
+/// @example
+///   @include auto-theme('bg', 'text', 'border');
+@mixin auto-theme($bg, $text, $border: null) {
+  background-color: css-auto($bg);
+  color: css-auto($text);
+  
+  @if $border {
+    border-color: css-auto($border);
+  }
+}
+
+/// Apply hover state with light-dark() support
+/// @param {String} $base-bg - Base background type
+/// @param {String} $hover-bg - Hover background type
+/// @example
+///   @include auto-hover('surface', 'border');
+@mixin auto-hover($base-bg, $hover-bg) {
+  background-color: css-auto($base-bg);
+  
+  &:hover {
+    background-color: css-auto($hover-bg);
   }
 }
 

@@ -1,11 +1,15 @@
 // Atoms
 export { Button } from './atoms/Button';
+export { ThemeToggle } from './atoms/ThemeToggle';
+export { SunIcon, MoonIcon } from './atoms/Icon';
 
 // Molecules
 export { ThemeProvider } from './molecules/ThemeProvider';
 
 // Types
 export * from './types';
+export type { ThemeToggleProps, ThemeToggleEmits } from './atoms/ThemeToggle';
+export type { IconProps } from './atoms/Icon';
 // export { InputGroup } from './molecules/InputGroup'
 // export { FormField } from './molecules/FormField'
 // export { Card } from './molecules/Card'
