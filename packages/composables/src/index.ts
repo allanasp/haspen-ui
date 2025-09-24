@@ -19,5 +19,5 @@ export type {
 } from './useTheme';
 
 // ClickOutside
-// export { useClickOutside } from './clickOutside/useClickOutside'
-// export type { UseClickOutsideOptions, UseClickOutsideReturn } from './clickOutside/useClickOutside'
+export { useClickOutside } from './clickOutside/useClickOutside';
+export type { UseClickOutsideOptions, UseClickOutsideReturn } from './clickOutside/useClickOutside';
