@@ -1,6 +1,27 @@
 // Atoms
 export { Button } from './atoms/Button';
 export { ThemeToggle } from './atoms/ThemeToggle';
+
+// Icon System - Configurable
+export { 
+  Icon, 
+  IconProvider,
+  // Utilities
+  haspenIcons,
+  createHeroiconsConfig,
+  createLucideConfig,
+  createCustomIconsConfig,
+  createHybridIconsConfig,
+  iconMappings,
+  mapIconName,
+  // Composables
+  useIconConfig,
+  useIconExists,
+  useAvailableIcons,
+  createIconRegistry,
+} from './atoms/Icon';
+
+// Icon System - Individual Icons (for backward compatibility)
 export { SunIcon, MoonIcon } from './atoms/Icon';
 
 // Molecules
@@ -9,7 +30,15 @@ export { ThemeProvider } from './molecules/ThemeProvider';
 // Types
 export * from './types';
 export type { ThemeToggleProps, ThemeToggleEmits } from './atoms/ThemeToggle';
-export type { IconProps } from './atoms/Icon';
+
+// Icon System Types
+export type { 
+  IconProps,
+  ConfigurableIconProps,
+  IconLibrary,
+  IconRegistry,
+  IconConfig,
+} from './atoms/Icon';
 // export { InputGroup } from './molecules/InputGroup'
 // export { FormField } from './molecules/FormField'
 // export { Card } from './molecules/Card'

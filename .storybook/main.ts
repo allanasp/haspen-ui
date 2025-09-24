@@ -10,10 +10,14 @@ const config: StorybookConfig = {
     '@storybook/addon-controls',
     '@storybook/addon-actions',
     '@storybook/addon-vitest',
+    '@storybook/addon-a11y',
   ],
   framework: {
     name: '@storybook/vue3-vite',
     options: {},
+  },
+  docs: {
+    autodocs: 'tag',
   },
 };
 export default config;

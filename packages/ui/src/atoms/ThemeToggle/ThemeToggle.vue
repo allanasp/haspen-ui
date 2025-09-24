@@ -50,9 +50,10 @@ import { computed, ref } from 'vue';
 import { useTheme } from '@haspen-ui/composables';
 import type { ThemeToggleProps } from './types';
 
-// Icons (using simple SVG components for now)
+// Icons - can use either individual components or the configurable system
 import SunIcon from '../Icon/SunIcon.vue';
 import MoonIcon from '../Icon/MoonIcon.vue';
+// Alternative: import { Icon } from '../Icon'; for configurable system
 
 const props = withDefaults(defineProps<ThemeToggleProps>(), {
   variant: 'default',

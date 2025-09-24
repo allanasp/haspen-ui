@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="16" failures="0" errors="0" time="0.059518458">
-    <testsuite name="src/atoms/Button/Button.test.ts" timestamp="2025-09-23T13:42:41.000Z" hostname="Mac.localdomain" tests="16" failures="0" errors="0" skipped="0" time="0.059518458">
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; meets WCAG 2.1 AA accessibility standards" time="0.044265458">
+<testsuites name="vitest tests" tests="16" failures="0" errors="0" time="0.06248425">
+    <testsuite name="src/atoms/Button/Button.test.ts" timestamp="2025-09-24T11:52:37.975Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="16" failures="0" errors="0" skipped="0" time="0.06248425">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; meets WCAG 2.1 AA accessibility standards" time="0.046156792">
             <system-err>
 Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
     at module.exports (/Users/allan/repos/projects/haspen-ui/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
@@ -17,35 +17,35 @@ Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installi
 
             </system-err>
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; has proper button semantics" time="0.001792333">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; has proper button semantics" time="0.001912083">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; supports keyboard navigation" time="0.001726458">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; supports keyboard navigation" time="0.0018275">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains focus visibility" time="0.001108375">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains focus visibility" time="0.001359125">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate disabled state" time="0.001116625">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate disabled state" time="0.001435834">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate loading state for screen readers" time="0.000909375">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate loading state for screen readers" time="0.001196917">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains accessible text content" time="0.000838708">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains accessible text content" time="0.001010166">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; respects reduced motion preferences" time="0.000716916">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; respects reduced motion preferences" time="0.000802167">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; renders properly" time="0.000974584">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; renders properly" time="0.001049958">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies variant class" time="0.000895333">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies variant class" time="0.000861459">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies size class" time="0.0008325">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies size class" time="0.000641667">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; shows loader when loading" time="0.000850125">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; shows loader when loading" time="0.000820167">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; is disabled when disabled prop is true" time="0.000575417">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; is disabled when disabled prop is true" time="0.000475375">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; emits click events when enabled" time="0.00116875">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; emits click events when enabled" time="0.001199375">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when disabled" time="0.000755875">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when disabled" time="0.000718583">
         </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when loading" time="0.000531375">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when loading" time="0.000530583">
         </testcase>
     </testsuite>
 </testsuites>
