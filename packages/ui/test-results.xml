@@ -1,95 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="23" failures="3" errors="0" time="0.122610584">
-    <testsuite name="src/atoms/Button/Button.test.ts" timestamp="2025-08-19T12:41:50.715Z" hostname="Mac.localdomain" tests="5" failures="0" errors="0" skipped="0" time="0.015943375">
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; renders properly" time="0.008428375">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; applies variant class" time="0.001320666">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; applies size class" time="0.000865041">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; shows loader when loading" time="0.00363925">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; is disabled when disabled prop is true" time="0.001297834">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/molecules/ThemeProvider/ThemeProvider.test.ts" timestamp="2025-08-19T12:41:50.716Z" hostname="Mac.localdomain" tests="18" failures="3" errors="0" skipped="0" time="0.106667209">
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Component Rendering &gt; renders with default props" time="0.014758666">
-        </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Component Rendering &gt; applies correct CSS classes based on props" time="0.002278875">
-        </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Component Rendering &gt; sets data-theme attribute" time="0.002274208">
-        </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Context &gt; provides theme context to child components" time="0.008800625">
-        </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Context &gt; updates theme context when mode changes" time="0.018191333">
-            <failure message="expected &apos;light&apos; to be &apos;dark&apos; // Object.is equality" type="AssertionError">
-AssertionError: expected &apos;light&apos; to be &apos;dark&apos; // Object.is equality
-
-Expected: &quot;dark&quot;
-Received: &quot;light&quot;
-
- ❯ src/molecules/ThemeProvider/ThemeProvider.test.ts:148:65
-            </failure>
-        </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Context &gt; throws error when useTheme is called outside ThemeProvider" time="0.001825625">
+<testsuites name="vitest tests" tests="16" failures="0" errors="0" time="0.059518458">
+    <testsuite name="src/atoms/Button/Button.test.ts" timestamp="2025-09-23T13:42:41.000Z" hostname="Mac.localdomain" tests="16" failures="0" errors="0" skipped="0" time="0.059518458">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; meets WCAG 2.1 AA accessibility standards" time="0.044265458">
             <system-err>
-[Vue warn]: injection &quot;Symbol(haspen-ui-theme)&quot; not found. 
-  at &lt;Anonymous ref=&quot;VTU_COMPONENT&quot; &gt; 
-  at &lt;VTUROOT&gt;
-[Vue warn]: Property &quot;mode&quot; was accessed during render but is not defined on instance. 
-  at &lt;Anonymous ref=&quot;VTU_COMPONENT&quot; &gt; 
-  at &lt;VTUROOT&gt;
-[Vue warn]: Property &quot;isDark&quot; was accessed during render but is not defined on instance. 
-  at &lt;Anonymous ref=&quot;VTU_COMPONENT&quot; &gt; 
-  at &lt;VTUROOT&gt;
-[Vue warn]: Property &quot;isLight&quot; was accessed during render but is not defined on instance. 
-  at &lt;Anonymous ref=&quot;VTU_COMPONENT&quot; &gt; 
-  at &lt;VTUROOT&gt;
-[Vue warn]: Property &quot;theme&quot; was accessed during render but is not defined on instance. 
-  at &lt;Anonymous ref=&quot;VTU_COMPONENT&quot; &gt; 
-  at &lt;VTUROOT&gt;
+Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+    at module.exports (/Users/allan/repos/projects/haspen-ui/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at HTMLCanvasElementImpl.getContext (/Users/allan/repos/projects/haspen-ui/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+    at HTMLCanvasElement.getContext (/Users/allan/repos/projects/haspen-ui/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+    at /Users/allan/repos/projects/haspen-ui/node_modules/axe-core/axe.js:13406:49
+    at Object.get (/Users/allan/repos/projects/haspen-ui/node_modules/axe-core/axe.js:7722:23)
+    at _isIconLigature (/Users/allan/repos/projects/haspen-ui/node_modules/axe-core/axe.js:13405:41)
+    at /Users/allan/repos/projects/haspen-ui/node_modules/axe-core/axe.js:27328:54
+    at Array.some (&lt;anonymous&gt;)
+    at hasRealTextChildren (/Users/allan/repos/projects/haspen-ui/node_modules/axe-core/axe.js:27327:35)
+    at Rule.colorContrastMatches [as matches] (/Users/allan/repos/projects/haspen-ui/node_modules/axe-core/axe.js:27292:12) [90mundefined[39m
 
             </system-err>
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Mode Management &gt; allows setting theme mode via context" time="0.004296375">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; has proper button semantics" time="0.001792333">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Mode Management &gt; toggles between light and dark modes" time="0.004989041">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; supports keyboard navigation" time="0.001726458">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Mode Management &gt; handles auto mode with system preference" time="0.003001417">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains focus visibility" time="0.001108375">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Persistence &gt; saves theme mode to localStorage when persistMode is true" time="0.003302584">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate disabled state" time="0.001116625">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Persistence &gt; loads theme mode from localStorage on mount" time="0.002736958">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate loading state for screen readers" time="0.000909375">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Persistence &gt; does not persist when persistMode is false" time="0.002572417">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains accessible text content" time="0.000838708">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Custom Themes &gt; merges custom theme with base theme" time="0.003185834">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; respects reduced motion preferences" time="0.000716916">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; DOM Styles Application &gt; applies CSS custom properties to document root" time="0.013934875">
-            <failure message="expected &apos;#1976d2&apos; to be &apos;#0059b3&apos; // Object.is equality" type="AssertionError">
-AssertionError: expected &apos;#1976d2&apos; to be &apos;#0059b3&apos; // Object.is equality
-
-Expected: &quot;#0059b3&quot;
-Received: &quot;#1976d2&quot;
-
- ❯ src/molecules/ThemeProvider/ThemeProvider.test.ts:326:69
-            </failure>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; renders properly" time="0.000974584">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; DOM Styles Application &gt; updates DOM styles when theme changes" time="0.014244916">
-            <failure message="expected &apos;#121212&apos; to be &apos;#ffffff&apos; // Object.is equality" type="AssertionError">
-AssertionError: expected &apos;#121212&apos; to be &apos;#ffffff&apos; // Object.is equality
-
-Expected: &quot;#ffffff&quot;
-Received: &quot;#121212&quot;
-
- ❯ src/molecules/ThemeProvider/ThemeProvider.test.ts:343:72
-            </failure>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies variant class" time="0.000895333">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; System Theme Detection &gt; listens to system theme changes when in auto mode" time="0.003016">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies size class" time="0.0008325">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Error Handling &gt; handles localStorage errors gracefully" time="0.001184">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; shows loader when loading" time="0.000850125">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Error Handling &gt; handles invalid stored theme mode" time="0.00142075">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; is disabled when disabled prop is true" time="0.000575417">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; emits click events when enabled" time="0.00116875">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when disabled" time="0.000755875">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when loading" time="0.000531375">
         </testcase>
     </testsuite>
 </testsuites>

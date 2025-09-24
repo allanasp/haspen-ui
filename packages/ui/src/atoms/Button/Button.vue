@@ -1,5 +1,6 @@
 <template>
   <button
+    type="button"
     :class="[
       'haspen-button',
       `haspen-button--${variant}`,
@@ -8,6 +9,8 @@
       { 'haspen-button--disabled': disabled },
     ]"
     :disabled="disabled || loading"
+    :aria-disabled="disabled"
+    :aria-busy="loading"
     v-bind="$attrs"
   >
     <span v-if="loading" class="haspen-button__loader"></span>
