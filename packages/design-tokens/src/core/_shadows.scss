@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // DKFDS Shadow System
 // Box shadows for depth and elevation
 
@@ -22,25 +24,25 @@ $shadows: (
 ) !default;
 
 // Component specific shadows
-$shadow-card: map-get($shadows, 'light') !default;
-$shadow-modal: map-get($shadows, 'large') !default;
-$shadow-dropdown: map-get($shadows, 'medium') !default;
-$shadow-tooltip: map-get($shadows, 'light') !default;
-$shadow-button-hover: map-get($shadows, 'subtle') !default;
-$shadow-button-active: map-get($shadows, 'inner') !default;
+$shadow-card: map.get($shadows, 'light') !default;
+$shadow-modal: map.get($shadows, 'large') !default;
+$shadow-dropdown: map.get($shadows, 'medium') !default;
+$shadow-tooltip: map.get($shadows, 'light') !default;
+$shadow-button-hover: map.get($shadows, 'subtle') !default;
+$shadow-button-active: map.get($shadows, 'inner') !default;
 
 // Focus shadow
 $shadow-focus: 0 0 0 3px rgba(116, 116, 116, 0.5) !default;
 
 // Export for CSS custom properties
 :root {
-  --shadow-none: #{map-get($shadows, 'none')};
-  --shadow-subtle: #{map-get($shadows, 'subtle')};
-  --shadow-light: #{map-get($shadows, 'light')};
-  --shadow-medium: #{map-get($shadows, 'medium')};
-  --shadow-large: #{map-get($shadows, 'large')};
-  --shadow-extra-large: #{map-get($shadows, 'extra-large')};
-  --shadow-inner: #{map-get($shadows, 'inner')};
+  --shadow-none: #{map.get($shadows, 'none')};
+  --shadow-subtle: #{map.get($shadows, 'subtle')};
+  --shadow-light: #{map.get($shadows, 'light')};
+  --shadow-medium: #{map.get($shadows, 'medium')};
+  --shadow-large: #{map.get($shadows, 'large')};
+  --shadow-extra-large: #{map.get($shadows, 'extra-large')};
+  --shadow-inner: #{map.get($shadows, 'inner')};
   --shadow-focus: #{$shadow-focus};
   --shadow-card: #{$shadow-card};
   --shadow-modal: #{$shadow-modal};

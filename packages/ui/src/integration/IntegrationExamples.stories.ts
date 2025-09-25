@@ -824,9 +824,9 @@ export default defineNuxtConfig({
   },
 };
 
-const meta: Meta = {
+const meta: Meta<typeof IntegrationExamplesDemo> = {
   title: 'Integration/Examples',
-  component: IntegrationExamplesDemo,
+  component: IntegrationExamplesDemo as any,
   decorators: [
     (story) => ({
       components: { story, ThemeProvider },
@@ -903,7 +903,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InteractiveExamples: Story = {
-  render: () => IntegrationExamplesDemo,
+  render: () => IntegrationExamplesDemo as any,
   parameters: {
     docs: {
       description: {

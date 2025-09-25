@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // DKFDS Border Radius System
 // Rounded corner definitions
 
@@ -17,15 +19,15 @@ $radii: (
 ) !default;
 
 // Component specific radii
-$border-radius-base: map-get($radii, 'default') !default;
-$border-radius-sm: map-get($radii, 'sm') !default;
-$border-radius-lg: map-get($radii, 'lg') !default;
+$border-radius-base: map.get($radii, 'default') !default;
+$border-radius-sm: map.get($radii, 'sm') !default;
+$border-radius-lg: map.get($radii, 'lg') !default;
 
 // Form elements
 $border-radius-input: $border-radius-base !default;
 $border-radius-button: $border-radius-base !default;
-$border-radius-checkbox: map-get($radii, 'sm') !default;
-$border-radius-pill: map-get($radii, 'full') !default;
+$border-radius-checkbox: map.get($radii, 'sm') !default;
+$border-radius-pill: map.get($radii, 'full') !default;
 
 // Cards and containers
 $border-radius-card: $border-radius-base !default;
@@ -33,22 +35,22 @@ $border-radius-modal: $border-radius-lg !default;
 $border-radius-tooltip: $border-radius-sm !default;
 
 // Badges and tags
-$border-radius-badge: map-get($radii, 'sm') !default;
+$border-radius-badge: map.get($radii, 'sm') !default;
 $border-radius-tag: $border-radius-base !default;
 
 // Export for CSS custom properties
 :root {
-  --radius-none: #{map-get($radii, 'none')};
-  --radius-xs: #{map-get($radii, 'xs')};
-  --radius-sm: #{map-get($radii, 'sm')};
-  --radius-default: #{map-get($radii, 'default')};
-  --radius-md: #{map-get($radii, 'md')};
-  --radius-lg: #{map-get($radii, 'lg')};
-  --radius-xl: #{map-get($radii, 'xl')};
-  --radius-2xl: #{map-get($radii, '2xl')};
-  --radius-3xl: #{map-get($radii, '3xl')};
-  --radius-round: #{map-get($radii, 'round')};
-  --radius-full: #{map-get($radii, 'full')};
+  --radius-none: #{map.get($radii, 'none')};
+  --radius-xs: #{map.get($radii, 'xs')};
+  --radius-sm: #{map.get($radii, 'sm')};
+  --radius-default: #{map.get($radii, 'default')};
+  --radius-md: #{map.get($radii, 'md')};
+  --radius-lg: #{map.get($radii, 'lg')};
+  --radius-xl: #{map.get($radii, 'xl')};
+  --radius-2xl: #{map.get($radii, '2xl')};
+  --radius-3xl: #{map.get($radii, '3xl')};
+  --radius-round: #{map.get($radii, 'round')};
+  --radius-full: #{map.get($radii, 'full')};
   --border-radius-base: #{$border-radius-base};
   --border-radius-input: #{$border-radius-input};
   --border-radius-button: #{$border-radius-button};

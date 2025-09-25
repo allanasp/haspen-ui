@@ -21,3 +21,14 @@ export type {
 // ClickOutside
 export { useClickOutside } from './clickOutside/useClickOutside';
 export type { UseClickOutsideOptions, UseClickOutsideReturn } from './clickOutside/useClickOutside';
+
+// Registered Properties
+export { 
+  useRegisteredProperties, 
+  usePropertyName, 
+  useCSSProperty
+} from './useRegisteredProperties';
+export type {
+  UseRegisteredPropertiesOptions,
+  UseRegisteredPropertiesReturn 
+} from './useRegisteredProperties';
