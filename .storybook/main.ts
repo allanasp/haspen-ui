@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/vue3-vite';
+import vue from '@vitejs/plugin-vue';
 
 const config: StorybookConfig = {
   stories: [
@@ -6,15 +7,18 @@ const config: StorybookConfig = {
     '../packages/*/src/**/*.mdx',
   ],
   addons: [
-    '@storybook/addon-docs',
-    '@storybook/addon-controls',
-    '@storybook/addon-actions',
     '@storybook/addon-vitest',
     '@storybook/addon-a11y',
   ],
   framework: {
     name: '@storybook/vue3-vite',
     options: {},
+  },
+  viteFinal: async (config) => {
+    // Ensure Vue plugin is configured properly
+    if (!config.plugins) config.plugins = [];
+    config.plugins.push(vue());
+    return config;
   },
   docs: {
     autodocs: 'tag',

@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/vue3';
 import { setup } from '@storybook/vue3';
 
 // Import global styles
-import '@haspen-ui/design-tokens/dist/index.css';
+import '../packages/design-tokens/dist/index.css';
 
 // Setup Vue app
 setup((app) => {

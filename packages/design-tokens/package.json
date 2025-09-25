@@ -2,15 +2,23 @@
   "name": "@haspen-ui/design-tokens",
   "version": "0.1.0",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/index.css": "./dist/index.css"
+  },
   "files": [
     "dist",
     "scss"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && sass scss/index.scss dist/index.css",
     "dev": "tsup --watch",
     "clean": "rm -rf .turbo node_modules dist"
   },
@@ -18,6 +26,6 @@
     "@storybook/csf": "^0.1.13",
     "@storybook/global": "^5.0.0",
     "sass": "^1.87.0",
-    "storybook": "^9.1.2"
+    "storybook": "^9.1.8"
   }
 }
