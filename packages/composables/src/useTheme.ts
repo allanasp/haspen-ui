@@ -1,15 +1,114 @@
-import { inject } from 'vue';
-import type { ThemeProviderContext } from '@haspen-ui/core';
+import { inject, computed, ref } from 'vue';
+import type { ThemeProviderContext, Theme } from '@haspen-ui/core';
 import { THEME_INJECTION_KEY } from '@haspen-ui/core';
+
+// Default fallback theme for when ThemeProvider is not available
+const createFallbackTheme = (): Theme => ({
+  mode: 'light',
+  colors: {
+    primary: '#0059b3',
+    secondary: '#6c757d',
+    success: '#28a745',
+    warning: '#ffc107',
+    error: '#dc3545',
+    info: '#17a2b8',
+    background: '#ffffff',
+    surface: '#f8f9fa',
+    'text-primary': '#212529',
+    'text-secondary': '#6c757d',
+    border: '#dee2e6',
+  },
+  spacing: {
+    xs: '0.25rem',
+    sm: '0.5rem',
+    md: '1rem',
+    lg: '1.5rem',
+    xl: '2rem',
+  },
+  typography: {
+    fontFamily: {
+      base: '"IBM Plex Sans", system-ui, sans-serif',
+      mono: '"IBM Plex Mono", monospace',
+    },
+    fontSize: {
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+    },
+    fontWeight: {
+      normal: 400,
+      medium: 500,
+      bold: 700,
+    },
+    lineHeight: {
+      tight: 1.25,
+      normal: 1.5,
+      relaxed: 1.75,
+    },
+  },
+  shadows: {
+    sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+    lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+  },
+  radius: {
+    none: '0',
+    sm: '0.125rem',
+    md: '0.25rem',
+    lg: '0.5rem',
+    full: '9999px',
+  },
+  transitions: {
+    duration: {
+      fast: '150ms',
+      normal: '300ms',
+      slow: '500ms',
+    },
+    timing: {
+      ease: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      'ease-in': 'cubic-bezier(0.4, 0, 1, 1)',
+      'ease-out': 'cubic-bezier(0, 0, 0.2, 1)',
+    },
+  },
+});
+
+// Create fallback context
+const createFallbackContext = (): ThemeProviderContext => {
+  const fallbackTheme = createFallbackTheme();
+  const mode = ref<'light' | 'dark' | 'auto'>('light');
+  
+  return {
+    theme: computed(() => fallbackTheme),
+    mode: computed(() => mode.value),
+    isDark: computed(() => false),
+    isLight: computed(() => true),
+    setMode: (newMode: 'light' | 'dark' | 'auto') => {
+      mode.value = newMode;
+      console.warn('[useTheme] ThemeProvider not found, using fallback theme');
+    },
+    toggleMode: () => {
+      mode.value = mode.value === 'dark' ? 'light' : 'dark';
+      console.warn('[useTheme] ThemeProvider not found, using fallback theme');
+    },
+    applyTheme: () => {
+      console.warn('[useTheme] ThemeProvider not found, cannot apply theme to DOM');
+    },
+  };
+};
 
 export function useTheme(): ThemeProviderContext {
   const themeContext = inject(THEME_INJECTION_KEY);
 
   if (!themeContext) {
-    throw new Error(
-      'useTheme must be called within a ThemeProvider. ' +
-        'Make sure to wrap your app with <ThemeProvider>.',
+    // Instead of throwing, provide fallback with warning
+    console.warn(
+      '[useTheme] ThemeProvider not found. Using fallback theme. ' +
+      'For full functionality, wrap your app with <ThemeProvider>.',
     );
+    
+    return createFallbackContext();
   }
 
   return themeContext;

@@ -6,13 +6,12 @@
       `theme-toggle--${variant}`,
       `theme-toggle--${size}`,
       {
-        'theme-toggle--loading': isLoading,
         'theme-toggle--disabled': disabled,
       },
     ]"
     :aria-label="ariaLabel"
     :aria-pressed="isDark"
-    :disabled="disabled || isLoading"
+    :disabled="disabled"
     @click="handleToggle"
   >
     <span class="theme-toggle__track">
@@ -41,7 +40,6 @@
       {{ isDark ? darkLabel : lightLabel }}
     </span>
 
-    <span v-if="isLoading" class="theme-toggle__spinner" />
   </button>
 </template>
 
@@ -73,8 +71,7 @@ const emit = defineEmits<{
 // Theme integration
 const { isDark, toggleMode } = useTheme();
 
-// Loading state for smooth transitions
-const isLoading = ref(false);
+// Removed artificial loading state - CSS handles transitions
 
 // Computed properties for styling and behavior
 const ariaLabel = computed(() => {
@@ -96,26 +93,15 @@ const iconSize = computed(() => {
   return sizeMap[props.size];
 });
 
-// Toggle handler with smooth transition
-const handleToggle = async () => {
-  if (props.disabled || isLoading.value) return;
+// Toggle handler with instant response
+const handleToggle = () => {
+  if (props.disabled) return;
 
-  isLoading.value = true;
+  // Instant theme toggle - CSS handles the smooth animation
+  toggleMode();
 
-  try {
-    // Add small delay for smooth animation
-    await new Promise((resolve) => setTimeout(resolve, 150));
-
-    toggleMode();
-
-    emit('toggle', isDark.value);
-    emit('change', isDark.value ? 'dark' : 'light');
-  } finally {
-    // Reset loading state after animation
-    setTimeout(() => {
-      isLoading.value = false;
-    }, 150);
-  }
+  emit('toggle', isDark.value);
+  emit('change', isDark.value ? 'dark' : 'light');
 };
 </script>
 
@@ -126,231 +112,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.theme-toggle {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--haspen-space-sm); // 8px
-  padding: var(--haspen-space-xs); // 4px
-  background: transparent;
-  border: none;
-  border-radius: var(--haspen-radius-full);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  transition: all 0.2s ease;
-
-  &:focus {
-    outline: 2px solid var(--haspen-color-primary);
-    outline-offset: 2px;
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  &--disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  &--loading {
-    cursor: wait;
-  }
-}
-
-.theme-toggle__track {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: light-dark(#e5e7eb, #374151);
-  border: 1px solid light-dark(#d1d5db, #4b5563);
-  border-radius: var(--haspen-radius-full);
-  transition: all 0.3s ease;
-
-  .theme-toggle--sm & {
-    width: 44px;
-    height: 24px;
-  }
-
-  .theme-toggle--md & {
-    width: 52px;
-    height: 28px;
-  }
-
-  .theme-toggle--lg & {
-    width: 60px;
-    height: 32px;
-  }
-
-  .theme-toggle:hover & {
-    background: light-dark(#f3f4f6, #4b5563);
-    border-color: light-dark(#9ca3af, #6b7280);
-  }
-}
-
-.theme-toggle__thumb {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--haspen-color-surface);
-  border-radius: var(--haspen-radius-full);
-  box-shadow: var(--haspen-shadow-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  .theme-toggle--sm & {
-    width: 20px;
-    height: 20px;
-  }
-
-  .theme-toggle--md & {
-    width: 24px;
-    height: 24px;
-  }
-
-  .theme-toggle--lg & {
-    width: 28px;
-    height: 28px;
-  }
-
-
-  .theme-toggle:active & {
-    transform: scale(0.95);
-  }
-}
-
-.theme-toggle__icon {
-  color: #eab308;
-  transition: all 0.2s ease;
-
-  &--sun {
-    color: #eab308;
-  }
-
-  &--moon {
-    color: #60a5fa;
-  }
-
-  .theme-toggle--loading & {
-    opacity: 0.5;
-  }
-}
-
-.theme-toggle__label {
-  font-size: var(--haspen-font-size-sm);
-  font-weight: var(--haspen-font-weight-medium);
-  color: var(--haspen-color-text-secondary);
-  user-select: none;
-  transition: color 0.2s ease;
-
-  .theme-toggle:hover & {
-    color: var(--haspen-color-text-primary);
-  }
-
-  .theme-toggle--disabled & {
-    opacity: 0.5;
-  }
-}
-
-.theme-toggle__spinner {
-  position: absolute;
-  top: 50%;
-  right: var(--haspen-space-xs);
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--haspen-color-border);
-  border-top-color: var(--haspen-color-primary);
-  border-radius: var(--haspen-radius-full);
-  animation: spin 0.8s linear infinite;
-  transform: translateY(-50%);
-
-  .theme-toggle--sm & {
-    width: 10px;
-    height: 10px;
-    border-width: 1.5px;
-  }
-
-  .theme-toggle--lg & {
-    width: 14px;
-    height: 14px;
-    border-width: 2.5px;
-  }
-}
-
-// Variants
-.theme-toggle--outline {
-  .theme-toggle__track {
-    background: transparent;
-    border: 2px solid light-dark(#d1d5db, #4b5563);
-  }
-
-  .theme-toggle__thumb {
-    background: light-dark(#f3f4f6, #374151);
-  }
-}
-
-.theme-toggle--ghost {
-  .theme-toggle__track {
-    background: light-dark(rgba(107, 114, 128, 0.1), rgba(156, 163, 175, 0.1));
-    border: 1px solid light-dark(rgba(107, 114, 128, 0.2), rgba(156, 163, 175, 0.2));
-  }
-
-  .theme-toggle__thumb {
-    background: var(--haspen-color-surface);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-}
-
-// Animations
-@keyframes spin {
-  to {
-    transform: translateY(-50%) rotate(360deg);
-  }
-}
-
-.icon-fade-enter-active,
-.icon-fade-leave-active {
-  transition: all 0.15s ease;
-}
-
-.icon-fade-enter-from,
-.icon-fade-leave-to {
-  opacity: 0;
-  transform: scale(0.8) rotate(45deg);
-}
-
-// Accessibility improvements
-@media (prefers-reduced-motion: reduce) {
-  .theme-toggle,
-  .theme-toggle__track,
-  .theme-toggle__thumb,
-  .theme-toggle__icon,
-  .theme-toggle__label {
-    transition: none;
-  }
-
-  .theme-toggle__spinner {
-    animation: none;
-  }
-
-  .icon-fade-enter-active,
-  .icon-fade-leave-active {
-    transition: none;
-  }
-}
-
-// High contrast mode support
-@media (prefers-contrast: high) {
-  .theme-toggle__track {
-    border-width: 2px;
-  }
-
-  .theme-toggle__thumb {
-    box-shadow: none;
-    border: 1px solid var(--haspen-color-border);
-  }
-}
+@import './ThemeToggle.scss';
 </style>

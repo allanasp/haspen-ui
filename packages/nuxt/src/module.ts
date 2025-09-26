@@ -47,7 +47,19 @@ export default defineNuxtModule<ModuleOptions>({
     // Auto-import components
     if (options.components) {
       addComponentsDir({
-        path: resolver.resolve('../../components/src/atoms'),
+        path: resolver.resolve('../../ui/src/atoms'),
+        pathPrefix: false,
+        prefix: options.prefix,
+      });
+      
+      addComponentsDir({
+        path: resolver.resolve('../../ui/src/molecules'),
+        pathPrefix: false,
+        prefix: options.prefix,
+      });
+      
+      addComponentsDir({
+        path: resolver.resolve('../../ui/src/organisms'),
         pathPrefix: false,
         prefix: options.prefix,
       });
