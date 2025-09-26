@@ -126,24 +126,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// tokens is already available globally through vite config
-
 .theme-toggle {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: tokens.units(2); // 8px
-  padding: tokens.units(1); // 4px
+  gap: var(--haspen-space-sm); // 8px
+  padding: var(--haspen-space-xs); // 4px
   background: transparent;
   border: none;
-  border-radius: tokens.radius('full');
+  border-radius: var(--haspen-radius-full);
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
   transition: all 0.2s ease;
 
   &:focus {
-    outline: 2px solid tokens.semantic('primary');
+    outline: 2px solid var(--haspen-color-primary);
     outline-offset: 2px;
   }
 
@@ -165,9 +163,9 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  background: tokens.color('gray', 200);
-  border: 1px solid tokens.color('gray', 300);
-  border-radius: tokens.radius('full');
+  background: light-dark(#e5e7eb, #374151);
+  border: 1px solid light-dark(#d1d5db, #4b5563);
+  border-radius: var(--haspen-radius-full);
   transition: all 0.3s ease;
 
   .theme-toggle--sm & {
@@ -185,20 +183,9 @@ export default {
     height: 32px;
   }
 
-  // Dark theme styling
-  :global(.theme-dark) & {
-    background: tokens.color('gray', 700);
-    border-color: tokens.color('gray', 600);
-  }
-
   .theme-toggle:hover & {
-    background: tokens.color('gray', 100);
-    border-color: tokens.color('gray', 400);
-
-    :global(.theme-dark) & {
-      background: tokens.color('gray', 600);
-      border-color: tokens.color('gray', 500);
-    }
+    background: light-dark(#f3f4f6, #4b5563);
+    border-color: light-dark(#9ca3af, #6b7280);
   }
 }
 
@@ -209,9 +196,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-auto-bg);
-  border-radius: tokens.radius('full');
-  box-shadow: tokens.shadow('sm');
+  background: var(--haspen-color-surface);
+  border-radius: var(--haspen-radius-full);
+  box-shadow: var(--haspen-shadow-sm);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   .theme-toggle--sm & {
@@ -229,11 +216,6 @@ export default {
     height: 28px;
   }
 
-  // Dark theme styling
-  :global(.theme-dark) & {
-    background: tokens.color('gray', 800);
-    box-shadow: tokens.shadow('md');
-  }
 
   .theme-toggle:active & {
     transform: scale(0.95);
@@ -241,15 +223,15 @@ export default {
 }
 
 .theme-toggle__icon {
-  color: tokens.color('yellow', 500);
+  color: #eab308;
   transition: all 0.2s ease;
 
   &--sun {
-    color: tokens.color('yellow', 500);
+    color: #eab308;
   }
 
   &--moon {
-    color: tokens.color('blue', 400);
+    color: #60a5fa;
   }
 
   .theme-toggle--loading & {
@@ -258,30 +240,30 @@ export default {
 }
 
 .theme-toggle__label {
-  font-size: tokens.font-size('sm');
-  font-weight: tokens.font-weight('medium');
-  color: tokens.text('secondary');
+  font-size: var(--haspen-font-size-sm);
+  font-weight: var(--haspen-font-weight-medium);
+  color: var(--haspen-color-text-secondary);
   user-select: none;
   transition: color 0.2s ease;
 
   .theme-toggle:hover & {
-    color: tokens.text('primary');
+    color: var(--haspen-color-text-primary);
   }
 
   .theme-toggle--disabled & {
-    color: tokens.text('disabled');
+    opacity: 0.5;
   }
 }
 
 .theme-toggle__spinner {
   position: absolute;
   top: 50%;
-  right: tokens.units(1);
+  right: var(--haspen-space-xs);
   width: 12px;
   height: 12px;
-  border: 2px solid tokens.color('gray', 300);
-  border-top-color: tokens.semantic('primary');
-  border-radius: tokens.radius('full');
+  border: 2px solid var(--haspen-color-border);
+  border-top-color: var(--haspen-color-primary);
+  border-radius: var(--haspen-radius-full);
   animation: spin 0.8s linear infinite;
   transform: translateY(-50%);
 
@@ -302,40 +284,23 @@ export default {
 .theme-toggle--outline {
   .theme-toggle__track {
     background: transparent;
-    border: 2px solid tokens.color('gray', 300);
-
-    :global(.theme-dark) & {
-      border-color: tokens.color('gray', 600);
-    }
+    border: 2px solid light-dark(#d1d5db, #4b5563);
   }
 
   .theme-toggle__thumb {
-    background: tokens.color('gray', 100);
-
-    :global(.theme-dark) & {
-      background: tokens.color('gray', 700);
-    }
+    background: light-dark(#f3f4f6, #374151);
   }
 }
 
 .theme-toggle--ghost {
   .theme-toggle__track {
-    background: rgba(tokens.color('gray', 500), 0.1);
-    border: 1px solid rgba(tokens.color('gray', 500), 0.2);
-
-    :global(.theme-dark) & {
-      background: rgba(tokens.color('gray', 400), 0.1);
-      border-color: rgba(tokens.color('gray', 400), 0.2);
-    }
+    background: light-dark(rgba(107, 114, 128, 0.1), rgba(156, 163, 175, 0.1));
+    border: 1px solid light-dark(rgba(107, 114, 128, 0.2), rgba(156, 163, 175, 0.2));
   }
 
   .theme-toggle__thumb {
-    background: var(--color-auto-bg);
+    background: var(--haspen-color-surface);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-
-    :global(.theme-dark) & {
-      background: var(--color-auto-surface);
-    }
   }
 }
 
@@ -385,11 +350,7 @@ export default {
 
   .theme-toggle__thumb {
     box-shadow: none;
-    border: 1px solid tokens.color('gray', 900);
-
-    :global(.theme-dark) & {
-      border-color: var(--color-auto-border);
-    }
+    border: 1px solid var(--haspen-color-border);
   }
 }
 </style>

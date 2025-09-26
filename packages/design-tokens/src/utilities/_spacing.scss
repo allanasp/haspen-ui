@@ -1,4 +1,5 @@
 // DKFDS Spacing Utilities
+@use 'sass:map';
 @use '../core/breakpoints' as *;
 
 // Spacing scale based on DKFDS
@@ -38,7 +39,7 @@ $spacers: (
 );
 
 // Generate margin and padding utilities
-@each $breakpoint in map-keys($grid-breakpoints) {
+@each $breakpoint in map.keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint);
 

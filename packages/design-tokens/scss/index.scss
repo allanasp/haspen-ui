@@ -1,6 +1,7 @@
 // Design Tokens Main CSS Entry Point
 @use 'variables';
 @use 'registered-properties';
+@use 'grid-utilities';
 
 // Import all design token CSS
 :root {
