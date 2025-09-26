@@ -1,201 +1,77 @@
-// DKFDS Color System
-// Complete color palette from Det Fælles Designsystem
+// Modern Haspen UI Color System
+// Uses light-dark() function for automatic theme switching
 
-// Base Colors
-$color-black: #000000;
-$color-white: #ffffff;
-$color-transparent: transparent;
+// Core Colors - Brand & Status
+$color-primary: #0059b3;
+$color-primary-hover: #004a96;
+$color-primary-active: #003a7a;
 
-// Gray Scale
-$color-gray-100: #f5f5f5;
-$color-gray-200: #e0e0e0;
-$color-gray-300: #bfbfbf;
-$color-gray-400: #aaa;
-$color-gray-500: #888;
-$color-gray-600: #747474;
-$color-gray-700: #454545;
-$color-gray-800: #393939;
-$color-gray-900: #1a1a1a;
+$color-secondary: #6c757d;
+$color-secondary-hover: #5a6268;
+$color-secondary-active: #494f54;
 
-// Semantic Colors
-$color-green-success: #358815;
-$color-green-success-light: #dff1d9;
-$color-orange-warning: #c2671d;
-$color-orange-warning-light: #faebd9;
-$color-red-error: #cc0000;
-$color-red-error-light: #fce0e0;
-$color-blue-info: #1878ca;
-$color-blue-info-light: #e1f0fc;
-$color-purple: #6543bd;
+$color-success: #28a745;
+$color-warning: #ffc107;
+$color-error: #dc3545;
+$color-info: #17a2b8;
 
-// Data Visualization Colors
-$data-violet-1: #f3e7fd;
-$data-violet-2: #dbbdfa;
-$data-violet-3: #c293f7;
-$data-violet-4: #8e5bd8;
-$data-violet-5: #6543bd;
-$data-violet-6: #473292;
+// Export as CSS custom properties using light-dark()
+:root {
+  // Set color scheme for automatic light-dark() switching
+  color-scheme: light dark;
+  
+  // Core Brand Colors (same in both themes)
+  --haspen-color-primary: #{$color-primary};
+  --haspen-color-primary-hover: #{$color-primary-hover};
+  --haspen-color-primary-active: #{$color-primary-active};
+  
+  --haspen-color-secondary: #{$color-secondary};
+  --haspen-color-secondary-hover: #{$color-secondary-hover};
+  --haspen-color-secondary-active: #{$color-secondary-active};
+  
+  --haspen-color-success: #{$color-success};
+  --haspen-color-warning: #{$color-warning};
+  --haspen-color-error: #{$color-error};
+  --haspen-color-info: #{$color-info};
+  
+  // Semantic Colors with automatic light/dark switching
+  --haspen-color-background: light-dark(#ffffff, #121212);
+  --haspen-color-surface: light-dark(#f8f9fa, #1e1e1e);
+  --haspen-color-surface-hover: light-dark(#e9ecef, #2a2a2a);
+  
+  --haspen-color-text-primary: light-dark(#212529, #ffffff);
+  --haspen-color-text-secondary: light-dark(#6c757d, #b0b0b0);
+  --haspen-color-text-tertiary: light-dark(#adb5bd, #808080);
+  
+  --haspen-color-border: light-dark(#dee2e6, #404040);
+  --haspen-color-border-hover: light-dark(#adb5bd, #606060);
+  
+  // Status Background Colors
+  --haspen-color-success-background: light-dark(#d4edda, #1a3d20);
+  --haspen-color-warning-background: light-dark(#fff3cd, #3d3a1a);
+  --haspen-color-error-background: light-dark(#f8d7da, #3d1a1c);
+  --haspen-color-info-background: light-dark(#d1ecf1, #1a2e3d);
+  --haspen-color-primary-background: light-dark(#cce7ff, #1a2a3d);
+  
+  // Code Colors
+  --haspen-color-code-background: light-dark(#f8f9fa, #1a1a1a);
+  
+  // Focus Colors (accessibility)
+  --haspen-color-focus: light-dark(#0066cc, #4da6ff);
+  --haspen-color-focus-outline: light-dark(rgba(0, 102, 204, 0.3), rgba(77, 166, 255, 0.3));
+}
 
-$data-teal-1: #dff4f7;
-$data-teal-2: #b4e3ea;
-$data-teal-3: #87d2dd;
-$data-teal-4: #4bafca;
-$data-teal-5: #0e97b9;
-$data-teal-6: #15677b;
-
-$data-magenta-1: #fde7f3;
-$data-magenta-2: #fabddc;
-$data-magenta-3: #f693c6;
-$data-magenta-4: #de5b9b;
-$data-magenta-5: #bf437a;
-$data-magenta-6: #902f58;
-
-$data-yellow-1: #fff2d5;
-$data-yellow-2: #fee495;
-$data-yellow-3: #fdd654;
-$data-yellow-4: #fcc318;
-$data-yellow-5: #daa000;
-$data-yellow-6: #a36600;
-
-$data-green-1: #e2f5db;
-$data-green-2: #b9e7a5;
-$data-green-3: #90d96f;
-$data-green-4: #5ac527;
-$data-green-5: #358815;
-$data-green-6: #2c6e10;
-
-$data-red-1: #fee3e3;
-$data-red-2: #fcbaba;
-$data-red-3: #fb9292;
-$data-red-4: #f15858;
-$data-red-5: #cc0000;
-$data-red-6: #9f0000;
-
-$data-purple-1: #e8dfff;
-$data-purple-2: #c5afff;
-$data-purple-3: #a27fff;
-$data-purple-4: #7649f0;
-$data-purple-5: #6543bd;
-$data-purple-6: #3c3491;
-
-// Transparent Overlays
-$color-black-trans-10: rgba(27, 27, 27, 0.1);
-$color-black-trans-20: rgba(27, 27, 27, 0.2);
-$color-black-trans-30: rgba(27, 27, 27, 0.3);
-$color-black-trans-40: rgba(27, 27, 27, 0.4);
-$color-black-trans-50: rgba(27, 27, 27, 0.5);
-$color-black-trans-60: rgba(27, 27, 27, 0.6);
-$color-black-trans-70: rgba(27, 27, 27, 0.7);
-$color-black-trans-80: rgba(27, 27, 27, 0.8);
-$color-black-trans-90: rgba(27, 27, 27, 0.9);
-
-$color-white-trans-10: rgba(255, 255, 255, 0.1);
-$color-white-trans-20: rgba(255, 255, 255, 0.2);
-$color-white-trans-30: rgba(255, 255, 255, 0.3);
-$color-white-trans-40: rgba(255, 255, 255, 0.4);
-$color-white-trans-50: rgba(255, 255, 255, 0.5);
-$color-white-trans-60: rgba(255, 255, 255, 0.6);
-$color-white-trans-70: rgba(255, 255, 255, 0.7);
-$color-white-trans-80: rgba(255, 255, 255, 0.8);
-$color-white-trans-90: rgba(255, 255, 255, 0.9);
-
-// Theme Colors  
-@use 'sass:color';
-$color-primary: $color-gray-600 !default;
-$color-primary-dark: color.adjust($color-primary, $lightness: -10%) !default;
-$color-primary-darker: color.adjust($color-primary, $lightness: -20%) !default;
-
-// Background Colors
-$color-background: $color-white !default;
-$color-background-alternative: $color-gray-100 !default;
-$color-background-modal: rgba(0, 0, 0, 0.8) !default;
-
-// Status Colors (Semantic)
-$color-success: $color-green-success !default;
-$color-success-light: $color-green-success-light !default;
-$color-warning: $color-orange-warning !default;
-$color-warning-light: $color-orange-warning-light !default;
-$color-error: $color-red-error !default;
-$color-error-light: $color-red-error-light !default;
-$color-info: $color-blue-info !default;
-$color-info-light: $color-blue-info-light !default;
-
-// Text Colors
-$color-ink: $color-gray-900 !default;
-$color-ink-light: $color-gray-600 !default;
-$color-text-positive: $color-green-success !default;
-$color-text-negative: $color-red-error !default;
-
-// Link Colors
-$color-link: #004d93 !default;
-$color-link-hover: #012e52 !default;
-$color-link-focus: $color-link-hover !default;
-$color-link-visited: #4b1a75 !default;
-
-// Border Colors
-$color-border: $color-gray-400 !default;
-$color-border-light: $color-gray-300 !default;
-$color-border-dark: $color-gray-600 !default;
-
-// Focus Color
-$color-focus: $color-gray-600 !default;
-
-// Government Theme Colors
-$color-borgerdk: #901a1e !default;
-$color-virkdk: #0059b3 !default;
-
-// Color Maps for easier access
-$theme-colors: (
+// SCSS Variables for programmatic access (if needed)
+$haspen-colors: (
   'primary': $color-primary,
+  'secondary': $color-secondary,
   'success': $color-success,
   'warning': $color-warning,
   'error': $color-error,
   'info': $color-info,
-  'gray': $color-gray-600,
 );
 
-$grays: (
-  '100': $color-gray-100,
-  '200': $color-gray-200,
-  '300': $color-gray-300,
-  '400': $color-gray-400,
-  '500': $color-gray-500,
-  '600': $color-gray-600,
-  '700': $color-gray-700,
-  '800': $color-gray-800,
-  '900': $color-gray-900,
-);
-
-// Export for CSS custom properties
-:root {
-  // Base colors
-  --color-black: #{$color-black};
-  --color-white: #{$color-white};
-
-  // Gray scale
-  --color-gray-100: #{$color-gray-100};
-  --color-gray-200: #{$color-gray-200};
-  --color-gray-300: #{$color-gray-300};
-  --color-gray-400: #{$color-gray-400};
-  --color-gray-500: #{$color-gray-500};
-  --color-gray-600: #{$color-gray-600};
-  --color-gray-700: #{$color-gray-700};
-  --color-gray-800: #{$color-gray-800};
-  --color-gray-900: #{$color-gray-900};
-
-  // Theme colors
-  --color-primary: #{$color-primary};
-  --color-success: #{$color-success};
-  --color-warning: #{$color-warning};
-  --color-error: #{$color-error};
-  --color-info: #{$color-info};
-
-  // Text colors
-  --color-ink: #{$color-ink};
-  --color-ink-light: #{$color-ink-light};
-
-  // Link colors
-  --color-link: #{$color-link};
-  --color-link-hover: #{$color-link-hover};
-  --color-link-visited: #{$color-link-visited};
+// Helper function for accessing colors
+@function color($key) {
+  @return map-get($haspen-colors, $key);
 }

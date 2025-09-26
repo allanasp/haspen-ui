@@ -6,84 +6,72 @@ const meta: Meta = {
     docs: {
       description: {
         component: `
-# Modern SASS Color System
+# Modern Haspen UI Color System
 
-A comprehensive color token system with 9-shade palettes, semantic color mapping, and powerful SASS helper functions.
+A modern, performance-focused color system using CSS light-dark() function for automatic theme switching with zero JavaScript overhead.
 
-## Color Families
+## Key Features
 
-Each color family includes 9 shades (50-900) following modern design system conventions:
+- **Automatic Theme Switching**: Uses CSS \`light-dark()\` function
+- **Zero JavaScript**: Pure CSS implementation
+- **High Performance**: No DOM manipulation for theme changes
+- **Danish Compliance**: Colors follow danish accessibility standards
 
-- **Gray**: Neutral colors for text, backgrounds, and borders
-- **Blue**: Primary brand colors
-- **Green**: Success states and positive actions
-- **Red**: Error states and destructive actions  
-- **Yellow**: Warning states and cautionary content
-- **Indigo**: Alternative primary colors
+## Core Colors
+
+### Brand Colors
+- **Primary**: #0059b3 (Danish government blue)
+- **Secondary**: #6c757d 
+- **Success**: #28a745
+- **Warning**: #ffc107
+- **Error**: #dc3545
+- **Info**: #17a2b8
+
+### Semantic Colors (Auto-switching)
+- **Background**: light-dark(#ffffff, #121212)
+- **Surface**: light-dark(#f8f9fa, #1e1e1e)
+- **Text Primary**: light-dark(#212529, #ffffff)
+- **Text Secondary**: light-dark(#6c757d, #b0b0b0)
+- **Border**: light-dark(#dee2e6, #404040)
 
 ## Usage Examples
 
-### SASS Functions
-
-\`\`\`scss
-// Access specific color shades
-.button {
-  background-color: color('blue', 500);
-  border: 1px solid color('blue', 600);
-}
-
-// Use semantic colors
-.alert {
-  background-color: semantic('error');
-  color: text('inverse');
-}
-
-// Create color variations
-.button--light {
-  background-color: lighter('blue', 500, 2); // blue-300
-}
-
-.button--dark {
-  background-color: darker('blue', 500, 1); // blue-600
-}
-
-// Alpha variants
-.overlay {
-  background-color: alpha('gray', 900, 0.8);
-}
-\`\`\`
-
 ### CSS Custom Properties
-
-All colors are automatically available as CSS custom properties:
-
 \`\`\`css
 .component {
-  background-color: var(--color-blue-500);
-  color: var(--text-primary);
-  border-color: var(--border-medium);
+  background-color: var(--haspen-color-surface);
+  color: var(--haspen-color-text-primary);
+  border: 1px solid var(--haspen-color-border);
+}
+
+.button--primary {
+  background-color: var(--haspen-color-primary);
+  color: white;
+}
+
+.button--primary:hover {
+  background-color: var(--haspen-color-primary-hover);
 }
 \`\`\`
 
-### Helper Mixins
-
+### SASS Functions
 \`\`\`scss
-.card {
-  @include color-scheme('surface', 'primary');
-  @include focus-styles('primary');
-}
+@use '@haspen-ui/design-tokens/functions' as func;
 
-.button {
-  @include hover-color('blue', 500, 600);
+.component {
+  background-color: func.color('surface');
+  color: func.color('text-primary');
+  padding: func.space('md');
+  border-radius: func.radius('md');
 }
 \`\`\`
 
-## Color Accessibility
+## Performance Benefits
 
-All colors in the system are designed with accessibility in mind:
-- High contrast ratios between text and background colors
-- WCAG AA compliant color combinations
-- Semantic naming for clear intent
+- **No JavaScript**: Theme switching handled by CSS engine
+- **No Layout Shifts**: Instant color changes
+- **Automatic Detection**: Respects system preference
+- **Manual Override**: Can be controlled via \`color-scheme\` property
         `,
       },
     },
@@ -92,315 +80,244 @@ All colors in the system are designed with accessibility in mind:
 };
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-// Color palette display component
-const ColorPalette = {
-  template: `
-    <div>
-      <h2>Color Families</h2>
-      
-      <div v-for="family in colorFamilies" :key="family.name" style="margin-bottom: 2rem;">
-        <h3>{{ family.name }}</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem;">
-          <div 
-            v-for="shade in family.shades" 
-            :key="shade.name"
-            :style="{
-              backgroundColor: shade.color,
-              color: shade.textColor,
-              padding: '1rem',
-              borderRadius: '0.5rem',
-              border: '1px solid #e5e5e5',
-              textAlign: 'center'
-            }"
-          >
-            <div style="font-weight: 600; margin-bottom: 0.25rem;">{{ shade.name }}</div>
-            <div style="font-size: 0.875rem; opacity: 0.8;">{{ shade.color }}</div>
+export const ColorPalette: Story = {
+  render: () => ({
+    template: `
+      <div class="color-system-demo">
+        <h2>Modern Light-Dark Color System</h2>
+        
+        <section class="color-section">
+          <h3>Brand Colors (Fixed)</h3>
+          <div class="color-grid">
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-primary)"></div>
+              <div class="color-info">
+                <strong>Primary</strong><br>
+                <code>--haspen-color-primary</code><br>
+                <small>#0059b3</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-success)"></div>
+              <div class="color-info">
+                <strong>Success</strong><br>
+                <code>--haspen-color-success</code><br>
+                <small>#28a745</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-warning)"></div>
+              <div class="color-info">
+                <strong>Warning</strong><br>
+                <code>--haspen-color-warning</code><br>
+                <small>#ffc107</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-error)"></div>
+              <div class="color-info">
+                <strong>Error</strong><br>
+                <code>--haspen-color-error</code><br>
+                <small>#dc3545</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-info)"></div>
+              <div class="color-info">
+                <strong>Info</strong><br>
+                <code>--haspen-color-info</code><br>
+                <small>#17a2b8</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="color-section">
+          <h3>Auto-switching Colors</h3>
+          <p>These colors automatically adapt to light/dark mode:</p>
+          
+          <div class="color-grid">
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-background); border: 1px solid var(--haspen-color-border)"></div>
+              <div class="color-info">
+                <strong>Background</strong><br>
+                <code>--haspen-color-background</code><br>
+                <small>light-dark(#ffffff, #121212)</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-surface); border: 1px solid var(--haspen-color-border)"></div>
+              <div class="color-info">
+                <strong>Surface</strong><br>
+                <code>--haspen-color-surface</code><br>
+                <small>light-dark(#f8f9fa, #1e1e1e)</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-surface); color: var(--haspen-color-text-primary); padding: 1rem; text-align: center; border: 1px solid var(--haspen-color-border)">Text Primary</div>
+              <div class="color-info">
+                <strong>Text Primary</strong><br>
+                <code>--haspen-color-text-primary</code><br>
+                <small>light-dark(#212529, #ffffff)</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-surface); color: var(--haspen-color-text-secondary); padding: 1rem; text-align: center; border: 1px solid var(--haspen-color-border)">Text Secondary</div>
+              <div class="color-info">
+                <strong>Text Secondary</strong><br>
+                <code>--haspen-color-text-secondary</code><br>
+                <small>light-dark(#6c757d, #b0b0b0)</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-border); height: 40px"></div>
+              <div class="color-info">
+                <strong>Border</strong><br>
+                <code>--haspen-color-border</code><br>
+                <small>light-dark(#dee2e6, #404040)</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="color-section">
+          <h3>Status Background Colors</h3>
+          <div class="color-grid">
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-success-background); border: 1px solid var(--haspen-color-border)"></div>
+              <div class="color-info">
+                <strong>Success Background</strong><br>
+                <code>--haspen-color-success-background</code><br>
+                <small>light-dark(#d4edda, #1a3d20)</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-warning-background); border: 1px solid var(--haspen-color-border)"></div>
+              <div class="color-info">
+                <strong>Warning Background</strong><br>
+                <code>--haspen-color-warning-background</code><br>
+                <small>light-dark(#fff3cd, #3d3a1a)</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-error-background); border: 1px solid var(--haspen-color-border)"></div>
+              <div class="color-info">
+                <strong>Error Background</strong><br>
+                <code>--haspen-color-error-background</code><br>
+                <small>light-dark(#f8d7da, #3d1a1c)</small>
+              </div>
+            </div>
+            
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: var(--haspen-color-info-background); border: 1px solid var(--haspen-color-border)"></div>
+              <div class="color-info">
+                <strong>Info Background</strong><br>
+                <code>--haspen-color-info-background</code><br>
+                <small>light-dark(#d1ecf1, #1a2e3d)</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="color-section">
+          <h3>Interactive Example</h3>
+          <div class="theme-demo">
+            <div class="demo-card">
+              <h4>Card Component</h4>
+              <p>This card automatically adapts to your system's light/dark mode preference.</p>
+              <button class="demo-button">Primary Button</button>
+              <button class="demo-button demo-button--secondary">Secondary Button</button>
+            </div>
+          </div>
+          <p><small>Try changing your system theme to see the automatic color switching!</small></p>
+        </section>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Complete color palette showing both fixed brand colors and auto-switching semantic colors.',
+      },
+    },
+  },
+};
+
+export const ThemeSwitching: Story = {
+  render: () => ({
+    template: `
+      <div class="color-system-demo">
+        <h3>Automatic Theme Switching Demo</h3>
+        
+        <div class="theme-comparison">
+          <div class="theme-preview light-theme">
+            <h4>Light Mode</h4>
+            <div class="preview-content">
+              <div class="preview-card">
+                <div class="card-header">Light Theme</div>
+                <div class="card-body">
+                  <p>Background: #ffffff</p>
+                  <p>Surface: #f8f9fa</p>
+                  <p>Text: #212529</p>
+                  <p>Border: #dee2e6</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="theme-preview dark-theme">
+            <h4>Dark Mode</h4>
+            <div class="preview-content">
+              <div class="preview-card">
+                <div class="card-header">Dark Theme</div>
+                <div class="card-body">
+                  <p>Background: #121212</p>
+                  <p>Surface: #1e1e1e</p>
+                  <p>Text: #ffffff</p>
+                  <p>Border: #404040</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <h2>Semantic Colors</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-        <div 
-          v-for="semantic in semanticColors" 
-          :key="semantic.name"
-          :style="{
-            backgroundColor: semantic.color,
-            color: semantic.textColor,
-            padding: '1.5rem',
-            borderRadius: '0.5rem',
-            border: '1px solid #e5e5e5',
-            textAlign: 'center'
-          }"
-        >
-          <div style="font-weight: 600; margin-bottom: 0.5rem;">{{ semantic.name }}</div>
-          <div style="font-size: 0.875rem; opacity: 0.8;">{{ semantic.color }}</div>
-          <div style="font-size: 0.75rem; margin-top: 0.5rem;">{{ semantic.usage }}</div>
-        </div>
-      </div>
-    </div>
-  `,
-  setup() {
-    const colorFamilies = [
-      {
-        name: 'Gray (Neutral)',
-        shades: [
-          { name: '50', color: '#fafafa', textColor: '#171717' },
-          { name: '100', color: '#f5f5f5', textColor: '#171717' },
-          { name: '200', color: '#e5e5e5', textColor: '#171717' },
-          { name: '300', color: '#d4d4d4', textColor: '#171717' },
-          { name: '400', color: '#a3a3a3', textColor: '#171717' },
-          { name: '500', color: '#737373', textColor: '#ffffff' },
-          { name: '600', color: '#525252', textColor: '#ffffff' },
-          { name: '700', color: '#404040', textColor: '#ffffff' },
-          { name: '800', color: '#262626', textColor: '#ffffff' },
-          { name: '900', color: '#171717', textColor: '#ffffff' },
-        ]
-      },
-      {
-        name: 'Blue (Primary)',
-        shades: [
-          { name: '50', color: '#eff6ff', textColor: '#1e3a8a' },
-          { name: '100', color: '#dbeafe', textColor: '#1e3a8a' },
-          { name: '200', color: '#bfdbfe', textColor: '#1e3a8a' },
-          { name: '300', color: '#93c5fd', textColor: '#1e3a8a' },
-          { name: '400', color: '#60a5fa', textColor: '#ffffff' },
-          { name: '500', color: '#3b82f6', textColor: '#ffffff' },
-          { name: '600', color: '#2563eb', textColor: '#ffffff' },
-          { name: '700', color: '#1d4ed8', textColor: '#ffffff' },
-          { name: '800', color: '#1e40af', textColor: '#ffffff' },
-          { name: '900', color: '#1e3a8a', textColor: '#ffffff' },
-        ]
-      },
-      {
-        name: 'Green (Success)',
-        shades: [
-          { name: '50', color: '#f0fdf4', textColor: '#14532d' },
-          { name: '100', color: '#dcfce7', textColor: '#14532d' },
-          { name: '200', color: '#bbf7d0', textColor: '#14532d' },
-          { name: '300', color: '#86efac', textColor: '#14532d' },
-          { name: '400', color: '#4ade80', textColor: '#ffffff' },
-          { name: '500', color: '#22c55e', textColor: '#ffffff' },
-          { name: '600', color: '#16a34a', textColor: '#ffffff' },
-          { name: '700', color: '#15803d', textColor: '#ffffff' },
-          { name: '800', color: '#166534', textColor: '#ffffff' },
-          { name: '900', color: '#14532d', textColor: '#ffffff' },
-        ]
-      },
-      {
-        name: 'Red (Error)',
-        shades: [
-          { name: '50', color: '#fef2f2', textColor: '#7f1d1d' },
-          { name: '100', color: '#fee2e2', textColor: '#7f1d1d' },
-          { name: '200', color: '#fecaca', textColor: '#7f1d1d' },
-          { name: '300', color: '#fca5a5', textColor: '#7f1d1d' },
-          { name: '400', color: '#f87171', textColor: '#ffffff' },
-          { name: '500', color: '#ef4444', textColor: '#ffffff' },
-          { name: '600', color: '#dc2626', textColor: '#ffffff' },
-          { name: '700', color: '#b91c1c', textColor: '#ffffff' },
-          { name: '800', color: '#991b1b', textColor: '#ffffff' },
-          { name: '900', color: '#7f1d1d', textColor: '#ffffff' },
-        ]
-      },
-      {
-        name: 'Yellow (Warning)',
-        shades: [
-          { name: '50', color: '#fefce8', textColor: '#78350f' },
-          { name: '100', color: '#fef3c7', textColor: '#78350f' },
-          { name: '200', color: '#fde68a', textColor: '#78350f' },
-          { name: '300', color: '#fcd34d', textColor: '#78350f' },
-          { name: '400', color: '#fbbf24', textColor: '#78350f' },
-          { name: '500', color: '#f59e0b', textColor: '#ffffff' },
-          { name: '600', color: '#d97706', textColor: '#ffffff' },
-          { name: '700', color: '#b45309', textColor: '#ffffff' },
-          { name: '800', color: '#92400e', textColor: '#ffffff' },
-          { name: '900', color: '#78350f', textColor: '#ffffff' },
-        ]
-      }
-    ];
-
-    const semanticColors = [
-      { 
-        name: 'Primary', 
-        color: '#2563eb', 
-        textColor: '#ffffff',
-        usage: 'Main brand color, primary actions'
-      },
-      { 
-        name: 'Secondary', 
-        color: '#525252', 
-        textColor: '#ffffff',
-        usage: 'Secondary actions, neutral content'
-      },
-      { 
-        name: 'Success', 
-        color: '#16a34a', 
-        textColor: '#ffffff',
-        usage: 'Positive feedback, completion states'
-      },
-      { 
-        name: 'Warning', 
-        color: '#f59e0b', 
-        textColor: '#ffffff',
-        usage: 'Cautionary content, important notices'
-      },
-      { 
-        name: 'Error', 
-        color: '#dc2626', 
-        textColor: '#ffffff',
-        usage: 'Error states, destructive actions'
-      },
-      { 
-        name: 'Info', 
-        color: '#3b82f6', 
-        textColor: '#ffffff',
-        usage: 'Informational content, help text'
-      }
-    ];
-
-    return {
-      colorFamilies,
-      semanticColors
-    };
-  }
-};
-
-const UsageExamples = {
-  template: `
-    <div>
-      <h2>SASS Function Examples</h2>
-      
-      <div style="display: grid; gap: 2rem; margin-bottom: 3rem;">
-        <div>
-          <h3>Basic Color Access</h3>
-          <pre style="background: #f5f5f5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;"><code>// Access specific color shades
-.button {
-  background-color: color('blue', 500);    // #3b82f6
-  border: 1px solid color('blue', 600);    // #2563eb
-}
-
-// Use semantic colors  
-.alert {
-  background-color: semantic('error');     // #dc2626
-  color: text('inverse');                  // #ffffff
-}</code></pre>
-        </div>
-
-        <div>
-          <h3>Color Variations</h3>
-          <pre style="background: #f5f5f5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;"><code>// Create lighter/darker variants
-.button--light {
-  background-color: lighter('blue', 500, 2);  // blue-300 (#93c5fd)
-}
-
-.button--dark {
-  background-color: darker('blue', 500, 1);   // blue-600 (#2563eb)
-}
-
-// Alpha variants
-.overlay {
-  background-color: alpha('gray', 900, 0.8);  // rgba(23, 23, 23, 0.8)
-}</code></pre>
-        </div>
-
-        <div>
-          <h3>CSS Custom Properties</h3>
-          <pre style="background: #f5f5f5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;"><code>/* Use CSS variables directly */
+        
+        <div class="code-example">
+          <h4>CSS Implementation</h4>
+          <pre><code>/* Single declaration, automatic switching */
 .component {
-  background-color: var(--color-blue-500);
-  color: var(--text-primary);
-  border-color: var(--border-medium);
+  background-color: var(--haspen-color-surface);
+  color: var(--haspen-color-text-primary);
+  border: 1px solid var(--haspen-color-border);
 }
 
-/* Or use SASS helper functions */
-.component {
-  background-color: css-color('blue', 500);
-  color: css-text('primary');
-  border-color: css-border('medium');
-}</code></pre>
-        </div>
-
-        <div>
-          <h3>Helper Mixins</h3>
-          <pre style="background: #f5f5f5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;"><code>// Apply color scheme
-.card {
-  @include color-scheme('surface', 'primary');
-  @include focus-styles('primary');
-}
-
-// Hover states
-.button {
-  @include hover-color('blue', 500, 600);
+/* CSS defines both light and dark values */
+:root {
+  --haspen-color-surface: light-dark(#f8f9fa, #1e1e1e);
+  --haspen-color-text-primary: light-dark(#212529, #ffffff);
+  --haspen-color-border: light-dark(#dee2e6, #404040);
 }</code></pre>
         </div>
       </div>
-
-      <h2>Live Examples</h2>
-      <div style="display: grid; gap: 1rem;">
-        <div 
-          v-for="example in examples" 
-          :key="example.name"
-          :style="example.styles"
-          style="padding: 1rem; border-radius: 0.5rem; border: 1px solid #e5e5e5;"
-        >
-          <strong>{{ example.name }}</strong>: {{ example.description }}
-        </div>
-      </div>
-    </div>
-  `,
-  setup() {
-    const examples = [
-      {
-        name: 'Primary Button',
-        description: 'Using semantic primary color',
-        styles: {
-          backgroundColor: 'var(--semantic-primary, #2563eb)',
-          color: 'white',
-        }
-      },
-      {
-        name: 'Success Alert',
-        description: 'Using semantic success color',
-        styles: {
-          backgroundColor: 'var(--semantic-success, #16a34a)',
-          color: 'white',
-        }
-      },
-      {
-        name: 'Surface Card',
-        description: 'Using surface background',
-        styles: {
-          backgroundColor: 'var(--surface-surface, #ffffff)',
-          color: 'var(--text-primary, #171717)',
-          border: '1px solid var(--border-light, #e5e5e5)',
-        }
-      },
-      {
-        name: 'Warning Banner',
-        description: 'Using semantic warning color',
-        styles: {
-          backgroundColor: 'var(--semantic-warning, #f59e0b)',
-          color: 'white',
-        }
-      }
-    ];
-
-    return { examples };
-  }
-};
-
-export const ColorPaletteDisplay: Story = {
-  render: () => ({
-    components: { ColorPalette },
-    template: '<ColorPalette />',
+    `,
   }),
-};
-
-export const UsageExamplesDisplay: Story = {
-  render: () => ({
-    components: { UsageExamples },
-    template: '<UsageExamples />',
-  }),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Demonstration of automatic theme switching using CSS light-dark() function.',
+      },
+    },
+  },
 };

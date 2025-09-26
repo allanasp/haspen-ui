@@ -1,187 +1,70 @@
-// DKFDS Functions
-// Central functions for accessing design tokens
+// Modern Haspen UI Functions
+// Simple functions for accessing CSS custom properties
 
 @use 'sass:map';
-@use 'sass:list';
-@use 'sass:string';
 @use '../core/colors' as colors;
-@use '../core/typography' as type;
-@use '../core/spacing' as spacing;
-@use '../core/shadows' as shadows;
-@use '../core/radius' as radius;
 
-// Color function
-@function color($key: 'primary', $variant: null) {
-  @if $variant {
-    $color-name: '#{$key}-#{$variant}';
-    @return var(--color-#{$color-name}, colors.$color-#{$color-name});
-  }
-  @return var(--color-#{$key}, colors.$color-#{$key});
+// Modern color function - returns CSS custom property
+@function color($key: 'primary') {
+  @return var(--haspen-color-#{$key});
 }
 
-// Font size function
-@function font-size($size: 'md') {
-  @if map.has-key(type.$font-sizes, $size) {
-    @return map.get(type.$font-sizes, $size);
-  }
-  @warn "Font size '#{$size}' not found. Using 'md'.";
-  @return map.get(type.$font-sizes, 'md');
+// Font size function using modern CSS custom properties
+@function font-size($size: 'base') {
+  @return var(--haspen-font-size-#{$size});
 }
 
 // Font weight function
 @function font-weight($weight: 'normal') {
-  $weights: (
-    'normal': type.$font-weight-normal,
-    'medium': type.$font-weight-medium,
-    'semibold': type.$font-weight-semibold,
-    'bold': type.$font-weight-bold,
-  );
-
-  @if map.has-key($weights, $weight) {
-    @return map.get($weights, $weight);
-  }
-  @warn "Font weight '#{$weight}' not found. Using 'normal'.";
-  @return type.$font-weight-normal;
+  @return var(--haspen-font-weight-#{$weight});
 }
 
 // Font family function
-@function font-family($family: 'primary') {
-  $families: (
-    'primary': type.$font-family-primary,
-    'sans-serif': type.$font-family-sans-serif,
-    'serif': type.$font-family-serif,
-    'monospace': type.$font-family-monospace,
-  );
-
-  @if map.has-key($families, $family) {
-    @return map.get($families, $family);
-  }
-  @return type.$font-family-primary;
+@function font-family($family: 'base') {
+  @return var(--haspen-font-family-#{$family});
 }
 
 // Line height function
 @function line-height($height: 'normal') {
-  @if map.has-key(type.$line-heights, $height) {
-    @return map.get(type.$line-heights, $height);
-  }
-  @return map.get(type.$line-heights, 'normal');
+  @return var(--haspen-line-height-#{$height});
 }
 
-// Units/spacing function
-@function units($value) {
-  @if type-of($value) == 'number' {
-    @if unitless($value) {
-      @return $value * spacing.$spacer;
-    }
-    @return $value;
-  }
-
-  @if map.has-key(spacing.$spacers, $value) {
-    @return map.get(spacing.$spacers, $value);
-  }
-
-  @warn "Spacing value '#{$value}' not found.";
-  @return 0;
-}
-
-// Border function
-@function border($type: 'default') {
-  $borders: (
-    'default': 1px solid color('border'),
-    'light': 1px solid color('border-light'),
-    'dark': 1px solid color('border-dark'),
-    'high-contrast': 3px solid color('gray-900'),
-    'none': none,
-  );
-
-  @if map.has-key($borders, $type) {
-    @return map.get($borders, $type);
-  }
-  @return map.get($borders, 'default');
-}
-
-// Shadow function
-@function shadow($level: 'default') {
-  @if map.has-key(shadows.$shadows, $level) {
-    @return map.get(shadows.$shadows, $level);
-  }
-  @return none;
+// Spacing function using modern units
+@function space($size: 'md') {
+  @return var(--haspen-space-#{$size});
 }
 
 // Border radius function
-@function radius($size: 'default') {
-  @if map.has-key(radius.$radii, $size) {
-    @return map.get(radius.$radii, $size);
-  }
-  @return map.get(radius.$radii, 'default');
+@function radius($size: 'md') {
+  @return var(--haspen-radius-#{$size});
+}
+
+// Shadow function
+@function shadow($level: 'md') {
+  @return var(--haspen-shadow-#{$level});
 }
 
 // Z-index function
-@function z-index($layer: 'default') {
-  $z-layers: (
-    'negative': -1,
-    'default': 0,
-    'above': 100,
-    'dropdown': 200,
-    'sticky': 300,
-    'overlay': 400,
-    'modal': 500,
-    'popover': 600,
-    'tooltip': 700,
-    'notification': 800,
-    'top': 900,
-  );
-
-  @if map.has-key($z-layers, $layer) {
-    @return map.get($z-layers, $layer);
-  }
-  @return 0;
+@function z-index($layer: 'modal') {
+  @return var(--haspen-z-#{$layer});
 }
 
-// Grid gutter function
-@function gutter($size: 'default') {
-  $gutters: (
-    'none': 0,
-    'sm': units(2),
-    'default': units(4),
-    'lg': units(6),
-    'xl': units(8),
-  );
-
-  @if map.has-key($gutters, $size) {
-    @return map.get($gutters, $size);
-  }
-  @return map.get($gutters, 'default');
+// Animation duration function
+@function duration($speed: 'normal') {
+  @return var(--haspen-duration-#{$speed});
 }
 
-// Breakpoint function
+// Animation easing function
+@function ease($type: 'out') {
+  @return var(--haspen-ease-#{$type});
+}
+
+// Breakpoint function (for consistency, though container queries are preferred)
 @function breakpoint($name) {
-  $breakpoints: (
-    'xs': 0,
-    'sm': 576px,
-    'md': 768px,
-    'lg': 992px,
-    'xl': 1200px,
-  );
-
-  @if map.has-key($breakpoints, $name) {
-    @return map.get($breakpoints, $name);
-  }
-  @warn "Breakpoint '#{$name}' not found.";
-  @return null;
+  @return var(--haspen-breakpoint-#{$name});
 }
 
-// Container width function
-@function container-width($breakpoint: 'xl') {
-  $widths: (
-    'sm': 540px,
-    'md': 720px,
-    'lg': 960px,
-    'xl': 1140px,
-  );
-
-  @if map.has-key($widths, $breakpoint) {
-    @return map.get($widths, $breakpoint);
-  }
-  @return 100%;
+// Legacy compatibility function - maps old color() calls to modern ones
+@function colors-color($key) {
+  @return colors.color($key);
 }

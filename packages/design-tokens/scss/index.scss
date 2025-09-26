@@ -3,6 +3,7 @@
 @use 'registered-properties';
 @use 'grid-utilities';
 @use 'container-queries';
+@use 'aspect-ratio';
 
 // Import all design token CSS
 :root {

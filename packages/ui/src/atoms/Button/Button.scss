@@ -2,10 +2,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
-  font-weight: 500;
+  border-radius: var(--haspen-radius-md);
+  font-weight: var(--haspen-font-weight-medium);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--haspen-duration-fast) var(--haspen-ease-out);
   border: none;
   outline: none;
   position: relative;
@@ -13,20 +13,20 @@
   // Variants with modern light-dark() support
   &--primary {
     background-color: var(--haspen-color-primary);
-    color: var(--color-white);
+    color: white;
 
     &:hover:not(:disabled) {
-      background-color: var(--haspen-color-primary);
-      filter: brightness(0.9);
+      background-color: var(--haspen-color-primary-hover);
     }
   }
 
   &--secondary {
-    background-color: var(--color-auto-gray-200);
-    color: var(--color-auto-text);
+    background-color: var(--haspen-color-surface);
+    color: var(--haspen-color-text-primary);
+    border: 1px solid var(--haspen-color-border);
 
     &:hover:not(:disabled) {
-      background-color: var(--color-auto-gray-300);
+      background-color: var(--haspen-color-surface-hover);
     }
   }
 
@@ -36,7 +36,7 @@
     color: var(--haspen-color-primary);
 
     &:hover:not(:disabled) {
-      background-color: var(--color-auto-gray-50);
+      background-color: var(--haspen-color-surface);
     }
   }
 
@@ -45,24 +45,24 @@
     color: var(--haspen-color-primary);
 
     &:hover:not(:disabled) {
-      background-color: var(--color-auto-gray-50);
+      background-color: var(--haspen-color-surface);
     }
   }
 
   // Sizes
   &--sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    padding: var(--haspen-space-sm) var(--haspen-space-md);
+    font-size: var(--haspen-font-size-sm);
   }
 
   &--md {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    padding: var(--haspen-space-md) var(--haspen-space-lg);
+    font-size: var(--haspen-font-size-base);
   }
 
   &--lg {
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
+    padding: var(--haspen-space-lg) var(--haspen-space-xl);
+    font-size: var(--haspen-font-size-lg);
   }
 
   // States
