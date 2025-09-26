@@ -2,6 +2,7 @@
 @use 'variables';
 @use 'registered-properties';
 @use 'grid-utilities';
+@use 'container-queries';
 
 // Import all design token CSS
 :root {

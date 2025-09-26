@@ -32,3 +32,17 @@ export type {
   UseRegisteredPropertiesOptions,
   UseRegisteredPropertiesReturn 
 } from './useRegisteredProperties';
+
+// Container Queries
+export {
+  useContainerQuery,
+  useContainerQuerySm,
+  useContainerQueryMd,
+  useContainerQueryLg,
+  useContainerQueryXl,
+  useResponsiveCard
+} from './useContainerQuery';
+export type {
+  UseContainerQueryOptions,
+  UseContainerQueryReturn
+} from './useContainerQuery';
