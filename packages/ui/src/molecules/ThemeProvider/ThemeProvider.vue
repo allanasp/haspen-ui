@@ -1,3 +1,15 @@
+<!--
+  ThemeProvider Component
+  
+  PERFORMANCE NOTE: Theme transitions are now opt-in via utility classes.
+  Instead of applying transitions to ALL elements (*), use these classes:
+  - .haspen-transition-colors: For background, border, text color transitions
+  - .haspen-transition-fill: For SVG fill/stroke transitions  
+  - .haspen-transition-shadow: For box-shadow transitions
+  - .haspen-transition-all: For all theme-related transitions
+  
+  This prevents performance issues on complex pages with many elements.
+-->
 <template>
   <div
     :class="[
@@ -138,9 +150,36 @@
 <style lang="scss">
   .haspen-theme-provider {
     &--transitions {
-      * {
-        transition-property:
-          background-color, border-color, color, fill, stroke, box-shadow;
+      // Utility classes for theme transitions - apply only where needed
+      .haspen-transition-colors {
+        transition-property: background-color, border-color, color;
+        transition-timing-function: var(
+          --haspen-transition-timing-ease,
+          cubic-bezier(0.4, 0, 0.2, 1)
+        );
+        transition-duration: var(--haspen-transition-duration-fast, 150ms);
+      }
+      
+      .haspen-transition-fill {
+        transition-property: fill, stroke;
+        transition-timing-function: var(
+          --haspen-transition-timing-ease,
+          cubic-bezier(0.4, 0, 0.2, 1)
+        );
+        transition-duration: var(--haspen-transition-duration-fast, 150ms);
+      }
+      
+      .haspen-transition-shadow {
+        transition-property: box-shadow;
+        transition-timing-function: var(
+          --haspen-transition-timing-ease,
+          cubic-bezier(0.4, 0, 0.2, 1)
+        );
+        transition-duration: var(--haspen-transition-duration-fast, 150ms);
+      }
+      
+      .haspen-transition-all {
+        transition-property: background-color, border-color, color, fill, stroke, box-shadow;
         transition-timing-function: var(
           --haspen-transition-timing-ease,
           cubic-bezier(0.4, 0, 0.2, 1)

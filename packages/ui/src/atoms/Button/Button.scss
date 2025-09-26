@@ -5,10 +5,14 @@
   border-radius: var(--haspen-radius-md);
   font-weight: var(--haspen-font-weight-medium);
   cursor: pointer;
-  transition: all var(--haspen-duration-fast) var(--haspen-ease-out);
   border: none;
   outline: none;
   position: relative;
+  
+  // Specific transitions for performance (not 'all')
+  transition-property: background-color, border-color, color, box-shadow, transform;
+  transition-duration: var(--haspen-duration-fast);
+  transition-timing-function: var(--haspen-ease-out);
 
   // Variants with modern light-dark() support
   &--primary {

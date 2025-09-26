@@ -116,6 +116,45 @@
   --haspen-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+// Performance-optimized transition utility classes
+// Use these instead of 'transition: all' for better performance
+.haspen-transition-colors {
+  transition-property: background-color, border-color, color;
+  transition-duration: var(--haspen-duration-fast);
+  transition-timing-function: var(--haspen-ease-out);
+}
+
+.haspen-transition-fill {
+  transition-property: fill, stroke;
+  transition-duration: var(--haspen-duration-fast);
+  transition-timing-function: var(--haspen-ease-out);
+}
+
+.haspen-transition-shadow {
+  transition-property: box-shadow;
+  transition-duration: var(--haspen-duration-fast);
+  transition-timing-function: var(--haspen-ease-out);
+}
+
+.haspen-transition-transform {
+  transition-property: transform;
+  transition-duration: var(--haspen-duration-fast);
+  transition-timing-function: var(--haspen-ease-out);
+}
+
+.haspen-transition-opacity {
+  transition-property: opacity;
+  transition-duration: var(--haspen-duration-fast);
+  transition-timing-function: var(--haspen-ease-out);
+}
+
+// Only use if absolutely necessary - prefer specific transitions above
+.haspen-transition-all {
+  transition-property: all;
+  transition-duration: var(--haspen-duration-fast);
+  transition-timing-function: var(--haspen-ease-out);
+}
+
 // Set color scheme for automatic light-dark() function
 :root {
   color-scheme: light dark;
