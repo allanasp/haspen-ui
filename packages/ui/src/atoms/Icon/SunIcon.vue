@@ -6,8 +6,9 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     :class="['icon', 'sun-icon']"
+    role="img"
     :aria-hidden="ariaHidden"
-    :aria-label="ariaLabel"
+    :aria-label="ariaLabel || 'Sun'"
   >
     <circle
       cx="12"

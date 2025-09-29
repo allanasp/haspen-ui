@@ -8,14 +8,7 @@ import { ICON_PROVIDER_KEY, createIconConfig, type IconConfig } from './provider
 
 interface Props {
   /**
-   * Icon library to use
-   * @default 'custom'
-   */
-  library?: 'custom' | 'heroicons' | 'lucide';
-  
-  /**
    * Custom icon registry
-   * Only used when library is 'custom'
    */
   icons?: Record<string, any>;
   
@@ -39,7 +32,6 @@ const props = defineProps<Props>();
 
 // Create icon configuration
 const iconConfig = createIconConfig({
-  library: props.library || 'custom',
   icons: props.icons || {},
   prefix: props.prefix,
   defaultSize: props.defaultSize,

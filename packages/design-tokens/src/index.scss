@@ -2,10 +2,9 @@
 // Complete DKFDS system implementation
 
 // Core design tokens (must be imported first)
-@forward 'core/color-palette';
+@forward 'core/color-palette' hide color;
 @forward 'core/accessibility';
 @forward 'core/semantic-colors';
-@forward 'core/color-css-vars';
 @forward 'core/colors';
 @forward 'core/typography';
 @forward 'core/spacing';
@@ -18,6 +17,5 @@
 @forward 'functions' hide color, border;
 @forward 'mixins';
 
-// Utility classes (depend on functions/mixins)
-// Hide conflicting variables from utilities
-@forward 'utilities' hide $spacers;
+// Utility classes (depend on functions/mixins) - Temporarily disabled during DKFDS migration
+// @forward 'utilities' hide $spacers;

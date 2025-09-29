@@ -4,7 +4,9 @@
     "outDir": "dist",
     "rootDir": "src",
     "declaration": true,
-    "declarationDir": "dist/types"
+    "declarationDir": "dist/types",
+    "lib": ["ES2020", "DOM"],
+    "types": ["vitest", "node", "vue"]
   },
   "include": ["src/**/*", "types/**/*"]
 }

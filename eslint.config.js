@@ -31,6 +31,12 @@ export default [
         setTimeout: 'readonly',
         clearTimeout: 'readonly',
         URL: 'readonly',
+        HTMLElement: 'readonly',
+        MouseEvent: 'readonly',
+        Node: 'readonly',
+        ResizeObserver: 'readonly',
+        EventTarget: 'readonly',
+        Element: 'readonly',
       },
     },
     plugins: {

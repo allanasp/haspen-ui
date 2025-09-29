@@ -112,5 +112,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './ThemeToggle.scss';
+@use './ThemeToggle.scss';
 </style>

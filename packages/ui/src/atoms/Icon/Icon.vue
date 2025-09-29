@@ -10,19 +10,15 @@
 
 <script setup lang="ts">
 import { computed, inject } from 'vue';
-import { ICON_PROVIDER_KEY, type IconConfig, type IconLibrary } from './provider';
+import { ICON_PROVIDER_KEY, type IconConfig } from './provider';
 import type { IconProps } from './types';
+import { logger } from '../../utils/error-handling';
 
 interface Props extends IconProps {
   /**
    * Name of the icon to render
    */
   name: string;
-  
-  /**
-   * Override the icon library for this specific icon
-   */
-  library?: IconLibrary;
 }
 
 const {
@@ -30,45 +26,28 @@ const {
   size = 16,
   ariaHidden = true,
   ariaLabel,
-  library,
 } = defineProps<Props>();
 
 // Get icon configuration from provider
 const iconConfig = inject<IconConfig>(ICON_PROVIDER_KEY, {
-  library: 'custom',
   icons: {},
   prefix: '',
+  defaultSize: 16,
 });
 
-// Determine which library to use
-const currentLibrary = library || iconConfig.library;
-
-// Get the icon component
+// Get the icon component - simplified to only support custom icons
 const iconComponent = computed(() => {
-  if (currentLibrary === 'custom') {
-    // Use custom icons from the provider
-    const customIcon = iconConfig.icons[name];
-    if (!customIcon) {
-      console.warn(`Icon "${name}" not found in custom library`);
-      return null;
-    }
-    return customIcon;
-  }
-  
-  if (currentLibrary === 'heroicons') {
-    // For now, warn about external libraries needing to be handled at app level
-    console.warn(`Heroicons library not implemented in this example. Use custom icons instead.`);
+  const customIcon = iconConfig.icons[name];
+  if (!customIcon) {
+    logger.warn(`Icon "${name}" not found in custom library`, {
+      component: 'Icon',
+      action: 'loadIcon',
+      severity: 'low',
+      metadata: { iconName: name, availableIcons: Object.keys(iconConfig.icons) }
+    });
     return null;
   }
-  
-  if (currentLibrary === 'lucide') {
-    // For now, warn about external libraries needing to be handled at app level  
-    console.warn(`Lucide library not implemented in this example. Use custom icons instead.`);
-    return null;
-  }
-  
-  console.warn(`Unknown icon library: ${currentLibrary}`);
-  return null;
+  return customIcon;
 });
 
 // Generate CSS class for styling
@@ -77,10 +56,6 @@ const iconClass = computed(() => {
   
   if (iconConfig.prefix) {
     classes.push(`${iconConfig.prefix}-${name}`);
-  }
-  
-  if (currentLibrary !== 'custom') {
-    classes.push(`haspen-icon--${currentLibrary}`);
   }
   
   return classes.join(' ');
@@ -106,18 +81,7 @@ export default {
     margin-right: 0.5rem;
   }
   
-  // Library-specific styling
-  &--heroicons,
-  &--lucide {
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  
-  &--custom {
-    // Custom icons inherit their own styling
-  }
+  // Icon variants can be styled by name
+  // e.g. &--sun, &--moon, etc.
 }
 </style>

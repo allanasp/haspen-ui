@@ -19,26 +19,6 @@ export interface IconProps {
 }
 
 /**
- * Props for the configurable Icon component
- */
-export interface ConfigurableIconProps extends IconProps {
-  /**
-   * Name of the icon to render
-   */
-  name: string;
-  
-  /**
-   * Override the icon library for this specific icon
-   */
-  library?: 'custom' | 'heroicons' | 'lucide';
-}
-
-/**
- * Icon libraries supported by the system
- */
-export type IconLibrary = 'custom' | 'heroicons' | 'lucide';
-
-/**
  * Icon registry for custom icons
  */
 export type IconRegistry = Record<string, any>;

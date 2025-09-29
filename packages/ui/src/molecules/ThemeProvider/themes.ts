@@ -7,16 +7,16 @@ export const lightTheme: Theme = {
     secondary: '#6c757d',
     tertiary: '#17a2b8',
     error: '#d32f2f',
-    warning: '#f57c00',
-    success: '#388e3c',
-    info: '#0288d1',
+    warning: '#d84315', // 4.44:1 contrast (close to AA threshold)
+    success: '#2e7d32', // Darker green to meet 4.5:1 contrast (was #388e3c at 4.12:1)
+    info: '#01579b', // Darker blue to meet 4.5:1 contrast (was #0288d1 at 3.86:1)
     neutral: '#757575',
     background: '#ffffff',
     surface: '#f5f5f5',
     text: '#212529',
     textSecondary: '#6c757d',
-    border: '#dee2e6',
-    divider: '#e0e0e0',
+    border: '#757575', // 4.61:1 contrast - meets AA for large text (3:1)
+    divider: '#9e9e9e', // 2.68:1 contrast - better than previous but needs usage context
   },
   spacing: {
     xs: '0.25rem',
@@ -105,7 +105,7 @@ export const darkTheme: Theme = {
   ...lightTheme,
   mode: 'dark',
   colors: {
-    primary: '#1976d2',
+    primary: '#1565c0', // 5.75:1 contrast - meets AA standards for button backgrounds
     secondary: '#adb5bd',
     tertiary: '#26c6da',
     error: '#f44336',
@@ -117,8 +117,8 @@ export const darkTheme: Theme = {
     surface: '#1e1e1e',
     text: '#ffffff',
     textSecondary: '#adb5bd',
-    border: '#495057',
-    divider: '#424242',
+    border: '#757575', // Lighter border for 3:1 large text contrast (was #495057 at 2.29:1)
+    divider: '#616161', // Lighter divider for 3:1 large text contrast (was #424242 at 1.86:1)
   },
 };
 

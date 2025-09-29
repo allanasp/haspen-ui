@@ -1,22 +1,13 @@
 /**
- * Icon Provider for configurable icon system
- * Supports multiple icon libraries: custom, heroicons, lucide
+ * Icon Provider for custom icon system
+ * Simplified to only support custom icon components
  */
 
 import type { InjectionKey, Component } from 'vue';
 
-export type IconLibrary = 'custom' | 'heroicons' | 'lucide';
-
 export interface IconConfig {
   /**
-   * The icon library to use by default
-   * @default 'custom'
-   */
-  library: IconLibrary;
-  
-  /**
    * Custom icon components registry
-   * Only used when library is 'custom'
    */
   icons: Record<string, Component>;
   
@@ -31,25 +22,6 @@ export interface IconConfig {
    * @default 16
    */
   defaultSize?: number;
-  
-  /**
-   * Configuration for specific libraries
-   */
-  libraryConfig?: {
-    heroicons?: {
-      /**
-       * Heroicons variant to use
-       * @default 'outline'
-       */
-      variant: 'outline' | 'solid' | 'mini';
-    };
-    lucide?: {
-      /**
-       * Lucide-specific configuration
-       */
-      strokeWidth?: number;
-    };
-  };
 }
 
 export const ICON_PROVIDER_KEY: InjectionKey<IconConfig> = Symbol('haspen-ui-icon-provider');
@@ -58,18 +30,9 @@ export const ICON_PROVIDER_KEY: InjectionKey<IconConfig> = Symbol('haspen-ui-ico
  * Default icon configuration
  */
 export const defaultIconConfig: IconConfig = {
-  library: 'custom',
   icons: {},
   prefix: '',
   defaultSize: 16,
-  libraryConfig: {
-    heroicons: {
-      variant: 'outline',
-    },
-    lucide: {
-      strokeWidth: 2,
-    },
-  },
 };
 
 /**
@@ -79,10 +42,6 @@ export function createIconConfig(config: Partial<IconConfig> = {}): IconConfig {
   return {
     ...defaultIconConfig,
     ...config,
-    libraryConfig: {
-      ...defaultIconConfig.libraryConfig,
-      ...config.libraryConfig,
-    },
   };
 }
 

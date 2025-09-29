@@ -99,14 +99,11 @@ describe('ThemeToggle', () => {
       expect(wrapper.find('button').attributes('disabled')).toBeDefined();
     });
 
-    it('applies loading class when loading', async () => {
+    it('does not have loading state (removed for performance)', () => {
       const wrapper = mount(ThemeToggle);
       
-      // Trigger toggle to start loading
-      await wrapper.find('button').trigger('click');
-      await nextTick();
-      
-      expect(wrapper.find('.theme-toggle--loading').exists()).toBe(true);
+      // Verify no loading classes exist - we removed artificial loading for performance
+      expect(wrapper.find('.theme-toggle--loading').exists()).toBe(false);
     });
   });
 
@@ -264,16 +261,13 @@ describe('ThemeToggle', () => {
       expect(button.attributes('aria-label')).toBeDefined();
     });
 
-    it('maintains accessibility during loading state', async () => {
+    it('maintains accessibility (no loading state)', () => {
       const wrapper = mount(ThemeToggle);
       const button = wrapper.find('button');
-
-      // Trigger loading state
-      await button.trigger('click');
       
-      // Button should remain accessible during loading
+      // Button should always be accessible (no loading state)
       expect(button.attributes('aria-label')).toBeDefined();
-      expect(button.attributes('disabled')).toBeDefined();
+      expect(button.attributes('disabled')).toBeUndefined(); // Not disabled unless prop says so
     });
   });
 
@@ -291,15 +285,15 @@ describe('ThemeToggle', () => {
       expect(wrapper.find('button').attributes('disabled')).toBeDefined();
     });
 
-    it('has loading state when clicked', async () => {
+    it('responds instantly when clicked (no loading state)', async () => {
       const wrapper = mount(ThemeToggle);
       
-      // Start toggle (will set loading state)
+      // Toggle should respond instantly
       await wrapper.find('button').trigger('click');
       
-      // Should show loading state immediately
-      expect(wrapper.classes()).toContain('theme-toggle--loading');
-      expect(wrapper.find('.theme-toggle__spinner').exists()).toBe(true);
+      // Should NOT show loading state (removed for performance)
+      expect(wrapper.classes()).not.toContain('theme-toggle--loading');
+      expect(wrapper.find('.theme-toggle__spinner').exists()).toBe(false);
     });
   });
 

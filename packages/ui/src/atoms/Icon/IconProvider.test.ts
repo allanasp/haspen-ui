@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import IconProvider from './IconProvider.vue';
-import { createApp } from 'vue';
+import { ICON_PROVIDER_KEY } from './provider';
+import { inject } from 'vue';
 
 describe('IconProvider', () => {
   it('renders correctly with slot content', () => {
@@ -18,13 +19,15 @@ describe('IconProvider', () => {
 
   it('provides icon configuration to child components', () => {
     const childComponent = {
-      template: '<div>{{ iconConfig?.library || "no config" }}</div>',
-      inject: ['iconConfig'],
+      template: '<div>{{ iconConfig?.defaultSize || "no config" }}</div>',
+      setup() {
+        const iconConfig = inject(ICON_PROVIDER_KEY);
+        return { iconConfig };
+      },
     };
 
     const wrapper = mount(IconProvider, {
       props: {
-        library: 'lucide',
         defaultSize: 20,
       },
       slots: {
@@ -32,7 +35,7 @@ describe('IconProvider', () => {
       },
     });
 
-    expect(wrapper.text()).toContain('lucide');
+    expect(wrapper.text()).toContain('20');
   });
 
   it('applies default props correctly', () => {
@@ -42,28 +45,34 @@ describe('IconProvider', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  it('passes library prop to provide', () => {
-    const library = 'heroicons';
+  it('passes prefix prop to provide', () => {
+    const prefix = 'test-prefix';
     const childComponent = {
-      template: '<div>{{ iconConfig?.library }}</div>',
-      inject: ['iconConfig'],
+      template: '<div>{{ iconConfig?.prefix || "no-prefix" }}</div>',
+      setup() {
+        const iconConfig = inject(ICON_PROVIDER_KEY);
+        return { iconConfig };
+      },
     };
 
     const wrapper = mount(IconProvider, {
-      props: { library },
+      props: { prefix },
       slots: {
         default: childComponent,
       },
     });
 
-    expect(wrapper.text()).toBe(library);
+    expect(wrapper.text()).toBe(prefix);
   });
 
   it('passes defaultSize prop to provide', () => {
     const defaultSize = 24;
     const childComponent = {
       template: '<div>{{ iconConfig?.defaultSize }}</div>',
-      inject: ['iconConfig'],
+      setup() {
+        const iconConfig = inject(ICON_PROVIDER_KEY);
+        return { iconConfig };
+      },
     };
 
     const wrapper = mount(IconProvider, {
@@ -78,17 +87,19 @@ describe('IconProvider', () => {
 
   it('handles multiple nested providers correctly', () => {
     const innerChild = {
-      template: '<div>{{ iconConfig?.library }}</div>',
-      inject: ['iconConfig'],
+      template: '<div>{{ iconConfig?.prefix || "no-prefix" }}</div>',
+      setup() {
+        const iconConfig = inject(ICON_PROVIDER_KEY);
+        return { iconConfig };
+      },
     };
 
     const outerProvider = mount(IconProvider, {
-      props: { library: 'lucide' },
+      props: { prefix: 'outer' },
       slots: {
         default: {
-          components: { IconProvider },
           template: `
-            <IconProvider library="heroicons">
+            <IconProvider prefix="inner">
               <inner-child />
             </IconProvider>
           `,
@@ -98,6 +109,6 @@ describe('IconProvider', () => {
     });
 
     // Inner provider should override outer provider
-    expect(outerProvider.text()).toBe('heroicons');
+    expect(outerProvider.text()).toBe('inner');
   });
 });

@@ -446,7 +446,7 @@ Aspect ratio utilities solve the common problem of maintaining consistent propor
 
 ## Usage Examples
 
-\\`\\`\\`html
+```html
 <!-- Basic aspect ratios -->
 <div class="haspen-aspect-video">
   <img src="video-thumbnail.jpg" alt="Video thumbnail" />
@@ -467,13 +467,13 @@ Aspect ratio utilities solve the common problem of maintaining consistent propor
 <div class="haspen-aspect-custom" style="--aspect-ratio: 5/2">
   <div class="banner-content">Custom 5:2 ratio</div>
 </div>
-\\`\\`\\`
+```
 
 ## Real-world Use Cases
 
 ### Image Galleries
 Maintain consistent dimensions across mixed image sizes:
-\\`\\`\\`html
+```html
 <div class="gallery">
   <div class="haspen-aspect-square">
     <img src="wide-image.jpg" alt="Wide image cropped to square" />
@@ -482,28 +482,28 @@ Maintain consistent dimensions across mixed image sizes:
     <img src="tall-image.jpg" alt="Tall image cropped to square" />
   </div>
 </div>
-\\`\\`\\`
+```
 
 ### Video Thumbnails
 Consistent 16:9 ratio for video previews:
-\\`\\`\\`html
+```html
 <div class="video-card">
   <div class="haspen-aspect-video">
     <img src="thumbnail.jpg" alt="Video thumbnail" />
     <div class="play-button">▶️</div>
   </div>
 </div>
-\\`\\`\\`
+```
 
 ### Profile Cards
 Portrait orientation for profile photos:
-\\`\\`\\`html
+```html
 <div class="profile-card">
   <div class="haspen-aspect-portrait">
     <img src="profile.jpg" alt="User profile" />
   </div>
 </div>
-\\`\\`\\`
+```
 
 ## Performance Benefits
 

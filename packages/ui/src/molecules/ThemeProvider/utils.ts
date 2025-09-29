@@ -1,4 +1,5 @@
 import type { Theme } from '@haspen-ui/core';
+import { createStorageHandler } from '../../utils/error-handling';
 
 /**
  * Apply theme to DOM with optimized batch updates
@@ -95,14 +96,11 @@ export function getStoredThemeMode(
     return null;
   }
 
-  try {
-    const stored = localStorage.getItem(storageKey);
-    if (stored === 'light' || stored === 'dark' || stored === 'auto') {
-      return stored;
-    }
-  } catch (error) {
-    // Log error for debugging but don't throw
-    console.warn('[ThemeProvider] localStorage read failed:', error);
+  const storage = createStorageHandler('localStorage');
+  const stored = storage.get(storageKey);
+  
+  if (stored === 'light' || stored === 'dark' || stored === 'auto') {
+    return stored;
   }
 
   return null;
@@ -116,12 +114,8 @@ export function storeThemeMode(
     return;
   }
 
-  try {
-    localStorage.setItem(storageKey, mode);
-  } catch (error) {
-    // Log error for debugging but don't throw
-    console.warn('[ThemeProvider] localStorage write failed:', error);
-  }
+  const storage = createStorageHandler('localStorage');
+  storage.set(storageKey, mode);
 }
 
 export function mergeThemes(base: Theme, override?: Partial<Theme>): Theme {
