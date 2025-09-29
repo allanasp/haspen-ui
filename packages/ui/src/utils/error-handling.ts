@@ -39,18 +39,19 @@ export function createErrorBoundary(options: ErrorBoundaryOptions = {}) {
 
   return function errorBoundary<T extends (...args: any[]) => any>(
     fn: T,
-    context?: ErrorContext
+    context?: ErrorContext,
   ): T {
     return ((...args: Parameters<T>): ReturnType<T> | void => {
       try {
         return fn(...args);
       } catch (error) {
-        const componentError = error instanceof ComponentError 
-          ? error 
-          : new ComponentError(
-              error instanceof Error ? error.message : String(error),
-              context
-            );
+        const componentError =
+          error instanceof ComponentError
+            ? error
+            : new ComponentError(
+                error instanceof Error ? error.message : String(error),
+                context,
+              );
 
         // Call custom error handler if provided
         if (onError) {
@@ -97,7 +98,7 @@ export const logger = {
 
   error(message: string, context?: ErrorContext) {
     const error = new ComponentError(message, context);
-    
+
     if (process.env.NODE_ENV === 'development') {
       console.error('[Haspen UI Error]', {
         message: error.message,
@@ -123,17 +124,19 @@ export const logger = {
 /**
  * Storage error handler with graceful fallbacks
  */
-export function createStorageHandler(storageType: 'localStorage' | 'sessionStorage' = 'localStorage') {
+export function createStorageHandler(
+  storageType: 'localStorage' | 'sessionStorage' = 'localStorage',
+) {
   const storage = typeof window !== 'undefined' ? window[storageType] : null;
-  
+
   return {
     get(key: string, fallback: string | null = null): string | null {
       if (!storage) {
-        logger.warn('Storage not available', { 
+        logger.warn('Storage not available', {
           component: 'StorageHandler',
           action: 'get',
           severity: 'low',
-          metadata: { key, storageType }
+          metadata: { key, storageType },
         });
         return fallback;
       }
@@ -145,7 +148,7 @@ export function createStorageHandler(storageType: 'localStorage' | 'sessionStora
           component: 'StorageHandler',
           action: 'get',
           severity: 'medium',
-          metadata: { key, storageType, error: String(error) }
+          metadata: { key, storageType, error: String(error) },
         });
         return fallback;
       }
@@ -157,7 +160,7 @@ export function createStorageHandler(storageType: 'localStorage' | 'sessionStora
           component: 'StorageHandler',
           action: 'set',
           severity: 'low',
-          metadata: { key, storageType }
+          metadata: { key, storageType },
         });
         return false;
       }
@@ -170,7 +173,7 @@ export function createStorageHandler(storageType: 'localStorage' | 'sessionStora
           component: 'StorageHandler',
           action: 'set',
           severity: 'medium',
-          metadata: { key, storageType, error: String(error) }
+          metadata: { key, storageType, error: String(error) },
         });
         return false;
       }
@@ -182,7 +185,7 @@ export function createStorageHandler(storageType: 'localStorage' | 'sessionStora
           component: 'StorageHandler',
           action: 'remove',
           severity: 'low',
-          metadata: { key, storageType }
+          metadata: { key, storageType },
         });
         return false;
       }
@@ -195,7 +198,7 @@ export function createStorageHandler(storageType: 'localStorage' | 'sessionStora
           component: 'StorageHandler',
           action: 'remove',
           severity: 'medium',
-          metadata: { key, storageType, error: String(error) }
+          metadata: { key, storageType, error: String(error) },
         });
         return false;
       }
@@ -217,7 +220,7 @@ export function createAssetHandler() {
           component: 'IconProvider',
           action: 'loadIcon',
           severity: 'low',
-          metadata: { iconName: name, error: String(error) }
+          metadata: { iconName: name, error: String(error) },
         });
 
         if (fallback) {
@@ -241,19 +244,28 @@ export function createValidationHandler() {
           component: 'ValidationHandler',
           action: 'validateRequired',
           severity: 'high',
-          metadata: { fieldName, value }
+          metadata: { fieldName, value },
         });
       }
       return value;
     },
 
-    validateType<T>(value: unknown, expectedType: string, fieldName: string): T {
+    validateType<T>(
+      value: unknown,
+      expectedType: string,
+      fieldName: string,
+    ): T {
       if (typeof value !== expectedType) {
         throw logger.error(`${fieldName} must be of type ${expectedType}`, {
           component: 'ValidationHandler',
           action: 'validateType',
           severity: 'high',
-          metadata: { fieldName, expectedType, actualType: typeof value, value }
+          metadata: {
+            fieldName,
+            expectedType,
+            actualType: typeof value,
+            value,
+          },
         });
       }
       return value as T;

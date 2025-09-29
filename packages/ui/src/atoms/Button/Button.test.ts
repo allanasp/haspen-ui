@@ -2,7 +2,10 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import Button from './Button.vue';
-import { testComponentAccessibility, configureHaspenAxe } from '../../test-utils/accessibility';
+import {
+  testComponentAccessibility,
+  configureHaspenAxe,
+} from '../../test-utils/accessibility';
 
 // Configure axe for tests
 configureHaspenAxe();
@@ -52,7 +55,7 @@ describe('Button', () => {
       // Test Space key activation
       await button.trigger('keydown', { key: ' ' });
       await button.trigger('keyup', { key: ' ' });
-      
+
       // Test Enter key activation
       await button.trigger('keydown', { key: 'Enter' });
       await button.trigger('keyup', { key: 'Enter' });
@@ -68,7 +71,7 @@ describe('Button', () => {
       });
 
       const button = wrapper.find('button');
-      
+
       // Simulate focus by checking element properties
       expect(button.element.tagName).toBe('BUTTON');
       expect(button.element.tabIndex).toBeGreaterThanOrEqual(0);
@@ -135,7 +138,7 @@ describe('Button', () => {
           default: 'Button',
         },
       });
-      
+
       expect(wrapper.exists()).toBe(true);
     });
   });

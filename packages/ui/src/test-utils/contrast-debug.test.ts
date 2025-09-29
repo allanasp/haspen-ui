@@ -47,7 +47,7 @@ describe('Color Contrast Debug Analysis', () => {
       colors: `#e65100 on #ffffff`,
       ratio: warningResult.ratio,
       passes: warningResult.passes,
-      level: warningResult.level
+      level: warningResult.level,
     });
 
     const borderResult = testColorContrast('#9e9e9e', '#ffffff', true);
@@ -55,7 +55,7 @@ describe('Color Contrast Debug Analysis', () => {
       colors: `#9e9e9e on #ffffff`,
       ratio: borderResult.ratio,
       passes: borderResult.passes,
-      level: borderResult.level
+      level: borderResult.level,
     });
 
     const dividerResult = testColorContrast('#bdbdbd', '#ffffff', true);
@@ -63,7 +63,7 @@ describe('Color Contrast Debug Analysis', () => {
       colors: `#bdbdbd on #ffffff`,
       ratio: dividerResult.ratio,
       passes: dividerResult.passes,
-      level: dividerResult.level
+      level: dividerResult.level,
     });
 
     // Test better colors
@@ -71,21 +71,21 @@ describe('Color Contrast Debug Analysis', () => {
     console.log('Better Light Warning (#d84315):', {
       ratio: betterWarning.ratio,
       passes: betterWarning.passes,
-      level: betterWarning.level
+      level: betterWarning.level,
     });
 
     const betterBorder = testColorContrast('#757575', '#ffffff', true);
     console.log('Better Light Border (#757575):', {
       ratio: betterBorder.ratio,
       passes: betterBorder.passes,
-      level: betterBorder.level
+      level: betterBorder.level,
     });
 
     const betterDivider = testColorContrast('#9e9e9e', '#ffffff', true);
     console.log('Better Light Divider (#9e9e9e):', {
       ratio: betterDivider.ratio,
       passes: betterDivider.passes,
-      level: betterDivider.level
+      level: betterDivider.level,
     });
   });
 
@@ -96,7 +96,7 @@ describe('Color Contrast Debug Analysis', () => {
       colors: `#ffffff on #42a5f5`,
       ratio: darkPrimaryButton.ratio,
       passes: darkPrimaryButton.passes,
-      level: darkPrimaryButton.level
+      level: darkPrimaryButton.level,
     });
 
     // Test better dark primary
@@ -104,14 +104,14 @@ describe('Color Contrast Debug Analysis', () => {
     console.log('White on Better Dark Primary (#1976d2):', {
       ratio: betterDarkPrimary.ratio,
       passes: betterDarkPrimary.passes,
-      level: betterDarkPrimary.level
+      level: betterDarkPrimary.level,
     });
 
     const evenBetterDarkPrimary = testColorContrast('#ffffff', '#1565c0');
     console.log('White on Even Better Dark Primary (#1565c0):', {
       ratio: evenBetterDarkPrimary.ratio,
       passes: evenBetterDarkPrimary.passes,
-      level: evenBetterDarkPrimary.level
+      level: evenBetterDarkPrimary.level,
     });
   });
 });

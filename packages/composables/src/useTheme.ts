@@ -78,7 +78,7 @@ const createFallbackTheme = (): Theme => ({
 const createFallbackContext = (): ThemeProviderContext => {
   const fallbackTheme = createFallbackTheme();
   const mode = ref<'light' | 'dark' | 'auto'>('light');
-  
+
   return {
     theme: computed(() => fallbackTheme),
     mode: computed(() => mode.value),
@@ -93,7 +93,9 @@ const createFallbackContext = (): ThemeProviderContext => {
       console.warn('[useTheme] ThemeProvider not found, using fallback theme');
     },
     applyTheme: () => {
-      console.warn('[useTheme] ThemeProvider not found, cannot apply theme to DOM');
+      console.warn(
+        '[useTheme] ThemeProvider not found, cannot apply theme to DOM',
+      );
     },
   };
 };
@@ -105,9 +107,9 @@ export function useTheme(): ThemeProviderContext {
     // Instead of throwing, provide fallback with warning
     console.warn(
       '[useTheme] ThemeProvider not found. Using fallback theme. ' +
-      'For full functionality, wrap your app with <ThemeProvider>.',
+        'For full functionality, wrap your app with <ThemeProvider>.',
     );
-    
+
     return createFallbackContext();
   }
 

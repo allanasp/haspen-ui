@@ -463,11 +463,11 @@ const customTheme = {
   `,
   setup() {
     const theme = useTheme();
-    
+
     // Custom theme demo
     const customPrimary = ref('#0059b3');
     const customSecondary = ref('#6c757d');
-    
+
     const customThemeStyles = computed(() => ({
       '--custom-primary': customPrimary.value,
       '--custom-secondary': customSecondary.value,
@@ -476,7 +476,7 @@ const customTheme = {
     // Spacing values for demo
     const spacingValues = ref({
       xs: '0.25rem',
-      sm: '0.5rem', 
+      sm: '0.5rem',
       md: '1rem',
       lg: '1.5rem',
       xl: '2rem',
@@ -487,27 +487,97 @@ const customTheme = {
 
     // CSS Variables reference data
     const colorVariables = ref([
-      { name: '--haspen-color-primary', value: getComputedStyle(document.documentElement).getPropertyValue('--haspen-color-primary'), description: 'Primary brand color' },
-      { name: '--haspen-color-secondary', value: getComputedStyle(document.documentElement).getPropertyValue('--haspen-color-secondary'), description: 'Secondary actions' },
-      { name: '--haspen-color-background', value: getComputedStyle(document.documentElement).getPropertyValue('--haspen-color-background'), description: 'Page background' },
-      { name: '--haspen-color-surface', value: getComputedStyle(document.documentElement).getPropertyValue('--haspen-color-surface'), description: 'Card surfaces' },
-      { name: '--haspen-color-text', value: getComputedStyle(document.documentElement).getPropertyValue('--haspen-color-text'), description: 'Primary text' },
+      {
+        name: '--haspen-color-primary',
+        value: getComputedStyle(document.documentElement).getPropertyValue(
+          '--haspen-color-primary',
+        ),
+        description: 'Primary brand color',
+      },
+      {
+        name: '--haspen-color-secondary',
+        value: getComputedStyle(document.documentElement).getPropertyValue(
+          '--haspen-color-secondary',
+        ),
+        description: 'Secondary actions',
+      },
+      {
+        name: '--haspen-color-background',
+        value: getComputedStyle(document.documentElement).getPropertyValue(
+          '--haspen-color-background',
+        ),
+        description: 'Page background',
+      },
+      {
+        name: '--haspen-color-surface',
+        value: getComputedStyle(document.documentElement).getPropertyValue(
+          '--haspen-color-surface',
+        ),
+        description: 'Card surfaces',
+      },
+      {
+        name: '--haspen-color-text',
+        value: getComputedStyle(document.documentElement).getPropertyValue(
+          '--haspen-color-text',
+        ),
+        description: 'Primary text',
+      },
     ]);
 
     const spacingVariables = ref([
-      { name: '--haspen-spacing-xs', value: '0.25rem', description: 'Extra small spacing' },
-      { name: '--haspen-spacing-sm', value: '0.5rem', description: 'Small spacing' },
-      { name: '--haspen-spacing-md', value: '1rem', description: 'Medium spacing' },
-      { name: '--haspen-spacing-lg', value: '1.5rem', description: 'Large spacing' },
-      { name: '--haspen-spacing-xl', value: '2rem', description: 'Extra large spacing' },
+      {
+        name: '--haspen-spacing-xs',
+        value: '0.25rem',
+        description: 'Extra small spacing',
+      },
+      {
+        name: '--haspen-spacing-sm',
+        value: '0.5rem',
+        description: 'Small spacing',
+      },
+      {
+        name: '--haspen-spacing-md',
+        value: '1rem',
+        description: 'Medium spacing',
+      },
+      {
+        name: '--haspen-spacing-lg',
+        value: '1.5rem',
+        description: 'Large spacing',
+      },
+      {
+        name: '--haspen-spacing-xl',
+        value: '2rem',
+        description: 'Extra large spacing',
+      },
     ]);
 
     const typographyVariables = ref([
-      { name: '--haspen-font-size-sm', value: '0.875rem', description: 'Small text size' },
-      { name: '--haspen-font-size-base', value: '1rem', description: 'Base text size' },
-      { name: '--haspen-font-size-lg', value: '1.125rem', description: 'Large text size' },
-      { name: '--haspen-font-weight-normal', value: '400', description: 'Normal weight' },
-      { name: '--haspen-font-weight-bold', value: '700', description: 'Bold weight' },
+      {
+        name: '--haspen-font-size-sm',
+        value: '0.875rem',
+        description: 'Small text size',
+      },
+      {
+        name: '--haspen-font-size-base',
+        value: '1rem',
+        description: 'Base text size',
+      },
+      {
+        name: '--haspen-font-size-lg',
+        value: '1.125rem',
+        description: 'Large text size',
+      },
+      {
+        name: '--haspen-font-weight-normal',
+        value: '400',
+        description: 'Normal weight',
+      },
+      {
+        name: '--haspen-font-weight-bold',
+        value: '700',
+        description: 'Bold weight',
+      },
     ]);
 
     function getColorValue(colorName: string): string {
@@ -518,8 +588,14 @@ const customTheme = {
 
     function updateCustomTheme() {
       // Update CSS custom properties for live preview
-      document.documentElement.style.setProperty('--custom-primary', customPrimary.value);
-      document.documentElement.style.setProperty('--custom-secondary', customSecondary.value);
+      document.documentElement.style.setProperty(
+        '--custom-primary',
+        customPrimary.value,
+      );
+      document.documentElement.style.setProperty(
+        '--custom-secondary',
+        customSecondary.value,
+      );
     }
 
     function resetCustomTheme() {
@@ -556,7 +632,7 @@ const meta: Meta = {
   title: 'Theme/Documentation',
   component: ThemeDocumentationDemo,
   decorators: [
-    (story) => ({
+    story => ({
       components: { story, ThemeProvider },
       template: '<ThemeProvider><story /></ThemeProvider>',
     }),
@@ -627,7 +703,8 @@ export const InteractiveDocumentation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Complete interactive documentation of the theme system with live examples and customization tools.',
+        story:
+          'Complete interactive documentation of the theme system with live examples and customization tools.',
       },
     },
   },
@@ -743,7 +820,8 @@ export const ColorSystem: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Overview of the complete color system with semantic usage and theme switching.',
+        story:
+          'Overview of the complete color system with semantic usage and theme switching.',
       },
     },
   },
@@ -819,7 +897,8 @@ export const TypographySystem: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Typography system showcasing font families, sizes, and weights with theme integration.',
+        story:
+          'Typography system showcasing font families, sizes, and weights with theme integration.',
       },
     },
   },
@@ -884,7 +963,8 @@ export const DarkModeShowcase: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Dark mode features including automatic switching, accessibility, transitions, and persistence.',
+        story:
+          'Dark mode features including automatic switching, accessibility, transitions, and persistence.',
       },
     },
   },
@@ -898,7 +978,7 @@ export const CustomizationDemo: Story = {
         colors: {
           primary: '#e91e63',
           secondary: '#9c27b0',
-        }
+        },
       });
 
       return { customTheme };
@@ -934,7 +1014,8 @@ export const CustomizationDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Example of theme customization using custom colors while maintaining all other theme features.',
+        story:
+          'Example of theme customization using custom colors while maintaining all other theme features.',
       },
     },
   },

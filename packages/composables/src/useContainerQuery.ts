@@ -6,12 +6,12 @@ export interface UseContainerQueryOptions {
    * If not provided, will use the parent element of the component
    */
   container?: Ref<HTMLElement | null> | HTMLElement | null;
-  
+
   /**
    * Container query string (e.g., '(min-width: 320px)')
    */
   query: string;
-  
+
   /**
    * Whether to enable the query immediately
    * @default true
@@ -24,17 +24,17 @@ export interface UseContainerQueryReturn {
    * Whether the container query matches
    */
   matches: Ref<boolean>;
-  
+
   /**
    * Whether container queries are supported by the browser
    */
   isSupported: Ref<boolean>;
-  
+
   /**
    * Start observing the container query
    */
   start: () => void;
-  
+
   /**
    * Stop observing the container query
    */
@@ -43,7 +43,7 @@ export interface UseContainerQueryReturn {
 
 /**
  * Vue composable for container queries
- * 
+ *
  * @example
  * ```vue
  * <template>
@@ -52,11 +52,11 @@ export interface UseContainerQueryReturn {
  *     <div v-else>Small container content</div>
  *   </div>
  * </template>
- * 
+ *
  * <script setup>
  * import { ref } from 'vue'
  * import { useContainerQuery } from '@haspen-ui/composables'
- * 
+ *
  * const containerRef = ref()
  * const { matches } = useContainerQuery({
  *   container: containerRef,
@@ -65,15 +65,17 @@ export interface UseContainerQueryReturn {
  * </script>
  * ```
  */
-export function useContainerQuery(options: UseContainerQueryOptions): UseContainerQueryReturn {
+export function useContainerQuery(
+  options: UseContainerQueryOptions,
+): UseContainerQueryReturn {
   const { query, enabled = true } = options;
-  
+
   const matches = ref(false);
   const isSupported = ref(false);
-  
+
   let resizeObserver: ResizeObserver | null = null;
   let containerElement: HTMLElement | null = null;
-  
+
   // Check browser support for container queries
   const checkSupport = () => {
     try {
@@ -85,15 +87,15 @@ export function useContainerQuery(options: UseContainerQueryOptions): UseContain
       isSupported.value = false;
     }
   };
-  
+
   // Parse container query to extract breakpoint
   const parseQuery = (queryString: string): number | null => {
     const match = queryString.match(/min-width:\s*(\d+(?:\.\d+)?)(px|rem|em)/i);
     if (!match) return null;
-    
+
     const value = parseFloat(match[1]);
     const unit = match[2].toLowerCase();
-    
+
     switch (unit) {
       case 'px':
         return value;
@@ -105,31 +107,32 @@ export function useContainerQuery(options: UseContainerQueryOptions): UseContain
         return null;
     }
   };
-  
+
   // Fallback for browsers without container query support
   const checkMatchesFallback = (width: number, threshold: number): boolean => {
     const isMinWidth = query.includes('min-width');
     const isMaxWidth = query.includes('max-width');
-    
+
     if (isMinWidth) {
       return width >= threshold;
     } else if (isMaxWidth) {
       return width <= threshold;
     }
-    
+
     return false;
   };
-  
+
   // Update matches based on container size
   const updateMatches = () => {
     if (!containerElement) return;
-    
+
     if (isSupported.value) {
       // Use native container query support if available
       try {
         const computedStyle = getComputedStyle(containerElement);
-        const hasContainerType = computedStyle.getPropertyValue('container-type') !== '';
-        
+        const hasContainerType =
+          computedStyle.getPropertyValue('container-type') !== '';
+
         if (hasContainerType) {
           // For browsers with container query support, we'll rely on CSS
           // This is mainly for detecting support, actual matching is done via CSS
@@ -140,7 +143,7 @@ export function useContainerQuery(options: UseContainerQueryOptions): UseContain
         // Fall through to manual calculation
       }
     }
-    
+
     // Fallback: manually check container size
     const threshold = parseQuery(query);
     if (threshold !== null) {
@@ -148,11 +151,11 @@ export function useContainerQuery(options: UseContainerQueryOptions): UseContain
       matches.value = checkMatchesFallback(containerRect.width, threshold);
     }
   };
-  
+
   // Start observing container size changes
   const start = () => {
     if (!enabled) return;
-    
+
     // Get container element
     if (options.container) {
       if ('value' in options.container) {
@@ -161,22 +164,22 @@ export function useContainerQuery(options: UseContainerQueryOptions): UseContain
         containerElement = options.container;
       }
     }
-    
+
     if (!containerElement) return;
-    
+
     // Set up ResizeObserver for fallback support
     if (!isSupported.value && 'ResizeObserver' in window) {
       resizeObserver = new ResizeObserver(() => {
         updateMatches();
       });
-      
+
       resizeObserver.observe(containerElement);
     }
-    
+
     // Initial check
     updateMatches();
   };
-  
+
   // Stop observing
   const stop = () => {
     if (resizeObserver) {
@@ -184,18 +187,18 @@ export function useContainerQuery(options: UseContainerQueryOptions): UseContain
       resizeObserver = null;
     }
   };
-  
+
   onMounted(() => {
     checkSupport();
     if (enabled) {
       start();
     }
   });
-  
+
   onUnmounted(() => {
     stop();
   });
-  
+
   return {
     matches,
     isSupported,
@@ -226,7 +229,7 @@ export const useResponsiveCard = (container?: Ref<HTMLElement | null>) => {
   const sm = useContainerQuerySm(container);
   const md = useContainerQueryMd(container);
   const lg = useContainerQueryLg(container);
-  
+
   return {
     isCompact: ref(() => !sm.matches.value),
     isNormal: ref(() => sm.matches.value && !lg.matches.value),

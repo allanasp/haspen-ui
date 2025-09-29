@@ -20,17 +20,20 @@ export type {
 
 // ClickOutside
 export { useClickOutside } from './clickOutside/useClickOutside';
-export type { UseClickOutsideOptions, UseClickOutsideReturn } from './clickOutside/useClickOutside';
+export type {
+  UseClickOutsideOptions,
+  UseClickOutsideReturn,
+} from './clickOutside/useClickOutside';
 
 // Registered Properties
-export { 
-  useRegisteredProperties, 
-  usePropertyName, 
-  useCSSProperty
+export {
+  useRegisteredProperties,
+  usePropertyName,
+  useCSSProperty,
 } from './useRegisteredProperties';
 export type {
   UseRegisteredPropertiesOptions,
-  UseRegisteredPropertiesReturn 
+  UseRegisteredPropertiesReturn,
 } from './useRegisteredProperties';
 
 // Container Queries
@@ -40,9 +43,9 @@ export {
   useContainerQueryMd,
   useContainerQueryLg,
   useContainerQueryXl,
-  useResponsiveCard
+  useResponsiveCard,
 } from './useContainerQuery';
 export type {
   UseContainerQueryOptions,
-  UseContainerQueryReturn
+  UseContainerQueryReturn,
 } from './useContainerQuery';

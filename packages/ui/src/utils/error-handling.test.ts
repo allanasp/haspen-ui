@@ -1,11 +1,11 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { 
+import {
   ComponentError,
   createErrorBoundary,
   logger,
   createStorageHandler,
   createAssetHandler,
-  createValidationHandler
+  createValidationHandler,
 } from './error-handling';
 
 // Mock console methods
@@ -55,34 +55,40 @@ describe('Error Handling Utilities', () => {
 
     it('catches errors and calls error handler', () => {
       const mockError = new Error('Test error');
-      const mockFn = vi.fn(() => { throw mockError; });
+      const mockFn = vi.fn(() => {
+        throw mockError;
+      });
       const onError = vi.fn();
       const fallback = vi.fn();
 
       const boundaryFn = createErrorBoundary({ onError, fallback })(mockFn);
-      
+
       boundaryFn();
 
       expect(onError).toHaveBeenCalledWith(
         expect.any(ComponentError),
-        undefined
+        undefined,
       );
       expect(fallback).toHaveBeenCalledOnce();
     });
 
     it('executes fallback when error occurs', () => {
-      const mockFn = vi.fn(() => { throw new Error('Test error'); });
+      const mockFn = vi.fn(() => {
+        throw new Error('Test error');
+      });
       const fallback = vi.fn();
 
       const boundaryFn = createErrorBoundary({ fallback })(mockFn);
-      
+
       boundaryFn();
 
       expect(fallback).toHaveBeenCalledOnce();
     });
 
     it('re-throws critical errors', () => {
-      const mockFn = vi.fn(() => { throw new Error('Critical error'); });
+      const mockFn = vi.fn(() => {
+        throw new Error('Critical error');
+      });
       const context = { severity: 'critical' as const };
 
       const boundaryFn = createErrorBoundary()(mockFn, context);
@@ -91,10 +97,12 @@ describe('Error Handling Utilities', () => {
     });
 
     it('silences errors when silent option is true', () => {
-      const mockFn = vi.fn(() => { throw new Error('Silent error'); });
+      const mockFn = vi.fn(() => {
+        throw new Error('Silent error');
+      });
 
       const boundaryFn = createErrorBoundary({ silent: true })(mockFn);
-      
+
       boundaryFn();
 
       expect(console.error).not.toHaveBeenCalled();
@@ -114,7 +122,7 @@ describe('Error Handling Utilities', () => {
           message: 'Test warning',
           context: { component: 'TestComponent' },
           timestamp: expect.any(String),
-        })
+        }),
       );
 
       process.env.NODE_ENV = originalEnv;
@@ -156,7 +164,7 @@ describe('Error Handling Utilities', () => {
           message: 'Test info',
           data: { key: 'value' },
           timestamp: expect.any(String),
-        })
+        }),
       );
 
       process.env.NODE_ENV = originalEnv;
@@ -204,7 +212,10 @@ describe('Error Handling Utilities', () => {
       const result = storage.set('test-key', 'test-value');
 
       expect(result).toBe(true);
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('test-key', 'test-value');
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith(
+        'test-key',
+        'test-value',
+      );
     });
 
     it('returns false when storage set fails', () => {
@@ -265,19 +276,33 @@ describe('Error Handling Utilities', () => {
     it('throws error for missing required values', () => {
       expect(() => validator.validateRequired('', 'testField')).toThrow();
       expect(() => validator.validateRequired(null, 'testField')).toThrow();
-      expect(() => validator.validateRequired(undefined, 'testField')).toThrow();
+      expect(() =>
+        validator.validateRequired(undefined, 'testField'),
+      ).toThrow();
     });
 
     it('validates types successfully', () => {
-      expect(validator.validateType<string>('value', 'string', 'testField')).toBe('value');
-      expect(validator.validateType<number>(123, 'number', 'numberField')).toBe(123);
-      expect(validator.validateType<boolean>(true, 'boolean', 'booleanField')).toBe(true);
+      expect(
+        validator.validateType<string>('value', 'string', 'testField'),
+      ).toBe('value');
+      expect(validator.validateType<number>(123, 'number', 'numberField')).toBe(
+        123,
+      );
+      expect(
+        validator.validateType<boolean>(true, 'boolean', 'booleanField'),
+      ).toBe(true);
     });
 
     it('throws error for incorrect types', () => {
-      expect(() => validator.validateType<string>(123, 'string', 'testField')).toThrow();
-      expect(() => validator.validateType<number>('123', 'number', 'numberField')).toThrow();
-      expect(() => validator.validateType<boolean>('true', 'boolean', 'booleanField')).toThrow();
+      expect(() =>
+        validator.validateType<string>(123, 'string', 'testField'),
+      ).toThrow();
+      expect(() =>
+        validator.validateType<number>('123', 'number', 'numberField'),
+      ).toThrow();
+      expect(() =>
+        validator.validateType<boolean>('true', 'boolean', 'booleanField'),
+      ).toThrow();
     });
   });
 });

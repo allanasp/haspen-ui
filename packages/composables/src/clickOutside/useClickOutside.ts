@@ -14,7 +14,7 @@ export function useClickOutside(
   options: UseClickOutsideOptions = {},
 ): UseClickOutsideReturn {
   const { enabled = true, callback } = options;
-  
+
   const targetRef = ref<HTMLElement | null>(null);
   const isClickedOutside = ref(false);
 
@@ -23,9 +23,9 @@ export function useClickOutside(
 
     const target = event.target as Node;
     const clickedOutside = !targetRef.value.contains(target);
-    
+
     isClickedOutside.value = clickedOutside;
-    
+
     if (clickedOutside && callback) {
       callback(event);
     }

@@ -3,7 +3,10 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 
   h2 {
     color: var(--haspen-color-primary, #0059b3);
@@ -47,13 +50,16 @@
     color: var(--haspen-color-text-primary, #333333);
   }
 
-  input, select {
+  input,
+  select {
     flex: 1;
     padding: 0.5rem 0.75rem;
     border: 1px solid var(--haspen-color-border, #e1e5e9);
     border-radius: 4px;
     font-size: 0.9rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s;
 
     &:focus {
       outline: none;
@@ -428,7 +434,7 @@
   .field-group {
     grid-template-columns: 1fr;
     gap: 0.5rem;
-    
+
     label {
       font-weight: 600;
     }

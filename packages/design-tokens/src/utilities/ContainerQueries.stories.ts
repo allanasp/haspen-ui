@@ -456,7 +456,8 @@ export const Overview: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Complete overview of container query utilities with interactive examples and real-world patterns.',
+        story:
+          'Complete overview of container query utilities with interactive examples and real-world patterns.',
       },
     },
   },
@@ -506,7 +507,8 @@ export const BasicExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Basic container query examples showing cards and grids that adapt to their container size.',
+        story:
+          'Basic container query examples showing cards and grids that adapt to their container size.',
       },
     },
   },
@@ -555,7 +557,8 @@ export const NamedContainers: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Examples using named containers for specific styling patterns and behaviors.',
+        story:
+          'Examples using named containers for specific styling patterns and behaviors.',
       },
     },
   },

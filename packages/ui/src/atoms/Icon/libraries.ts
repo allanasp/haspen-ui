@@ -18,10 +18,12 @@ export const haspenIcons = {
  * Create configuration for Heroicons
  * Requires @heroicons/vue to be installed
  */
-export function createHeroiconsConfig(options: {
-  variant?: 'outline' | 'solid' | 'mini';
-  prefix?: string;
-} = {}): Partial<IconConfig> {
+export function createHeroiconsConfig(
+  options: {
+    variant?: 'outline' | 'solid' | 'mini';
+    prefix?: string;
+  } = {},
+): Partial<IconConfig> {
   return {
     library: 'heroicons',
     prefix: options.prefix || 'heroicon',
@@ -37,10 +39,12 @@ export function createHeroiconsConfig(options: {
  * Create configuration for Lucide icons
  * Requires lucide-vue-next to be installed
  */
-export function createLucideConfig(options: {
-  strokeWidth?: number;
-  prefix?: string;
-} = {}): Partial<IconConfig> {
+export function createLucideConfig(
+  options: {
+    strokeWidth?: number;
+    prefix?: string;
+  } = {},
+): Partial<IconConfig> {
   return {
     library: 'lucide',
     prefix: options.prefix || 'lucide',
@@ -60,12 +64,12 @@ export function createCustomIconsConfig(
   options: {
     prefix?: string;
     includeBuiltIn?: boolean;
-  } = {}
+  } = {},
 ): Partial<IconConfig> {
-  const allIcons = options.includeBuiltIn 
+  const allIcons = options.includeBuiltIn
     ? { ...haspenIcons, ...icons }
     : icons;
-    
+
   return {
     library: 'custom',
     icons: allIcons,
@@ -77,30 +81,32 @@ export function createCustomIconsConfig(
  * Hybrid configuration that supports multiple libraries
  * Falls back to custom icons if external library fails
  */
-export function createHybridIconsConfig(options: {
-  primary: 'heroicons' | 'lucide';
-  fallbackIcons?: Record<string, any>;
-  prefix?: string;
-} = { primary: 'heroicons' }): Partial<IconConfig> {
+export function createHybridIconsConfig(
+  options: {
+    primary: 'heroicons' | 'lucide';
+    fallbackIcons?: Record<string, any>;
+    prefix?: string;
+  } = { primary: 'heroicons' },
+): Partial<IconConfig> {
   const fallbacks = {
     ...haspenIcons,
     ...options.fallbackIcons,
   };
-  
+
   if (options.primary === 'heroicons') {
     return {
       ...createHeroiconsConfig({ prefix: options.prefix }),
       icons: fallbacks,
     };
   }
-  
+
   if (options.primary === 'lucide') {
     return {
       ...createLucideConfig({ prefix: options.prefix }),
       icons: fallbacks,
     };
   }
-  
+
   return createCustomIconsConfig(fallbacks, { prefix: options.prefix });
 }
 
@@ -115,16 +121,16 @@ export const iconMappings = {
     'chevron-down': ['ChevronDown', 'chevron-down', 'arrow-down'],
     'chevron-left': ['ChevronLeft', 'chevron-left', 'arrow-left'],
     'chevron-right': ['ChevronRight', 'chevron-right', 'arrow-right'],
-    'x': ['X', 'x', 'close'],
-    'menu': ['Menu', 'menu', 'bars'],
-    'search': ['Search', 'search', 'magnifying-glass'],
-    'sun': ['Sun', 'sun', 'light-mode'],
-    'moon': ['Moon', 'moon', 'dark-mode'],
-    'user': ['User', 'user', 'person'],
-    'home': ['Home', 'home', 'house'],
-    'settings': ['Settings', 'settings', 'cog'],
+    x: ['X', 'x', 'close'],
+    menu: ['Menu', 'menu', 'bars'],
+    search: ['Search', 'search', 'magnifying-glass'],
+    sun: ['Sun', 'sun', 'light-mode'],
+    moon: ['Moon', 'moon', 'dark-mode'],
+    user: ['User', 'user', 'person'],
+    home: ['Home', 'home', 'house'],
+    settings: ['Settings', 'settings', 'cog'],
   },
-  
+
   // Heroicons to Lucide mapping
   heroiconsToLucide: {
     'chevron-up': 'ChevronUp',
@@ -134,27 +140,27 @@ export const iconMappings = {
     'x-mark': 'X',
     'bars-3': 'Menu',
     'magnifying-glass': 'Search',
-    'sun': 'Sun',
-    'moon': 'Moon',
-    'user': 'User',
-    'home': 'Home',
-    'cog': 'Settings',
+    sun: 'Sun',
+    moon: 'Moon',
+    user: 'User',
+    home: 'Home',
+    cog: 'Settings',
   },
-  
+
   // Lucide to Heroicons mapping
   lucideToHeroicons: {
-    'ChevronUp': 'chevron-up',
-    'ChevronDown': 'chevron-down',
-    'ChevronLeft': 'chevron-left',
-    'ChevronRight': 'chevron-right',
-    'X': 'x-mark',
-    'Menu': 'bars-3',
-    'Search': 'magnifying-glass',
-    'Sun': 'sun',
-    'Moon': 'moon',
-    'User': 'user',
-    'Home': 'home',
-    'Settings': 'cog',
+    ChevronUp: 'chevron-up',
+    ChevronDown: 'chevron-down',
+    ChevronLeft: 'chevron-left',
+    ChevronRight: 'chevron-right',
+    X: 'x-mark',
+    Menu: 'bars-3',
+    Search: 'magnifying-glass',
+    Sun: 'sun',
+    Moon: 'moon',
+    User: 'user',
+    Home: 'home',
+    Settings: 'cog',
   },
 };
 
@@ -164,17 +170,17 @@ export const iconMappings = {
 export function mapIconName(
   iconName: string,
   from: 'heroicons' | 'lucide',
-  to: 'heroicons' | 'lucide'
+  to: 'heroicons' | 'lucide',
 ): string {
   if (from === to) return iconName;
-  
+
   if (from === 'heroicons' && to === 'lucide') {
     return iconMappings.heroiconsToLucide[iconName] || iconName;
   }
-  
+
   if (from === 'lucide' && to === 'heroicons') {
     return iconMappings.lucideToHeroicons[iconName] || iconName;
   }
-  
+
   return iconName;
 }

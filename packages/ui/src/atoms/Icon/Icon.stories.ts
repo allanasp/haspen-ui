@@ -62,7 +62,7 @@ import { Icon, IconProvider, haspenIcons } from '@haspen-ui/ui';
     },
   },
   decorators: [
-    (story) => ({
+    story => ({
       components: { story, IconProvider },
       setup() {
         return { haspenIcons };
@@ -88,7 +88,7 @@ export const Default: Story = {
 };
 
 export const AllSizes: Story = {
-  render: (args) => ({
+  render: args => ({
     components: { Icon, IconProvider },
     setup() {
       return { args, haspenIcons };
@@ -134,7 +134,7 @@ export const AllIcons: Story = {
 
 // Accessibility Examples
 export const AccessibilityDecorative: Story = {
-  render: (args) => ({
+  render: args => ({
     components: { Icon, IconProvider },
     setup() {
       return { args, haspenIcons };
@@ -156,14 +156,15 @@ export const AccessibilityDecorative: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Icons that are purely decorative should have `aria-hidden="true"`.',
+        story:
+          'Icons that are purely decorative should have `aria-hidden="true"`.',
       },
     },
   },
 };
 
 export const AccessibilitySemantic: Story = {
-  render: (args) => ({
+  render: args => ({
     components: { Icon, IconProvider },
     setup() {
       return { args, haspenIcons };
@@ -187,7 +188,8 @@ export const AccessibilitySemantic: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Icons with semantic meaning should have appropriate `aria-label` attributes.',
+        story:
+          'Icons with semantic meaning should have appropriate `aria-label` attributes.',
       },
     },
   },
@@ -195,7 +197,7 @@ export const AccessibilitySemantic: Story = {
 
 // Advanced Usage
 export const WithoutProvider: Story = {
-  render: (args) => ({
+  render: args => ({
     components: { Icon },
     setup() {
       return { args };
@@ -214,14 +216,15 @@ export const WithoutProvider: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Icons used without an IconProvider will show console warnings and may not render properly.',
+        story:
+          'Icons used without an IconProvider will show console warnings and may not render properly.',
       },
     },
   },
 };
 
 export const CustomPrefix: Story = {
-  render: (args) => ({
+  render: args => ({
     components: { Icon, IconProvider },
     setup() {
       return { args, haspenIcons };
@@ -242,7 +245,8 @@ export const CustomPrefix: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Use the `prefix` prop on IconProvider to add custom CSS classes for styling.',
+        story:
+          'Use the `prefix` prop on IconProvider to add custom CSS classes for styling.',
       },
     },
   },
@@ -283,7 +287,8 @@ export const LibraryConfiguration: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'The icon system can be configured to use different icon libraries. External libraries require separate installation.',
+        story:
+          'The icon system can be configured to use different icon libraries. External libraries require separate installation.',
       },
     },
   },
@@ -315,7 +320,8 @@ import { Icon, IconProvider, haspenIcons } from '@haspen-ui/ui';
   parameters: {
     docs: {
       description: {
-        story: 'The icon system is designed for optimal bundle size with automatic tree shaking.',
+        story:
+          'The icon system is designed for optimal bundle size with automatic tree shaking.',
       },
     },
   },

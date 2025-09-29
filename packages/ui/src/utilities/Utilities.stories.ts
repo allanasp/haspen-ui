@@ -222,20 +222,32 @@ const UtilitiesDemo = {
 
     // Phone demo
     const phoneNumber = ref('');
-    const phoneValidationClass = computed(() => 
-      phoneNumber.value ? (isValidPhoneNumber(phoneNumber.value) ? 'valid' : 'invalid') : ''
+    const phoneValidationClass = computed(() =>
+      phoneNumber.value
+        ? isValidPhoneNumber(phoneNumber.value)
+          ? 'valid'
+          : 'invalid'
+        : '',
     );
 
     // CPR demo
     const cprNumber = ref('');
-    const cprValidationClass = computed(() => 
-      cprNumber.value ? (isValidCPR(cprNumber.value) ? 'valid' : 'invalid') : ''
+    const cprValidationClass = computed(() =>
+      cprNumber.value
+        ? isValidCPR(cprNumber.value)
+          ? 'valid'
+          : 'invalid'
+        : '',
     );
 
     // Email demo
     const emailAddress = ref('');
-    const emailValidationClass = computed(() => 
-      emailAddress.value ? (isValidEmail(emailAddress.value) ? 'valid' : 'invalid') : ''
+    const emailValidationClass = computed(() =>
+      emailAddress.value
+        ? isValidEmail(emailAddress.value)
+          ? 'valid'
+          : 'invalid'
+        : '',
     );
 
     // Combined form
@@ -249,10 +261,12 @@ const UtilitiesDemo = {
     });
 
     const isFormValid = computed(() => {
-      return formData.value.name &&
-             isValidEmail(formData.value.email) &&
-             isValidCPR(formData.value.cpr) &&
-             isValidPhoneNumber(formData.value.phone);
+      return (
+        formData.value.name &&
+        isValidEmail(formData.value.email) &&
+        isValidCPR(formData.value.cpr) &&
+        isValidPhoneNumber(formData.value.phone)
+      );
     });
 
     return {
@@ -263,7 +277,7 @@ const UtilitiesDemo = {
       isValidCPR,
       isValidEmail,
       isValidPhoneNumber,
-      
+
       // Reactive data
       currencyAmount,
       currency,
@@ -339,7 +353,8 @@ export const InteractiveDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interactive playground for testing all Danish utility functions with real-time validation and formatting.',
+        story:
+          'Interactive playground for testing all Danish utility functions with real-time validation and formatting.',
       },
     },
   },
@@ -377,7 +392,8 @@ export const CurrencyFormatting: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates currency formatting with various amounts and currencies using Danish locale.',
+        story:
+          'Demonstrates currency formatting with various amounts and currencies using Danish locale.',
       },
     },
   },
@@ -418,7 +434,8 @@ export const DateFormatting: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Shows Danish date formatting with various date inputs and formats.',
+        story:
+          'Shows Danish date formatting with various date inputs and formats.',
       },
     },
   },
@@ -467,7 +484,8 @@ export const PhoneNumberValidation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates Danish phone number formatting and validation with valid and invalid examples.',
+        story:
+          'Demonstrates Danish phone number formatting and validation with valid and invalid examples.',
       },
     },
   },
@@ -531,7 +549,8 @@ export const CPRValidation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates CPR number validation with the modulus 11 algorithm used by Danish authorities.',
+        story:
+          'Demonstrates CPR number validation with the modulus 11 algorithm used by Danish authorities.',
       },
     },
   },
@@ -593,7 +612,8 @@ export const EmailValidation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Shows email validation with various valid and invalid email formats.',
+        story:
+          'Shows email validation with various valid and invalid email formats.',
       },
     },
   },
@@ -716,11 +736,13 @@ export const RealTimeFormValidation: Story = {
       });
 
       const isFormValid = computed(() => {
-        return form.value.name &&
-               isValidEmail(form.value.email) &&
-               isValidCPR(form.value.cpr) &&
-               isValidPhoneNumber(form.value.phone) &&
-               form.value.salary > 0;
+        return (
+          form.value.name &&
+          isValidEmail(form.value.email) &&
+          isValidCPR(form.value.cpr) &&
+          isValidPhoneNumber(form.value.phone) &&
+          form.value.salary > 0
+        );
       });
 
       const handleSubmit = () => {
@@ -744,7 +766,8 @@ export const RealTimeFormValidation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Complete Danish form with real-time validation using all utility functions together.',
+        story:
+          'Complete Danish form with real-time validation using all utility functions together.',
       },
     },
   },

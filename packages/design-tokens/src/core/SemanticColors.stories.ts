@@ -170,38 +170,38 @@ const BusinessIntentColors = {
         name: 'Brand',
         color: '#2563eb',
         textColor: '#ffffff',
-        usage: 'Primary brand actions and emphasis'
+        usage: 'Primary brand actions and emphasis',
       },
       {
         name: 'Success',
         color: '#16a34a',
         textColor: '#ffffff',
-        usage: 'Positive states and completion'
+        usage: 'Positive states and completion',
       },
       {
         name: 'Warning',
         color: '#f59e0b',
         textColor: '#ffffff',
-        usage: 'Cautionary content and notices'
+        usage: 'Cautionary content and notices',
       },
       {
         name: 'Error',
         color: '#dc2626',
         textColor: '#ffffff',
-        usage: 'Error states and destructive actions'
+        usage: 'Error states and destructive actions',
       },
       {
         name: 'Info',
         color: '#3b82f6',
         textColor: '#ffffff',
-        usage: 'Informational content and help'
+        usage: 'Informational content and help',
       },
       {
         name: 'Neutral',
         color: '#525252',
         textColor: '#ffffff',
-        usage: 'Secondary actions and neutral content'
-      }
+        usage: 'Secondary actions and neutral content',
+      },
     ];
 
     const intentVariations = [
@@ -210,32 +210,32 @@ const BusinessIntentColors = {
         variations: [
           { name: 'Light', color: '#3b82f6', textColor: '#ffffff' },
           { name: 'Default', color: '#2563eb', textColor: '#ffffff' },
-          { name: 'Dark', color: '#1d4ed8', textColor: '#ffffff' }
-        ]
+          { name: 'Dark', color: '#1d4ed8', textColor: '#ffffff' },
+        ],
       },
       {
         name: 'Success Variations',
         variations: [
           { name: 'Light', color: '#22c55e', textColor: '#ffffff' },
           { name: 'Default', color: '#16a34a', textColor: '#ffffff' },
-          { name: 'Dark', color: '#15803d', textColor: '#ffffff' }
-        ]
+          { name: 'Dark', color: '#15803d', textColor: '#ffffff' },
+        ],
       },
       {
         name: 'Error Variations',
         variations: [
           { name: 'Light', color: '#ef4444', textColor: '#ffffff' },
           { name: 'Default', color: '#dc2626', textColor: '#ffffff' },
-          { name: 'Dark', color: '#b91c1c', textColor: '#ffffff' }
-        ]
-      }
+          { name: 'Dark', color: '#b91c1c', textColor: '#ffffff' },
+        ],
+      },
     ];
 
     return {
       businessIntents,
-      intentVariations
+      intentVariations,
     };
-  }
+  },
 };
 
 const ComponentStates = {
@@ -342,17 +342,22 @@ const ComponentStates = {
           { name: 'Default', bg: '#2563eb', text: '#ffffff' },
           { name: 'Hover', bg: '#1d4ed8', text: '#ffffff' },
           { name: 'Active', bg: '#1e40af', text: '#ffffff' },
-          { name: 'Disabled', bg: '#d4d4d4', text: '#a3a3a3' }
-        ]
+          { name: 'Disabled', bg: '#d4d4d4', text: '#a3a3a3' },
+        ],
       },
       {
         name: 'Secondary',
         states: [
-          { name: 'Default', bg: '#f5f5f5', text: '#171717', border: '#e5e5e5' },
+          {
+            name: 'Default',
+            bg: '#f5f5f5',
+            text: '#171717',
+            border: '#e5e5e5',
+          },
           { name: 'Hover', bg: '#e5e5e5', text: '#171717' },
           { name: 'Active', bg: '#d4d4d4', text: '#171717' },
-          { name: 'Disabled', bg: '#fafafa', text: '#a3a3a3' }
-        ]
+          { name: 'Disabled', bg: '#fafafa', text: '#a3a3a3' },
+        ],
       },
       {
         name: 'Destructive',
@@ -360,16 +365,28 @@ const ComponentStates = {
           { name: 'Default', bg: '#dc2626', text: '#ffffff' },
           { name: 'Hover', bg: '#b91c1c', text: '#ffffff' },
           { name: 'Active', bg: '#991b1b', text: '#ffffff' },
-          { name: 'Disabled', bg: '#d4d4d4', text: '#a3a3a3' }
-        ]
-      }
+          { name: 'Disabled', bg: '#d4d4d4', text: '#a3a3a3' },
+        ],
+      },
     ];
 
     const inputStates = [
       { name: 'Default', bg: '#ffffff', text: '#171717', border: '#d4d4d4' },
-      { name: 'Focus', bg: '#ffffff', text: '#171717', border: '#2563eb', outline: 'rgba(37, 99, 235, 0.2)' },
-      { name: 'Error', bg: '#ffffff', text: '#171717', border: '#dc2626', outline: 'rgba(220, 38, 38, 0.2)' },
-      { name: 'Disabled', bg: '#fafafa', text: '#a3a3a3', border: '#e5e5e5' }
+      {
+        name: 'Focus',
+        bg: '#ffffff',
+        text: '#171717',
+        border: '#2563eb',
+        outline: 'rgba(37, 99, 235, 0.2)',
+      },
+      {
+        name: 'Error',
+        bg: '#ffffff',
+        text: '#171717',
+        border: '#dc2626',
+        outline: 'rgba(220, 38, 38, 0.2)',
+      },
+      { name: 'Disabled', bg: '#fafafa', text: '#a3a3a3', border: '#e5e5e5' },
     ];
 
     const alertStates = [
@@ -379,7 +396,7 @@ const ComponentStates = {
         text: '#166534',
         border: '#86efac',
         icon: '#16a34a',
-        iconText: '✓'
+        iconText: '✓',
       },
       {
         name: 'Warning',
@@ -387,7 +404,7 @@ const ComponentStates = {
         text: '#92400e',
         border: '#fcd34d',
         icon: '#f59e0b',
-        iconText: '!'
+        iconText: '!',
       },
       {
         name: 'Error',
@@ -395,7 +412,7 @@ const ComponentStates = {
         text: '#991b1b',
         border: '#fca5a5',
         icon: '#dc2626',
-        iconText: '✕'
+        iconText: '✕',
       },
       {
         name: 'Info',
@@ -403,16 +420,16 @@ const ComponentStates = {
         text: '#1e40af',
         border: '#93c5fd',
         icon: '#3b82f6',
-        iconText: 'i'
-      }
+        iconText: 'i',
+      },
     ];
 
     return {
       buttonVariants,
       inputStates,
-      alertStates
+      alertStates,
     };
-  }
+  },
 };
 
 const ContextualColors = {
@@ -518,8 +535,8 @@ const ContextualColors = {
           primaryAction: '#2563eb',
           secondaryAction: '#525252',
           border: '#e5e5e5',
-          divider: '#e5e5e5'
-        }
+          divider: '#e5e5e5',
+        },
       },
       {
         name: 'Medium Context',
@@ -533,8 +550,8 @@ const ContextualColors = {
           primaryAction: '#3b82f6',
           secondaryAction: '#737373',
           border: '#d4d4d4',
-          divider: '#d4d4d4'
-        }
+          divider: '#d4d4d4',
+        },
       },
       {
         name: 'Dark Context',
@@ -547,15 +564,15 @@ const ContextualColors = {
           primaryAction: '#3b82f6',
           secondaryAction: '#d4d4d4',
           border: 'rgba(255, 255, 255, 0.2)',
-          divider: 'rgba(255, 255, 255, 0.1)'
-        }
-      }
+          divider: 'rgba(255, 255, 255, 0.1)',
+        },
+      },
     ];
 
     return {
-      contexts
+      contexts,
     };
-  }
+  },
 };
 
 export const BusinessIntent: Story = {

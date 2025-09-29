@@ -51,13 +51,13 @@ export default defineNuxtModule<ModuleOptions>({
         pathPrefix: false,
         prefix: options.prefix,
       });
-      
+
       addComponentsDir({
         path: resolver.resolve('../../ui/src/molecules'),
         pathPrefix: false,
         prefix: options.prefix,
       });
-      
+
       addComponentsDir({
         path: resolver.resolve('../../ui/src/organisms'),
         pathPrefix: false,

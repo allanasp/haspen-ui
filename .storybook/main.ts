@@ -6,15 +6,12 @@ const config: StorybookConfig = {
     '../packages/*/src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
     '../packages/*/src/**/*.mdx',
   ],
-  addons: [
-    '@storybook/addon-vitest',
-    '@storybook/addon-a11y',
-  ],
+  addons: ['@storybook/addon-vitest', '@storybook/addon-a11y'],
   framework: {
     name: '@storybook/vue3-vite',
     options: {},
   },
-  viteFinal: async (config) => {
+  viteFinal: async config => {
     // Ensure Vue plugin is configured properly
     if (!config.plugins) config.plugins = [];
     config.plugins.push(vue());

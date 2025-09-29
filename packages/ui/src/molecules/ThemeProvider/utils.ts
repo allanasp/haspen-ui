@@ -9,10 +9,10 @@ export function applyThemeToDOM(theme: Theme): void {
   // Use requestAnimationFrame to batch DOM updates in the next frame
   requestAnimationFrame(() => {
     const root = document.documentElement;
-    
+
     // Build all properties as key-value pairs
     const properties: Record<string, string> = {};
-    
+
     // Colors
     Object.entries(theme.colors).forEach(([key, value]) => {
       properties[`--haspen-color-${key}`] = value;
@@ -58,22 +58,25 @@ export function applyThemeToDOM(theme: Theme): void {
     Object.entries(theme.transitions.timing).forEach(([key, value]) => {
       properties[`--haspen-transition-timing-${key}`] = value;
     });
-    
+
     // Apply all properties in a single batch
     // This is the most efficient way to update multiple CSS properties
     const cssText = Object.entries(properties)
       .map(([key, value]) => `${key}: ${value}`)
       .join('; ');
-    
+
     // Preserve existing inline styles while adding theme properties
     const existingStyles = root.getAttribute('style') || '';
     const cleanedExisting = existingStyles
       .split(';')
       .filter(rule => rule.trim() && !rule.includes('--haspen-'))
       .join(';');
-    
-    root.setAttribute('style', cleanedExisting ? `${cleanedExisting}; ${cssText}` : cssText);
-    
+
+    root.setAttribute(
+      'style',
+      cleanedExisting ? `${cleanedExisting}; ${cssText}` : cssText,
+    );
+
     // Set theme mode attribute after style update
     root.setAttribute('data-theme', theme.mode);
   });
@@ -98,7 +101,7 @@ export function getStoredThemeMode(
 
   const storage = createStorageHandler('localStorage');
   const stored = storage.get(storageKey);
-  
+
   if (stored === 'light' || stored === 'dark' || stored === 'auto') {
     return stored;
   }

@@ -697,7 +697,7 @@ export default defineNuxtConfig({
   setup() {
     const theme = useTheme();
     const demoToggle = useToggle();
-    
+
     // Demo state
     const balance = ref(12547.85);
     const lastUpdated = ref(new Date());
@@ -721,22 +721,22 @@ export default defineNuxtConfig({
         merchant: 'Netto Supermarket',
         date: new Date(Date.now() - 24 * 60 * 60 * 1000),
         amount: -234.56,
-        type: 'debit' as const
+        type: 'debit' as const,
       },
       {
         id: '2',
         merchant: 'Salary Payment',
         date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
         amount: 25000,
-        type: 'credit' as const
+        type: 'credit' as const,
       },
       {
         id: '3',
         merchant: 'DSB Train Ticket',
         date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
-        amount: -156.00,
-        type: 'debit' as const
-      }
+        amount: -156.0,
+        type: 'debit' as const,
+      },
     ]);
 
     // Methods
@@ -762,7 +762,10 @@ export default defineNuxtConfig({
 
     function toggleDemoMode() {
       demoToggle.toggle();
-      showNotification(`Demo mode ${demoToggle.isOpen.value ? 'enabled' : 'disabled'}`, 'info');
+      showNotification(
+        `Demo mode ${demoToggle.isOpen.value ? 'enabled' : 'disabled'}`,
+        'info',
+      );
     }
 
     function setThemeMode(mode: 'light' | 'dark' | 'auto') {
@@ -828,7 +831,7 @@ const meta: Meta<typeof IntegrationExamplesDemo> = {
   title: 'Integration/Examples',
   component: IntegrationExamplesDemo as any,
   decorators: [
-    (story) => ({
+    story => ({
       components: { story, ThemeProvider },
       template: '<ThemeProvider><story /></ThemeProvider>',
     }),
@@ -907,7 +910,8 @@ export const InteractiveExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Complete integration examples with live code demos for Vue 3, Nuxt 3, and TypeScript patterns.',
+        story:
+          'Complete integration examples with live code demos for Vue 3, Nuxt 3, and TypeScript patterns.',
       },
     },
   },
@@ -919,12 +923,12 @@ export const VueIntegration: Story = {
     setup() {
       const theme = useTheme();
       const balance = ref(8432.67);
-      
+
       return {
         theme,
         balance,
         formatCurrency,
-        formatDate
+        formatDate,
       };
     },
     template: `
@@ -981,7 +985,8 @@ export const VueIntegration: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Vue 3 integration example showing component usage, theme integration, and utility functions.',
+        story:
+          'Vue 3 integration example showing component usage, theme integration, and utility functions.',
       },
     },
   },
@@ -1045,7 +1050,8 @@ export default defineNuxtConfig({
   parameters: {
     docs: {
       description: {
-        story: 'Nuxt 3 module integration showcasing auto-imports, configuration options, and performance benefits.',
+        story:
+          'Nuxt 3 module integration showcasing auto-imports, configuration options, and performance benefits.',
       },
     },
   },
@@ -1058,12 +1064,12 @@ export const TypeScriptPatterns: Story = {
       const theme = useTheme();
       const amount = ref(1299.99);
       const buttonVariant = ref<'primary' | 'secondary' | 'outline'>('primary');
-      
+
       return {
         theme,
         amount,
         buttonVariant,
-        formatCurrency
+        formatCurrency,
       };
     },
     template: `
@@ -1149,7 +1155,8 @@ export const TypeScriptPatterns: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'TypeScript integration patterns showing type-safe component props, composables, and utility functions.',
+        story:
+          'TypeScript integration patterns showing type-safe component props, composables, and utility functions.',
       },
     },
   },

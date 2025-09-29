@@ -133,7 +133,8 @@
 .theme-toggle--ghost {
   .theme-toggle__track {
     background: light-dark(rgba(107, 114, 128, 0.1), rgba(156, 163, 175, 0.1));
-    border: 1px solid light-dark(rgba(107, 114, 128, 0.2), rgba(156, 163, 175, 0.2));
+    border: 1px solid
+      light-dark(rgba(107, 114, 128, 0.2), rgba(156, 163, 175, 0.2));
   }
 
   .theme-toggle__thumb {

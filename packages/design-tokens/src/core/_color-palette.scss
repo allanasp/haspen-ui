@@ -86,87 +86,87 @@ $indigo-900: #312e81;
 $colors: (
   // Gray family
   'gray': (
-    50: $gray-50,
-    100: $gray-100,
-    200: $gray-200,
-    300: $gray-300,
-    400: $gray-400,
-    500: $gray-500,
-    600: $gray-600,
-    700: $gray-700,
-    800: $gray-800,
-    900: $gray-900,
-  ),
-  
+      50: $gray-50,
+      100: $gray-100,
+      200: $gray-200,
+      300: $gray-300,
+      400: $gray-400,
+      500: $gray-500,
+      600: $gray-600,
+      700: $gray-700,
+      800: $gray-800,
+      900: $gray-900,
+    ),
+
   // Blue family
   'blue': (
-    50: $blue-50,
-    100: $blue-100,
-    200: $blue-200,
-    300: $blue-300,
-    400: $blue-400,
-    500: $blue-500,
-    600: $blue-600,
-    700: $blue-700,
-    800: $blue-800,
-    900: $blue-900,
-  ),
-  
+      50: $blue-50,
+      100: $blue-100,
+      200: $blue-200,
+      300: $blue-300,
+      400: $blue-400,
+      500: $blue-500,
+      600: $blue-600,
+      700: $blue-700,
+      800: $blue-800,
+      900: $blue-900,
+    ),
+
   // Green family
   'green': (
-    50: $green-50,
-    100: $green-100,
-    200: $green-200,
-    300: $green-300,
-    400: $green-400,
-    500: $green-500,
-    600: $green-600,
-    700: $green-700,
-    800: $green-800,
-    900: $green-900,
-  ),
-  
+      50: $green-50,
+      100: $green-100,
+      200: $green-200,
+      300: $green-300,
+      400: $green-400,
+      500: $green-500,
+      600: $green-600,
+      700: $green-700,
+      800: $green-800,
+      900: $green-900,
+    ),
+
   // Red family
   'red': (
-    50: $red-50,
-    100: $red-100,
-    200: $red-200,
-    300: $red-300,
-    400: $red-400,
-    500: $red-500,
-    600: $red-600,
-    700: $red-700,
-    800: $red-800,
-    900: $red-900,
-  ),
-  
+      50: $red-50,
+      100: $red-100,
+      200: $red-200,
+      300: $red-300,
+      400: $red-400,
+      500: $red-500,
+      600: $red-600,
+      700: $red-700,
+      800: $red-800,
+      900: $red-900,
+    ),
+
   // Yellow family
   'yellow': (
-    50: $yellow-50,
-    100: $yellow-100,
-    200: $yellow-200,
-    300: $yellow-300,
-    400: $yellow-400,
-    500: $yellow-500,
-    600: $yellow-600,
-    700: $yellow-700,
-    800: $yellow-800,
-    900: $yellow-900,
-  ),
-  
+      50: $yellow-50,
+      100: $yellow-100,
+      200: $yellow-200,
+      300: $yellow-300,
+      400: $yellow-400,
+      500: $yellow-500,
+      600: $yellow-600,
+      700: $yellow-700,
+      800: $yellow-800,
+      900: $yellow-900,
+    ),
+
   // Indigo family
   'indigo': (
-    50: $indigo-50,
-    100: $indigo-100,
-    200: $indigo-200,
-    300: $indigo-300,
-    400: $indigo-400,
-    500: $indigo-500,
-    600: $indigo-600,
-    700: $indigo-700,
-    800: $indigo-800,
-    900: $indigo-900,
-  ),
+      50: $indigo-50,
+      100: $indigo-100,
+      200: $indigo-200,
+      300: $indigo-300,
+      400: $indigo-400,
+      500: $indigo-500,
+      600: $indigo-600,
+      700: $indigo-700,
+      800: $indigo-800,
+      900: $indigo-900,
+    )
 );
 
 // Semantic color aliases for easier usage
@@ -174,23 +174,23 @@ $semantic-colors: (
   'primary': $blue-600,
   'primary-light': $blue-500,
   'primary-dark': $blue-700,
-  
+
   'secondary': $gray-600,
   'secondary-light': $gray-500,
   'secondary-dark': $gray-700,
-  
+
   'success': $green-600,
   'success-light': $green-500,
   'success-dark': $green-700,
-  
+
   'warning': $yellow-500,
   'warning-light': $yellow-400,
   'warning-dark': $yellow-600,
-  
+
   'error': $red-600,
   'error-light': $red-500,
   'error-dark': $red-700,
-  
+
   'info': $blue-500,
   'info-light': $blue-400,
   'info-dark': $blue-600,
@@ -241,17 +241,17 @@ $border-colors: (
 ///   color: color('blue', 500); // Returns $blue-500
 @function color($family, $shade: 500) {
   $family-map: map.get($colors, $family);
-  
+
   @if not $family-map {
     @error 'Color family "#{$family}" not found. Available families: #{map.keys($colors)}';
   }
-  
+
   $color: map.get($family-map, $shade);
-  
+
   @if not $color {
     @error 'Shade "#{$shade}" not found in "#{$family}" family. Available shades: #{map.keys($family-map)}';
   }
-  
+
   @return $color;
 }
 
@@ -262,11 +262,11 @@ $border-colors: (
 ///   color: semantic('primary'); // Returns primary color
 @function semantic($name) {
   $color: map.get($semantic-colors, $name);
-  
+
   @if not $color {
     @error 'Semantic color "#{$name}" not found. Available colors: #{map.keys($semantic-colors)}';
   }
-  
+
   @return $color;
 }
 
@@ -277,11 +277,11 @@ $border-colors: (
 ///   background-color: surface('background-alt');
 @function surface($name) {
   $color: map.get($surface-colors, $name);
-  
+
   @if not $color {
     @error 'Surface color "#{$name}" not found. Available colors: #{map.keys($surface-colors)}';
   }
-  
+
   @return $color;
 }
 
@@ -292,11 +292,11 @@ $border-colors: (
 ///   color: text('secondary');
 @function text($name) {
   $color: map.get($text-colors, $name);
-  
+
   @if not $color {
     @error 'Text color "#{$name}" not found. Available colors: #{map.keys($text-colors)}';
   }
-  
+
   @return $color;
 }
 
@@ -307,11 +307,11 @@ $border-colors: (
 ///   border-color: border('medium');
 @function border($name) {
   $color: map.get($border-colors, $name);
-  
+
   @if not $color {
     @error 'Border color "#{$name}" not found. Available colors: #{map.keys($border-colors)}';
   }
-  
+
   @return $color;
 }
 
@@ -325,14 +325,14 @@ $border-colors: (
 @function lighter($family, $shade, $steps: 1) {
   $shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
   $current-index: list.index($shades, $shade);
-  
+
   @if not $current-index {
     @error 'Invalid shade "#{$shade}". Must be one of: #{$shades}';
   }
-  
+
   $new-index: math.max(1, $current-index - $steps);
   $new-shade: list.nth($shades, $new-index);
-  
+
   @return color($family, $new-shade);
 }
 
@@ -346,14 +346,14 @@ $border-colors: (
 @function darker($family, $shade, $steps: 1) {
   $shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
   $current-index: list.index($shades, $shade);
-  
+
   @if not $current-index {
     @error 'Invalid shade "#{$shade}". Must be one of: #{$shades}';
   }
-  
+
   $new-index: math.min(list.length($shades), $current-index + $steps);
   $new-shade: list.nth($shades, $new-index);
-  
+
   @return color($family, $new-shade);
 }
 

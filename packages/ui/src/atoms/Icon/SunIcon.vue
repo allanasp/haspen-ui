@@ -28,26 +28,26 @@
 </template>
 
 <script setup lang="ts">
-import type { IconProps } from './types';
+  import type { IconProps } from './types';
 
-withDefaults(defineProps<IconProps>(), {
-  size: 16,
-  ariaHidden: true,
-});
+  withDefaults(defineProps<IconProps>(), {
+    size: 16,
+    ariaHidden: true,
+  });
 </script>
 
 <script lang="ts">
-export default {
-  name: 'SunIcon',
-};
+  export default {
+    name: 'SunIcon',
+  };
 </script>
 
 <style lang="scss" scoped>
-.sun-icon {
-  transition: all 0.2s ease;
-  
-  &:hover {
-    transform: rotate(45deg);
+  .sun-icon {
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: rotate(45deg);
+    }
   }
-}
 </style>

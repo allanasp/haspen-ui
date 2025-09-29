@@ -227,7 +227,7 @@ const LayoutDemo = {
   setup() {
     const windowSize = ref({
       width: typeof window !== 'undefined' ? window.innerWidth : 1200,
-      height: typeof window !== 'undefined' ? window.innerHeight : 800
+      height: typeof window !== 'undefined' ? window.innerHeight : 800,
     });
 
     const currentBreakpoint = ref('xl');
@@ -244,7 +244,7 @@ const LayoutDemo = {
     const updateSize = () => {
       windowSize.value = {
         width: window.innerWidth,
-        height: window.innerHeight
+        height: window.innerHeight,
       };
       updateBreakpoint();
     };
@@ -336,7 +336,8 @@ export const InteractiveDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interactive playground demonstrating all layout patterns with real-time responsive behavior testing.',
+        story:
+          'Interactive playground demonstrating all layout patterns with real-time responsive behavior testing.',
       },
     },
   },
@@ -389,7 +390,8 @@ export const GridSystem: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates the 12-column grid system with various responsive configurations and layout patterns.',
+        story:
+          'Demonstrates the 12-column grid system with various responsive configurations and layout patterns.',
       },
     },
   },
@@ -481,7 +483,8 @@ export const FlexboxLayouts: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Showcases common flexbox layout patterns including navigation, holy grail, media objects, and equal-height cards.',
+        story:
+          'Showcases common flexbox layout patterns including navigation, holy grail, media objects, and equal-height cards.',
       },
     },
   },
@@ -577,7 +580,8 @@ export const CSSGridLayouts: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates advanced CSS Grid layouts including dashboard, magazine, gallery, and form patterns.',
+        story:
+          'Demonstrates advanced CSS Grid layouts including dashboard, magazine, gallery, and form patterns.',
       },
     },
   },
@@ -659,7 +663,8 @@ export const SpacingSystem: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates the 8px-based spacing system with utility classes and responsive modifiers.',
+        story:
+          'Demonstrates the 8px-based spacing system with utility classes and responsive modifiers.',
       },
     },
   },
@@ -761,7 +766,8 @@ export const ResponsiveBreakpoints: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Shows responsive breakpoints, container sizes, and adaptive behavior across different screen sizes.',
+        story:
+          'Shows responsive breakpoints, container sizes, and adaptive behavior across different screen sizes.',
       },
     },
   },

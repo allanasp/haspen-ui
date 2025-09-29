@@ -10,13 +10,13 @@ export interface IconConfig {
    * Custom icon components registry
    */
   icons: Record<string, Component>;
-  
+
   /**
    * CSS class prefix for icons
    * @default ''
    */
   prefix?: string;
-  
+
   /**
    * Default icon size
    * @default 16
@@ -24,7 +24,9 @@ export interface IconConfig {
   defaultSize?: number;
 }
 
-export const ICON_PROVIDER_KEY: InjectionKey<IconConfig> = Symbol('haspen-ui-icon-provider');
+export const ICON_PROVIDER_KEY: InjectionKey<IconConfig> = Symbol(
+  'haspen-ui-icon-provider',
+);
 
 /**
  * Default icon configuration

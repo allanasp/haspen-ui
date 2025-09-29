@@ -4,7 +4,10 @@ import { nextTick } from 'vue';
 import Icon from './Icon.vue';
 import IconProvider from './IconProvider.vue';
 import { ICON_PROVIDER_KEY } from './provider';
-import { testComponentAccessibility, configureHaspenAxe } from '../../test-utils/accessibility';
+import {
+  testComponentAccessibility,
+  configureHaspenAxe,
+} from '../../test-utils/accessibility';
 
 // Configure axe for tests
 configureHaspenAxe();
@@ -13,7 +16,8 @@ configureHaspenAxe();
 const TestIcon = {
   name: 'TestIcon',
   props: ['size', 'ariaHidden', 'ariaLabel'],
-  template: '<svg :width="size" :height="size" class="test-icon" :aria-hidden="ariaHidden" :aria-label="ariaLabel"><circle /></svg>',
+  template:
+    '<svg :width="size" :height="size" class="test-icon" :aria-hidden="ariaHidden" :aria-label="ariaLabel"><circle /></svg>',
 };
 
 describe('Icon (Simplified)', () => {
@@ -21,7 +25,7 @@ describe('Icon (Simplified)', () => {
     it('meets WCAG 2.1 AA accessibility standards', async () => {
       const wrapper = mount(IconProvider, {
         props: {
-          icons: { 'test': TestIcon },
+          icons: { test: TestIcon },
         },
         slots: {
           default: '<Icon name="test" :size="24" aria-label="Test icon" />',
@@ -41,7 +45,7 @@ describe('Icon (Simplified)', () => {
     it('provides appropriate ARIA attributes for decorative icons', () => {
       const wrapper = mount(IconProvider, {
         props: {
-          icons: { 'test': TestIcon },
+          icons: { test: TestIcon },
         },
         slots: {
           default: '<Icon name="test" :size="24" :aria-hidden="true" />',
@@ -58,10 +62,11 @@ describe('Icon (Simplified)', () => {
     it('provides appropriate ARIA label for informative icons', () => {
       const wrapper = mount(IconProvider, {
         props: {
-          icons: { 'test': TestIcon },
+          icons: { test: TestIcon },
         },
         slots: {
-          default: '<Icon name="test" :size="24" aria-label="Important information" />',
+          default:
+            '<Icon name="test" :size="24" aria-label="Important information" />',
         },
         global: {
           components: { Icon },
@@ -75,7 +80,7 @@ describe('Icon (Simplified)', () => {
     it('defaults to decorative when no aria-label provided', () => {
       const wrapper = mount(IconProvider, {
         props: {
-          icons: { 'test': TestIcon },
+          icons: { test: TestIcon },
         },
         slots: {
           default: '<Icon name="test" :size="24" />',
@@ -94,7 +99,7 @@ describe('Icon (Simplified)', () => {
   it('renders custom icon from provider', () => {
     const wrapper = mount(IconProvider, {
       props: {
-        icons: { 'test': TestIcon },
+        icons: { test: TestIcon },
       },
       slots: {
         default: '<Icon name="test" :size="24" />',
@@ -113,7 +118,7 @@ describe('Icon (Simplified)', () => {
     const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const originalEnv = process.env.NODE_ENV;
     process.env.NODE_ENV = 'development';
-    
+
     mount(Icon, {
       props: { name: 'nonexistent' },
       global: {
@@ -137,13 +142,13 @@ describe('Icon (Simplified)', () => {
           severity: 'low',
           metadata: expect.objectContaining({
             iconName: 'nonexistent',
-            availableIcons: []
-          })
+            availableIcons: [],
+          }),
         }),
-        timestamp: expect.any(String)
-      })
+        timestamp: expect.any(String),
+      }),
     );
-    
+
     consoleSpy.mockRestore();
     process.env.NODE_ENV = originalEnv;
   });
@@ -151,7 +156,7 @@ describe('Icon (Simplified)', () => {
   it('applies CSS classes', () => {
     const wrapper = mount(IconProvider, {
       props: {
-        icons: { 'test': TestIcon },
+        icons: { test: TestIcon },
         prefix: 'my-prefix',
       },
       slots: {
@@ -171,7 +176,7 @@ describe('Icon (Simplified)', () => {
   it('passes props to icon component', () => {
     const wrapper = mount(IconProvider, {
       props: {
-        icons: { 'test': TestIcon },
+        icons: { test: TestIcon },
       },
       slots: {
         default: '<Icon name="test" :size="32" aria-label="Test Icon" />',
@@ -190,7 +195,7 @@ describe('Icon (Simplified)', () => {
     const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const originalEnv = process.env.NODE_ENV;
     process.env.NODE_ENV = 'development';
-    
+
     const wrapper = mount(Icon, {
       props: { name: 'missing' },
     });
@@ -204,12 +209,12 @@ describe('Icon (Simplified)', () => {
         context: expect.objectContaining({
           component: 'Icon',
           action: 'loadIcon',
-          severity: 'low'
+          severity: 'low',
         }),
-        timestamp: expect.any(String)
-      })
+        timestamp: expect.any(String),
+      }),
     );
-    
+
     consoleSpy.mockRestore();
     process.env.NODE_ENV = originalEnv;
   });

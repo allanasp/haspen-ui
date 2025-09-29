@@ -54,7 +54,8 @@
   padding: 2rem;
   margin-bottom: 3rem;
   box-shadow: var(--haspen-shadow-sm);
-  transition: box-shadow var(--haspen-transition-duration-base) var(--haspen-transition-timing-ease);
+  transition: box-shadow var(--haspen-transition-duration-base)
+    var(--haspen-transition-timing-ease);
 
   &:hover {
     box-shadow: var(--haspen-shadow-md);
@@ -75,7 +76,8 @@
   border-radius: var(--haspen-radius-md);
   padding: 1.5rem;
   text-align: center;
-  transition: all var(--haspen-transition-duration-base) var(--haspen-transition-timing-ease);
+  transition: all var(--haspen-transition-duration-base)
+    var(--haspen-transition-timing-ease);
 
   &:hover {
     transform: translateY(-2px);
@@ -186,7 +188,7 @@
     font-size: var(--haspen-font-size-sm);
     color: var(--haspen-color-textSecondary);
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       accent-color: var(--haspen-color-primary);
     }
   }
@@ -410,7 +412,8 @@
     color: var(--haspen-color-text);
     font-family: var(--haspen-font-family-base);
     font-size: var(--haspen-font-size-base);
-    transition: all var(--haspen-transition-duration-fast) var(--haspen-transition-timing-ease);
+    transition: all var(--haspen-transition-duration-fast)
+      var(--haspen-transition-timing-ease);
 
     &:focus {
       outline: none;
@@ -435,14 +438,15 @@
   cursor: pointer;
   padding: 0.5rem;
   border-radius: var(--haspen-radius-sm);
-  transition: background-color var(--haspen-transition-duration-fast) var(--haspen-transition-timing-ease);
+  transition: background-color var(--haspen-transition-duration-fast)
+    var(--haspen-transition-timing-ease);
 
   &:hover {
     background: rgba(var(--haspen-color-primary), 0.05);
   }
 
   .demo-checkbox,
-  input[type="radio"] {
+  input[type='radio'] {
     accent-color: var(--haspen-color-primary);
     width: 16px;
     height: 16px;
@@ -477,7 +481,8 @@
   border: 1px solid var(--haspen-color-border);
   border-radius: var(--haspen-radius-md);
   padding: 1.5rem;
-  transition: all var(--haspen-transition-duration-base) var(--haspen-transition-timing-ease);
+  transition: all var(--haspen-transition-duration-base)
+    var(--haspen-transition-timing-ease);
 
   &.focus-trap-active {
     border-color: var(--haspen-color-primary);
@@ -500,7 +505,8 @@
   font-weight: var(--haspen-font-weight-medium);
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
-  transition: all var(--haspen-transition-duration-fast) var(--haspen-transition-timing-ease);
+  transition: all var(--haspen-transition-duration-fast)
+    var(--haspen-transition-timing-ease);
 
   &:hover {
     background: var(--haspen-color-primary);
@@ -607,7 +613,8 @@
   .progress-fill {
     height: 100%;
     background: var(--haspen-color-primary);
-    transition: width var(--haspen-transition-duration-base) var(--haspen-transition-timing-ease);
+    transition: width var(--haspen-transition-duration-base)
+      var(--haspen-transition-timing-ease);
     border-radius: var(--haspen-radius-full);
   }
 }
@@ -622,7 +629,8 @@
   border-radius: var(--haspen-radius-md);
   cursor: pointer;
   font-weight: var(--haspen-font-weight-medium);
-  transition: all var(--haspen-transition-duration-fast) var(--haspen-transition-timing-ease);
+  transition: all var(--haspen-transition-duration-fast)
+    var(--haspen-transition-timing-ease);
 
   &:hover {
     background: var(--haspen-color-primary);
@@ -754,7 +762,8 @@
   cursor: pointer;
   font-weight: var(--haspen-font-weight-semibold);
   font-size: var(--haspen-font-size-base);
-  transition: all var(--haspen-transition-duration-fast) var(--haspen-transition-timing-ease);
+  transition: all var(--haspen-transition-duration-fast)
+    var(--haspen-transition-timing-ease);
   width: 100%;
 
   &:hover:not(:disabled) {
@@ -934,37 +943,51 @@
 
   &.primary-on-bg {
     background: var(--haspen-color-background);
-    .contrast-text { color: var(--haspen-color-primary); }
+    .contrast-text {
+      color: var(--haspen-color-primary);
+    }
   }
 
   &.white-on-primary {
     background: var(--haspen-color-primary);
-    .contrast-text { color: white; }
+    .contrast-text {
+      color: white;
+    }
   }
 
   &.error-on-bg {
     background: var(--haspen-color-background);
-    .contrast-text { color: var(--haspen-color-error); }
+    .contrast-text {
+      color: var(--haspen-color-error);
+    }
   }
 
   &.success-on-bg {
     background: var(--haspen-color-background);
-    .contrast-text { color: var(--haspen-color-success); }
+    .contrast-text {
+      color: var(--haspen-color-success);
+    }
   }
 
   &.warning-on-bg {
     background: var(--haspen-color-background);
-    .contrast-text { color: var(--haspen-color-warning); }
+    .contrast-text {
+      color: var(--haspen-color-warning);
+    }
   }
 
   &.text-on-bg {
     background: var(--haspen-color-background);
-    .contrast-text { color: var(--haspen-color-text); }
+    .contrast-text {
+      color: var(--haspen-color-text);
+    }
   }
 
   &.secondary-text-on-bg {
     background: var(--haspen-color-background);
-    .contrast-text { color: var(--haspen-color-textSecondary); }
+    .contrast-text {
+      color: var(--haspen-color-textSecondary);
+    }
   }
 }
 
@@ -1055,7 +1078,8 @@
     font-size: var(--haspen-font-size-sm);
   }
 
-  input, select {
+  input,
+  select {
     padding: var(--haspen-spacing-sm) var(--haspen-spacing-md);
     border: 1px solid var(--haspen-color-border);
     border-radius: var(--haspen-radius-md);

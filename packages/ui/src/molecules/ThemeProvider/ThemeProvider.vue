@@ -134,9 +134,13 @@
   watch(theme, applyTheme, { deep: true, immediate: false });
 
   // Watch for prop changes and update current mode
-  watch(() => props.mode, (newMode) => {
-    currentMode.value = newMode;
-  }, { immediate: true });
+  watch(
+    () => props.mode,
+    newMode => {
+      currentMode.value = newMode;
+    },
+    { immediate: true },
+  );
 
   // Provide theme context
   const themeContext: ThemeProviderContext = {
@@ -164,7 +168,7 @@
         );
         transition-duration: var(--haspen-transition-duration-fast, 150ms);
       }
-      
+
       .haspen-transition-fill {
         transition-property: fill, stroke;
         transition-timing-function: var(
@@ -173,7 +177,7 @@
         );
         transition-duration: var(--haspen-transition-duration-fast, 150ms);
       }
-      
+
       .haspen-transition-shadow {
         transition-property: box-shadow;
         transition-timing-function: var(
@@ -182,9 +186,10 @@
         );
         transition-duration: var(--haspen-transition-duration-fast, 150ms);
       }
-      
+
       .haspen-transition-all {
-        transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+        transition-property:
+          background-color, border-color, color, fill, stroke, box-shadow;
         transition-timing-function: var(
           --haspen-transition-timing-ease,
           cubic-bezier(0.4, 0, 0.2, 1)
@@ -198,7 +203,7 @@
   :root {
     // Set color scheme preference for better native support
     color-scheme: light dark;
-    
+
     // Modern light-dark() function for automatic theme switching
     // Colors - WCAG 2.1 AA compliant (4.5:1 normal text, 3:1 large text)
     --haspen-color-primary: light-dark(#0059b3, #1565c0);

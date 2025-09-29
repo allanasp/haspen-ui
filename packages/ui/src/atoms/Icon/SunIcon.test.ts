@@ -13,7 +13,7 @@ describe('SunIcon', () => {
     const wrapper = mount(SunIcon, {
       props: { size: 24 },
     });
-    
+
     const svg = wrapper.find('svg');
     expect(svg.attributes('width')).toBe('24');
     expect(svg.attributes('height')).toBe('24');
@@ -21,7 +21,7 @@ describe('SunIcon', () => {
 
   it('applies default size when no size prop provided', () => {
     const wrapper = mount(SunIcon);
-    
+
     const svg = wrapper.find('svg');
     expect(svg.attributes('width')).toBe('16');
     expect(svg.attributes('height')).toBe('16');
@@ -31,13 +31,13 @@ describe('SunIcon', () => {
     const wrapper = mount(SunIcon, {
       attrs: { class: 'custom-sun-icon' },
     });
-    
+
     expect(wrapper.classes()).toContain('custom-sun-icon');
   });
 
   it('has proper accessibility attributes', () => {
     const wrapper = mount(SunIcon);
-    
+
     const svg = wrapper.find('svg');
     expect(svg.attributes('role')).toBe('img');
     expect(svg.attributes('aria-label')).toBe('Sun');
@@ -45,7 +45,7 @@ describe('SunIcon', () => {
 
   it('renders all required SVG paths', () => {
     const wrapper = mount(SunIcon);
-    
+
     const paths = wrapper.findAll('path, circle');
     expect(paths.length).toBeGreaterThan(0);
   });

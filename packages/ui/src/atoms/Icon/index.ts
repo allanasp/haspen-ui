@@ -7,12 +7,12 @@ export { default as SunIcon } from './SunIcon.vue';
 export { default as MoonIcon } from './MoonIcon.vue';
 
 // Provider utilities
-export { 
-  createIconConfig, 
+export {
+  createIconConfig,
   defaultIconConfig,
   ICON_PROVIDER_KEY,
   type IconConfig,
-  type IconLibrary as ProviderIconLibrary
+  type IconLibrary as ProviderIconLibrary,
 } from './provider';
 
 // Library utilities
@@ -35,9 +35,9 @@ export {
 } from './composables';
 
 // Types
-export type { 
-  IconProps, 
+export type {
+  IconProps,
   ConfigurableIconProps,
   IconLibrary,
-  IconRegistry 
+  IconRegistry,
 } from './types';

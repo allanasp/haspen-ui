@@ -1,12 +1,12 @@
 /**
  * CSS Registered Properties Type Definitions
- * 
+ *
  * These types provide TypeScript support for the registered CSS custom properties.
  * Registered properties offer better performance, type safety, and animation capabilities.
  */
 
 // CSS Registered Property Syntax Types
-export type CSSPropertySyntax = 
+export type CSSPropertySyntax =
   | '<color>'
   | '<length>'
   | '<number>'
@@ -353,11 +353,11 @@ export const HASPEN_REGISTERED_PROPERTIES: HaspenRegisteredProperties = {
  * Useful for fallback support or dynamic registration
  */
 export function registerCSSProperties(
-  properties: Partial<HaspenRegisteredProperties> = HASPEN_REGISTERED_PROPERTIES
+  properties: Partial<HaspenRegisteredProperties> = HASPEN_REGISTERED_PROPERTIES,
 ): void {
   if (!CSS?.registerProperty) {
     console.warn(
-      'CSS.registerProperty is not supported in this browser. Registered properties will fallback to regular custom properties.'
+      'CSS.registerProperty is not supported in this browser. Registered properties will fallback to regular custom properties.',
     );
     return;
   }

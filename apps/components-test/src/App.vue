@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-  import { Button } from '@haspen-ui/components';
+  import { Button } from '@haspen-ui/ui';
 </script>
 
 <style>

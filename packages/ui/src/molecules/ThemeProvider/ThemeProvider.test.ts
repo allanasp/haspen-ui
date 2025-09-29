@@ -58,7 +58,7 @@ describe('ThemeProvider', () => {
       addEventListener: vi.fn(),
       removeEventListener: vi.fn(),
     });
-    
+
     // Ensure clean state before each test
     document.documentElement.removeAttribute('data-theme');
     document.documentElement.removeAttribute('style');
@@ -341,14 +341,18 @@ describe('ThemeProvider', () => {
       });
 
       const root = document.documentElement;
-      
+
       // Test that theme properties are applied (regardless of light/dark specific values)
-      expect(root.style.getPropertyValue('--haspen-color-primary')).toBeTruthy();
+      expect(
+        root.style.getPropertyValue('--haspen-color-primary'),
+      ).toBeTruthy();
       expect(root.style.getPropertyValue('--haspen-spacing-md')).toBe('1rem');
       expect(root.getAttribute('data-theme')).toBe('light');
-      
+
       // Test that a color value is actually set (could be light or dark variant)
-      const primaryColor = root.style.getPropertyValue('--haspen-color-primary');
+      const primaryColor = root.style.getPropertyValue(
+        '--haspen-color-primary',
+      );
       expect(primaryColor).toMatch(/^#[0-9a-f]{6}$/i); // Valid hex color
     });
 
@@ -368,7 +372,9 @@ describe('ThemeProvider', () => {
       });
 
       const root = document.documentElement;
-      const initialBgColor = root.style.getPropertyValue('--haspen-color-background');
+      const initialBgColor = root.style.getPropertyValue(
+        '--haspen-color-background',
+      );
       expect(initialBgColor).toBeTruthy(); // Should have some background color
       expect(root.getAttribute('data-theme')).toBe('light');
 
@@ -381,7 +387,9 @@ describe('ThemeProvider', () => {
         });
       });
 
-      const darkBgColor = root.style.getPropertyValue('--haspen-color-background');
+      const darkBgColor = root.style.getPropertyValue(
+        '--haspen-color-background',
+      );
       expect(darkBgColor).toBeTruthy(); // Should have some background color
       expect(darkBgColor).not.toBe(initialBgColor); // Should be different from initial
       expect(root.getAttribute('data-theme')).toBe('dark');

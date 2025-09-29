@@ -3,8 +3,8 @@ export { Button } from './atoms/Button';
 export { ThemeToggle } from './atoms/ThemeToggle';
 
 // Icon System - Configurable
-export { 
-  Icon, 
+export {
+  Icon,
   IconProvider,
   // Utilities
   haspenIcons,
@@ -32,7 +32,7 @@ export * from './types';
 export type { ThemeToggleProps, ThemeToggleEmits } from './atoms/ThemeToggle';
 
 // Icon System Types
-export type { 
+export type {
   IconProps,
   ConfigurableIconProps,
   IconLibrary,

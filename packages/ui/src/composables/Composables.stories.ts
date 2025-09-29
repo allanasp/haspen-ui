@@ -55,7 +55,7 @@ const { isOpen, toggle, open, close } = useToggle();
   },
   tags: ['autodocs'],
   decorators: [
-    (story) => ({
+    story => ({
       components: { story, ThemeProvider, IconProvider },
       setup() {
         return { haspenIcons };
@@ -80,7 +80,7 @@ export const UseThemeBasic: Story = {
     components: { Button, Icon },
     setup() {
       const { mode, isDark, isLight, toggleMode } = useTheme();
-      
+
       return {
         mode,
         isDark,
@@ -145,7 +145,8 @@ toggleMode();</code></pre>
   parameters: {
     docs: {
       description: {
-        story: 'Basic usage of useTheme composable to access and control theme state.',
+        story:
+          'Basic usage of useTheme composable to access and control theme state.',
       },
     },
   },
@@ -156,7 +157,7 @@ export const UseThemeConditionalRendering: Story = {
     components: { Button, Icon },
     setup() {
       const { isDark, isLight, toggleMode } = useTheme();
-      
+
       return {
         isDark,
         isLight,
@@ -215,7 +216,8 @@ export const UseThemeConditionalRendering: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Use theme state for conditional rendering and dynamic styling based on current theme.',
+        story:
+          'Use theme state for conditional rendering and dynamic styling based on current theme.',
       },
     },
   },
@@ -229,7 +231,7 @@ export const UseToggleBasic: Story = {
       const modal = useToggle();
       const sidebar = useToggle({ initialValue: true });
       const notifications = useToggle();
-      
+
       return {
         modal,
         sidebar,
@@ -322,7 +324,8 @@ modal.close();  // Set to false</code></pre>
   parameters: {
     docs: {
       description: {
-        story: 'Basic usage of useToggle composable for boolean state management with helper methods.',
+        story:
+          'Basic usage of useToggle composable for boolean state management with helper methods.',
       },
     },
   },
@@ -336,7 +339,7 @@ export const UseToggleConditionalContent: Story = {
       const drawer = useToggle();
       const settings = useToggle();
       const details = useToggle({ initialValue: true });
-      
+
       return {
         isDark,
         drawer,
@@ -441,7 +444,8 @@ export const UseToggleConditionalContent: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Use useToggle for conditional content rendering with smooth transitions and accessibility features.',
+        story:
+          'Use useToggle for conditional content rendering with smooth transitions and accessibility features.',
       },
     },
   },
@@ -456,17 +460,17 @@ export const ComposablesCombined: Story = {
       const sidebar = useToggle({ initialValue: true });
       const notifications = useToggle();
       const darkModeSettings = useToggle();
-      
+
       // Computed values combining multiple composables
-      const sidebarLabel = computed(() => 
-        sidebar.isOpen.value ? 'Close Sidebar' : 'Open Sidebar'
+      const sidebarLabel = computed(() =>
+        sidebar.isOpen.value ? 'Close Sidebar' : 'Open Sidebar',
       );
-      
-      const themeIcon = computed(() => isDark.value ? 'sun' : 'moon');
-      const themeLabel = computed(() => 
-        isDark.value ? 'Switch to Light Mode' : 'Switch to Dark Mode'
+
+      const themeIcon = computed(() => (isDark.value ? 'sun' : 'moon'));
+      const themeLabel = computed(() =>
+        isDark.value ? 'Switch to Light Mode' : 'Switch to Dark Mode',
       );
-      
+
       return {
         mode,
         isDark,
@@ -600,7 +604,8 @@ const sidebarStyle = computed(() => ({
   parameters: {
     docs: {
       description: {
-        story: 'Complex example combining useTheme and useToggle composables to create interactive UI components with theme-aware styling and state management.',
+        story:
+          'Complex example combining useTheme and useToggle composables to create interactive UI components with theme-aware styling and state management.',
       },
     },
   },
@@ -612,24 +617,24 @@ export const ComposablesPerformance: Story = {
     components: { Button },
     setup() {
       // Multiple independent toggles
-      const toggles = Array.from({ length: 5 }, (_, i) => 
-        useToggle({ initialValue: i % 2 === 0 })
+      const toggles = Array.from({ length: 5 }, (_, i) =>
+        useToggle({ initialValue: i % 2 === 0 }),
       );
-      
+
       const { isDark } = useTheme();
       const renderCount = ref(0);
-      
+
       // Track re-renders
       const incrementRender = () => {
         renderCount.value++;
       };
-      
+
       // Toggle all states
       const toggleAll = () => {
         toggles.forEach(toggle => toggle.toggle());
         incrementRender();
       };
-      
+
       // Reset all states
       const resetAll = () => {
         toggles.forEach((toggle, i) => {
@@ -641,7 +646,7 @@ export const ComposablesPerformance: Story = {
         });
         incrementRender();
       };
-      
+
       return {
         toggles,
         isDark,
@@ -738,7 +743,8 @@ const showInDarkMode = computed(() =>
   parameters: {
     docs: {
       description: {
-        story: 'Performance characteristics and best practices when using multiple composable instances.',
+        story:
+          'Performance characteristics and best practices when using multiple composable instances.',
       },
     },
   },
@@ -751,17 +757,17 @@ export const UseClickOutsideBasic: Story = {
     setup() {
       const dropdown = useToggle();
       const modal = useToggle();
-      
+
       const dropdownClickOutside = useClickOutside({
         callback: () => dropdown.close(),
       });
-      
+
       const modalClickOutside = useClickOutside({
         callback: () => modal.close(),
       });
-      
+
       const { isDark } = useTheme();
-      
+
       return {
         dropdown,
         modal,
@@ -921,7 +927,8 @@ console.log(isClickedOutside.value); // boolean</code></pre>
   parameters: {
     docs: {
       description: {
-        story: 'Basic usage of useClickOutside composable for detecting clicks outside elements to close dropdowns and modals.',
+        story:
+          'Basic usage of useClickOutside composable for detecting clicks outside elements to close dropdowns and modals.',
       },
     },
   },
@@ -935,7 +942,7 @@ export const UseClickOutsideAdvanced: Story = {
       const tooltip = useToggle();
       const contextMenu = useToggle();
       const sidebar = useToggle();
-      
+
       const tooltipClickOutside = useClickOutside({
         enabled: tooltip.isOpen.value,
         callback: () => {
@@ -943,17 +950,17 @@ export const UseClickOutsideAdvanced: Story = {
           console.log('Tooltip closed by click outside');
         },
       });
-      
+
       const contextMenuClickOutside = useClickOutside({
         callback: () => contextMenu.close(),
       });
-      
+
       const sidebarClickOutside = useClickOutside({
         callback: () => sidebar.close(),
       });
-      
+
       const contextMenuPosition = ref({ x: 0, y: 0 });
-      
+
       const handleContextMenu = (event: MouseEvent) => {
         event.preventDefault();
         contextMenuPosition.value = {
@@ -962,7 +969,7 @@ export const UseClickOutsideAdvanced: Story = {
         };
         contextMenu.open();
       };
-      
+
       return {
         isDark,
         tooltip,
@@ -1202,7 +1209,8 @@ const sidebarClickOutside = useClickOutside({ ... });</code></pre>
   parameters: {
     docs: {
       description: {
-        story: 'Advanced patterns including tooltips, context menus, sidebars, and conditional enabling of click outside detection.',
+        story:
+          'Advanced patterns including tooltips, context menus, sidebars, and conditional enabling of click outside detection.',
       },
     },
   },

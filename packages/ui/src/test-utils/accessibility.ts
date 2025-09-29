@@ -13,14 +13,14 @@ import type { AxeConfig } from 'vitest-axe';
 export const haspenA11yConfig: AxeConfig = {
   // Focus on WCAG 2.1 AA compliance
   tags: ['wcag2a', 'wcag2aa', 'wcag21aa'],
-  
+
   // Disable rules that may conflict with component libraries
   rules: {
-    'region': { enabled: false }, // Components may not always be in regions
+    region: { enabled: false }, // Components may not always be in regions
     'page-has-heading-one': { enabled: false }, // Components don't need h1
     'landmark-one-main': { enabled: false }, // Components don't need main landmark
   },
-  
+
   // Custom result processing for better error messages
   resultTypes: ['violations', 'incomplete'],
 };
@@ -51,20 +51,21 @@ export interface ContrastTestResult {
 export function testColorContrast(
   foreground: string,
   background: string,
-  isLargeText: boolean = false
+  isLargeText: boolean = false,
 ): ContrastTestResult {
   // Convert colors to luminance values
   const foregroundLuminance = getLuminance(foreground);
   const backgroundLuminance = getLuminance(background);
-  
+
   // Calculate contrast ratio
-  const ratio = (Math.max(foregroundLuminance, backgroundLuminance) + 0.05) /
-                (Math.min(foregroundLuminance, backgroundLuminance) + 0.05);
-  
+  const ratio =
+    (Math.max(foregroundLuminance, backgroundLuminance) + 0.05) /
+    (Math.min(foregroundLuminance, backgroundLuminance) + 0.05);
+
   // Determine compliance level
   const aaThreshold = isLargeText ? 3.0 : 4.5;
   const aaaThreshold = isLargeText ? 4.5 : 7.0;
-  
+
   let level: 'AA' | 'AAA' | 'fail';
   if (ratio >= aaaThreshold) {
     level = 'AAA';
@@ -73,7 +74,7 @@ export function testColorContrast(
   } else {
     level = 'fail';
   }
-  
+
   return {
     ratio: Math.round(ratio * 100) / 100,
     passes: ratio >= aaThreshold,
@@ -89,13 +90,13 @@ function getLuminance(color: string): number {
   // Convert hex to RGB
   const rgb = hexToRgb(color);
   if (!rgb) return 0;
-  
+
   // Convert to relative luminance
   const [r, g, b] = [rgb.r, rgb.g, rgb.b].map(c => {
     c = c / 255;
     return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
   });
-  
+
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
@@ -104,11 +105,13 @@ function getLuminance(color: string): number {
  */
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16),
-  } : null;
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
 }
 
 /**
@@ -123,7 +126,7 @@ export const a11yTestScenarios = {
     description: 'Elements can be accessed and operated via keyboard',
     keys: ['Tab', 'Shift+Tab', 'Enter', 'Space', 'Escape', 'Arrow keys'],
   },
-  
+
   /**
    * Test focus management
    */
@@ -132,7 +135,7 @@ export const a11yTestScenarios = {
     description: 'Focus is properly managed and visible',
     requirements: ['Focus indicators', 'Focus trapping', 'Focus restoration'],
   },
-  
+
   /**
    * Test screen reader compatibility
    */
@@ -141,7 +144,7 @@ export const a11yTestScenarios = {
     description: 'Component is accessible to screen readers',
     requirements: ['ARIA labels', 'Role attributes', 'State announcements'],
   },
-  
+
   /**
    * Test color contrast
    */
@@ -149,8 +152,8 @@ export const a11yTestScenarios = {
     name: 'Color Contrast',
     description: 'Text has sufficient contrast against background',
     standards: {
-      'AA': { normal: 4.5, large: 3.0 },
-      'AAA': { normal: 7.0, large: 4.5 },
+      AA: { normal: 4.5, large: 3.0 },
+      AAA: { normal: 7.0, large: 4.5 },
     },
   },
 };
@@ -183,7 +186,7 @@ export interface A11yTestOptions {
  */
 export async function testComponentAccessibility(
   element: HTMLElement,
-  options: A11yTestOptions = {}
+  options: A11yTestOptions = {},
 ): Promise<void> {
   const {
     componentName = 'Component',
@@ -192,58 +195,65 @@ export async function testComponentAccessibility(
     testContrast = true,
     contrastTests = [],
   } = options;
-  
+
   // Configure axe for this test
   const config = {
     ...haspenA11yConfig,
     rules: {
       ...haspenA11yConfig.rules,
       // Enable additional rules
-      ...Object.fromEntries(additionalRules.map(rule => [rule, { enabled: true }])),
+      ...Object.fromEntries(
+        additionalRules.map(rule => [rule, { enabled: true }]),
+      ),
       // Disable specified rules
-      ...Object.fromEntries(disableRules.map(rule => [rule, { enabled: false }])),
+      ...Object.fromEntries(
+        disableRules.map(rule => [rule, { enabled: false }]),
+      ),
     },
   };
-  
+
   // Import axe dynamically to avoid issues in SSR
   const { axe } = await import('vitest-axe');
-  
+
   // Run axe accessibility tests
   const results = await axe(element, config);
-  
+
   // Custom error message for better debugging
   if (results.violations.length > 0) {
-    const violationMessages = results.violations.map(violation => 
-      `${violation.id}: ${violation.description}\n  Impact: ${violation.impact}\n  Help: ${violation.helpUrl}`
-    ).join('\n\n');
-    
+    const violationMessages = results.violations
+      .map(
+        violation =>
+          `${violation.id}: ${violation.description}\n  Impact: ${violation.impact}\n  Help: ${violation.helpUrl}`,
+      )
+      .join('\n\n');
+
     throw new Error(
-      `${componentName} accessibility violations found:\n\n${violationMessages}`
+      `${componentName} accessibility violations found:\n\n${violationMessages}`,
     );
   }
-  
+
   // Run color contrast tests if enabled
   if (testContrast && contrastTests.length > 0) {
     const contrastFailures: string[] = [];
-    
+
     for (const test of contrastTests) {
       const result = testColorContrast(
         test.foreground,
         test.background,
-        test.isLargeText
+        test.isLargeText,
       );
-      
+
       if (!result.passes) {
         contrastFailures.push(
           `${test.description || 'Color combination'}: ${test.foreground} on ${test.background} ` +
-          `(ratio: ${result.ratio}, required: ${test.isLargeText ? '3.0' : '4.5'})`
+            `(ratio: ${result.ratio}, required: ${test.isLargeText ? '3.0' : '4.5'})`,
         );
       }
     }
-    
+
     if (contrastFailures.length > 0) {
       throw new Error(
-        `${componentName} color contrast failures:\n\n${contrastFailures.join('\n')}`
+        `${componentName} color contrast failures:\n\n${contrastFailures.join('\n')}`,
       );
     }
   }

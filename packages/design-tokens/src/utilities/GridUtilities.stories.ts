@@ -469,7 +469,8 @@ export const Overview: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Complete overview of CSS Grid utilities with interactive examples and usage patterns.',
+        story:
+          'Complete overview of CSS Grid utilities with interactive examples and usage patterns.',
       },
     },
   },
@@ -515,7 +516,8 @@ export const BasicGrids: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Basic grid layouts with 2, 3, and 4 columns showing different gap sizes.',
+        story:
+          'Basic grid layouts with 2, 3, and 4 columns showing different gap sizes.',
       },
     },
   },
@@ -554,7 +556,8 @@ export const ResponsiveGrid: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Responsive grid that adapts from 1 column on mobile to 4 columns on large screens.',
+        story:
+          'Responsive grid that adapts from 1 column on mobile to 4 columns on large screens.',
       },
     },
   },
@@ -605,7 +608,8 @@ export const CardGrid: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Auto-fit card grid that automatically adjusts the number of columns based on available space.',
+        story:
+          'Auto-fit card grid that automatically adjusts the number of columns based on available space.',
       },
     },
   },

@@ -17,31 +17,26 @@ $business-intent-colors: (
   'brand': palette.color('blue', 600),
   'brand-light': palette.color('blue', 500),
   'brand-dark': palette.color('blue', 700),
-  
   // Success and positive states
   'success': palette.color('green', 600),
   'success-light': palette.color('green', 500),
   'success-dark': palette.color('green', 700),
-  
   // Warning and cautionary states
   'warning': palette.color('yellow', 500),
   'warning-light': palette.color('yellow', 400),
   'warning-dark': palette.color('yellow', 600),
-  
   // Error and destructive states
   'error': palette.color('red', 600),
   'error-light': palette.color('red', 500),
   'error-dark': palette.color('red', 700),
-  
   // Informational content
   'info': palette.color('blue', 500),
   'info-light': palette.color('blue', 400),
   'info-dark': palette.color('blue', 600),
-  
   // Neutral content and secondary actions
   'neutral': palette.color('gray', 600),
   'neutral-light': palette.color('gray', 500),
-  'neutral-dark': palette.color('gray', 700),
+  'neutral-dark': palette.color('gray', 700)
 );
 
 // =============================================================================
@@ -53,99 +48,103 @@ $business-intent-colors: (
 $component-state-colors: (
   // Button states
   'button': (
-    'primary': (
-      'default': map.get($business-intent-colors, 'brand'),
-      'hover': map.get($business-intent-colors, 'brand-dark'),
-      'active': palette.darker('blue', 600, 1),
-      'focus': map.get($business-intent-colors, 'brand'),
-      'disabled': palette.color('gray', 300),
+      'primary': (
+        'default': map.get($business-intent-colors, 'brand'),
+        'hover': map.get($business-intent-colors, 'brand-dark'),
+        'active': palette.darker('blue', 600, 1),
+        'focus': map.get($business-intent-colors, 'brand'),
+        'disabled': palette.color('gray', 300),
+      ),
+      'secondary': (
+        'default': palette.color('gray', 100),
+        'hover': palette.color('gray', 200),
+        'active': palette.color('gray', 300),
+        'focus': palette.color('gray', 100),
+        'disabled': palette.color('gray', 50),
+      ),
+      'destructive': (
+        'default': map.get($business-intent-colors, 'error'),
+        'hover': map.get($business-intent-colors, 'error-dark'),
+        'active': palette.darker('red', 600, 1),
+        'focus': map.get($business-intent-colors, 'error'),
+        'disabled': palette.color('gray', 300),
+      ),
     ),
-    'secondary': (
-      'default': palette.color('gray', 100),
-      'hover': palette.color('gray', 200),
-      'active': palette.color('gray', 300),
-      'focus': palette.color('gray', 100),
-      'disabled': palette.color('gray', 50),
-    ),
-    'destructive': (
-      'default': map.get($business-intent-colors, 'error'),
-      'hover': map.get($business-intent-colors, 'error-dark'),
-      'active': palette.darker('red', 600, 1),
-      'focus': map.get($business-intent-colors, 'error'),
-      'disabled': palette.color('gray', 300),
-    ),
-  ),
-  
+
   // Input states
   'input': (
-    'default': (
-      'background': palette.surface('background'),
-      'border': palette.border('medium'),
-      'text': palette.text('primary'),
+      'default': (
+        'background': palette.surface('background'),
+        'border': palette.border('medium'),
+        'text': palette.text('primary'),
+      ),
+      'focus': (
+        'background': palette.surface('background'),
+        'border': map.get($business-intent-colors, 'brand'),
+        'text': palette.text('primary'),
+        'outline': palette.alpha('blue', 600, 0.2),
+      ),
+      'error': (
+        'background': palette.surface('background'),
+        'border': map.get($business-intent-colors, 'error'),
+        'text': palette.text('primary'),
+        'outline': palette.alpha('red', 600, 0.2),
+      ),
+      'disabled': (
+        'background': palette.color('gray', 50),
+        'border': palette.color('gray', 200),
+        'text': palette.text('disabled'),
+      ),
     ),
-    'focus': (
-      'background': palette.surface('background'),
-      'border': map.get($business-intent-colors, 'brand'),
-      'text': palette.text('primary'),
-      'outline': palette.alpha('blue', 600, 0.2),
-    ),
-    'error': (
-      'background': palette.surface('background'),
-      'border': map.get($business-intent-colors, 'error'),
-      'text': palette.text('primary'),
-      'outline': palette.alpha('red', 600, 0.2),
-    ),
-    'disabled': (
-      'background': palette.color('gray', 50),
-      'border': palette.color('gray', 200),
-      'text': palette.text('disabled'),
-    ),
-  ),
-  
+
   // Card and surface states
   'surface': (
-    'default': (
-      'background': palette.surface('background'),
-      'border': palette.border('light'),
+      'default': (
+        'background': palette.surface('background'),
+        'border': palette.border('light'),
+      ),
+      'elevated': (
+        'background': palette.surface('surface-raised'),
+        'border': palette.border('light'),
+      ),
+      'interactive': (
+        'background': palette.surface('background'),
+        'border': palette.border('light'),
+        'hover-background': palette.color('gray', 50),
+      ),
     ),
-    'elevated': (
-      'background': palette.surface('surface-raised'),
-      'border': palette.border('light'),
-    ),
-    'interactive': (
-      'background': palette.surface('background'),
-      'border': palette.border('light'),
-      'hover-background': palette.color('gray', 50),
-    ),
-  ),
-  
+
   // Alert and notification states
   'alert': (
-    'success': (
-      'background': palette.lighter('green', 500, 4), // green-100
-      'border': palette.color('green', 300),
-      'text': palette.color('green', 800),
-      'icon': map.get($business-intent-colors, 'success'),
-    ),
-    'warning': (
-      'background': palette.lighter('yellow', 500, 4), // yellow-100
-      'border': palette.color('yellow', 300),
-      'text': palette.color('yellow', 800),
-      'icon': map.get($business-intent-colors, 'warning'),
-    ),
-    'error': (
-      'background': palette.lighter('red', 500, 4), // red-100
-      'border': palette.color('red', 300),
-      'text': palette.color('red', 800),
-      'icon': map.get($business-intent-colors, 'error'),
-    ),
-    'info': (
-      'background': palette.lighter('blue', 500, 4), // blue-100
-      'border': palette.color('blue', 300),
-      'text': palette.color('blue', 800),
-      'icon': map.get($business-intent-colors, 'info'),
-    ),
-  ),
+      'success': (
+        'background': palette.lighter('green', 500, 4),
+        // green-100
+        'border': palette.color('green', 300),
+        'text': palette.color('green', 800),
+        'icon': map.get($business-intent-colors, 'success'),
+      ),
+      'warning': (
+        'background': palette.lighter('yellow', 500, 4),
+        // yellow-100
+        'border': palette.color('yellow', 300),
+        'text': palette.color('yellow', 800),
+        'icon': map.get($business-intent-colors, 'warning'),
+      ),
+      'error': (
+        'background': palette.lighter('red', 500, 4),
+        // red-100
+        'border': palette.color('red', 300),
+        'text': palette.color('red', 800),
+        'icon': map.get($business-intent-colors, 'error'),
+      ),
+      'info': (
+        'background': palette.lighter('blue', 500, 4),
+        // blue-100
+        'border': palette.color('blue', 300),
+        'text': palette.color('blue', 800),
+        'icon': map.get($business-intent-colors, 'info'),
+      ),
+    )
 );
 
 // =============================================================================
@@ -164,7 +163,7 @@ $contextual-variations: (
     'border': palette.border('light'),
     'divider': palette.border('light'),
   ),
-  
+
   'medium-context': (
     'primary-text': palette.text('primary'),
     'secondary-text': palette.text('secondary'),
@@ -174,7 +173,7 @@ $contextual-variations: (
     'border': palette.border('medium'),
     'divider': palette.border('medium'),
   ),
-  
+
   'dark-context': (
     'primary-text': palette.text('inverse'),
     'secondary-text': rgba(#ffffff, 0.8),
@@ -197,11 +196,11 @@ $contextual-variations: (
 ///   background-color: business-intent('brand'); // #2563eb
 @function business-intent($intent) {
   $color: map.get($business-intent-colors, $intent);
-  
+
   @if not $color {
     @error 'Business intent "#{$intent}" not found. Available intents: #{map.keys($business-intent-colors)}';
   }
-  
+
   @return $color;
 }
 
@@ -214,36 +213,36 @@ $contextual-variations: (
 ///   background-color: component-state('button', 'primary', 'hover');
 @function component-state($component, $variant-or-state, $state: null) {
   $component-map: map.get($component-state-colors, $component);
-  
+
   @if not $component-map {
     @error 'Component "#{$component}" not found. Available components: #{map.keys($component-state-colors)}';
   }
-  
+
   // If only two parameters, treat second as state
   @if not $state {
     $state: $variant-or-state;
     $color: map.get($component-map, $state);
-    
+
     @if not $color {
       @error 'State "#{$state}" not found for component "#{$component}". Available states: #{map.keys($component-map)}';
     }
-    
+
     @return $color;
   }
-  
+
   // Three parameters: component, variant, state
   $variant-map: map.get($component-map, $variant-or-state);
-  
+
   @if not $variant-map {
     @error 'Variant "#{$variant-or-state}" not found for component "#{$component}". Available variants: #{map.keys($component-map)}';
   }
-  
+
   $color: map.get($variant-map, $state);
-  
+
   @if not $color {
     @error 'State "#{$state}" not found for variant "#{$variant-or-state}" of component "#{$component}". Available states: #{map.keys($variant-map)}';
   }
-  
+
   @return $color;
 }
 
@@ -255,17 +254,17 @@ $contextual-variations: (
 ///   color: contextual('dark-context', 'primary-text');
 @function contextual($context, $role) {
   $context-map: map.get($contextual-variations, $context);
-  
+
   @if not $context-map {
     @error 'Context "#{$context}" not found. Available contexts: #{map.keys($contextual-variations)}';
   }
-  
+
   $color: map.get($context-map, $role);
-  
+
   @if not $color {
     @error 'Role "#{$role}" not found for context "#{$context}". Available roles: #{map.keys($context-map)}';
   }
-  
+
   @return $color;
 }
 
@@ -280,29 +279,33 @@ $contextual-variations: (
 ///   color: map.get($scheme, 'text');
 @function component-scheme($component, $variant, $state: 'default') {
   $bg-color: component-state($component, $variant, $state);
-  
+
   // Generate accessible text color
   $text-color: accessibility.accessible-text($bg-color, 'auto');
-  
+
   // Calculate contrast ratio
   $contrast: accessibility.contrast-ratio($text-color, $bg-color);
-  
+
   // Get border color based on component type
   $border-color: null;
   @if $component == 'button' {
     $border-color: $bg-color;
   } @else if $component == 'input' {
-    $border-color: map.get(map.get($component-state-colors, 'input'), $state, 'border');
+    $border-color: map.get(
+      map.get($component-state-colors, 'input'),
+      $state,
+      'border'
+    );
   } @else {
     $border-color: palette.border('medium');
   }
-  
+
   @return (
     'background': $bg-color,
     'text': $text-color,
     'border': $border-color,
     'contrast-ratio': $contrast,
-    'accessible': $contrast >= 4.5,
+    'accessible': $contrast >= 4.5
   );
 }
 
@@ -318,15 +321,15 @@ $contextual-variations: (
 @mixin business-intent-colors($intent, $include-hover: false) {
   $bg-color: business-intent($intent);
   $text-color: accessibility.accessible-text($bg-color, 'auto');
-  
+
   background-color: $bg-color;
   color: $text-color;
-  
+
   @if $include-hover {
     &:hover {
       $hover-color: business-intent('#{$intent}-dark');
       $hover-text: accessibility.accessible-text($hover-color, 'auto');
-      
+
       background-color: $hover-color;
       color: $hover-text;
     }
@@ -341,21 +344,21 @@ $contextual-variations: (
 ///   @include component-colors('button', 'primary');
 @mixin component-colors($component, $variant, $include-states: true) {
   $scheme: component-scheme($component, $variant, 'default');
-  
+
   background-color: map.get($scheme, 'background');
   color: map.get($scheme, 'text');
-  
+
   @if map.get($scheme, 'border') {
     border-color: map.get($scheme, 'border');
   }
-  
+
   @if $include-states {
     &:hover {
       $hover-scheme: component-scheme($component, $variant, 'hover');
       background-color: map.get($hover-scheme, 'background');
       color: map.get($hover-scheme, 'text');
     }
-    
+
     &:focus,
     &:focus-visible {
       $focus-scheme: component-scheme($component, $variant, 'focus');
@@ -364,13 +367,13 @@ $contextual-variations: (
       outline: 2px solid map.get($focus-scheme, 'background');
       outline-offset: 2px;
     }
-    
+
     &:active {
       $active-scheme: component-scheme($component, $variant, 'active');
       background-color: map.get($active-scheme, 'background');
       color: map.get($active-scheme, 'text');
     }
-    
+
     &:disabled {
       $disabled-scheme: component-scheme($component, $variant, 'disabled');
       background-color: map.get($disabled-scheme, 'background');
@@ -387,15 +390,15 @@ $contextual-variations: (
 ///   @include alert-colors('error');
 @mixin alert-colors($type) {
   $alert-scheme: map.get($component-state-colors, 'alert', $type);
-  
+
   @if not $alert-scheme {
     @error 'Alert type "#{$type}" not found. Available types: success, warning, error, info';
   }
-  
+
   background-color: map.get($alert-scheme, 'background');
   border: 1px solid map.get($alert-scheme, 'border');
   color: map.get($alert-scheme, 'text');
-  
+
   // Style icon if present
   .alert-icon {
     color: map.get($alert-scheme, 'icon');
@@ -409,40 +412,43 @@ $contextual-variations: (
 ///   @include contextual-colors('dark-context');
 @mixin contextual-colors($context, $include-actions: true) {
   color: contextual($context, 'primary-text');
-  
+
   // Secondary text elements
   .secondary-text,
   .text-secondary {
     color: contextual($context, 'secondary-text');
   }
-  
-  // Tertiary text elements  
+
+  // Tertiary text elements
   .tertiary-text,
   .text-tertiary {
     color: contextual($context, 'tertiary-text');
   }
-  
+
   @if $include-actions {
     // Primary action elements
     .primary-action,
     .btn-primary {
       background-color: contextual($context, 'primary-action');
-      color: accessibility.accessible-text(contextual($context, 'primary-action'), 'auto');
+      color: accessibility.accessible-text(
+        contextual($context, 'primary-action'),
+        'auto'
+      );
     }
-    
+
     // Secondary action elements
     .secondary-action,
     .btn-secondary {
       color: contextual($context, 'secondary-action');
     }
   }
-  
+
   // Border elements
   .border,
   .border-default {
     border-color: contextual($context, 'border');
   }
-  
+
   // Divider elements
   .divider,
   hr {
@@ -463,7 +469,7 @@ $contextual-variations: (
   $scheme: component-scheme($component, $variant);
   $contrast: map.get($scheme, 'contrast-ratio');
   $accessible: map.get($scheme, 'accessible');
-  
+
   @if not $accessible {
     @warn 'ACCESSIBILITY WARNING: #{$component} #{$variant} has contrast ratio of #{$contrast} (below WCAG AA standard of 4.5:1)';
   }

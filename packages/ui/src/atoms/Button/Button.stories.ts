@@ -75,7 +75,7 @@ const handleClick = () => {
     disabled: false,
   },
   decorators: [
-    (story) => ({
+    story => ({
       components: { story, IconProvider },
       setup() {
         return { haspenIcons };
@@ -97,7 +97,7 @@ export const Primary: Story = {
   args: {
     variant: 'primary',
   },
-  render: (args) => ({
+  render: args => ({
     components: { Button },
     setup() {
       return { args };
@@ -110,7 +110,7 @@ export const Secondary: Story = {
   args: {
     variant: 'secondary',
   },
-  render: (args) => ({
+  render: args => ({
     components: { Button },
     setup() {
       return { args };
@@ -123,7 +123,7 @@ export const Outline: Story = {
   args: {
     variant: 'outline',
   },
-  render: (args) => ({
+  render: args => ({
     components: { Button },
     setup() {
       return { args };
@@ -136,7 +136,7 @@ export const Ghost: Story = {
   args: {
     variant: 'ghost',
   },
-  render: (args) => ({
+  render: args => ({
     components: { Button },
     setup() {
       return { args };
@@ -160,7 +160,8 @@ export const AllSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Buttons are available in three sizes: small, medium (default), and large.',
+        story:
+          'Buttons are available in three sizes: small, medium (default), and large.',
       },
     },
   },
@@ -211,7 +212,8 @@ export const LoadingStates: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Loading states disable the button and show a loading spinner. The button maintains its size and is properly announced to screen readers.',
+        story:
+          'Loading states disable the button and show a loading spinner. The button maintains its size and is properly announced to screen readers.',
       },
     },
   },
@@ -222,14 +224,14 @@ export const LoadingInteractive: Story = {
     components: { Button },
     setup() {
       const loading = ref(false);
-      
+
       const handleClick = async () => {
         loading.value = true;
         // Simulate async operation
         await new Promise(resolve => setTimeout(resolve, 2000));
         loading.value = false;
       };
-      
+
       return { loading, handleClick };
     },
     template: `
@@ -246,7 +248,8 @@ export const LoadingInteractive: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interactive example showing how loading states work in practice. The button shows feedback during async operations.',
+        story:
+          'Interactive example showing how loading states work in practice. The button shows feedback during async operations.',
       },
     },
   },
@@ -281,7 +284,8 @@ export const WithIcons: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Buttons can include icons before, after, or on both sides of the text content.',
+        story:
+          'Buttons can include icons before, after, or on both sides of the text content.',
       },
     },
   },
@@ -329,7 +333,8 @@ export const IconOnlyButtons: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Icon-only buttons must include aria-label for accessibility. Icons should be marked as aria-hidden="true".',
+        story:
+          'Icon-only buttons must include aria-label for accessibility. Icons should be marked as aria-hidden="true".',
       },
     },
   },
@@ -344,13 +349,13 @@ export const IconWithLoading: Story = {
         delete: false,
         refresh: false,
       });
-      
+
       const handleAction = async (action: keyof typeof loadingStates.value) => {
         loadingStates.value[action] = true;
         await new Promise(resolve => setTimeout(resolve, 2000));
         loadingStates.value[action] = false;
       };
-      
+
       return { loadingStates, handleAction };
     },
     template: `
@@ -388,13 +393,14 @@ export const IconWithLoading: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Icons can be combined with loading states. Icons are hidden during loading to show the spinner.',
+        story:
+          'Icons can be combined with loading states. Icons are hidden during loading to show the spinner.',
       },
     },
   },
 };
 
-// State Combinations  
+// State Combinations
 export const Disabled: Story = {
   render: () => ({
     components: { Button, Icon },
@@ -423,7 +429,8 @@ export const Disabled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Disabled buttons are not interactive and are properly announced to assistive technologies.',
+        story:
+          'Disabled buttons are not interactive and are properly announced to assistive technologies.',
       },
     },
   },
@@ -494,7 +501,8 @@ export const AccessibilityDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Comprehensive accessibility examples showing proper ARIA usage, focus management, and semantic button types.',
+        story:
+          'Comprehensive accessibility examples showing proper ARIA usage, focus management, and semantic button types.',
       },
     },
   },
@@ -507,9 +515,9 @@ export const KeyboardNavigation: Story = {
       const message = ref('');
       const showMessage = (text: string) => {
         message.value = text;
-        setTimeout(() => message.value = '', 2000);
+        setTimeout(() => (message.value = ''), 2000);
       };
-      
+
       return { message, showMessage };
     },
     template: `
@@ -542,7 +550,8 @@ export const KeyboardNavigation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interactive keyboard navigation demo. All buttons support standard keyboard interactions and focus management.',
+        story:
+          'Interactive keyboard navigation demo. All buttons support standard keyboard interactions and focus management.',
       },
     },
   },

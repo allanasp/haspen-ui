@@ -22,26 +22,26 @@
 </template>
 
 <script setup lang="ts">
-import type { IconProps } from './types';
+  import type { IconProps } from './types';
 
-withDefaults(defineProps<IconProps>(), {
-  size: 16,
-  ariaHidden: true,
-});
+  withDefaults(defineProps<IconProps>(), {
+    size: 16,
+    ariaHidden: true,
+  });
 </script>
 
 <script lang="ts">
-export default {
-  name: 'MoonIcon',
-};
+  export default {
+    name: 'MoonIcon',
+  };
 </script>
 
 <style lang="scss" scoped>
-.moon-icon {
-  transition: all 0.2s ease;
-  
-  &:hover {
-    transform: rotate(-15deg);
+  .moon-icon {
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: rotate(-15deg);
+    }
   }
-}
 </style>

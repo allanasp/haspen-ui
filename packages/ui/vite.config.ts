@@ -10,12 +10,12 @@ export default defineConfig({
         // Add include paths for SCSS imports
         includePaths: [
           resolve(__dirname, '../design-tokens/src'),
-          resolve(__dirname, 'node_modules')
+          resolve(__dirname, 'node_modules'),
         ],
         // Global SCSS variables/mixins available in all components
-        additionalData: `@use "${resolve(__dirname, '../design-tokens/src/index.scss')}" as tokens;`
-      }
-    }
+        additionalData: `@use "${resolve(__dirname, '../design-tokens/src/index.scss')}" as tokens;`,
+      },
+    },
   },
   build: {
     lib: {
@@ -24,7 +24,12 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['vue', '@haspen-ui/core', '@haspen-ui/shared', '@haspen-ui/composables'],
+      external: [
+        'vue',
+        '@haspen-ui/core',
+        '@haspen-ui/shared',
+        '@haspen-ui/composables',
+      ],
       output: {
         globals: {
           vue: 'Vue',

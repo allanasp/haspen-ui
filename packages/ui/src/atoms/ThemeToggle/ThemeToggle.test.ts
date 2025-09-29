@@ -2,7 +2,10 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { ThemeToggle } from './index';
-import { testComponentAccessibility, configureHaspenAxe } from '../../test-utils/accessibility';
+import {
+  testComponentAccessibility,
+  configureHaspenAxe,
+} from '../../test-utils/accessibility';
 
 // Mock the theme composable
 import { ref } from 'vue';
@@ -30,7 +33,7 @@ describe('ThemeToggle', () => {
   describe('Rendering', () => {
     it('renders with default props', () => {
       const wrapper = mount(ThemeToggle);
-      
+
       expect(wrapper.find('.theme-toggle').exists()).toBe(true);
       expect(wrapper.find('.theme-toggle--default').exists()).toBe(true);
       expect(wrapper.find('.theme-toggle--md').exists()).toBe(true);
@@ -43,7 +46,7 @@ describe('ThemeToggle', () => {
           size: 'lg',
         },
       });
-      
+
       expect(wrapper.find('.theme-toggle--outline').exists()).toBe(true);
       expect(wrapper.find('.theme-toggle--lg').exists()).toBe(true);
     });
@@ -54,7 +57,7 @@ describe('ThemeToggle', () => {
           showLabel: true,
         },
       });
-      
+
       expect(wrapper.find('.theme-toggle__label').exists()).toBe(true);
       expect(wrapper.find('.theme-toggle__label').text()).toBe('Light mode');
     });
@@ -67,13 +70,13 @@ describe('ThemeToggle', () => {
           darkLabel: 'Night Mode',
         },
       });
-      
+
       expect(wrapper.find('.theme-toggle__label').text()).toBe('Day Mode');
     });
 
     it('shows dark label when theme is dark', async () => {
       mockIsDark.value = true;
-      
+
       const wrapper = mount(ThemeToggle, {
         props: {
           showLabel: true,
@@ -81,7 +84,7 @@ describe('ThemeToggle', () => {
           darkLabel: 'Night Mode',
         },
       });
-      
+
       await nextTick();
       expect(wrapper.find('.theme-toggle__label').text()).toBe('Night Mode');
     });
@@ -94,14 +97,14 @@ describe('ThemeToggle', () => {
           disabled: true,
         },
       });
-      
+
       expect(wrapper.find('.theme-toggle--disabled').exists()).toBe(true);
       expect(wrapper.find('button').attributes('disabled')).toBeDefined();
     });
 
     it('does not have loading state (removed for performance)', () => {
       const wrapper = mount(ThemeToggle);
-      
+
       // Verify no loading classes exist - we removed artificial loading for performance
       expect(wrapper.find('.theme-toggle--loading').exists()).toBe(false);
     });
@@ -121,7 +124,7 @@ describe('ThemeToggle', () => {
     it('has proper ARIA attributes', () => {
       const wrapper = mount(ThemeToggle);
       const button = wrapper.find('button');
-      
+
       expect(button.attributes('type')).toBe('button');
       expect(button.attributes('aria-label')).toBe('Toggle theme');
       expect(button.attributes('aria-pressed')).toBe('false');
@@ -129,14 +132,14 @@ describe('ThemeToggle', () => {
 
     it('updates aria-pressed based on theme state', async () => {
       const wrapper = mount(ThemeToggle);
-      
+
       // Initially light mode
       expect(wrapper.find('button').attributes('aria-pressed')).toBe('false');
-      
+
       // Switch to dark mode
       mockIsDark.value = true;
       await nextTick();
-      
+
       expect(wrapper.find('button').attributes('aria-pressed')).toBe('true');
     });
 
@@ -146,22 +149,28 @@ describe('ThemeToggle', () => {
           ariaLabel: 'Custom theme toggle',
         },
       });
-      
-      expect(wrapper.find('button').attributes('aria-label')).toBe('Custom theme toggle');
+
+      expect(wrapper.find('button').attributes('aria-label')).toBe(
+        'Custom theme toggle',
+      );
     });
 
     it('updates aria label based on current mode', async () => {
       const wrapper = mount(ThemeToggle);
-      
+
       // Initially uses default aria label
-      expect(wrapper.find('button').attributes('aria-label')).toBe('Toggle theme');
-      
+      expect(wrapper.find('button').attributes('aria-label')).toBe(
+        'Toggle theme',
+      );
+
       // Switch to dark mode
       mockIsDark.value = true;
       await nextTick();
-      
+
       // Still uses the default aria label unless custom one is provided
-      expect(wrapper.find('button').attributes('aria-label')).toBe('Toggle theme');
+      expect(wrapper.find('button').attributes('aria-label')).toBe(
+        'Toggle theme',
+      );
     });
 
     it('supports keyboard navigation', async () => {
@@ -171,7 +180,7 @@ describe('ThemeToggle', () => {
       // Test Space key activation
       await button.trigger('keydown', { key: ' ' });
       await button.trigger('keyup', { key: ' ' });
-      
+
       // Test Enter key activation
       await button.trigger('keydown', { key: 'Enter' });
       await button.trigger('keyup', { key: 'Enter' });
@@ -222,7 +231,7 @@ describe('ThemeToggle', () => {
       });
 
       const wrapper = mount(ThemeToggle);
-      
+
       // Component should render without animations when reduced motion is preferred
       expect(wrapper.exists()).toBe(true);
     });
@@ -244,7 +253,7 @@ describe('ThemeToggle', () => {
       });
 
       const wrapper = mount(ThemeToggle);
-      
+
       // Component should adapt to high contrast preferences
       expect(wrapper.exists()).toBe(true);
     });
@@ -264,7 +273,7 @@ describe('ThemeToggle', () => {
     it('maintains accessibility (no loading state)', () => {
       const wrapper = mount(ThemeToggle);
       const button = wrapper.find('button');
-      
+
       // Button should always be accessible (no loading state)
       expect(button.attributes('aria-label')).toBeDefined();
       expect(button.attributes('disabled')).toBeUndefined(); // Not disabled unless prop says so
@@ -278,19 +287,19 @@ describe('ThemeToggle', () => {
           disabled: true,
         },
       });
-      
+
       await wrapper.find('button').trigger('click');
-      
+
       // The button should be disabled, so no interaction should occur
       expect(wrapper.find('button').attributes('disabled')).toBeDefined();
     });
 
     it('responds instantly when clicked (no loading state)', async () => {
       const wrapper = mount(ThemeToggle);
-      
+
       // Toggle should respond instantly
       await wrapper.find('button').trigger('click');
-      
+
       // Should NOT show loading state (removed for performance)
       expect(wrapper.classes()).not.toContain('theme-toggle--loading');
       expect(wrapper.find('.theme-toggle__spinner').exists()).toBe(false);
@@ -300,13 +309,13 @@ describe('ThemeToggle', () => {
   describe('Events', () => {
     it('emits toggle event with current state', async () => {
       const wrapper = mount(ThemeToggle);
-      
+
       await wrapper.find('button').trigger('click');
-      
+
       // Wait for loading delay
       await new Promise(resolve => setTimeout(resolve, 200));
       await nextTick();
-      
+
       const toggleEvents = wrapper.emitted('toggle');
       expect(toggleEvents).toBeTruthy();
       expect(toggleEvents?.[0]).toEqual([false]); // isDark value
@@ -314,13 +323,13 @@ describe('ThemeToggle', () => {
 
     it('emits change event with mode', async () => {
       const wrapper = mount(ThemeToggle);
-      
+
       await wrapper.find('button').trigger('click');
-      
+
       // Wait for loading delay
       await new Promise(resolve => setTimeout(resolve, 200));
       await nextTick();
-      
+
       const changeEvents = wrapper.emitted('change');
       expect(changeEvents).toBeTruthy();
       expect(changeEvents?.[0]).toEqual(['light']); // mode value
@@ -331,7 +340,7 @@ describe('ThemeToggle', () => {
     it('shows sun icon in light mode', () => {
       mockIsDark.value = false;
       const wrapper = mount(ThemeToggle);
-      
+
       expect(wrapper.find('.theme-toggle__icon--sun').exists()).toBe(true);
       expect(wrapper.find('.theme-toggle__icon--moon').exists()).toBe(false);
     });
@@ -339,9 +348,9 @@ describe('ThemeToggle', () => {
     it('shows moon icon in dark mode', async () => {
       mockIsDark.value = true;
       const wrapper = mount(ThemeToggle);
-      
+
       await nextTick();
-      
+
       expect(wrapper.find('.theme-toggle__icon--moon').exists()).toBe(true);
       expect(wrapper.find('.theme-toggle__icon--sun').exists()).toBe(false);
     });
@@ -355,7 +364,7 @@ describe('ThemeToggle', () => {
           size: 'md',
         },
       });
-      
+
       const thumb = wrapper.find('.theme-toggle__thumb');
       expect(thumb.attributes('style')).toContain('transform: translateX(0px)');
     });
@@ -367,23 +376,29 @@ describe('ThemeToggle', () => {
           size: 'md',
         },
       });
-      
+
       await nextTick();
-      
+
       const thumb = wrapper.find('.theme-toggle__thumb');
-      expect(thumb.attributes('style')).toContain('transform: translateX(24px)');
+      expect(thumb.attributes('style')).toContain(
+        'transform: translateX(24px)',
+      );
     });
 
     it('adjusts thumb position for different sizes', async () => {
       mockIsDark.value = true;
-      
+
       const smallWrapper = mount(ThemeToggle, { props: { size: 'sm' } });
       const largeWrapper = mount(ThemeToggle, { props: { size: 'lg' } });
-      
+
       await nextTick();
-      
-      expect(smallWrapper.find('.theme-toggle__thumb').attributes('style')).toContain('translateX(20px)');
-      expect(largeWrapper.find('.theme-toggle__thumb').attributes('style')).toContain('translateX(28px)');
+
+      expect(
+        smallWrapper.find('.theme-toggle__thumb').attributes('style'),
+      ).toContain('translateX(20px)');
+      expect(
+        largeWrapper.find('.theme-toggle__thumb').attributes('style'),
+      ).toContain('translateX(28px)');
     });
   });
 });

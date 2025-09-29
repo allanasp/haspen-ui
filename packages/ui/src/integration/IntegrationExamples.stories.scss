@@ -175,7 +175,7 @@
 
     &-amount {
       font-weight: 600;
-      
+
       &--positive {
         color: var(--haspen-color-success);
       }
@@ -253,7 +253,7 @@
     padding: 1.5rem;
     border-radius: 8px;
     margin: 1rem 0;
-    
+
     h5 {
       margin: 0 0 1rem;
       color: var(--haspen-color-text-primary);
@@ -332,7 +332,7 @@
 
     &-before {
       color: var(--haspen-color-error);
-      
+
       &::before {
         content: '❌ ';
       }
@@ -340,7 +340,7 @@
 
     &-after {
       color: var(--haspen-color-success);
-      
+
       &::before {
         content: '✅ ';
       }

@@ -8,9 +8,10 @@
   border: none;
   outline: none;
   position: relative;
-  
+
   // Specific transitions for performance (not 'all')
-  transition-property: background-color, border-color, color, box-shadow, transform;
+  transition-property:
+    background-color, border-color, color, box-shadow, transform;
   transition-duration: var(--haspen-duration-fast);
   transition-timing-function: var(--haspen-ease-out);
 

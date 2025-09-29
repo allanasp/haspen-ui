@@ -47,7 +47,8 @@
   padding: 2rem;
   margin-bottom: 3rem;
   box-shadow: var(--haspen-shadow-sm);
-  transition: all var(--haspen-transition-duration-base) var(--haspen-transition-timing-ease);
+  transition: all var(--haspen-transition-duration-base)
+    var(--haspen-transition-timing-ease);
 
   &:hover {
     box-shadow: var(--haspen-shadow-md);
@@ -103,7 +104,8 @@
 
   .status-indicator {
     font-size: 1.5rem;
-    transition: all var(--haspen-transition-duration-fast) var(--haspen-transition-timing-ease);
+    transition: all var(--haspen-transition-duration-fast)
+      var(--haspen-transition-timing-ease);
 
     &.dark {
       filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
@@ -129,7 +131,8 @@
     cursor: pointer;
     font-size: var(--haspen-font-size-sm);
     font-weight: var(--haspen-font-weight-medium);
-    transition: all var(--haspen-transition-duration-fast) var(--haspen-transition-timing-ease);
+    transition: all var(--haspen-transition-duration-fast)
+      var(--haspen-transition-timing-ease);
 
     &:hover {
       background: var(--haspen-color-background);
@@ -203,7 +206,8 @@
   border: 1px solid var(--haspen-color-border);
   border-radius: var(--haspen-radius-md);
   padding: 1rem;
-  transition: all var(--haspen-transition-duration-base) var(--haspen-transition-timing-ease);
+  transition: all var(--haspen-transition-duration-base)
+    var(--haspen-transition-timing-ease);
 
   &:hover {
     transform: translateY(-2px);
@@ -218,17 +222,39 @@
   margin-bottom: 1rem;
   border: 1px solid var(--haspen-color-border);
 
-  .primary & { background: var(--haspen-color-primary); }
-  .secondary & { background: var(--haspen-color-secondary); }
-  .tertiary & { background: var(--haspen-color-tertiary); }
-  .error & { background: var(--haspen-color-error); }
-  .warning & { background: var(--haspen-color-warning); }
-  .success & { background: var(--haspen-color-success); }
-  .info & { background: var(--haspen-color-info); }
-  .background & { background: var(--haspen-color-background); }
-  .surface & { background: var(--haspen-color-surface); }
-  .text & { background: var(--haspen-color-text); }
-  .textSecondary & { background: var(--haspen-color-textSecondary); }
+  .primary & {
+    background: var(--haspen-color-primary);
+  }
+  .secondary & {
+    background: var(--haspen-color-secondary);
+  }
+  .tertiary & {
+    background: var(--haspen-color-tertiary);
+  }
+  .error & {
+    background: var(--haspen-color-error);
+  }
+  .warning & {
+    background: var(--haspen-color-warning);
+  }
+  .success & {
+    background: var(--haspen-color-success);
+  }
+  .info & {
+    background: var(--haspen-color-info);
+  }
+  .background & {
+    background: var(--haspen-color-background);
+  }
+  .surface & {
+    background: var(--haspen-color-surface);
+  }
+  .text & {
+    background: var(--haspen-color-text);
+  }
+  .textSecondary & {
+    background: var(--haspen-color-textSecondary);
+  }
 }
 
 .color-info {
@@ -336,11 +362,21 @@
     color: var(--haspen-color-text);
     font-size: var(--haspen-font-size-base);
 
-    &.light { font-weight: var(--haspen-font-weight-light); }
-    &.normal { font-weight: var(--haspen-font-weight-normal); }
-    &.medium { font-weight: var(--haspen-font-weight-medium); }
-    &.semibold { font-weight: var(--haspen-font-weight-semibold); }
-    &.bold { font-weight: var(--haspen-font-weight-bold); }
+    &.light {
+      font-weight: var(--haspen-font-weight-light);
+    }
+    &.normal {
+      font-weight: var(--haspen-font-weight-normal);
+    }
+    &.medium {
+      font-weight: var(--haspen-font-weight-medium);
+    }
+    &.semibold {
+      font-weight: var(--haspen-font-weight-semibold);
+    }
+    &.bold {
+      font-weight: var(--haspen-font-weight-bold);
+    }
   }
 }
 
@@ -426,11 +462,21 @@
     white-space: nowrap;
     flex-shrink: 0;
 
-    &.xs { padding: var(--haspen-spacing-xs); }
-    &.sm { padding: var(--haspen-spacing-sm); }
-    &.md { padding: var(--haspen-spacing-md); }
-    &.lg { padding: var(--haspen-spacing-lg); }
-    &.xl { padding: var(--haspen-spacing-xl); }
+    &.xs {
+      padding: var(--haspen-spacing-xs);
+    }
+    &.sm {
+      padding: var(--haspen-spacing-sm);
+    }
+    &.md {
+      padding: var(--haspen-spacing-md);
+    }
+    &.lg {
+      padding: var(--haspen-spacing-lg);
+    }
+    &.xl {
+      padding: var(--haspen-spacing-xl);
+    }
   }
 
   span {
@@ -507,7 +553,8 @@
       color: var(--haspen-color-text);
       font-family: var(--haspen-font-family-base);
       font-size: var(--haspen-font-size-base);
-      transition: all var(--haspen-transition-duration-fast) var(--haspen-transition-timing-ease);
+      transition: all var(--haspen-transition-duration-fast)
+        var(--haspen-transition-timing-ease);
 
       &:focus {
         outline: none;
@@ -583,7 +630,8 @@
       border-radius: var(--haspen-radius-md);
       cursor: pointer;
       font-weight: var(--haspen-font-weight-medium);
-      transition: all var(--haspen-transition-duration-fast) var(--haspen-transition-timing-ease);
+      transition: all var(--haspen-transition-duration-fast)
+        var(--haspen-transition-timing-ease);
 
       &:hover {
         background: var(--haspen-color-primary);
@@ -793,7 +841,8 @@
     border: 1px solid var(--haspen-color-border);
     border-radius: var(--haspen-radius-md);
     padding: 1rem;
-    transition: all var(--haspen-transition-duration-base) var(--haspen-transition-timing-ease);
+    transition: all var(--haspen-transition-duration-base)
+      var(--haspen-transition-timing-ease);
 
     &:hover {
       transform: translateY(-2px);
@@ -824,16 +873,36 @@
       }
     }
 
-    &.primary .swatch-color { background: var(--haspen-color-primary); }
-    &.secondary .swatch-color { background: var(--haspen-color-secondary); }
-    &.tertiary .swatch-color { background: var(--haspen-color-tertiary); }
-    &.error .swatch-color { background: var(--haspen-color-error); }
-    &.warning .swatch-color { background: var(--haspen-color-warning); }
-    &.success .swatch-color { background: var(--haspen-color-success); }
-    &.info .swatch-color { background: var(--haspen-color-info); }
-    &.background .swatch-color { background: var(--haspen-color-background); }
-    &.surface .swatch-color { background: var(--haspen-color-surface); }
-    &.text .swatch-color { background: var(--haspen-color-text); }
+    &.primary .swatch-color {
+      background: var(--haspen-color-primary);
+    }
+    &.secondary .swatch-color {
+      background: var(--haspen-color-secondary);
+    }
+    &.tertiary .swatch-color {
+      background: var(--haspen-color-tertiary);
+    }
+    &.error .swatch-color {
+      background: var(--haspen-color-error);
+    }
+    &.warning .swatch-color {
+      background: var(--haspen-color-warning);
+    }
+    &.success .swatch-color {
+      background: var(--haspen-color-success);
+    }
+    &.info .swatch-color {
+      background: var(--haspen-color-info);
+    }
+    &.background .swatch-color {
+      background: var(--haspen-color-background);
+    }
+    &.surface .swatch-color {
+      background: var(--haspen-color-surface);
+    }
+    &.text .swatch-color {
+      background: var(--haspen-color-text);
+    }
   }
 }
 
@@ -897,7 +966,9 @@
       font-weight: var(--haspen-font-weight-medium);
     }
 
-    p, h3, code {
+    p,
+    h3,
+    code {
       margin: 0;
       color: var(--haspen-color-text);
     }
@@ -943,7 +1014,8 @@
     border: 1px solid var(--haspen-color-border);
     border-radius: var(--haspen-radius-lg);
     padding: 1.5rem;
-    transition: all var(--haspen-transition-duration-base) var(--haspen-transition-timing-ease);
+    transition: all var(--haspen-transition-duration-base)
+      var(--haspen-transition-timing-ease);
 
     &:hover {
       transform: translateY(-2px);
@@ -1007,7 +1079,8 @@
         padding: 1rem;
         border-radius: var(--haspen-radius-md);
         text-align: center;
-        transition: all var(--haspen-transition-duration-base) var(--haspen-transition-timing-ease);
+        transition: all var(--haspen-transition-duration-base)
+          var(--haspen-transition-timing-ease);
         cursor: pointer;
 
         &:hover {

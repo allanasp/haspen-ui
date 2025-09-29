@@ -14,11 +14,11 @@
 /// Calculate the relative luminance of a color according to WCAG 2.1
 /// Relative luminance is the relative brightness of any point in a colorspace,
 /// normalized to 0 for darkest black and 1 for lightest white.
-/// 
+///
 /// Formula: L = 0.2126 * R + 0.7152 * G + 0.0722 * B
 /// where R, G and B are defined as:
 /// - if RsRGB <= 0.03928 then R = RsRGB/12.92 else R = ((RsRGB+0.055)/1.055) ^ 2.4
-/// 
+///
 /// @param {Color} $color - The color to calculate luminance for
 /// @return {Number} Relative luminance value between 0 and 1
 /// @example
@@ -29,12 +29,24 @@
   $red: math.div(color.red($color), 255);
   $green: math.div(color.green($color), 255);
   $blue: math.div(color.blue($color), 255);
-  
+
   // Apply gamma correction according to WCAG 2.1 formula
-  $red: if($red <= 0.03928, math.div($red, 12.92), math.pow(math.div($red + 0.055, 1.055), 2.4));
-  $green: if($green <= 0.03928, math.div($green, 12.92), math.pow(math.div($green + 0.055, 1.055), 2.4));
-  $blue: if($blue <= 0.03928, math.div($blue, 12.92), math.pow(math.div($blue + 0.055, 1.055), 2.4));
-  
+  $red: if(
+    $red <= 0.03928,
+    math.div($red, 12.92),
+    math.pow(math.div($red + 0.055, 1.055), 2.4)
+  );
+  $green: if(
+    $green <= 0.03928,
+    math.div($green, 12.92),
+    math.pow(math.div($green + 0.055, 1.055), 2.4)
+  );
+  $blue: if(
+    $blue <= 0.03928,
+    math.div($blue, 12.92),
+    math.pow(math.div($blue + 0.055, 1.055), 2.4)
+  );
+
   // Calculate relative luminance using WCAG coefficients
   @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
 }
@@ -45,7 +57,7 @@
 /// L2 is the relative luminance of the darker color
 ///
 /// @param {Color} $color1 - First color
-/// @param {Color} $color2 - Second color  
+/// @param {Color} $color2 - Second color
 /// @return {Number} Contrast ratio between 1 and 21
 /// @example
 ///   $ratio: contrast-ratio(#ffffff, #000000); // Returns 21 (maximum contrast)
@@ -53,14 +65,14 @@
 @function contrast-ratio($color1, $color2) {
   $l1: luminance($color1);
   $l2: luminance($color2);
-  
+
   // Ensure L1 is the lighter color (higher luminance)
   @if $l2 > $l1 {
     $temp: $l1;
     $l1: $l2;
     $l2: $temp;
   }
-  
+
   @return math.div($l1 + 0.05, $l2 + 0.05);
 }
 
@@ -78,7 +90,7 @@
   @return contrast-ratio($foreground, $background) >= 4.5;
 }
 
-/// Check if contrast ratio meets WCAG AAA standards (7:1 for normal text)  
+/// Check if contrast ratio meets WCAG AAA standards (7:1 for normal text)
 /// @param {Color} $foreground - Foreground color (typically text)
 /// @param {Color} $background - Background color
 /// @return {Boolean} True if contrast meets WCAG AAA standards
@@ -111,7 +123,7 @@
 @function auto-text-color($background) {
   $white-contrast: contrast-ratio(#ffffff, $background);
   $black-contrast: contrast-ratio(#000000, $background);
-  
+
   @return if($white-contrast > $black-contrast, #ffffff, #000000);
 }
 
@@ -124,7 +136,7 @@
 @function most-accessible-color($background, $text-colors) {
   $best-color: null;
   $best-ratio: 0;
-  
+
   @each $color in $text-colors {
     $ratio: contrast-ratio($color, $background);
     @if $ratio > $best-ratio {
@@ -132,7 +144,7 @@
       $best-color: $color;
     }
   }
-  
+
   @return $best-color;
 }
 
@@ -145,17 +157,21 @@
 ///   color: accessible-text($bg-color, 'auto');
 @function accessible-text($background, $preference: 'auto') {
   $light-options: (
-    palette.text('inverse'),      // #ffffff
-    palette.color('gray', 100),   // Very light gray
-    palette.color('gray', 200),   // Light gray
+    palette.text('inverse'),
+    // #ffffff
+    palette.color('gray', 100),
+    // Very light gray
+    palette.color('gray', 200) // Light gray
   );
-  
+
   $dark-options: (
-    palette.text('primary'),      // #171717
-    palette.text('secondary'),    // #404040  
-    palette.text('tertiary'),     // #737373
+    palette.text('primary'),
+    // #171717
+    palette.text('secondary'),
+    // #404040
+    palette.text('tertiary') // #737373
   );
-  
+
   @if $preference == 'light' {
     @return most-accessible-color($background, $light-options);
   } @else if $preference == 'dark' {
@@ -164,10 +180,10 @@
     // Auto mode - test both light and dark options
     $best-light: most-accessible-color($background, $light-options);
     $best-dark: most-accessible-color($background, $dark-options);
-    
+
     $light-ratio: contrast-ratio($best-light, $background);
     $dark-ratio: contrast-ratio($best-dark, $background);
-    
+
     @return if($light-ratio > $dark-ratio, $best-light, $best-dark);
   }
 }
@@ -180,30 +196,39 @@
 /// @param {Color} $color - Color to adjust
 /// @param {Color} $background - Background color to test against
 /// @param {Number} $min-ratio - Minimum acceptable contrast ratio (default: 4.5)
-/// @param {String} $direction - 'lighter', 'darker', or 'auto' 
+/// @param {String} $direction - 'lighter', 'darker', or 'auto'
 /// @return {Color} Adjusted color that meets the contrast requirement
 /// @example
 ///   $accessible-blue: ensure-contrast(#3b82f6, #ffffff, 4.5, 'darker');
-@function ensure-contrast($color, $background, $min-ratio: 4.5, $direction: 'auto') {
+@function ensure-contrast(
+  $color,
+  $background,
+  $min-ratio: 4.5,
+  $direction: 'auto'
+) {
   $current-ratio: contrast-ratio($color, $background);
-  
+
   // Already meets requirement
   @if $current-ratio >= $min-ratio {
     @return $color;
   }
-  
+
   // Determine adjustment direction if auto
   @if $direction == 'auto' {
     $bg-luminance: luminance($background);
     $direction: if($bg-luminance > 0.5, 'darker', 'lighter');
   }
-  
+
   $adjusted-color: $color;
   $step: 0.05; // Adjustment step
   $max-iterations: 100; // Prevent infinite loops
   $iterations: 0;
-  
-  @while contrast-ratio($adjusted-color, $background) < $min-ratio and $iterations < $max-iterations {
+
+  @while contrast-ratio($adjusted-color, $background) <
+    $min-ratio and
+    $iterations <
+    $max-iterations
+  {
     @if $direction == 'darker' {
       $adjusted-color: color.adjust($adjusted-color, $lightness: -$step * 100%);
     } @else {
@@ -211,7 +236,7 @@
     }
     $iterations: $iterations + 1;
   }
-  
+
   @return $adjusted-color;
 }
 
@@ -226,24 +251,24 @@
   $shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900);
   $best-shade: null;
   $best-ratio: 0;
-  
+
   @each $shade in $shades {
     $color: palette.color($family, $shade);
     $ratio: contrast-ratio($color, $background);
-    
+
     // Find the shade with the best contrast that meets minimum requirement
     @if $ratio >= $min-ratio and $ratio > $best-ratio {
       $best-ratio: $ratio;
       $best-shade: $shade;
     }
   }
-  
+
   // If no shade meets requirement, return the darkest or lightest
   @if $best-shade == null {
     $bg-luminance: luminance($background);
     $best-shade: if($bg-luminance > 0.5, 900, 50);
   }
-  
+
   @return palette.color($family, $best-shade);
 }
 
@@ -259,7 +284,7 @@
 ///   @include validate-contrast(#666666, #ffffff, 'button text');
 @mixin validate-contrast($foreground, $background, $context: 'element') {
   $ratio: contrast-ratio($foreground, $background);
-  
+
   @if $ratio < 3 {
     @warn 'ACCESSIBILITY ERROR: #{$context} contrast ratio is #{$ratio} (WCAG fails all standards). Foreground: #{$foreground}, Background: #{$background}';
   } @else if $ratio < 4.5 {
@@ -270,14 +295,14 @@
 }
 
 /// Apply colors with automatic accessibility validation
-/// @param {Color} $foreground - Foreground color  
+/// @param {Color} $foreground - Foreground color
 /// @param {Color} $background - Background color
 /// @param {String} $context - Context for warnings
 /// @example
 ///   @include accessible-colors(#333333, #ffffff, 'card text');
 @mixin accessible-colors($foreground, $background, $context: 'element') {
   @include validate-contrast($foreground, $background, $context);
-  
+
   color: $foreground;
   background-color: $background;
 }
@@ -296,19 +321,19 @@
 ///   color: map.get($colors, 'text');
 @function semantic-contrast($semantic, $variant: 'medium') {
   $bg-color: null;
-  
+
   // Select background variant
   @if $variant == 'light' {
     $bg-color: palette.semantic('#{$semantic}-light');
   } @else if $variant == 'dark' {
-    $bg-color: palette.semantic('#{$semantic}-dark'); 
+    $bg-color: palette.semantic('#{$semantic}-dark');
   } @else {
     $bg-color: palette.semantic($semantic);
   }
-  
+
   // Get accessible text color
   $text-color: accessible-text($bg-color);
-  
+
   @return (
     'background': $bg-color,
     'text': $text-color,
@@ -325,7 +350,7 @@
 @function component-color-scheme($state, $semantic: 'primary') {
   $base-bg: palette.semantic($semantic);
   $scheme: ();
-  
+
   @if $state == 'default' {
     $scheme: semantic-contrast($semantic, 'medium');
   } @else if $state == 'hover' {
@@ -333,26 +358,36 @@
     $scheme: (
       'background': $hover-bg,
       'text': accessible-text($hover-bg),
-      'contrast-ratio': contrast-ratio(accessible-text($hover-bg), $hover-bg)
+      'contrast-ratio': contrast-ratio(accessible-text($hover-bg), $hover-bg),
     );
   } @else if $state == 'focus' {
     $scheme: semantic-contrast($semantic, 'dark');
-    $scheme: map.merge($scheme, ('outline': palette.semantic($semantic)));
+    $scheme: map.merge(
+      $scheme,
+      (
+        'outline': palette.semantic($semantic),
+      )
+    );
   } @else if $state == 'active' {
-    $active-bg: ensure-contrast($base-bg, palette.surface('background'), 4.5, 'darker');
+    $active-bg: ensure-contrast(
+      $base-bg,
+      palette.surface('background'),
+      4.5,
+      'darker'
+    );
     $scheme: (
       'background': $active-bg,
       'text': accessible-text($active-bg),
-      'contrast-ratio': contrast-ratio(accessible-text($active-bg), $active-bg)
+      'contrast-ratio': contrast-ratio(accessible-text($active-bg), $active-bg),
     );
   } @else if $state == 'disabled' {
     $disabled-bg: palette.color('gray', 100);
     $scheme: (
       'background': $disabled-bg,
       'text': palette.text('disabled'),
-      'contrast-ratio': contrast-ratio(palette.text('disabled'), $disabled-bg)
+      'contrast-ratio': contrast-ratio(palette.text('disabled'), $disabled-bg),
     );
   }
-  
+
   @return $scheme;
 }

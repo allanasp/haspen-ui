@@ -11,7 +11,7 @@ describe('IconProvider', () => {
         default: '<div data-testid="child">Child content</div>',
       },
     });
-    
+
     expect(wrapper.exists()).toBe(true);
     expect(wrapper.find('[data-testid="child"]').exists()).toBe(true);
     expect(wrapper.text()).toContain('Child content');
@@ -40,7 +40,7 @@ describe('IconProvider', () => {
 
   it('applies default props correctly', () => {
     const wrapper = mount(IconProvider);
-    
+
     // IconProvider should exist and render without errors
     expect(wrapper.exists()).toBe(true);
   });

@@ -5,8 +5,11 @@
 .grid-utilities-demo {
   font-family: var(--haspen-font-family-base);
   color: var(--haspen-color-text-primary);
-  
-  h2, h3, h4, h5 {
+
+  h2,
+  h3,
+  h4,
+  h5 {
     margin-top: 0;
     margin-bottom: var(--haspen-space-md);
     color: var(--haspen-color-text-primary);
@@ -48,14 +51,17 @@
 }
 
 // Example containers
-.example-container, .gap-example, .grid-flow-example {
+.example-container,
+.gap-example,
+.grid-flow-example {
   margin-bottom: var(--haspen-space-xl);
   padding: var(--haspen-space-lg);
   border: 1px solid var(--haspen-color-border);
   border-radius: var(--haspen-radius-lg);
   background: var(--haspen-color-surface);
 
-  h4, h5 {
+  h4,
+  h5 {
     margin-top: 0;
     margin-bottom: var(--haspen-space-md);
   }
@@ -99,7 +105,8 @@
   box-shadow: var(--haspen-shadow-sm);
   transition: all var(--haspen-duration-normal) var(--haspen-ease-out);
 
-  h4, h5 {
+  h4,
+  h5 {
     margin-top: 0;
     margin-bottom: var(--haspen-space-sm);
     color: var(--haspen-color-text-primary);
@@ -128,7 +135,8 @@
   border-radius: var(--haspen-radius-md);
   font-weight: var(--haspen-font-weight-medium);
   cursor: pointer;
-  transition: background-color var(--haspen-duration-fast) var(--haspen-ease-out);
+  transition: background-color var(--haspen-duration-fast)
+    var(--haspen-ease-out);
 
   &:hover {
     background: var(--haspen-color-primary-hover);
@@ -212,7 +220,8 @@
   overflow: hidden;
 }
 
-.demo-header, .demo-footer {
+.demo-header,
+.demo-footer {
   background: var(--haspen-color-primary);
   color: white;
   padding: var(--haspen-space-md);
@@ -220,7 +229,8 @@
   font-weight: var(--haspen-font-weight-semibold);
 }
 
-.demo-nav, .demo-aside {
+.demo-nav,
+.demo-aside {
   background: var(--haspen-color-surface);
   padding: var(--haspen-space-md);
   border-right: 1px solid var(--haspen-color-border);
@@ -287,7 +297,8 @@
 }
 
 // Info cards
-.info-card, .guideline-card {
+.info-card,
+.guideline-card {
   background: var(--haspen-color-info-background);
   border: 1px solid var(--haspen-color-info);
   border-radius: var(--haspen-radius-lg);
@@ -326,13 +337,17 @@
 }
 
 // Responsive info grids
-.info-grid, .guidelines-grid {
+.info-grid,
+.guidelines-grid {
   margin-top: var(--haspen-space-lg);
 }
 
 // Dark mode support
 @media (prefers-color-scheme: dark) {
-  .demo-card, .demo-main-content, .demo-main, .demo-flex-item {
+  .demo-card,
+  .demo-main-content,
+  .demo-main,
+  .demo-flex-item {
     background: var(--haspen-color-surface);
     border-color: var(--haspen-color-border);
   }

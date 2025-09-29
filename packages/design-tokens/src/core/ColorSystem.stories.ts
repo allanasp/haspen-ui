@@ -250,7 +250,8 @@ export const ColorPalette: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Complete color palette showing both fixed brand colors and auto-switching semantic colors.',
+        story:
+          'Complete color palette showing both fixed brand colors and auto-switching semantic colors.',
       },
     },
   },
@@ -316,7 +317,8 @@ export const ThemeSwitching: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstration of automatic theme switching using CSS light-dark() function.',
+        story:
+          'Demonstration of automatic theme switching using CSS light-dark() function.',
       },
     },
   },

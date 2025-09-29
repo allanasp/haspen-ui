@@ -77,7 +77,7 @@ Works seamlessly with the ThemeProvider component. The toggle automatically:
       description: 'Visual variant of the toggle',
     },
     size: {
-      control: 'select', 
+      control: 'select',
       options: ['sm', 'md', 'lg'],
       description: 'Size of the toggle component',
     },
@@ -183,7 +183,7 @@ export const Sizes: Story = {
   },
 };
 
-// Variant Examples  
+// Variant Examples
 export const Variants: Story = {
   render: () => ({
     components: { ThemeToggle },
@@ -271,7 +271,8 @@ export const Playground: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interactive playground to test all ThemeToggle properties and states.',
+        story:
+          'Interactive playground to test all ThemeToggle properties and states.',
       },
     },
   },
@@ -315,7 +316,8 @@ export const ContextExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'ThemeToggle component displayed on different background colors to show variant adaptation.',
+        story:
+          'ThemeToggle component displayed on different background colors to show variant adaptation.',
       },
     },
   },
@@ -360,7 +362,8 @@ export const AccessibilityFeatures: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates accessibility features including ARIA labels, keyboard navigation, and focus indicators.',
+        story:
+          'Demonstrates accessibility features including ARIA labels, keyboard navigation, and focus indicators.',
       },
     },
   },

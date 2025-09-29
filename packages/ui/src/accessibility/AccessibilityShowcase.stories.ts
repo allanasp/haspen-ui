@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref, onMounted, nextTick } from 'vue';
-import { testColorContrast, a11yTestScenarios, testComponentAccessibility } from '../test-utils/accessibility';
+import {
+  testColorContrast,
+  a11yTestScenarios,
+  testComponentAccessibility,
+} from '../test-utils/accessibility';
 import ThemeProvider from '../molecules/ThemeProvider/ThemeProvider.vue';
 import Button from '../atoms/Button/Button.vue';
 import ThemeToggle from '../atoms/ThemeToggle/ThemeToggle.vue';
@@ -441,8 +445,12 @@ const AccessibilityShowcaseDemo = {
     const foregroundColor = ref('#333333');
     const backgroundColor = ref('#ffffff');
     const isLargeText = ref(false);
-    const contrastResult = ref({ ratio: 12.6, passes: true, level: 'AAA' as const });
-    
+    const contrastResult = ref({
+      ratio: 12.6,
+      passes: true,
+      level: 'AAA' as const,
+    });
+
     const contrastPreviewStyle = computed(() => ({
       color: foregroundColor.value,
       backgroundColor: backgroundColor.value,
@@ -470,7 +478,7 @@ const AccessibilityShowcaseDemo = {
       contrastResult.value = testColorContrast(
         foregroundColor.value,
         backgroundColor.value,
-        isLargeText.value
+        isLargeText.value,
       );
     }
 
@@ -481,7 +489,7 @@ const AccessibilityShowcaseDemo = {
     function toggleFocusTrap() {
       focusTrapActive.value = !focusTrapActive.value;
       announceToScreenReader(
-        focusTrapActive.value ? 'Focus trap enabled' : 'Focus trap disabled'
+        focusTrapActive.value ? 'Focus trap enabled' : 'Focus trap disabled',
       );
     }
 
@@ -498,9 +506,10 @@ const AccessibilityShowcaseDemo = {
         'This message will be read by screen readers',
         'Dynamic content updated successfully',
         'Accessibility feature demonstrated',
-        'Live region announcement active'
+        'Live region announcement active',
       ];
-      announcement.value = messages[Math.floor(Math.random() * messages.length)];
+      announcement.value =
+        messages[Math.floor(Math.random() * messages.length)];
     }
 
     function announceToScreenReader(message: string) {
@@ -513,10 +522,12 @@ const AccessibilityShowcaseDemo = {
 
     function getPrimaryContrast(): string {
       const primary = getComputedStyle(document.documentElement)
-        .getPropertyValue('--haspen-color-primary').trim();
+        .getPropertyValue('--haspen-color-primary')
+        .trim();
       const bg = getComputedStyle(document.documentElement)
-        .getPropertyValue('--haspen-color-background').trim();
-      
+        .getPropertyValue('--haspen-color-background')
+        .trim();
+
       if (primary && bg) {
         const result = testColorContrast(primary, bg);
         return `${result.ratio}:1 (${result.level})`;
@@ -526,10 +537,12 @@ const AccessibilityShowcaseDemo = {
 
     function getSecondaryContrast(): string {
       const secondary = getComputedStyle(document.documentElement)
-        .getPropertyValue('--haspen-color-textSecondary').trim();
+        .getPropertyValue('--haspen-color-textSecondary')
+        .trim();
       const bg = getComputedStyle(document.documentElement)
-        .getPropertyValue('--haspen-color-background').trim();
-      
+        .getPropertyValue('--haspen-color-background')
+        .trim();
+
       if (secondary && bg) {
         const result = testColorContrast(secondary, bg);
         return `${result.ratio}:1 (${result.level})`;
@@ -539,10 +552,12 @@ const AccessibilityShowcaseDemo = {
 
     function getErrorContrast(): string {
       const error = getComputedStyle(document.documentElement)
-        .getPropertyValue('--haspen-color-error').trim();
+        .getPropertyValue('--haspen-color-error')
+        .trim();
       const bg = getComputedStyle(document.documentElement)
-        .getPropertyValue('--haspen-color-background').trim();
-      
+        .getPropertyValue('--haspen-color-background')
+        .trim();
+
       if (error && bg) {
         const result = testColorContrast(error, bg);
         return `${result.ratio}:1 (${result.level})`;
@@ -552,10 +567,12 @@ const AccessibilityShowcaseDemo = {
 
     function getSuccessContrast(): string {
       const success = getComputedStyle(document.documentElement)
-        .getPropertyValue('--haspen-color-success').trim();
+        .getPropertyValue('--haspen-color-success')
+        .trim();
       const bg = getComputedStyle(document.documentElement)
-        .getPropertyValue('--haspen-color-background').trim();
-      
+        .getPropertyValue('--haspen-color-background')
+        .trim();
+
       if (success && bg) {
         const result = testColorContrast(success, bg);
         return `${result.ratio}:1 (${result.level})`;
@@ -570,20 +587,24 @@ const AccessibilityShowcaseDemo = {
       try {
         // Import axe dynamically
         const { axe } = await import('axe-core');
-        
+
         // Run accessibility test on the current document
-        const results = await axe.run(document.querySelector('.a11y-showcase') || document);
+        const results = await axe.run(
+          document.querySelector('.a11y-showcase') || document,
+        );
         testResults.value = results;
       } catch (error) {
         console.error('Accessibility test failed:', error);
         testResults.value = {
-          violations: [{ 
-            id: 'test-error', 
-            description: 'Failed to run accessibility test',
-            helpUrl: '#'
-          }],
+          violations: [
+            {
+              id: 'test-error',
+              description: 'Failed to run accessibility test',
+              helpUrl: '#',
+            },
+          ],
           passes: [],
-          testEngine: { name: 'axe-core', version: 'unknown' }
+          testEngine: { name: 'axe-core', version: 'unknown' },
         };
       } finally {
         testRunning.value = false;
@@ -634,7 +655,7 @@ const meta: Meta = {
   title: 'Accessibility/Showcase',
   component: AccessibilityShowcaseDemo,
   decorators: [
-    (story) => ({
+    story => ({
       components: { story, ThemeProvider },
       template: '<ThemeProvider><story /></ThemeProvider>',
     }),
@@ -704,7 +725,8 @@ export const InteractiveShowcase: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Complete interactive accessibility showcase with live testing tools and demonstrations.',
+        story:
+          'Complete interactive accessibility showcase with live testing tools and demonstrations.',
       },
     },
   },
@@ -785,7 +807,8 @@ export const ColorContrastDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates color contrast compliance with WCAG 2.1 AA standards across light and dark themes.',
+        story:
+          'Demonstrates color contrast compliance with WCAG 2.1 AA standards across light and dark themes.',
       },
     },
   },
@@ -866,7 +889,8 @@ export const KeyboardNavigationDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interactive keyboard navigation demonstration showing tab order and focus management.',
+        story:
+          'Interactive keyboard navigation demonstration showing tab order and focus management.',
       },
     },
   },
@@ -887,11 +911,12 @@ export const ScreenReaderDemo: Story = {
       function updateLiveMessage() {
         const messages = [
           'Form submitted successfully',
-          'New message received', 
+          'New message received',
           'Loading complete',
-          'Settings updated'
+          'Settings updated',
         ];
-        liveMessage.value = messages[Math.floor(Math.random() * messages.length)];
+        liveMessage.value =
+          messages[Math.floor(Math.random() * messages.length)];
       }
 
       return { isExpanded, liveMessage, toggleExpanded, updateLiveMessage };
@@ -997,7 +1022,8 @@ export const ScreenReaderDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstrates screen reader support features including semantic markup, ARIA attributes, and live regions.',
+        story:
+          'Demonstrates screen reader support features including semantic markup, ARIA attributes, and live regions.',
       },
     },
   },

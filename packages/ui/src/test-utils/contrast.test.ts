@@ -44,42 +44,60 @@ const darkThemeColors = {
 describe('Color Contrast Compliance', () => {
   describe('Light Theme', () => {
     it('primary text on background meets AA standards', () => {
-      const result = testColorContrast(lightThemeColors.text, lightThemeColors.background);
+      const result = testColorContrast(
+        lightThemeColors.text,
+        lightThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('secondary text on background meets AA standards', () => {
-      const result = testColorContrast(lightThemeColors.textSecondary, lightThemeColors.background);
+      const result = testColorContrast(
+        lightThemeColors.textSecondary,
+        lightThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('primary color on background meets AA standards', () => {
-      const result = testColorContrast(lightThemeColors.primary, lightThemeColors.background);
+      const result = testColorContrast(
+        lightThemeColors.primary,
+        lightThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('error color on background meets AA standards', () => {
-      const result = testColorContrast(lightThemeColors.error, lightThemeColors.background);
+      const result = testColorContrast(
+        lightThemeColors.error,
+        lightThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('success color on background meets AA standards', () => {
-      const result = testColorContrast(lightThemeColors.success, lightThemeColors.background);
+      const result = testColorContrast(
+        lightThemeColors.success,
+        lightThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('warning color on background has acceptable contrast', () => {
-      const result = testColorContrast(lightThemeColors.warning, lightThemeColors.background);
+      const result = testColorContrast(
+        lightThemeColors.warning,
+        lightThemeColors.background,
+      );
       // Warning is 4.44:1 - very close to AA but not quite there
       // In practice, this is acceptable for warning states
       expect(result.ratio).toBeGreaterThan(4.4);
@@ -87,7 +105,10 @@ describe('Color Contrast Compliance', () => {
     });
 
     it('info color on background meets AA standards', () => {
-      const result = testColorContrast(lightThemeColors.info, lightThemeColors.background);
+      const result = testColorContrast(
+        lightThemeColors.info,
+        lightThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
@@ -101,7 +122,10 @@ describe('Color Contrast Compliance', () => {
     });
 
     it('text on surface background meets AA standards', () => {
-      const result = testColorContrast(lightThemeColors.text, lightThemeColors.surface);
+      const result = testColorContrast(
+        lightThemeColors.text,
+        lightThemeColors.surface,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
@@ -110,14 +134,20 @@ describe('Color Contrast Compliance', () => {
 
   describe('Dark Theme', () => {
     it('primary text on background meets AA standards', () => {
-      const result = testColorContrast(darkThemeColors.text, darkThemeColors.background);
+      const result = testColorContrast(
+        darkThemeColors.text,
+        darkThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('secondary text on background meets AA standards', () => {
-      const result = testColorContrast(darkThemeColors.textSecondary, darkThemeColors.background);
+      const result = testColorContrast(
+        darkThemeColors.textSecondary,
+        darkThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
@@ -125,35 +155,50 @@ describe('Color Contrast Compliance', () => {
 
     it('primary color is optimized for button backgrounds', () => {
       // Dark primary is designed for button backgrounds with white text, not text on dark bg
-      const result = testColorContrast(darkThemeColors.primary, darkThemeColors.background);
+      const result = testColorContrast(
+        darkThemeColors.primary,
+        darkThemeColors.background,
+      );
       // This will fail as expected - primary should not be used as text on dark background
       expect(result.passes).toBe(false);
       expect(result.ratio).toBeLessThan(4.5);
     });
 
     it('error color on background meets AA standards', () => {
-      const result = testColorContrast(darkThemeColors.error, darkThemeColors.background);
+      const result = testColorContrast(
+        darkThemeColors.error,
+        darkThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('success color on background meets AA standards', () => {
-      const result = testColorContrast(darkThemeColors.success, darkThemeColors.background);
+      const result = testColorContrast(
+        darkThemeColors.success,
+        darkThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('warning color on background meets AA standards', () => {
-      const result = testColorContrast(darkThemeColors.warning, darkThemeColors.background);
+      const result = testColorContrast(
+        darkThemeColors.warning,
+        darkThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('info color on background meets AA standards', () => {
-      const result = testColorContrast(darkThemeColors.info, darkThemeColors.background);
+      const result = testColorContrast(
+        darkThemeColors.info,
+        darkThemeColors.background,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
@@ -168,7 +213,10 @@ describe('Color Contrast Compliance', () => {
     });
 
     it('text on surface background meets AA standards', () => {
-      const result = testColorContrast(darkThemeColors.text, darkThemeColors.surface);
+      const result = testColorContrast(
+        darkThemeColors.text,
+        darkThemeColors.surface,
+      );
       expect(result.passes).toBe(true);
       expect(result.level).toMatch(/AA|AAA/);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
@@ -177,27 +225,43 @@ describe('Color Contrast Compliance', () => {
 
   describe('Large Text Compliance (3:1 ratio)', () => {
     it('light theme border color has strong contrast', () => {
-      const result = testColorContrast(lightThemeColors.border, lightThemeColors.background, true);
+      const result = testColorContrast(
+        lightThemeColors.border,
+        lightThemeColors.background,
+        true,
+      );
       // Border is 4.61:1 - exceeds AA standards for all text sizes
       expect(result.passes).toBe(true);
       expect(result.ratio).toBeGreaterThanOrEqual(4.5);
     });
 
     it('dark theme border color meets large text AA standards', () => {
-      const result = testColorContrast(darkThemeColors.border, darkThemeColors.background, true);
+      const result = testColorContrast(
+        darkThemeColors.border,
+        darkThemeColors.background,
+        true,
+      );
       expect(result.passes).toBe(true);
       expect(result.ratio).toBeGreaterThanOrEqual(3.0);
     });
 
     it('light theme divider color has reasonable contrast', () => {
-      const result = testColorContrast(lightThemeColors.divider, lightThemeColors.background, true);
+      const result = testColorContrast(
+        lightThemeColors.divider,
+        lightThemeColors.background,
+        true,
+      );
       // Divider is 2.68:1 - below 3:1 but acceptable for decorative elements
       expect(result.ratio).toBeGreaterThan(2.6);
       expect(result.ratio).toBeLessThan(3.0);
     });
 
     it('dark theme divider color meets large text AA standards', () => {
-      const result = testColorContrast(darkThemeColors.divider, darkThemeColors.background, true);
+      const result = testColorContrast(
+        darkThemeColors.divider,
+        darkThemeColors.background,
+        true,
+      );
       expect(result.passes).toBe(true);
       expect(result.ratio).toBeGreaterThanOrEqual(3.0);
     });
@@ -207,19 +271,31 @@ describe('Color Contrast Compliance', () => {
     it('validates light theme primary against common backgrounds', () => {
       const whiteBackground = '#ffffff';
       const lightGrayBackground = '#f8f9fa';
-      
-      const whiteResult = testColorContrast(lightThemeColors.primary, whiteBackground);
-      const grayResult = testColorContrast(lightThemeColors.primary, lightGrayBackground);
-      
+
+      const whiteResult = testColorContrast(
+        lightThemeColors.primary,
+        whiteBackground,
+      );
+      const grayResult = testColorContrast(
+        lightThemeColors.primary,
+        lightGrayBackground,
+      );
+
       expect(whiteResult.passes).toBe(true);
       expect(grayResult.passes).toBe(true);
     });
 
     it('validates dark theme primary for button use cases', () => {
       // Test white text on dark primary button backgrounds
-      const primaryButtonWhite = testColorContrast('#ffffff', darkThemeColors.primary);
-      const primaryButtonLight = testColorContrast('#f5f5f5', darkThemeColors.primary);
-      
+      const primaryButtonWhite = testColorContrast(
+        '#ffffff',
+        darkThemeColors.primary,
+      );
+      const primaryButtonLight = testColorContrast(
+        '#f5f5f5',
+        darkThemeColors.primary,
+      );
+
       expect(primaryButtonWhite.passes).toBe(true);
       expect(primaryButtonLight.passes).toBe(true);
       expect(primaryButtonWhite.ratio).toBeGreaterThan(5.0);
@@ -253,23 +329,37 @@ describe('Color Contrast Compliance', () => {
   describe('Real-world Component Combinations', () => {
     it('validates button text combinations', () => {
       // Test button with primary background and white text
-      const primaryButton = testColorContrast('#ffffff', lightThemeColors.primary);
+      const primaryButton = testColorContrast(
+        '#ffffff',
+        lightThemeColors.primary,
+      );
       expect(primaryButton.passes).toBe(true);
-      
-      // Test button with dark primary background and white text  
-      const darkPrimaryButton = testColorContrast('#ffffff', darkThemeColors.primary);
+
+      // Test button with dark primary background and white text
+      const darkPrimaryButton = testColorContrast(
+        '#ffffff',
+        darkThemeColors.primary,
+      );
       expect(darkPrimaryButton.passes).toBe(true);
     });
 
     it('validates form element combinations', () => {
       // Test input border visibility - borders have strong contrast
-      const lightBorder = testColorContrast(lightThemeColors.border, lightThemeColors.background, true);
-      const darkBorder = testColorContrast(darkThemeColors.border, darkThemeColors.background, true);
-      
+      const lightBorder = testColorContrast(
+        lightThemeColors.border,
+        lightThemeColors.background,
+        true,
+      );
+      const darkBorder = testColorContrast(
+        darkThemeColors.border,
+        darkThemeColors.background,
+        true,
+      );
+
       // Light border exceeds AA standards
       expect(lightBorder.passes).toBe(true);
       expect(lightBorder.ratio).toBeGreaterThan(4.5);
-      
+
       // Dark border meets AA standards
       expect(darkBorder.passes).toBe(true);
       expect(darkBorder.ratio).toBeGreaterThan(3.0);
@@ -277,16 +367,28 @@ describe('Color Contrast Compliance', () => {
 
     it('validates status indicator combinations', () => {
       // Test error text visibility
-      const lightError = testColorContrast(lightThemeColors.error, lightThemeColors.background);
-      const darkError = testColorContrast(darkThemeColors.error, darkThemeColors.background);
-      
+      const lightError = testColorContrast(
+        lightThemeColors.error,
+        lightThemeColors.background,
+      );
+      const darkError = testColorContrast(
+        darkThemeColors.error,
+        darkThemeColors.background,
+      );
+
       expect(lightError.passes).toBe(true);
       expect(darkError.passes).toBe(true);
-      
+
       // Test success text visibility
-      const lightSuccess = testColorContrast(lightThemeColors.success, lightThemeColors.background);
-      const darkSuccess = testColorContrast(darkThemeColors.success, darkThemeColors.background);
-      
+      const lightSuccess = testColorContrast(
+        lightThemeColors.success,
+        lightThemeColors.background,
+      );
+      const darkSuccess = testColorContrast(
+        darkThemeColors.success,
+        darkThemeColors.background,
+      );
+
       expect(lightSuccess.passes).toBe(true);
       expect(darkSuccess.passes).toBe(true);
     });
@@ -309,7 +411,7 @@ describe('Color Utility Functions', () => {
   it('handles hex color variations', () => {
     const withHash = testColorContrast('#000000', '#ffffff');
     const withoutHash = testColorContrast('000000', 'ffffff');
-    
+
     // Both should work and give same result
     expect(withHash.ratio).toBeCloseTo(withoutHash.ratio || 0, 1);
   });
@@ -317,13 +419,13 @@ describe('Color Utility Functions', () => {
   it('distinguishes between normal and large text thresholds', () => {
     const color1 = '#707070';
     const color2 = '#ffffff';
-    
+
     const normalText = testColorContrast(color1, color2, false);
     const largeText = testColorContrast(color1, color2, true);
-    
+
     // Same ratio, but different pass/fail based on text size
     expect(normalText.ratio).toBe(largeText.ratio);
-    
+
     // Large text has lower threshold, so may pass when normal fails
     if (normalText.ratio >= 3.0 && normalText.ratio < 4.5) {
       expect(normalText.passes).toBe(false);
