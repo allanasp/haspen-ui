@@ -91,7 +91,7 @@ const createFallbackContext = (): ThemeProviderContext => {
         component: 'useTheme',
         action: 'setMode',
         severity: 'low',
-        metadata: { mode: newMode }
+        metadata: { mode: newMode },
       });
     },
     toggleMode: () => {
@@ -100,14 +100,14 @@ const createFallbackContext = (): ThemeProviderContext => {
         component: 'useTheme',
         action: 'toggleMode',
         severity: 'low',
-        metadata: { newMode: mode.value }
+        metadata: { newMode: mode.value },
       });
     },
     applyTheme: () => {
       logger.warn('ThemeProvider not found, cannot apply theme to DOM', {
         component: 'useTheme',
         action: 'applyTheme',
-        severity: 'low'
+        severity: 'low',
       });
     },
   };
@@ -123,8 +123,8 @@ export function useTheme(): ThemeProviderContext {
       {
         component: 'useTheme',
         action: 'inject',
-        severity: 'medium'
-      }
+        severity: 'medium',
+      },
     );
 
     return createFallbackContext();

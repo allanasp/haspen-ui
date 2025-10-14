@@ -121,8 +121,8 @@ export function useRegisteredProperties(
           {
             component: 'useRegisteredProperties',
             action: 'registerProperties',
-            severity: 'low'
-          }
+            severity: 'low',
+          },
         );
       }
       return;
@@ -137,7 +137,7 @@ export function useRegisteredProperties(
           component: 'useRegisteredProperties',
           action: 'registerProperties',
           severity: 'medium',
-          metadata: { error: String(error) }
+          metadata: { error: String(error) },
         });
       }
     }

@@ -948,7 +948,10 @@ export const UseClickOutsideAdvanced: Story = {
         enabled: tooltip.isOpen.value,
         callback: () => {
           tooltip.close();
-          logger.info('Tooltip closed by click outside', { component: 'ComposablesDemo', action: 'clickOutside' });
+          logger.info('Tooltip closed by click outside', {
+            component: 'ComposablesDemo',
+            action: 'clickOutside',
+          });
         },
       });
 

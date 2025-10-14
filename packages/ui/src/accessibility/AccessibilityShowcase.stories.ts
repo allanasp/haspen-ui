@@ -2,18 +2,21 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref, onMounted } from 'vue';
 import { logger } from '../utils/error-handling';
 // Browser-compatible accessibility utilities for Storybook
-const testColorContrast = (_color1: string, _color2: string): { ratio: number; wcag: { aa: boolean; aaa: boolean } } => {
+const testColorContrast = (
+  _color1: string,
+  _color2: string,
+): { ratio: number; wcag: { aa: boolean; aaa: boolean } } => {
   // Simple contrast ratio calculation for demo purposes
   return {
     ratio: 4.5, // Placeholder
-    wcag: { aa: true, aaa: false }
+    wcag: { aa: true, aaa: false },
   };
 };
 
 const a11yTestScenarios = {
   colorContrast: () => ({ passed: true, results: [] }),
   keyboardNavigation: () => ({ passed: true, results: [] }),
-  screenReader: () => ({ passed: true, results: [] })
+  screenReader: () => ({ passed: true, results: [] }),
 };
 import ThemeProvider from '../molecules/ThemeProvider/ThemeProvider.vue';
 import Button from '../atoms/Button/Button.vue';
@@ -608,7 +611,7 @@ const AccessibilityShowcaseDemo = {
           component: 'AccessibilityShowcase',
           action: 'runAccessibilityTest',
           severity: 'medium',
-          metadata: { error: String(error) }
+          metadata: { error: String(error) },
         });
         testResults.value = {
           violations: [
