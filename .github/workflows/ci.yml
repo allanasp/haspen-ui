@@ -139,6 +139,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build packages
+        run: pnpm build:packages
+
       - name: Build Storybook
         run: pnpm build-storybook
 
@@ -182,6 +185,8 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           pattern: 'packages/*/dist/**/*.{js,css}'
           exclude: '{**/*.map,**/node_modules/**}'
+          build-script: 'build'
+          package-manager: 'pnpm'
 
   security:
     name: Security Audit
