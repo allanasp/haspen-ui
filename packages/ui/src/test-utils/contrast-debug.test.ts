@@ -4,6 +4,7 @@
 
 import { describe, it } from 'vitest';
 import { testColorContrast } from './accessibility';
+import { logger } from '../utils/error-handling';
 
 // Design token color values (from themes.ts)
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -45,7 +46,7 @@ const darkThemeColors = {
 describe('Color Contrast Debug Analysis', () => {
   it('analyzes failing light theme colors', () => {
     const warningResult = testColorContrast('#e65100', '#ffffff');
-    console.log('Fixed Light Warning vs Background:', {
+    logger.info('Fixed Light Warning vs Background:', {
       colors: `#e65100 on #ffffff`,
       ratio: warningResult.ratio,
       passes: warningResult.passes,
@@ -53,7 +54,7 @@ describe('Color Contrast Debug Analysis', () => {
     });
 
     const borderResult = testColorContrast('#9e9e9e', '#ffffff', true);
-    console.log('Fixed Light Border vs Background (large text):', {
+    logger.info('Fixed Light Border vs Background (large text):', {
       colors: `#9e9e9e on #ffffff`,
       ratio: borderResult.ratio,
       passes: borderResult.passes,
@@ -61,7 +62,7 @@ describe('Color Contrast Debug Analysis', () => {
     });
 
     const dividerResult = testColorContrast('#bdbdbd', '#ffffff', true);
-    console.log('Fixed Light Divider vs Background (large text):', {
+    logger.info('Fixed Light Divider vs Background (large text):', {
       colors: `#bdbdbd on #ffffff`,
       ratio: dividerResult.ratio,
       passes: dividerResult.passes,
@@ -70,21 +71,21 @@ describe('Color Contrast Debug Analysis', () => {
 
     // Test better colors
     const betterWarning = testColorContrast('#d84315', '#ffffff');
-    console.log('Better Light Warning (#d84315):', {
+    logger.info('Better Light Warning (#d84315):', {
       ratio: betterWarning.ratio,
       passes: betterWarning.passes,
       level: betterWarning.level,
     });
 
     const betterBorder = testColorContrast('#757575', '#ffffff', true);
-    console.log('Better Light Border (#757575):', {
+    logger.info('Better Light Border (#757575):', {
       ratio: betterBorder.ratio,
       passes: betterBorder.passes,
       level: betterBorder.level,
     });
 
     const betterDivider = testColorContrast('#9e9e9e', '#ffffff', true);
-    console.log('Better Light Divider (#9e9e9e):', {
+    logger.info('Better Light Divider (#9e9e9e):', {
       ratio: betterDivider.ratio,
       passes: betterDivider.passes,
       level: betterDivider.level,
@@ -94,7 +95,7 @@ describe('Color Contrast Debug Analysis', () => {
   it('analyzes failing dark theme colors', () => {
     // Test white on dark primary for buttons
     const darkPrimaryButton = testColorContrast('#ffffff', '#42a5f5');
-    console.log('White on Dark Primary Button:', {
+    logger.info('White on Dark Primary Button:', {
       colors: `#ffffff on #42a5f5`,
       ratio: darkPrimaryButton.ratio,
       passes: darkPrimaryButton.passes,
@@ -103,14 +104,14 @@ describe('Color Contrast Debug Analysis', () => {
 
     // Test better dark primary
     const betterDarkPrimary = testColorContrast('#ffffff', '#1976d2');
-    console.log('White on Better Dark Primary (#1976d2):', {
+    logger.info('White on Better Dark Primary (#1976d2):', {
       ratio: betterDarkPrimary.ratio,
       passes: betterDarkPrimary.passes,
       level: betterDarkPrimary.level,
     });
 
     const evenBetterDarkPrimary = testColorContrast('#ffffff', '#1565c0');
-    console.log('White on Even Better Dark Primary (#1565c0):', {
+    logger.info('White on Even Better Dark Primary (#1565c0):', {
       ratio: evenBetterDarkPrimary.ratio,
       passes: evenBetterDarkPrimary.passes,
       level: evenBetterDarkPrimary.level,

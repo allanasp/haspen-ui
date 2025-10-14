@@ -5,6 +5,16 @@
  * Registered properties offer better performance, type safety, and animation capabilities.
  */
 
+// Simple logger for design tokens package (browser compatible)
+const logger = {
+  warn: (message: string, context?: { component?: string; action?: string; severity?: string; metadata?: Record<string, unknown> }) => {
+    if (typeof process !== 'undefined' && process.env?.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
+      console.warn('[Haspen Design Tokens Warning]', { message, context, timestamp: new Date().toISOString() });
+    }
+  }
+};
+
 // CSS Registered Property Syntax Types
 export type CSSPropertySyntax =
   | '<color>'
@@ -356,8 +366,13 @@ export function registerCSSProperties(
   properties: Partial<HaspenRegisteredProperties> = HASPEN_REGISTERED_PROPERTIES,
 ): void {
   if (!CSS?.registerProperty) {
-    console.warn(
+    logger.warn(
       'CSS.registerProperty is not supported in this browser. Registered properties will fallback to regular custom properties.',
+      {
+        component: 'registerCSSProperties',
+        action: 'checkSupport',
+        severity: 'low'
+      }
     );
     return;
   }
@@ -369,7 +384,12 @@ export function registerCSSProperties(
         ...config,
       });
     } catch (error) {
-      console.warn(`Failed to register CSS property ${name}:`, error);
+      logger.warn(`Failed to register CSS property ${name}`, {
+        component: 'registerCSSProperties',
+        action: 'registerProperty',
+        severity: 'low',
+        metadata: { propertyName: name, error: String(error) }
+      });
     }
   }
 }

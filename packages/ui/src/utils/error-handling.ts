@@ -60,6 +60,7 @@ export function createErrorBoundary(options: ErrorBoundaryOptions = {}) {
 
         // Log to console in development only
         if (process.env.NODE_ENV === 'development' && !silent) {
+          // eslint-disable-next-line no-console
           console.error('[Haspen UI Error]', {
             message: componentError.message,
             context: componentError.context,
@@ -88,6 +89,7 @@ export function createErrorBoundary(options: ErrorBoundaryOptions = {}) {
 export const logger = {
   warn(message: string, context?: ErrorContext) {
     if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
       console.warn('[Haspen UI Warning]', {
         message,
         context,
@@ -100,6 +102,7 @@ export const logger = {
     const error = new ComponentError(message, context);
 
     if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
       console.error('[Haspen UI Error]', {
         message: error.message,
         context: error.context,
@@ -112,6 +115,7 @@ export const logger = {
 
   info(message: string, data?: Record<string, unknown>) {
     if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
       console.log('[Haspen UI Info]', {
         message,
         data,

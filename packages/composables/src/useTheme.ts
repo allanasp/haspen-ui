@@ -1,6 +1,7 @@
 import { inject, computed, ref } from 'vue';
 import type { ThemeProviderContext, Theme } from '@haspen-ui/core';
 import { THEME_INJECTION_KEY } from '@haspen-ui/core';
+import { logger } from '@haspen-ui/ui/utils/error-handling';
 
 // Default fallback theme for when ThemeProvider is not available
 const createFallbackTheme = (): Theme => ({
@@ -86,16 +87,28 @@ const createFallbackContext = (): ThemeProviderContext => {
     isLight: computed(() => true),
     setMode: (newMode: 'light' | 'dark' | 'auto') => {
       mode.value = newMode;
-      console.warn('[useTheme] ThemeProvider not found, using fallback theme');
+      logger.warn('ThemeProvider not found, using fallback theme', {
+        component: 'useTheme',
+        action: 'setMode',
+        severity: 'low',
+        metadata: { mode: newMode }
+      });
     },
     toggleMode: () => {
       mode.value = mode.value === 'dark' ? 'light' : 'dark';
-      console.warn('[useTheme] ThemeProvider not found, using fallback theme');
+      logger.warn('ThemeProvider not found, using fallback theme', {
+        component: 'useTheme',
+        action: 'toggleMode',
+        severity: 'low',
+        metadata: { newMode: mode.value }
+      });
     },
     applyTheme: () => {
-      console.warn(
-        '[useTheme] ThemeProvider not found, cannot apply theme to DOM',
-      );
+      logger.warn('ThemeProvider not found, cannot apply theme to DOM', {
+        component: 'useTheme',
+        action: 'applyTheme',
+        severity: 'low'
+      });
     },
   };
 };
@@ -105,9 +118,13 @@ export function useTheme(): ThemeProviderContext {
 
   if (!themeContext) {
     // Instead of throwing, provide fallback with warning
-    console.warn(
-      '[useTheme] ThemeProvider not found. Using fallback theme. ' +
-        'For full functionality, wrap your app with <ThemeProvider>.',
+    logger.warn(
+      'ThemeProvider not found. Using fallback theme. For full functionality, wrap your app with <ThemeProvider>.',
+      {
+        component: 'useTheme',
+        action: 'inject',
+        severity: 'medium'
+      }
     );
 
     return createFallbackContext();

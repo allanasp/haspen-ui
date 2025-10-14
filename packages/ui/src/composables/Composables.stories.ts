@@ -6,6 +6,7 @@ import IconProvider from '../atoms/Icon/IconProvider.vue';
 import ThemeProvider from '../molecules/ThemeProvider/ThemeProvider.vue';
 import { haspenIcons } from '../atoms/Icon/libraries';
 import { useTheme, useToggle, useClickOutside } from '@haspen-ui/composables';
+import { logger } from '../utils/error-handling';
 
 // Create a demo component for composables
 const ComposablesDemo = {
@@ -132,9 +133,9 @@ export const UseThemeBasic: Story = {
           <pre style="margin: 0; font-size: 0.75rem; overflow-x: auto;"><code>const { mode, isDark, isLight, toggleMode } = useTheme();
 
 // Reactive values
-console.log(mode.value); // 'light' | 'dark' | 'auto'
-console.log(isDark.value); // boolean
-console.log(isLight.value); // boolean
+logger.info(mode.value); // 'light' | 'dark' | 'auto'
+logger.info(isDark.value); // boolean
+logger.info(isLight.value); // boolean
 
 // Toggle between light/dark
 toggleMode();</code></pre>
@@ -310,8 +311,8 @@ export const UseToggleBasic: Story = {
 const sidebar = useToggle({ initialValue: true });
 
 // Reactive state
-console.log(modal.isOpen.value); // false
-console.log(sidebar.isOpen.value); // true
+logger.info(modal.isOpen.value); // false
+logger.info(sidebar.isOpen.value); // true
 
 // Control methods
 modal.toggle(); // Toggle state
@@ -729,7 +730,7 @@ const toggles = Array.from({ length: 5 }, (_, i) =>
 
 // Each instance has its own reactive state
 toggles[0].toggle(); // Only affects first instance
-console.log(toggles[1].isOpen.value); // Independent state
+logger.info(toggles[1].isOpen.value); // Independent state
 
 // Combine with other composables
 const { isDark } = useTheme();
@@ -919,7 +920,7 @@ const { targetRef, isClickedOutside } = useClickOutside({
 &lt;/div&gt;
 
 // Check if clicked outside
-console.log(isClickedOutside.value); // boolean</code></pre>
+logger.info(isClickedOutside.value); // boolean</code></pre>
         </div>
       </div>
     `,
@@ -947,7 +948,7 @@ export const UseClickOutsideAdvanced: Story = {
         enabled: tooltip.isOpen.value,
         callback: () => {
           tooltip.close();
-          console.log('Tooltip closed by click outside');
+          logger.info('Tooltip closed by click outside', { component: 'ComposablesDemo', action: 'clickOutside' });
         },
       });
 

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref, onMounted } from 'vue';
+import { logger } from '../utils/error-handling';
 // Browser-compatible accessibility utilities for Storybook
-const testColorContrast = (color1: string, color2: string): { ratio: number; wcag: { aa: boolean; aaa: boolean } } => {
+const testColorContrast = (_color1: string, _color2: string): { ratio: number; wcag: { aa: boolean; aaa: boolean } } => {
   // Simple contrast ratio calculation for demo purposes
   return {
     ratio: 4.5, // Placeholder
@@ -603,7 +604,12 @@ const AccessibilityShowcaseDemo = {
         );
         testResults.value = results;
       } catch (error) {
-        console.error('Accessibility test failed:', error);
+        logger.error('Accessibility test failed', {
+          component: 'AccessibilityShowcase',
+          action: 'runAccessibilityTest',
+          severity: 'medium',
+          metadata: { error: String(error) }
+        });
         testResults.value = {
           violations: [
             {

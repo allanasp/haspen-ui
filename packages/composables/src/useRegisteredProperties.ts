@@ -6,6 +6,7 @@ import {
   type HaspenCSSPropertyName,
   type HaspenRegisteredProperties,
 } from '@haspen-ui/design-tokens';
+import { logger } from '@haspen-ui/ui/utils/error-handling';
 
 interface UseRegisteredPropertiesOptions {
   /**
@@ -115,8 +116,13 @@ export function useRegisteredProperties(
   ): void {
     if (!checkSupport()) {
       if (warn) {
-        console.warn(
+        logger.warn(
           'CSS.registerProperty is not supported. Properties will fall back to regular custom properties.',
+          {
+            component: 'useRegisteredProperties',
+            action: 'registerProperties',
+            severity: 'low'
+          }
         );
       }
       return;
@@ -127,7 +133,12 @@ export function useRegisteredProperties(
       isRegistered.value = true;
     } catch (error) {
       if (warn) {
-        console.error('Failed to register CSS properties:', error);
+        logger.error('Failed to register CSS properties', {
+          component: 'useRegisteredProperties',
+          action: 'registerProperties',
+          severity: 'medium',
+          metadata: { error: String(error) }
+        });
       }
     }
   }
