@@ -330,11 +330,11 @@ describe('ThemeProvider', () => {
       root.removeAttribute('data-theme');
       root.removeAttribute('style');
       root.style.cssText = '';
-      
+
       // Force initial light mode
       root.setAttribute('data-theme', 'light');
       root.style.colorScheme = 'light';
-      
+
       mount(ThemeProvider, {
         props: {
           mode: 'light',
@@ -371,11 +371,11 @@ describe('ThemeProvider', () => {
       root.removeAttribute('data-theme');
       root.removeAttribute('style');
       root.style.cssText = '';
-      
+
       // Force initial light mode
       root.setAttribute('data-theme', 'light');
       root.style.colorScheme = 'light';
-      
+
       const wrapper = mount(ThemeProvider, {
         props: {
           mode: 'light',
@@ -413,7 +413,7 @@ describe('ThemeProvider', () => {
       expect(darkBgColor).toBeTruthy(); // Should have some background color
       // Test that theme actually changed to dark
       expect(root.getAttribute('data-theme')).toBe('dark');
-      
+
       // Test that the component responds to prop changes (either theme changed or was already correct)
       if (initialTheme === 'dark') {
         // If DOM was already dark, just verify it stays dark as expected

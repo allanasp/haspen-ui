@@ -528,7 +528,8 @@ export const Overview: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Complete overview of aspect ratio utilities with interactive examples and real-world use cases.',
+        story:
+          'Complete overview of aspect ratio utilities with interactive examples and real-world use cases.',
       },
     },
   },
@@ -587,7 +588,8 @@ export const StandardRatios: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Common aspect ratios for everyday use cases like social media, photography, and video content.',
+        story:
+          'Common aspect ratios for everyday use cases like social media, photography, and video content.',
       },
     },
   },
@@ -626,7 +628,8 @@ export const ResponsiveAspectRatios: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Responsive aspect ratios that adapt to container size or viewport dimensions.',
+        story:
+          'Responsive aspect ratios that adapt to container size or viewport dimensions.',
       },
     },
   },
@@ -675,7 +678,8 @@ export const CustomAspectRatios: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Custom aspect ratios using CSS custom properties for unique proportions.',
+        story:
+          'Custom aspect ratios using CSS custom properties for unique proportions.',
       },
     },
   },
