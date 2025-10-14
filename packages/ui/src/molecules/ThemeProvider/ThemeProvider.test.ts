@@ -3,7 +3,6 @@ import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import ThemeProvider from './ThemeProvider.vue';
 import { useTheme } from '@haspen-ui/composables';
-import type { ThemeMode } from '@haspen-ui/core';
 
 // Mock localStorage
 const mockLocalStorage = {

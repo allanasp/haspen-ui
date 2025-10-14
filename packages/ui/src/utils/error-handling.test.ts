@@ -9,6 +9,7 @@ import {
 } from './error-handling';
 
 // Mock console methods
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const originalConsole = { ...console };
 
 describe('Error Handling Utilities', () => {

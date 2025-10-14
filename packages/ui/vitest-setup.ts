@@ -8,7 +8,7 @@ if (typeof HTMLCanvasElement !== 'undefined') {
   // Mock getContext to avoid "Not implemented" errors in jsdom
   HTMLCanvasElement.prototype.getContext = function (
     contextId: string,
-    options?: any,
+    _options?: any,
   ) {
     if (contextId === '2d') {
       return {

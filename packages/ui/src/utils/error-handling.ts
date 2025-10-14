@@ -214,6 +214,10 @@ export function createAssetHandler() {
     loadIcon(name: string, fallback?: () => void): boolean {
       try {
         // Icon loading logic would go here
+        // For now, simulate that icon loading might fail
+        if (Math.random() > 0.5) {
+          throw new Error('Icon not found');
+        }
         return true;
       } catch (error) {
         logger.warn('Icon not found', {

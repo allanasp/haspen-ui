@@ -5,7 +5,7 @@ import { setup } from '@storybook/vue3';
 import '../packages/design-tokens/dist/index.css';
 
 // Setup Vue app
-setup(app => {
+setup(_app => {
   // Register global components or plugins here if needed
 });
 

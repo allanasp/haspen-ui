@@ -6,6 +6,7 @@ import { describe, it } from 'vitest';
 import { testColorContrast } from './accessibility';
 
 // Design token color values (from themes.ts)
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const lightThemeColors = {
   primary: '#0059b3',
   secondary: '#6c757d',
@@ -23,6 +24,7 @@ const lightThemeColors = {
   divider: '#e0e0e0',
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const darkThemeColors = {
   primary: '#1976d2',
   secondary: '#adb5bd',

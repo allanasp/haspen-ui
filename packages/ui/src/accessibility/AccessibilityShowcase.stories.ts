@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { ref, onMounted, nextTick } from 'vue';
+import { ref, onMounted } from 'vue';
 import {
   testColorContrast,
   a11yTestScenarios,
-  testComponentAccessibility,
 } from '../test-utils/accessibility';
 import ThemeProvider from '../molecules/ThemeProvider/ThemeProvider.vue';
 import Button from '../atoms/Button/Button.vue';

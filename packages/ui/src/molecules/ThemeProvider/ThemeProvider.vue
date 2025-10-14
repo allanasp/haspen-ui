@@ -40,7 +40,7 @@
     Theme,
   } from '@haspen-ui/core';
   import { THEME_INJECTION_KEY } from '@haspen-ui/core';
-  import { defaultTheme, lightTheme, darkTheme } from './themes';
+  import { lightTheme, darkTheme } from './themes';
   import {
     applyThemeToDOM,
     getSystemThemeMode,
@@ -94,7 +94,7 @@
     applyThemeToDOM(theme.value);
   }
 
-  function handleSystemThemeChange(event: MediaQueryListEvent): void {
+  function handleSystemThemeChange(_event: MediaQueryListEvent): void {
     // Only apply changes if we're in auto mode
     if (currentMode.value === 'auto') {
       applyTheme();
