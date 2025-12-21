@@ -746,11 +746,11 @@ export const SpacingCustomization: Story = {
         const root = document.documentElement;
         const multiplier = base / 8; // Default is 8px
 
-        root.style.setProperty('--haspen-spacing-xs', \`\${0.25 * multiplier}rem\`);
-        root.style.setProperty('--haspen-spacing-sm', \`\${0.5 * multiplier}rem\`);
-        root.style.setProperty('--haspen-spacing-md', \`\${1 * multiplier}rem\`);
-        root.style.setProperty('--haspen-spacing-lg', \`\${1.5 * multiplier}rem\`);
-        root.style.setProperty('--haspen-spacing-xl', \`\${2 * multiplier}rem\`);
+        root.style.setProperty('--haspen-spacing-xs', `${0.25 * multiplier}rem`);
+        root.style.setProperty('--haspen-spacing-sm', `${0.5 * multiplier}rem`);
+        root.style.setProperty('--haspen-spacing-md', `${1 * multiplier}rem`);
+        root.style.setProperty('--haspen-spacing-lg', `${1.5 * multiplier}rem`);
+        root.style.setProperty('--haspen-spacing-xl', `${2 * multiplier}rem`);
       },
     },
   }),

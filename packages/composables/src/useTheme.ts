@@ -6,6 +6,7 @@ import { THEME_INJECTION_KEY } from '@haspen-ui/core';
 const logger = {
   warn: (message: string, metadata?: Record<string, unknown>) => {
     if (import.meta.env.DEV) {
+      // eslint-disable-next-line no-console
       console.warn(`[Haspen UI] ${message}`, metadata);
     }
   },

@@ -1,198 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="147" failures="0" errors="0" time="0.937324249">
-    <testsuite name="src/test-utils/contrast-debug.test.ts" timestamp="2025-09-30T06:50:04.175Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="2" failures="0" errors="0" skipped="0" time="0.002793666">
-        <testcase classname="src/test-utils/contrast-debug.test.ts" name="Color Contrast Debug Analysis &gt; analyzes failing light theme colors" time="0.001976459">
-            <system-out>
-Fixed Light Warning vs Background: {
-  colors: [32m&apos;#e65100 on #ffffff&apos;[39m,
-  ratio: [33m3.79[39m,
-  passes: [33mfalse[39m,
-  level: [32m&apos;fail&apos;[39m
-}
-Fixed Light Border vs Background (large text): {
-  colors: [32m&apos;#9e9e9e on #ffffff&apos;[39m,
-  ratio: [33m2.68[39m,
-  passes: [33mfalse[39m,
-  level: [32m&apos;fail&apos;[39m
-}
-Fixed Light Divider vs Background (large text): {
-  colors: [32m&apos;#bdbdbd on #ffffff&apos;[39m,
-  ratio: [33m1.88[39m,
-  passes: [33mfalse[39m,
-  level: [32m&apos;fail&apos;[39m
-}
-Better Light Warning (#d84315): { ratio: [33m4.44[39m, passes: [33mfalse[39m, level: [32m&apos;fail&apos;[39m }
-Better Light Border (#757575): { ratio: [33m4.61[39m, passes: [33mtrue[39m, level: [32m&apos;AAA&apos;[39m }
-Better Light Divider (#9e9e9e): { ratio: [33m2.68[39m, passes: [33mfalse[39m, level: [32m&apos;fail&apos;[39m }
-
-            </system-out>
+<testsuites name="vitest tests" tests="147" failures="0" errors="0" time="0.929063542">
+    <testsuite name="src/atoms/Button/Button.test.ts" timestamp="2025-12-21T15:48:09.471Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="16" failures="0" errors="0" skipped="0" time="0.064252375">
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; meets WCAG 2.1 AA accessibility standards" time="0.046596167">
         </testcase>
-        <testcase classname="src/test-utils/contrast-debug.test.ts" name="Color Contrast Debug Analysis &gt; analyzes failing dark theme colors" time="0.000318958">
-            <system-out>
-White on Dark Primary Button: {
-  colors: [32m&apos;#ffffff on #42a5f5&apos;[39m,
-  ratio: [33m2.65[39m,
-  passes: [33mfalse[39m,
-  level: [32m&apos;fail&apos;[39m
-}
-White on Better Dark Primary (#1976d2): { ratio: [33m4.6[39m, passes: [33mtrue[39m, level: [32m&apos;AA&apos;[39m }
-White on Even Better Dark Primary (#1565c0): { ratio: [33m5.75[39m, passes: [33mtrue[39m, level: [32m&apos;AA&apos;[39m }
-
-            </system-out>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; has proper button semantics" time="0.001988041">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; supports keyboard navigation" time="0.001848666">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains focus visibility" time="0.001108416">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate disabled state" time="0.001326917">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate loading state for screen readers" time="0.001201709">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains accessible text content" time="0.001095333">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; respects reduced motion preferences" time="0.000859875">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; renders properly" time="0.001334084">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies variant class" time="0.000888833">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies size class" time="0.000686">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; shows loader when loading" time="0.001079584">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; is disabled when disabled prop is true" time="0.000501167">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; emits click events when enabled" time="0.0011945">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when disabled" time="0.00072525">
+        </testcase>
+        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when loading" time="0.001162917">
         </testcase>
     </testsuite>
-    <testsuite name="src/test-utils/contrast.test.ts" timestamp="2025-09-30T06:50:04.176Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="34" failures="0" errors="0" skipped="0" time="0.003491042">
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; primary text on background meets AA standards" time="0.000716416">
+    <testsuite name="src/utils/error-handling.test.ts" timestamp="2025-12-21T15:48:09.473Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="22" failures="0" errors="0" skipped="0" time="0.018821208">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; ComponentError &gt; creates error with context and timestamp" time="0.002315917">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; secondary text on background meets AA standards" time="0.000237333">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; ComponentError &gt; creates error without context" time="0.003999541">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; primary color on background meets AA standards" time="0.000192125">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; executes function normally when no error occurs" time="0.0037625">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; error color on background meets AA standards" time="0.000082208">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; catches errors and calls error handler" time="0.00252425">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; success color on background meets AA standards" time="0.000090083">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; executes fallback when error occurs" time="0.000174625">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; warning color on background has acceptable contrast" time="0.000076709">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; re-throws critical errors" time="0.0001985">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; info color on background meets AA standards" time="0.000049791">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; silences errors when silent option is true" time="0.000144125">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; white text on primary background meets AA standards" time="0.00004325">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; logger &gt; logs warnings in development" time="0.000908875">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; text on surface background meets AA standards" time="0.000085584">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; logger &gt; does not log in production" time="0.000181917">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; primary text on background meets AA standards" time="0.000064333">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; logger &gt; creates and logs errors" time="0.000162417">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; secondary text on background meets AA standards" time="0.000098125">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; logger &gt; logs info messages in development" time="0.000280916">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; primary color is optimized for button backgrounds" time="0.000040833">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; gets item from storage successfully" time="0.00018625">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; error color on background meets AA standards" time="0.00004575">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; returns fallback when storage fails" time="0.000143833">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; success color on background meets AA standards" time="0.000167375">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; sets item in storage successfully" time="0.000219208">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; warning color on background meets AA standards" time="0.000054709">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; returns false when storage set fails" time="0.000102708">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; info color on background meets AA standards" time="0.000080084">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; removes item from storage successfully" time="0.000178625">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; white text on primary background meets AA standards" time="0.000041167">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; handles missing window object gracefully" time="0.000097667">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; text on surface background meets AA standards" time="0.000035">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createAssetHandler &gt; executes fallback when icon loading fails" time="0.000107833">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Large Text Compliance (3:1 ratio) &gt; light theme border color has strong contrast" time="0.000031458">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createValidationHandler &gt; validates required values successfully" time="0.000088958">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Large Text Compliance (3:1 ratio) &gt; dark theme border color meets large text AA standards" time="0.000028833">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createValidationHandler &gt; throws error for missing required values" time="0.000366541">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Large Text Compliance (3:1 ratio) &gt; light theme divider color has reasonable contrast" time="0.000029208">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createValidationHandler &gt; validates types successfully" time="0.000090167">
         </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Large Text Compliance (3:1 ratio) &gt; dark theme divider color meets large text AA standards" time="0.000033833">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Cross-Theme Validation &gt; validates light theme primary against common backgrounds" time="0.000042833">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Cross-Theme Validation &gt; validates dark theme primary for button use cases" time="0.000042834">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Edge Cases and Boundary Testing &gt; validates minimum AA contrast ratios" time="0.000030834">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Edge Cases and Boundary Testing &gt; validates AAA contrast requirements" time="0.000031042">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Edge Cases and Boundary Testing &gt; fails insufficient contrast combinations" time="0.000038166">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Real-world Component Combinations &gt; validates button text combinations" time="0.00003225">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Real-world Component Combinations &gt; validates form element combinations" time="0.000047167">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Real-world Component Combinations &gt; validates status indicator combinations" time="0.000050583">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Utility Functions &gt; correctly calculates high contrast ratios" time="0.000056333">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Utility Functions &gt; correctly calculates medium contrast ratios" time="0.00003">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Utility Functions &gt; handles hex color variations" time="0.000025459">
-        </testcase>
-        <testcase classname="src/test-utils/contrast.test.ts" name="Color Utility Functions &gt; distinguishes between normal and large text thresholds" time="0.000029542">
+        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createValidationHandler &gt; throws error for incorrect types" time="0.000143125">
         </testcase>
     </testsuite>
-    <testsuite name="src/utils/error-handling.test.ts" timestamp="2025-09-30T06:50:04.179Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="22" failures="0" errors="0" skipped="0" time="0.006078208">
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; ComponentError &gt; creates error with context and timestamp" time="0.000963625">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; ComponentError &gt; creates error without context" time="0.00024775">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; executes function normally when no error occurs" time="0.00035925">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; catches errors and calls error handler" time="0.000773333">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; executes fallback when error occurs" time="0.000116583">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; re-throws critical errors" time="0.000172417">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createErrorBoundary &gt; silences errors when silent option is true" time="0.000129041">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; logger &gt; logs warnings in development" time="0.00059125">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; logger &gt; does not log in production" time="0.000130875">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; logger &gt; creates and logs errors" time="0.00012875">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; logger &gt; logs info messages in development" time="0.000235875">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; gets item from storage successfully" time="0.000171792">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; returns fallback when storage fails" time="0.000128792">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; sets item in storage successfully" time="0.00021725">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; returns false when storage set fails" time="0.000100083">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; removes item from storage successfully" time="0.000141833">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createStorageHandler &gt; handles missing window object gracefully" time="0.000100834">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createAssetHandler &gt; executes fallback when icon loading fails" time="0.00010025">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createValidationHandler &gt; validates required values successfully" time="0.000090417">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createValidationHandler &gt; throws error for missing required values" time="0.00035175">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createValidationHandler &gt; validates types successfully" time="0.000090792">
-        </testcase>
-        <testcase classname="src/utils/error-handling.test.ts" name="Error Handling Utilities &gt; createValidationHandler &gt; throws error for incorrect types" time="0.0001435">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/atoms/Button/Button.test.ts" timestamp="2025-09-30T06:50:04.181Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="16" failures="0" errors="0" skipped="0" time="0.071035208">
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; meets WCAG 2.1 AA accessibility standards" time="0.048671459">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; has proper button semantics" time="0.00198125">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; supports keyboard navigation" time="0.001845167">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains focus visibility" time="0.001138458">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate disabled state" time="0.001584916">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; provides appropriate loading state for screen readers" time="0.001135041">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; maintains accessible text content" time="0.001014292">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Accessibility &gt; respects reduced motion preferences" time="0.000835834">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; renders properly" time="0.001055166">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies variant class" time="0.001002791">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; applies size class" time="0.000785459">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; shows loader when loading" time="0.001419583">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; is disabled when disabled prop is true" time="0.004527583">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; emits click events when enabled" time="0.001700083">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when disabled" time="0.000857292">
-        </testcase>
-        <testcase classname="src/atoms/Button/Button.test.ts" name="Button &gt; Component Functionality &gt; does not emit click events when loading" time="0.00094275">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/atoms/Icon/Icon.test.ts" timestamp="2025-09-30T06:50:04.183Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="9" failures="0" errors="0" skipped="0" time="0.074018083">
-        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; Accessibility &gt; meets WCAG 2.1 AA accessibility standards" time="0.05785075">
+    <testsuite name="src/atoms/Icon/Icon.test.ts" timestamp="2025-12-21T15:48:09.474Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="9" failures="0" errors="0" skipped="0" time="0.063634583">
+        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; Accessibility &gt; meets WCAG 2.1 AA accessibility standards" time="0.048806875">
             <system-err>
 [Vue warn]: Vue received a Component that was made a reactive object. This can lead to unnecessary performance overhead and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`. 
 Component that was made reactive:  {
@@ -212,7 +101,7 @@ Component that was made reactive:  {
 
             </system-err>
         </testcase>
-        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; Accessibility &gt; provides appropriate ARIA attributes for decorative icons" time="0.002574459">
+        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; Accessibility &gt; provides appropriate ARIA attributes for decorative icons" time="0.002253458">
             <system-err>
 [Vue warn]: Vue received a Component that was made a reactive object. This can lead to unnecessary performance overhead and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`. 
 Component that was made reactive:  {
@@ -234,7 +123,7 @@ Component that was made reactive:  {
 
             </system-err>
         </testcase>
-        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; Accessibility &gt; provides appropriate ARIA label for informative icons" time="0.002091917">
+        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; Accessibility &gt; provides appropriate ARIA label for informative icons" time="0.001966334">
             <system-err>
 [Vue warn]: Vue received a Component that was made a reactive object. This can lead to unnecessary performance overhead and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`. 
 Component that was made reactive:  {
@@ -256,7 +145,7 @@ Component that was made reactive:  {
 
             </system-err>
         </testcase>
-        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; Accessibility &gt; defaults to decorative when no aria-label provided" time="0.00154775">
+        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; Accessibility &gt; defaults to decorative when no aria-label provided" time="0.001543417">
             <system-err>
 [Vue warn]: Vue received a Component that was made a reactive object. This can lead to unnecessary performance overhead and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`. 
 Component that was made reactive:  {
@@ -278,7 +167,7 @@ Component that was made reactive:  {
 
             </system-err>
         </testcase>
-        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; renders custom icon from provider" time="0.00191625">
+        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; renders custom icon from provider" time="0.001620625">
             <system-err>
 [Vue warn]: Vue received a Component that was made a reactive object. This can lead to unnecessary performance overhead and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`. 
 Component that was made reactive:  {
@@ -300,9 +189,9 @@ Component that was made reactive:  {
 
             </system-err>
         </testcase>
-        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; warns when icon not found using structured logging" time="0.002149667">
+        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; warns when icon not found using structured logging" time="0.001959333">
         </testcase>
-        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; applies CSS classes" time="0.002567125">
+        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; applies CSS classes" time="0.001740209">
             <system-err>
 [Vue warn]: Vue received a Component that was made a reactive object. This can lead to unnecessary performance overhead and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`. 
 Component that was made reactive:  {
@@ -324,7 +213,7 @@ Component that was made reactive:  {
 
             </system-err>
         </testcase>
-        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; passes props to icon component" time="0.002001667">
+        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; passes props to icon component" time="0.001788833">
             <system-err>
 [Vue warn]: Vue received a Component that was made a reactive object. This can lead to unnecessary performance overhead and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`. 
 Component that was made reactive:  {
@@ -346,152 +235,228 @@ Component that was made reactive:  {
 
             </system-err>
         </testcase>
-        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; works without provider using defaults" time="0.000841375">
+        <testcase classname="src/atoms/Icon/Icon.test.ts" name="Icon (Simplified) &gt; works without provider using defaults" time="0.00144125">
         </testcase>
     </testsuite>
-    <testsuite name="src/atoms/Icon/IconProvider.test.ts" timestamp="2025-09-30T06:50:04.184Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="6" failures="0" errors="0" skipped="0" time="0.018118625">
-        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; renders correctly with slot content" time="0.0118375">
+    <testsuite name="src/atoms/Icon/IconProvider.test.ts" timestamp="2025-12-21T15:48:09.475Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="6" failures="0" errors="0" skipped="0" time="0.021023167">
+        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; renders correctly with slot content" time="0.014014584">
         </testcase>
-        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; provides icon configuration to child components" time="0.001639583">
+        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; provides icon configuration to child components" time="0.002260208">
         </testcase>
-        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; applies default props correctly" time="0.000619625">
+        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; applies default props correctly" time="0.000689208">
         </testcase>
-        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; passes prefix prop to provide" time="0.001096292">
+        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; passes prefix prop to provide" time="0.001098833">
         </testcase>
-        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; passes defaultSize prop to provide" time="0.000979208">
+        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; passes defaultSize prop to provide" time="0.001016041">
         </testcase>
-        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; handles multiple nested providers correctly" time="0.001495291">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/atoms/Icon/MoonIcon.test.ts" timestamp="2025-09-30T06:50:04.185Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="6" failures="0" errors="0" skipped="0" time="0.015104958">
-        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; renders correctly" time="0.009155625">
-        </testcase>
-        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; applies size prop correctly" time="0.001425583">
-        </testcase>
-        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; applies default size when no size prop provided" time="0.000799292">
-        </testcase>
-        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; applies custom class when provided" time="0.001141291">
-        </testcase>
-        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; has proper accessibility attributes" time="0.000899709">
-        </testcase>
-        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; renders all required SVG paths" time="0.001086541">
+        <testcase classname="src/atoms/Icon/IconProvider.test.ts" name="IconProvider &gt; handles multiple nested providers correctly" time="0.001487458">
         </testcase>
     </testsuite>
-    <testsuite name="src/atoms/Icon/SunIcon.test.ts" timestamp="2025-09-30T06:50:04.186Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="6" failures="0" errors="0" skipped="0" time="0.016391333">
-        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; renders correctly" time="0.009817083">
+    <testsuite name="src/atoms/Icon/MoonIcon.test.ts" timestamp="2025-12-21T15:48:09.476Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="6" failures="0" errors="0" skipped="0" time="0.01575625">
+        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; renders correctly" time="0.009795958">
         </testcase>
-        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; applies size prop correctly" time="0.001511167">
+        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; applies size prop correctly" time="0.001557541">
         </testcase>
-        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; applies default size when no size prop provided" time="0.000871208">
+        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; applies default size when no size prop provided" time="0.000863708">
         </testcase>
-        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; applies custom class when provided" time="0.001263541">
+        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; applies custom class when provided" time="0.001195958">
         </testcase>
-        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; has proper accessibility attributes" time="0.0010775">
+        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; has proper accessibility attributes" time="0.000937167">
         </testcase>
-        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; renders all required SVG paths" time="0.001236833">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/atoms/ThemeToggle/ThemeToggle.test.ts" timestamp="2025-09-30T06:50:04.186Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="28" failures="0" errors="0" skipped="0" time="0.557871792">
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; renders with default props" time="0.011769291">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; renders with custom variant and size" time="0.002233209">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; renders with label when showLabel is true" time="0.001844917">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; renders custom labels" time="0.001358292">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; shows dark label when theme is dark" time="0.004305375">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; States &gt; applies disabled class when disabled" time="0.00663625">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; States &gt; does not have loading state (removed for performance)" time="0.002328125">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; meets WCAG 2.1 AA accessibility standards" time="0.04547975">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; has proper ARIA attributes" time="0.001461625">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; updates aria-pressed based on theme state" time="0.004357333">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; uses custom aria label" time="0.004493042">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; updates aria label based on current mode" time="0.007984208">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; supports keyboard navigation" time="0.004533709">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; maintains focus management during state changes" time="0.001350084">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; provides clear state indication for screen readers" time="0.001330916">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; respects reduced motion preferences" time="0.00123475">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; supports high contrast mode" time="0.000654291">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; maintains accessibility when disabled" time="0.000670833">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; maintains accessibility (no loading state)" time="0.00066125">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Theme Integration &gt; does not call toggleMode when disabled" time="0.000824958">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Theme Integration &gt; responds instantly when clicked (no loading state)" time="0.00096575">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Events &gt; emits toggle event with current state" time="0.201516">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Events &gt; emits change event with mode" time="0.213224">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Icons &gt; shows sun icon in light mode" time="0.001267959">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Icons &gt; shows moon icon in dark mode" time="0.0066385">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Thumb Position &gt; positions thumb correctly for light mode" time="0.004902625">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Thumb Position &gt; positions thumb correctly for dark mode" time="0.008072042">
-        </testcase>
-        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Thumb Position &gt; adjusts thumb position for different sizes" time="0.013970917">
+        <testcase classname="src/atoms/Icon/MoonIcon.test.ts" name="MoonIcon &gt; renders all required SVG paths" time="0.000833292">
         </testcase>
     </testsuite>
-    <testsuite name="src/molecules/ThemeProvider/ThemeProvider.test.ts" timestamp="2025-09-30T06:50:04.188Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="18" failures="0" errors="0" skipped="0" time="0.172421334">
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Component Rendering &gt; renders with default props" time="0.0160275">
+    <testsuite name="src/atoms/Icon/SunIcon.test.ts" timestamp="2025-12-21T15:48:09.476Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="6" failures="0" errors="0" skipped="0" time="0.01530625">
+        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; renders correctly" time="0.009263375">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Component Rendering &gt; applies correct CSS classes based on props" time="0.001624875">
+        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; applies size prop correctly" time="0.00156625">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Component Rendering &gt; sets data-theme attribute" time="0.001362375">
+        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; applies default size when no size prop provided" time="0.000855167">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Context &gt; provides theme context to child components" time="0.009879459">
+        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; applies custom class when provided" time="0.001239584">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Context &gt; updates theme context when mode changes" time="0.008914541">
+        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; has proper accessibility attributes" time="0.000916208">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Context &gt; provides fallback theme when called outside ThemeProvider" time="0.0029495">
+        <testcase classname="src/atoms/Icon/SunIcon.test.ts" name="SunIcon &gt; renders all required SVG paths" time="0.0010345">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/molecules/ThemeProvider/ThemeProvider.test.ts" timestamp="2025-12-21T15:48:09.476Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="18" failures="0" errors="0" skipped="0" time="0.182855792">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Component Rendering &gt; renders with default props" time="0.022825667">
+        </testcase>
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Component Rendering &gt; applies correct CSS classes based on props" time="0.003312667">
+        </testcase>
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Component Rendering &gt; sets data-theme attribute" time="0.002300291">
+        </testcase>
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Context &gt; provides theme context to child components" time="0.013050291">
+        </testcase>
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Context &gt; updates theme context when mode changes" time="0.010159833">
+        </testcase>
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Context &gt; provides fallback theme when called outside ThemeProvider" time="0.0031385">
             <system-err>
 [Vue warn]: injection &quot;Symbol(haspen-ui-theme)&quot; not found. 
   at &lt;Anonymous ref=&quot;VTU_COMPONENT&quot; &gt; 
   at &lt;VTUROOT&gt;
-[useTheme] ThemeProvider not found. Using fallback theme. For full functionality, wrap your app with &lt;ThemeProvider&gt;.
+[Haspen UI] ThemeProvider not found. Using fallback theme. For full functionality, wrap your app with &lt;ThemeProvider&gt;. { component: [32m&apos;useTheme&apos;[39m, action: [32m&apos;inject&apos;[39m, severity: [32m&apos;medium&apos;[39m }
 
             </system-err>
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Mode Management &gt; allows setting theme mode via context" time="0.003555542">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Mode Management &gt; allows setting theme mode via context" time="0.00492475">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Mode Management &gt; toggles between light and dark modes" time="0.005766667">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Mode Management &gt; toggles between light and dark modes" time="0.002589">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Mode Management &gt; handles auto mode with system preference" time="0.001413459">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Theme Mode Management &gt; handles auto mode with system preference" time="0.001116584">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Persistence &gt; saves theme mode to localStorage when persistMode is true" time="0.00860925">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Persistence &gt; saves theme mode to localStorage when persistMode is true" time="0.001684375">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Persistence &gt; loads theme mode from localStorage on mount" time="0.001398541">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Persistence &gt; loads theme mode from localStorage on mount" time="0.001082333">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Persistence &gt; does not persist when persistMode is false" time="0.001034541">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Persistence &gt; does not persist when persistMode is false" time="0.000930541">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Custom Themes &gt; merges custom theme with base theme" time="0.000945667">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Custom Themes &gt; merges custom theme with base theme" time="0.000919709">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; DOM Styles Application &gt; applies CSS custom properties to document root" time="0.031049583">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; DOM Styles Application &gt; applies CSS custom properties to document root" time="0.039789541">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; DOM Styles Application &gt; updates DOM styles when theme changes" time="0.073580333">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; DOM Styles Application &gt; updates DOM styles when theme changes" time="0.069529916">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; System Theme Detection &gt; listens to system theme changes when in auto mode" time="0.002096583">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; System Theme Detection &gt; listens to system theme changes when in auto mode" time="0.001947417">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Error Handling &gt; handles localStorage errors gracefully" time="0.000758833">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Error Handling &gt; handles localStorage errors gracefully" time="0.001489958">
         </testcase>
-        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Error Handling &gt; handles invalid stored theme mode" time="0.000735042">
+        <testcase classname="src/molecules/ThemeProvider/ThemeProvider.test.ts" name="ThemeProvider &gt; Error Handling &gt; handles invalid stored theme mode" time="0.000913917">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/atoms/ThemeToggle/ThemeToggle.test.ts" timestamp="2025-12-21T15:48:09.478Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="28" failures="0" errors="0" skipped="0" time="0.542640542">
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; renders with default props" time="0.011581958">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; renders with custom variant and size" time="0.00246175">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; renders with label when showLabel is true" time="0.00203775">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; renders custom labels" time="0.001719375">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Rendering &gt; shows dark label when theme is dark" time="0.005142625">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; States &gt; applies disabled class when disabled" time="0.005230833">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; States &gt; does not have loading state (removed for performance)" time="0.00092225">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; meets WCAG 2.1 AA accessibility standards" time="0.039174292">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; has proper ARIA attributes" time="0.001366542">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; updates aria-pressed based on theme state" time="0.00409625">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; uses custom aria label" time="0.003906334">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; updates aria label based on current mode" time="0.005571875">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; supports keyboard navigation" time="0.00723125">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; maintains focus management during state changes" time="0.001460083">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; provides clear state indication for screen readers" time="0.001138292">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; respects reduced motion preferences" time="0.001185375">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; supports high contrast mode" time="0.0008635">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; maintains accessibility when disabled" time="0.000756166">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Accessibility &gt; maintains accessibility (no loading state)" time="0.000731625">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Theme Integration &gt; does not call toggleMode when disabled" time="0.000689333">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Theme Integration &gt; responds instantly when clicked (no loading state)" time="0.000935708">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Events &gt; emits toggle event with current state" time="0.202348959">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Events &gt; emits change event with mode" time="0.202683">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Icons &gt; shows sun icon in light mode" time="0.001261875">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Icons &gt; shows moon icon in dark mode" time="0.012775042">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Thumb Position &gt; positions thumb correctly for light mode" time="0.004377875">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Thumb Position &gt; positions thumb correctly for dark mode" time="0.009019">
+        </testcase>
+        <testcase classname="src/atoms/ThemeToggle/ThemeToggle.test.ts" name="ThemeToggle &gt; Thumb Position &gt; adjusts thumb position for different sizes" time="0.0107615">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/test-utils/contrast-debug.test.ts" timestamp="2025-12-21T15:48:09.479Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="2" failures="0" errors="0" skipped="0" time="0.0010775">
+        <testcase classname="src/test-utils/contrast-debug.test.ts" name="Color Contrast Debug Analysis &gt; analyzes failing light theme colors" time="0.000555166">
+        </testcase>
+        <testcase classname="src/test-utils/contrast-debug.test.ts" name="Color Contrast Debug Analysis &gt; analyzes failing dark theme colors" time="0.000063375">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/test-utils/contrast.test.ts" timestamp="2025-12-21T15:48:09.479Z" hostname="MacBook-Pro-tilhrende-Allan.local" tests="34" failures="0" errors="0" skipped="0" time="0.003695875">
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; primary text on background meets AA standards" time="0.000735583">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; secondary text on background meets AA standards" time="0.000168917">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; primary color on background meets AA standards" time="0.000121791">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; error color on background meets AA standards" time="0.000076042">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; success color on background meets AA standards" time="0.000095167">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; warning color on background has acceptable contrast" time="0.000073666">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; info color on background meets AA standards" time="0.000054375">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; white text on primary background meets AA standards" time="0.000047459">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Light Theme &gt; text on surface background meets AA standards" time="0.000096875">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; primary text on background meets AA standards" time="0.000063625">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; secondary text on background meets AA standards" time="0.000091083">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; primary color is optimized for button backgrounds" time="0.00004">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; error color on background meets AA standards" time="0.000044875">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; success color on background meets AA standards" time="0.000175334">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; warning color on background meets AA standards" time="0.000057166">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; info color on background meets AA standards" time="0.000084417">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; white text on primary background meets AA standards" time="0.000101417">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Dark Theme &gt; text on surface background meets AA standards" time="0.000079292">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Large Text Compliance (3:1 ratio) &gt; light theme border color has strong contrast" time="0.0000535">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Large Text Compliance (3:1 ratio) &gt; dark theme border color meets large text AA standards" time="0.000039375">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Large Text Compliance (3:1 ratio) &gt; light theme divider color has reasonable contrast" time="0.000037375">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Large Text Compliance (3:1 ratio) &gt; dark theme divider color meets large text AA standards" time="0.000034167">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Cross-Theme Validation &gt; validates light theme primary against common backgrounds" time="0.000041917">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Cross-Theme Validation &gt; validates dark theme primary for button use cases" time="0.000047208">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Edge Cases and Boundary Testing &gt; validates minimum AA contrast ratios" time="0.000032875">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Edge Cases and Boundary Testing &gt; validates AAA contrast requirements" time="0.000031041">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Edge Cases and Boundary Testing &gt; fails insufficient contrast combinations" time="0.000037875">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Real-world Component Combinations &gt; validates button text combinations" time="0.000033083">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Real-world Component Combinations &gt; validates form element combinations" time="0.000046083">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Contrast Compliance &gt; Real-world Component Combinations &gt; validates status indicator combinations" time="0.000050208">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Utility Functions &gt; correctly calculates high contrast ratios" time="0.000059958">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Utility Functions &gt; correctly calculates medium contrast ratios" time="0.000029709">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Utility Functions &gt; handles hex color variations" time="0.000026416">
+        </testcase>
+        <testcase classname="src/test-utils/contrast.test.ts" name="Color Utility Functions &gt; distinguishes between normal and large text thresholds" time="0.000030084">
         </testcase>
     </testsuite>
 </testsuites>
