@@ -310,6 +310,90 @@ When adding new colors:
 4. Update documentation and Storybook examples
 5. Add appropriate helper functions if needed
 
+## Documentation
+
+All design tokens are fully documented in Storybook with interactive examples:
+
+### Core Token Documentation
+
+- **Color System** - Complete color palette with light-dark() support
+- **Semantic Colors** - Intent-based color mapping (primary, success, error, etc.)
+- **Typography** - Font families, sizes, weights, and line heights
+- **Spacing** - 8px-based spacing scale with responsive support
+- **Breakpoints & Grid** - Responsive breakpoints and 12-column grid
+- **Visual Effects** - Shadows, border radius, and z-index layering
+
+### Advanced Features
+
+- **Mixins** - SCSS mixins for typography, buttons, layout, and utilities
+- **Accessibility** - WCAG 2.1 compliant color calculations and validation
+- **TypeScript API** - Full type-safe access to tokens in TS/JS
+- **CSS Variables** - Complete reference of all CSS custom properties
+- **Functions** - Helper functions for color, spacing, and more
+
+### Quick Links
+
+- [View Storybook Documentation](https://storybook.haspenui.dev)
+- [Accessibility Functions](./src/core/_accessibility.scss)
+- [SCSS Mixins](./src/mixins/_index.scss)
+- [TypeScript Exports](./src/index.ts)
+
+## TypeScript/JavaScript Usage
+
+Import and use design tokens directly in TypeScript/JavaScript:
+
+```typescript
+import { colors, spacing, typography } from '@haspen-ui/design-tokens';
+
+// Access color values
+const primaryBlue = colors.primary[500]; // '#3b82f6'
+const lightGray = colors.gray[100]; // '#f3f4f6'
+
+// Use spacing
+const cardPadding = spacing[4]; // '1rem'
+
+// Typography
+const baseFont = typography.fontFamily.sans; // ['Inter', 'system-ui', ...]
+const fontSize = typography.fontSize.base; // '1rem'
+```
+
+See [TypeScript API documentation](./src/TypeScriptAPI.stories.ts) for complete examples.
+
+## Accessibility Features
+
+Built-in WCAG 2.1 accessibility functions:
+
+```scss
+@use '@haspen-ui/design-tokens/core/accessibility' as a11y;
+
+// Calculate contrast ratios
+$ratio: a11y.contrast-ratio(#333333, #ffffff); // 12.63:1
+
+// Check WCAG compliance
+$is-aa: a11y.is-wcag-aa-compliant(#767676, #ffffff); // true
+
+// Automatically choose text color
+.badge {
+  background-color: $bg-color;
+  color: a11y.auto-text-color($bg-color); // White or black
+}
+
+// Ensure minimum contrast
+.text {
+  color: a11y.ensure-contrast(
+    #999999,
+    // Desired color
+    #ffffff,
+    // Background
+    4.5,
+    // Min ratio (WCAG AA)
+    'darker' // Adjustment direction
+  );
+}
+```
+
+See [Accessibility documentation](./src/core/Accessibility.stories.ts) for complete reference.
+
 ## Changelog
 
 ### v1.0.0
@@ -319,3 +403,8 @@ When adding new colors:
 - Comprehensive SASS helper functions
 - CSS custom property generation
 - Semantic color mapping
+- Full TypeScript support
+- WCAG 2.1 accessibility functions
+- Complete Storybook documentation
+- SCSS mixins library
+- CSS variables reference
