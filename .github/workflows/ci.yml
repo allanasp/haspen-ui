@@ -185,8 +185,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           pattern: 'packages/*/dist/**/*.{js,css}'
           exclude: '{**/*.map,**/node_modules/**}'
-          build-script: 'build'
-          package-manager: 'pnpm'
+          build-script: 'build:packages'
 
   security:
     name: Security Audit
