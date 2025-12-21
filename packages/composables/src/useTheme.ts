@@ -1,7 +1,15 @@
 import { inject, computed, ref } from 'vue';
 import type { ThemeProviderContext, Theme } from '@haspen-ui/core';
 import { THEME_INJECTION_KEY } from '@haspen-ui/core';
-import { logger } from '@haspen-ui/ui/utils/error-handling';
+
+// Simple logger for composables (to avoid circular dependencies)
+const logger = {
+  warn: (message: string, metadata?: Record<string, unknown>) => {
+    if (import.meta.env.DEV) {
+      console.warn(`[Haspen UI] ${message}`, metadata);
+    }
+  },
+};
 
 // Default fallback theme for when ThemeProvider is not available
 const createFallbackTheme = (): Theme => ({

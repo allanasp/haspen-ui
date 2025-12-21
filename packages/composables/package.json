@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@haspen-ui/core": "workspace:*",
+    "@haspen-ui/design-tokens": "workspace:*",
     "@haspen-ui/shared": "workspace:*"
   },
   "devDependencies": {

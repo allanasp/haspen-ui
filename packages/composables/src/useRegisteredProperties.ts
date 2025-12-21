@@ -6,7 +6,19 @@ import {
   type HaspenCSSPropertyName,
   type HaspenRegisteredProperties,
 } from '@haspen-ui/design-tokens';
-import { logger } from '@haspen-ui/ui/utils/error-handling';
+// Simple logger for composables (to avoid circular dependencies)
+const logger = {
+  warn: (message: string, metadata?: Record<string, unknown>) => {
+    if (import.meta.env.DEV) {
+      console.warn(`[Haspen UI] ${message}`, metadata);
+    }
+  },
+  error: (message: string, metadata?: Record<string, unknown>) => {
+    if (import.meta.env.DEV) {
+      console.error(`[Haspen UI] ${message}`, metadata);
+    }
+  },
+};
 
 interface UseRegisteredPropertiesOptions {
   /**
