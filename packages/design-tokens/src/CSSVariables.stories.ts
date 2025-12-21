@@ -845,7 +845,8 @@ export const OtherVariables: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Reference for border radius, shadows, z-index, and other design tokens.',
+        story:
+          'Reference for border radius, shadows, z-index, and other design tokens.',
       },
     },
   },
@@ -981,7 +982,8 @@ const primaryColor = getComputedStyle(document.documentElement)
   parameters: {
     docs: {
       description: {
-        story: 'How to use CSS variables for runtime theming and dynamic styling.',
+        story:
+          'How to use CSS variables for runtime theming and dynamic styling.',
       },
     },
   },

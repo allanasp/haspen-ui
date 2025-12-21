@@ -180,7 +180,8 @@ $is-aa-large: a11y.is-wcag-aa-large-compliant(#949494, #ffffff);
   parameters: {
     docs: {
       description: {
-        story: 'Calculate and verify contrast ratios between colors to ensure WCAG compliance.',
+        story:
+          'Calculate and verify contrast ratios between colors to ensure WCAG compliance.',
       },
     },
   },
@@ -282,7 +283,8 @@ export const AutomaticTextColors: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Automatically select the most accessible text color (white or black) for any background.',
+        story:
+          'Automatically select the most accessible text color (white or black) for any background.',
       },
     },
   },
@@ -437,7 +439,8 @@ export const EnsureContrast: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Automatically adjust colors to meet minimum WCAG contrast requirements.',
+        story:
+          'Automatically adjust colors to meet minimum WCAG contrast requirements.',
       },
     },
   },
@@ -546,7 +549,8 @@ export const AccessibleShades: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Automatically find the most accessible shade from a color family.',
+        story:
+          'Automatically find the most accessible shade from a color family.',
       },
     },
   },
@@ -685,7 +689,8 @@ export const ValidationMixins: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Validate color contrast during development with automatic warnings.',
+        story:
+          'Validate color contrast during development with automatic warnings.',
       },
     },
   },

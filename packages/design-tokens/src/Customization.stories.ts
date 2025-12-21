@@ -637,7 +637,10 @@ export const ColorCustomization: Story = {
     `,
     methods: {
       setColor(color: string) {
-        document.documentElement.style.setProperty('--haspen-semantic-primary', color);
+        document.documentElement.style.setProperty(
+          '--haspen-semantic-primary',
+          color,
+        );
       },
     },
   }),
@@ -684,13 +687,17 @@ export const TypographyCustomization: Story = {
     `,
     methods: {
       setFont(font: string) {
-        const fontFamily = font === 'Inter'
-          ? '"Inter", system-ui, sans-serif'
-          : font === 'Georgia'
-          ? 'Georgia, serif'
-          : '"Courier New", monospace';
+        const fontFamily =
+          font === 'Inter'
+            ? '"Inter", system-ui, sans-serif'
+            : font === 'Georgia'
+              ? 'Georgia, serif'
+              : '"Courier New", monospace';
 
-        document.documentElement.style.setProperty('--haspen-font-family-base', fontFamily);
+        document.documentElement.style.setProperty(
+          '--haspen-font-family-base',
+          fontFamily,
+        );
       },
     },
   }),
@@ -746,7 +753,10 @@ export const SpacingCustomization: Story = {
         const root = document.documentElement;
         const multiplier = base / 8; // Default is 8px
 
-        root.style.setProperty('--haspen-spacing-xs', `${0.25 * multiplier}rem`);
+        root.style.setProperty(
+          '--haspen-spacing-xs',
+          `${0.25 * multiplier}rem`,
+        );
         root.style.setProperty('--haspen-spacing-sm', `${0.5 * multiplier}rem`);
         root.style.setProperty('--haspen-spacing-md', `${1 * multiplier}rem`);
         root.style.setProperty('--haspen-spacing-lg', `${1.5 * multiplier}rem`);

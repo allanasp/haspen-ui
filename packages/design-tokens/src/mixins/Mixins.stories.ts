@@ -127,7 +127,8 @@ export const TypographyMixins: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Typography mixins provide responsive heading styles and consistent text formatting.',
+        story:
+          'Typography mixins provide responsive heading styles and consistent text formatting.',
       },
     },
   },
@@ -220,7 +221,8 @@ export const ButtonMixins: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Button mixins provide consistent button styling with all interactive states handled.',
+        story:
+          'Button mixins provide consistent button styling with all interactive states handled.',
       },
     },
   },
@@ -341,7 +343,8 @@ export const LayoutMixins: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Layout mixins provide a flexible 12-column grid system with responsive containers.',
+        story:
+          'Layout mixins provide a flexible 12-column grid system with responsive containers.',
       },
     },
   },
@@ -437,7 +440,8 @@ export const FocusMixins: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Focus mixins ensure consistent, accessible focus states for all interactive elements.',
+        story:
+          'Focus mixins ensure consistent, accessible focus states for all interactive elements.',
       },
     },
   },
@@ -567,7 +571,8 @@ export const UtilityMixins: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Utility mixins provide common styling patterns for text, lists, and layouts.',
+        story:
+          'Utility mixins provide common styling patterns for text, lists, and layouts.',
       },
     },
   },
@@ -671,7 +676,8 @@ export const StateMixins: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'State mixins simplify handling of hover, focus, and active states.',
+        story:
+          'State mixins simplify handling of hover, focus, and active states.',
       },
     },
   },
@@ -841,7 +847,8 @@ export const MediaQueryMixins: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Complete reference of all available SCSS mixins in the design system.',
+        story:
+          'Complete reference of all available SCSS mixins in the design system.',
       },
     },
   },

@@ -167,7 +167,8 @@ const backgroundColor = isActive
   parameters: {
     docs: {
       description: {
-        story: 'Access color tokens in TypeScript/JavaScript with full type safety.',
+        story:
+          'Access color tokens in TypeScript/JavaScript with full type safety.',
       },
     },
   },
@@ -431,7 +432,8 @@ const theme = {
   parameters: {
     docs: {
       description: {
-        story: 'Access typography tokens for fonts, sizes, weights, and line heights.',
+        story:
+          'Access typography tokens for fonts, sizes, weights, and line heights.',
       },
     },
   },
@@ -782,7 +784,8 @@ function Component() {
   parameters: {
     docs: {
       description: {
-        story: 'Best practices for using design tokens in TypeScript/JavaScript.',
+        story:
+          'Best practices for using design tokens in TypeScript/JavaScript.',
       },
     },
   },
