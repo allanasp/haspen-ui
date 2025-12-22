@@ -624,17 +624,17 @@ function MyComponent() {
 }</code></pre>
         </div>
 
-        <h3>CSS-in-JS (Styled Components)</h3>
+        <h3>CSS-in-JS (Emotion/styled-components)</h3>
         <div class="code-block">
-          <pre><code>import styled from 'styled-components';
+          <pre><code>import { css } from '@emotion/react';
 import { colors, spacing, typography } from '@haspen-ui/design-tokens';
 
-// Using design tokens with styled-components
-const Button = styled.button({
-  padding: `${spacing[2]} ${spacing[4]}`,
+// Using design tokens with CSS-in-JS
+const buttonStyles = css({
   fontFamily: typography.fontFamily.sans.join(', '),
   fontSize: typography.fontSize.base,
   fontWeight: typography.fontWeight.medium,
+  padding: spacing[4],
   borderRadius: spacing[1],
 
   '&.primary': {
@@ -652,9 +652,7 @@ const Button = styled.button({
       backgroundColor: colors.gray[300],
     },
   },
-});
-
-export default Button;</code></pre>
+});</code></pre>
         </div>
       </div>
     `,
