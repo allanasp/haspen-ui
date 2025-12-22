@@ -50,18 +50,24 @@ export default defineNuxtModule<ModuleOptions>({
         path: resolver.resolve('../../ui/src/atoms'),
         pathPrefix: false,
         prefix: options.prefix,
+        extensions: ['.vue'],
+        pattern: '**/*.vue',
       });
 
       addComponentsDir({
         path: resolver.resolve('../../ui/src/molecules'),
         pathPrefix: false,
         prefix: options.prefix,
+        extensions: ['.vue'],
+        pattern: '**/*.vue',
       });
 
       addComponentsDir({
         path: resolver.resolve('../../ui/src/organisms'),
         pathPrefix: false,
         prefix: options.prefix,
+        extensions: ['.vue'],
+        pattern: '**/*.vue',
       });
     }
 
