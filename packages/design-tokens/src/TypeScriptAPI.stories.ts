@@ -93,7 +93,7 @@ const darkGray = colors.gray[900];        // '#111827'</code></pre>
                    class="color-swatch"
                    :style="{
                      backgroundColor: color,
-                     color: parseInt(shade as string) >= 500 ? '#fff' : '#000'
+                     color: Number(shade) >= 500 ? '#fff' : '#000'
                    }">
                 <div class="swatch-label">
                   <code>colors.gray[{{ shade }}]</code>
@@ -629,31 +629,30 @@ function MyComponent() {
           <pre><code>import styled from 'styled-components';
 import { colors, spacing, typography } from '@haspen-ui/design-tokens';
 
-const Button = styled.button&lt;{ variant?: 'primary' | 'secondary' }&gt;\`
-  padding: \${spacing[2]} \${spacing[4]};
-  font-family: \${typography.fontFamily.sans.join(', ')};
-  font-size: \${typography.fontSize.base};
-  font-weight: \${typography.fontWeight.medium};
-  border-radius: \${spacing[1]};
+// Using design tokens with styled-components
+const Button = styled.button({
+  padding: `${spacing[2]} ${spacing[4]}`,
+  fontFamily: typography.fontFamily.sans.join(', '),
+  fontSize: typography.fontSize.base,
+  fontWeight: typography.fontWeight.medium,
+  borderRadius: spacing[1],
 
-  \${props =&gt; props.variant === 'primary' && \`
-    background-color: \${colors.primary[600]};
-    color: white;
+  '&.primary': {
+    backgroundColor: colors.primary[600],
+    color: 'white',
+    '&:hover': {
+      backgroundColor: colors.primary[700],
+    },
+  },
 
-    &:hover {
-      background-color: \${colors.primary[700]};
-    }
-  \`}
-
-  \${props =&gt; props.variant === 'secondary' && \`
-    background-color: \${colors.gray[200]};
-    color: \${colors.gray[900]};
-
-    &:hover {
-      background-color: \${colors.gray[300]};
-    }
-  \`}
-\`;
+  '&.secondary': {
+    backgroundColor: colors.gray[200],
+    color: colors.gray[900],
+    '&:hover': {
+      backgroundColor: colors.gray[300],
+    },
+  },
+});
 
 export default Button;</code></pre>
         </div>

@@ -1,15 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { logger } from '../utils/error-handling';
 // Browser-compatible accessibility utilities for Storybook
 const testColorContrast = (
   _color1: string,
   _color2: string,
-): { ratio: number; wcag: { aa: boolean; aaa: boolean } } => {
+  _isLargeText?: boolean,
+): { ratio: number; passes: boolean; level: string } => {
   // Simple contrast ratio calculation for demo purposes
+  const ratio = 4.5; // Placeholder
+  const passes = ratio >= (_isLargeText ? 3.0 : 4.5);
+  const level = ratio >= 7.0 ? 'AAA' : ratio >= 4.5 ? 'AA' : 'Fail';
+
   return {
-    ratio: 4.5, // Placeholder
-    wcag: { aa: true, aaa: false },
+    ratio,
+    passes,
+    level,
   };
 };
 
