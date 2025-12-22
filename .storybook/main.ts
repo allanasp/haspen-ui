@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/vue3-vite';
 import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
 
 const config: StorybookConfig = {
   stories: [
@@ -15,6 +16,25 @@ const config: StorybookConfig = {
     // Ensure Vue plugin is configured properly
     if (!config.plugins) config.plugins = [];
     config.plugins.push(vue());
+
+    // Add path resolution for @haspen-ui packages
+    if (!config.resolve) config.resolve = {};
+    if (!config.resolve.alias) config.resolve.alias = {};
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@haspen-ui/design-tokens': resolve(
+        __dirname,
+        '../packages/design-tokens/src',
+      ),
+      '@haspen-ui/core': resolve(__dirname, '../packages/core/src'),
+      '@haspen-ui/shared': resolve(__dirname, '../packages/shared/src'),
+      '@haspen-ui/composables': resolve(
+        __dirname,
+        '../packages/composables/src',
+      ),
+    };
+
     return config;
   },
   docs: {

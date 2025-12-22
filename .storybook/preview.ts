@@ -1,8 +1,8 @@
 import type { Preview } from '@storybook/vue3';
 import { setup } from '@storybook/vue3';
 
-// Import global styles
-import '../packages/design-tokens/dist/index.css';
+// Import global styles from source (will be bundled by Vite)
+import '../packages/design-tokens/scss/index.scss';
 
 // Setup Vue app
 setup(_app => {
