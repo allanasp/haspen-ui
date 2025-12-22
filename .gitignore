@@ -30,8 +30,6 @@ pnpm-debug.log*
 # Testing
 coverage
 .nyc_output
-test-results.xml
-**/test-results.xml
 
 # Environment files
 .env
