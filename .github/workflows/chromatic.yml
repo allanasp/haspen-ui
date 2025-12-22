@@ -54,10 +54,11 @@ jobs:
         run: pnpm build-storybook
 
       - name: Run Chromatic
-        if: false # Temporarily disabled
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: storybook-static
           exitZeroOnChanges: true
+          exitOnceUploaded: true
+          allowConsoleErrors: true
