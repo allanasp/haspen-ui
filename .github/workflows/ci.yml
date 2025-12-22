@@ -185,8 +185,8 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           pattern: 'packages/*/dist/**/*.{js,css}'
           exclude: '{**/*.map,**/node_modules/**}'
-          build-script: 'build:packages'
-          package-manager: 'pnpm'
+          install-script: 'pnpm install --frozen-lockfile'
+          build-script: 'pnpm build:packages'
 
   security:
     name: Security Audit
