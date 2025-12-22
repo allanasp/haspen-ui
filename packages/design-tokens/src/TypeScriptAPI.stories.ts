@@ -382,7 +382,7 @@ function Text({
     style: {
       fontSize: typography.fontSize[size],
       fontWeight: typography.fontWeight[weight],
-      fontFamily: typography.fontFamily[family].join(', ')
+      fontFamily: typography.fontFamily[family][0]
     }
   };
 }
@@ -400,7 +400,7 @@ function getResponsiveFontSize(breakpoint: 'mobile' | 'tablet' | 'desktop') {
 
 // Example 4: Code block styling
 const codeStyles = {
-  fontFamily: typography.fontFamily.mono.join(', '),
+  fontFamily: typography.fontFamily.mono[0],
   fontSize: typography.fontSize.sm,
   lineHeight: typography.lineHeight.relaxed,
 };
@@ -409,18 +409,18 @@ const codeStyles = {
 const theme = {
   typography: {
     body: {
-      fontFamily: typography.fontFamily.sans.join(', '),
+      fontFamily: typography.fontFamily.sans[0],
       fontSize: typography.fontSize.base,
       fontWeight: typography.fontWeight.normal,
       lineHeight: typography.lineHeight.normal,
     },
     heading: {
-      fontFamily: typography.fontFamily.sans.join(', '),
+      fontFamily: typography.fontFamily.sans[0],
       fontWeight: typography.fontWeight.bold,
       lineHeight: typography.lineHeight.tight,
     },
     code: {
-      fontFamily: typography.fontFamily.mono.join(', '),
+      fontFamily: typography.fontFamily.mono[0],
       fontSize: typography.fontSize.sm,
     }
   }
@@ -579,7 +579,7 @@ function Card({ children, variant = 'default' }) {
       : colors.gray[50],
     padding: spacing[4],
     borderRadius: spacing[2],
-    fontFamily: typography.fontFamily.sans.join(', '),
+    fontFamily: typography.fontFamily.sans[0],
   };
 
   return (
@@ -631,7 +631,7 @@ import { colors, spacing, typography } from '@haspen-ui/design-tokens';
 
 // Using design tokens with CSS-in-JS
 const buttonStyles = css({
-  fontFamily: typography.fontFamily.sans.join(', '),
+  fontFamily: typography.fontFamily.sans[0],
   fontSize: typography.fontSize.base,
   fontWeight: typography.fontWeight.medium,
   padding: spacing[4],
