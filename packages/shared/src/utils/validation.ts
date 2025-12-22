@@ -59,10 +59,19 @@ export const isValidCPR = (cpr: string): boolean => {
 
 /**
  * Validerer en email adresse
+ * Uses a simpler regex to avoid ReDoS vulnerability
  */
 export const isValidEmail = (email: string): boolean => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+  // Simple validation: one @ symbol, domain with at least one dot
+  const parts = email.split('@');
+  if (parts.length !== 2) return false;
+
+  const [local, domain] = parts;
+  if (!local || !domain) return false;
+  if (domain.indexOf('.') === -1) return false;
+
+  // Basic character validation without complex regex
+  return /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
 };
 
 /**
