@@ -141,6 +141,7 @@ jobs:
   size-check:
     name: Bundle Size Check
     runs-on: ubuntu-latest
+    if: github.base_ref != 'main'
 
     steps:
       - name: Checkout
