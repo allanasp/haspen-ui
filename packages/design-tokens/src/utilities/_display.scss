@@ -3,8 +3,7 @@
 @use '../core/breakpoints' as *;
 
 // Display values
-$displays:
-  none, inline, inline-block, block, table, table-row, table-cell, flex,
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex,
   inline-flex;
 
 // Generate display utilities
