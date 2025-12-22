@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: [main, develop]
   pull_request:
     branches: [main, develop]
 
@@ -89,9 +87,6 @@ jobs:
           fail_ci_if_error: false
           verbose: true
 
-      - name: Build packages
-        run: pnpm build:packages
-
   visual-tests:
     name: Visual Tests
     runs-on: ubuntu-latest
@@ -177,7 +172,7 @@ jobs:
           pattern: 'packages/*/dist/**/*.{js,css}'
           exclude: '{**/*.map,**/node_modules/**}'
           install-script: 'pnpm install --frozen-lockfile'
-          build-script: 'pnpm build:packages'
+          build-script: 'build:packages'
 
   security:
     name: Security Audit
