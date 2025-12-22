@@ -186,6 +186,7 @@ jobs:
           pattern: 'packages/*/dist/**/*.{js,css}'
           exclude: '{**/*.map,**/node_modules/**}'
           build-script: 'build:packages'
+          package-manager: 'pnpm'
 
   security:
     name: Security Audit
