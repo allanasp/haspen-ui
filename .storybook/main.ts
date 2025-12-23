@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/vue3-vite';
-import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
 const config: StorybookConfig = {
@@ -13,10 +12,6 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: async config => {
-    // Ensure Vue plugin is configured properly
-    if (!config.plugins) config.plugins = [];
-    config.plugins.push(vue());
-
     // Add path resolution for @haspen-ui packages
     if (!config.resolve) config.resolve = {};
     if (!config.resolve.alias) config.resolve.alias = {};

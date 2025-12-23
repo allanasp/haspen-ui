@@ -98,11 +98,6 @@
       "eslint --fix"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
-  },
   "pnpm": {
     "overrides": {
       "file-type": ">=16.5.4",
