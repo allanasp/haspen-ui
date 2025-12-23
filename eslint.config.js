@@ -44,7 +44,6 @@ export default [
         MutationObserver: 'readonly',
         MediaQueryList: 'readonly',
         MediaQueryListEvent: 'readonly',
-        computed: 'readonly',
         alert: 'readonly',
       },
     },
@@ -61,7 +60,8 @@ export default [
     },
   },
   
-  // Vue files
+  // Vue files - use flat config format
+  ...vue.configs['flat/essential'],
   {
     files: ['**/*.vue'],
     languageOptions: {
@@ -81,11 +81,9 @@ export default [
       },
     },
     plugins: {
-      vue,
       '@typescript-eslint': tseslint,
     },
     rules: {
-      ...vue.configs.essential.rules,
       'no-console': 'warn',
       'no-debugger': 'error',
       'prefer-const': 'error',
