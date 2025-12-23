@@ -62,13 +62,13 @@ $aspect-ratios: (
 
 // Generate aspect ratio utilities
 @each $name, $ratio in $aspect-ratios {
-  .haspen-aspect-#{$name} {
+  .aspect-#{$name} {
     @include aspect-ratio-style($name, $ratio);
   }
 }
 
 // Custom aspect ratio utility with CSS custom property
-.haspen-aspect-custom {
+.aspect-custom {
   aspect-ratio: var(--aspect-ratio, 1);
 
   // Fallback for browsers without aspect-ratio support
@@ -94,176 +94,176 @@ $aspect-ratios: (
 
 // Responsive aspect ratio utilities
 @container (min-width: 24rem) {
-  .haspen-cq-sm\:aspect-square {
+  .cq-sm\:aspect-square {
     @include aspect-ratio-style('square', '1 / 1');
   }
-  .haspen-cq-sm\:aspect-video {
+  .cq-sm\:aspect-video {
     @include aspect-ratio-style('video', '16 / 9');
   }
-  .haspen-cq-sm\:aspect-photo {
+  .cq-sm\:aspect-photo {
     @include aspect-ratio-style('photo', '4 / 3');
   }
-  .haspen-cq-sm\:aspect-portrait {
+  .cq-sm\:aspect-portrait {
     @include aspect-ratio-style('portrait', '3 / 4');
   }
 }
 
 @container (min-width: 32rem) {
-  .haspen-cq-md\:aspect-square {
+  .cq-md\:aspect-square {
     @include aspect-ratio-style('square', '1 / 1');
   }
-  .haspen-cq-md\:aspect-video {
+  .cq-md\:aspect-video {
     @include aspect-ratio-style('video', '16 / 9');
   }
-  .haspen-cq-md\:aspect-cinema {
+  .cq-md\:aspect-cinema {
     @include aspect-ratio-style('cinema', '21 / 9');
   }
-  .haspen-cq-md\:aspect-photo {
+  .cq-md\:aspect-photo {
     @include aspect-ratio-style('photo', '4 / 3');
   }
-  .haspen-cq-md\:aspect-portrait {
+  .cq-md\:aspect-portrait {
     @include aspect-ratio-style('portrait', '3 / 4');
   }
-  .haspen-cq-md\:aspect-wide {
+  .cq-md\:aspect-wide {
     @include aspect-ratio-style('wide', '2 / 1');
   }
 }
 
 @container (min-width: 48rem) {
-  .haspen-cq-lg\:aspect-square {
+  .cq-lg\:aspect-square {
     @include aspect-ratio-style('square', '1 / 1');
   }
-  .haspen-cq-lg\:aspect-video {
+  .cq-lg\:aspect-video {
     @include aspect-ratio-style('video', '16 / 9');
   }
-  .haspen-cq-lg\:aspect-cinema {
+  .cq-lg\:aspect-cinema {
     @include aspect-ratio-style('cinema', '21 / 9');
   }
-  .haspen-cq-lg\:aspect-photo {
+  .cq-lg\:aspect-photo {
     @include aspect-ratio-style('photo', '4 / 3');
   }
-  .haspen-cq-lg\:aspect-portrait {
+  .cq-lg\:aspect-portrait {
     @include aspect-ratio-style('portrait', '3 / 4');
   }
-  .haspen-cq-lg\:aspect-golden {
+  .cq-lg\:aspect-golden {
     @include aspect-ratio-style('golden', '1.618 / 1');
   }
-  .haspen-cq-lg\:aspect-wide {
+  .cq-lg\:aspect-wide {
     @include aspect-ratio-style('wide', '2 / 1');
   }
-  .haspen-cq-lg\:aspect-ultra-wide {
+  .cq-lg\:aspect-ultra-wide {
     @include aspect-ratio-style('ultra-wide', '32 / 9');
   }
 }
 
 @container (min-width: 64rem) {
-  .haspen-cq-xl\:aspect-square {
+  .cq-xl\:aspect-square {
     @include aspect-ratio-style('square', '1 / 1');
   }
-  .haspen-cq-xl\:aspect-video {
+  .cq-xl\:aspect-video {
     @include aspect-ratio-style('video', '16 / 9');
   }
-  .haspen-cq-xl\:aspect-cinema {
+  .cq-xl\:aspect-cinema {
     @include aspect-ratio-style('cinema', '21 / 9');
   }
-  .haspen-cq-xl\:aspect-photo {
+  .cq-xl\:aspect-photo {
     @include aspect-ratio-style('photo', '4 / 3');
   }
-  .haspen-cq-xl\:aspect-portrait {
+  .cq-xl\:aspect-portrait {
     @include aspect-ratio-style('portrait', '3 / 4');
   }
-  .haspen-cq-xl\:aspect-golden {
+  .cq-xl\:aspect-golden {
     @include aspect-ratio-style('golden', '1.618 / 1');
   }
-  .haspen-cq-xl\:aspect-a4 {
+  .cq-xl\:aspect-a4 {
     @include aspect-ratio-style('a4', '210 / 297');
   }
-  .haspen-cq-xl\:aspect-wide {
+  .cq-xl\:aspect-wide {
     @include aspect-ratio-style('wide', '2 / 1');
   }
-  .haspen-cq-xl\:aspect-ultra-wide {
+  .cq-xl\:aspect-ultra-wide {
     @include aspect-ratio-style('ultra-wide', '32 / 9');
   }
 }
 
 // Media query variants for compatibility
 @media (min-width: 640px) {
-  .haspen-sm\:aspect-square {
+  .sm\:aspect-square {
     @include aspect-ratio-style('square', '1 / 1');
   }
-  .haspen-sm\:aspect-video {
+  .sm\:aspect-video {
     @include aspect-ratio-style('video', '16 / 9');
   }
-  .haspen-sm\:aspect-photo {
+  .sm\:aspect-photo {
     @include aspect-ratio-style('photo', '4 / 3');
   }
 }
 
 @media (min-width: 768px) {
-  .haspen-md\:aspect-square {
+  .md\:aspect-square {
     @include aspect-ratio-style('square', '1 / 1');
   }
-  .haspen-md\:aspect-video {
+  .md\:aspect-video {
     @include aspect-ratio-style('video', '16 / 9');
   }
-  .haspen-md\:aspect-cinema {
+  .md\:aspect-cinema {
     @include aspect-ratio-style('cinema', '21 / 9');
   }
-  .haspen-md\:aspect-photo {
+  .md\:aspect-photo {
     @include aspect-ratio-style('photo', '4 / 3');
   }
-  .haspen-md\:aspect-wide {
+  .md\:aspect-wide {
     @include aspect-ratio-style('wide', '2 / 1');
   }
 }
 
 @media (min-width: 1024px) {
-  .haspen-lg\:aspect-square {
+  .lg\:aspect-square {
     @include aspect-ratio-style('square', '1 / 1');
   }
-  .haspen-lg\:aspect-video {
+  .lg\:aspect-video {
     @include aspect-ratio-style('video', '16 / 9');
   }
-  .haspen-lg\:aspect-cinema {
+  .lg\:aspect-cinema {
     @include aspect-ratio-style('cinema', '21 / 9');
   }
-  .haspen-lg\:aspect-photo {
+  .lg\:aspect-photo {
     @include aspect-ratio-style('photo', '4 / 3');
   }
-  .haspen-lg\:aspect-golden {
+  .lg\:aspect-golden {
     @include aspect-ratio-style('golden', '1.618 / 1');
   }
-  .haspen-lg\:aspect-wide {
+  .lg\:aspect-wide {
     @include aspect-ratio-style('wide', '2 / 1');
   }
-  .haspen-lg\:aspect-ultra-wide {
+  .lg\:aspect-ultra-wide {
     @include aspect-ratio-style('ultra-wide', '32 / 9');
   }
 }
 
 @media (min-width: 1280px) {
-  .haspen-xl\:aspect-square {
+  .xl\:aspect-square {
     @include aspect-ratio-style('square', '1 / 1');
   }
-  .haspen-xl\:aspect-video {
+  .xl\:aspect-video {
     @include aspect-ratio-style('video', '16 / 9');
   }
-  .haspen-xl\:aspect-cinema {
+  .xl\:aspect-cinema {
     @include aspect-ratio-style('cinema', '21 / 9');
   }
-  .haspen-xl\:aspect-photo {
+  .xl\:aspect-photo {
     @include aspect-ratio-style('photo', '4 / 3');
   }
-  .haspen-xl\:aspect-golden {
+  .xl\:aspect-golden {
     @include aspect-ratio-style('golden', '1.618 / 1');
   }
-  .haspen-xl\:aspect-a4 {
+  .xl\:aspect-a4 {
     @include aspect-ratio-style('a4', '210 / 297');
   }
-  .haspen-xl\:aspect-wide {
+  .xl\:aspect-wide {
     @include aspect-ratio-style('wide', '2 / 1');
   }
-  .haspen-xl\:aspect-ultra-wide {
+  .xl\:aspect-ultra-wide {
     @include aspect-ratio-style('ultra-wide', '32 / 9');
   }
 }
