@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref, onMounted, computed } from 'vue';
 import { logger } from '../utils/error-handling';
 // Browser-compatible accessibility utilities for Storybook

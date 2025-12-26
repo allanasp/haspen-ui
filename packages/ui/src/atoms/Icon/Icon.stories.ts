@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import Icon from './Icon.vue';
 import IconProvider from './IconProvider.vue';
 import { haspenIcons } from './libraries';

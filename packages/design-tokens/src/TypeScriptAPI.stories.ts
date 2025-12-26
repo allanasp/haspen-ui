@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { colors } from './colors';
 import { spacing } from './spacing';
 import { typography } from './typography';

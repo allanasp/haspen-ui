@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref, computed, onMounted } from 'vue';
 import { useTheme } from '@haspen-ui/composables';
 import ThemeProvider from '../molecules/ThemeProvider/ThemeProvider.vue';
