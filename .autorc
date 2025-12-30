@@ -60,7 +60,7 @@
       "releaseType": "skip"
     }
   ],
-  "baseBranch": "develop",
-  "prereleaseBranches": ["next", "canary"],
+  "baseBranch": "main",
+  "prereleaseBranches": ["develop", "next", "canary"],
   "onlyPublishWithReleaseLabel": false
 }
