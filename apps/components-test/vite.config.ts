@@ -7,8 +7,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
-      '@haspen-ui/ui': resolve(__dirname, '../../packages/ui/src'),
-      '@haspen-ui/core': resolve(__dirname, '../../packages/core/src'),
+      '@haspen/ui': resolve(__dirname, '../../packages/ui/src'),
+      '@haspen/core': resolve(__dirname, '../../packages/core/src'),
     },
   },
   optimizeDeps: {

@@ -7,7 +7,7 @@ import {
   isValidCPR,
   isValidEmail,
   isValidPhoneNumber,
-} from '@haspen-ui/shared';
+} from '@haspen/shared';
 import './Utilities.stories.scss';
 
 // Demo component for utility functions

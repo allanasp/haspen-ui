@@ -1,6 +1,6 @@
 import { inject, computed, ref } from 'vue';
-import type { ThemeProviderContext, Theme } from '@haspen-ui/core';
-import { THEME_INJECTION_KEY } from '@haspen-ui/core';
+import type { ThemeProviderContext, Theme } from '@haspen/core';
+import { THEME_INJECTION_KEY } from '@haspen/core';
 
 // Simple logger for composables (to avoid circular dependencies)
 const logger = {
@@ -142,7 +142,7 @@ export function useTheme(): ThemeProviderContext {
   return themeContext;
 }
 
-export { THEME_INJECTION_KEY } from '@haspen-ui/core';
+export { THEME_INJECTION_KEY } from '@haspen/core';
 export type {
   ThemeMode,
   Theme,
@@ -154,4 +154,4 @@ export type {
   ThemeTransitions,
   ThemeProviderContext,
   ThemeProviderProps,
-} from '@haspen-ui/core';
+} from '@haspen/core';

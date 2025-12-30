@@ -1,4 +1,4 @@
-import type { Theme } from '@haspen-ui/core';
+import type { Theme } from '@haspen/core';
 import { createStorageHandler } from '../../utils/error-handling';
 
 /**

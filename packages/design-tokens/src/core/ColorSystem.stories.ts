@@ -56,7 +56,7 @@ A modern, performance-focused color system using CSS light-dark() function for a
 
 ### SASS Functions
 \`\`\`scss
-@use '@haspen-ui/design-tokens/functions' as func;
+@use '@haspen/design-tokens/functions' as func;
 
 .component {
   background-color: func.color('surface');

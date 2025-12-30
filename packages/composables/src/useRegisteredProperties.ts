@@ -5,7 +5,7 @@ import {
   HASPEN_CSS_PROPERTIES,
   type HaspenCSSPropertyName,
   type HaspenRegisteredProperties,
-} from '@haspen-ui/design-tokens';
+} from '@haspen/design-tokens';
 // Simple logger for composables (to avoid circular dependencies)
 const logger = {
   warn: (message: string, metadata?: Record<string, unknown>) => {

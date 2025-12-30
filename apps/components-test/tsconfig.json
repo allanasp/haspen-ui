@@ -18,8 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@haspen-ui/ui": ["../../packages/ui/src"],
-      "@haspen-ui/core": ["../../packages/core/src"]
+      "@haspen/ui": ["../../packages/ui/src"],
+      "@haspen/core": ["../../packages/core/src"]
     },
     "types": ["vite/client"]
   },

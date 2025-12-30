@@ -13,7 +13,7 @@ Comprehensive library of SCSS mixins for consistent component development.
 ## Import
 
 \`\`\`scss
-@use '@haspen-ui/design-tokens/mixins' as mixins;
+@use '@haspen/design-tokens/mixins' as mixins;
 
 .my-component {
   @include mixins.h1;
@@ -53,7 +53,7 @@ export const TypographyMixins: Story = {
               Heading 1 with @include h1
             </div>
             <div class="code-block">
-              <pre><code>@use '@haspen-ui/design-tokens/mixins' as mixins;
+              <pre><code>@use '@haspen/design-tokens/mixins' as mixins;
 
 .heading {
   @include mixins.h1;

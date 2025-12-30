@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-  import { DEFAULT_THEME, type ThemeConfig } from '@haspen-ui/core';
+  import { DEFAULT_THEME, type ThemeConfig } from '@haspen/core';
 
   const theme: ThemeConfig = DEFAULT_THEME;
 </script>

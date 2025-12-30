@@ -25,13 +25,13 @@ Complete guide to installing and using HäspenUI Design System in your projects.
 
 \`\`\`bash
 # Using pnpm (recommended)
-pnpm add @haspen-ui/ui @haspen-ui/design-tokens
+pnpm add @haspen/ui @haspen/design-tokens
 
 # Using npm
-npm install @haspen-ui/ui @haspen-ui/design-tokens
+npm install @haspen/ui @haspen/design-tokens
 
 # Using yarn
-yarn add @haspen-ui/ui @haspen-ui/design-tokens
+yarn add @haspen/ui @haspen/design-tokens
 \`\`\`
 
 ### Step 2: Import Styles and Components
@@ -41,9 +41,9 @@ yarn add @haspen-ui/ui @haspen-ui/design-tokens
 \`\`\`typescript
 // main.ts
 import { createApp } from 'vue';
-import HaspenUI from '@haspen-ui/ui';
-import '@haspen-ui/design-tokens/dist/index.css';
-import '@haspen-ui/ui/dist/index.css';
+import HaspenUI from '@haspen/ui';
+import '@haspen/design-tokens/dist/index.css';
+import '@haspen/ui/dist/index.css';
 import App from './App.vue';
 
 const app = createApp(App);
@@ -61,9 +61,9 @@ app.mount('#app');
 </template>
 
 <script setup lang="ts">
-import { Button, ThemeProvider } from '@haspen-ui/ui';
-import '@haspen-ui/design-tokens/dist/index.css';
-import '@haspen-ui/ui/dist/index.css';
+import { Button, ThemeProvider } from '@haspen/ui';
+import '@haspen/design-tokens/dist/index.css';
+import '@haspen/ui/dist/index.css';
 </script>
 \`\`\`
 
@@ -71,7 +71,7 @@ import '@haspen-ui/ui/dist/index.css';
 
 \`\`\`typescript
 // vite-env.d.ts or env.d.ts
-/// <reference types="@haspen-ui/ui/types" />
+/// <reference types="@haspen/ui/types" />
 \`\`\`
 
 ### Step 4: Configure Vite (if needed)
@@ -86,7 +86,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: \`@use "@haspen-ui/design-tokens" as tokens;\`
+        additionalData: \`@use "@haspen/design-tokens" as tokens;\`
       }
     }
   }
@@ -101,13 +101,13 @@ export default defineConfig({
 
 \`\`\`bash
 # Using pnpm (recommended)
-pnpm add @haspen-ui/nuxt
+pnpm add @haspen/nuxt
 
 # Using npm
-npm install @haspen-ui/nuxt
+npm install @haspen/nuxt
 
 # Using yarn
-yarn add @haspen-ui/nuxt
+yarn add @haspen/nuxt
 \`\`\`
 
 ### Step 2: Add Module to Nuxt Config
@@ -115,7 +115,7 @@ yarn add @haspen-ui/nuxt
 \`\`\`typescript
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@haspen-ui/nuxt'],
+  modules: ['@haspen/nuxt'],
 
   haspen: {
     // Auto-import components (default: true)
@@ -129,7 +129,7 @@ export default defineNuxtConfig({
   },
 
   // Optional: Add custom SCSS variables
-  css: ['@haspen-ui/design-tokens/dist/index.css'],
+  css: ['@haspen/design-tokens/dist/index.css'],
 });
 \`\`\`
 
@@ -162,20 +162,20 @@ If you only need design tokens (colors, spacing, typography) without components:
 ### Step 1: Install Design Tokens
 
 \`\`\`bash
-pnpm add @haspen-ui/design-tokens
+pnpm add @haspen/design-tokens
 \`\`\`
 
 ### Step 2: Import CSS Variables
 
 \`\`\`typescript
 // main.ts or app.ts
-import '@haspen-ui/design-tokens/dist/index.css';
+import '@haspen/design-tokens/dist/index.css';
 \`\`\`
 
 ### Step 3: Use in SCSS
 
 \`\`\`scss
-@use '@haspen-ui/design-tokens' as tokens;
+@use '@haspen/design-tokens' as tokens;
 
 .my-component {
   // Colors
@@ -249,7 +249,7 @@ console.log('Spacing MD:', styles.getPropertyValue('--haspen-spacing-md'));
 </template>
 
 <script setup lang="ts">
-import { Button, ThemeProvider, ThemeToggle } from '@haspen-ui/ui';
+import { Button, ThemeProvider, ThemeToggle } from '@haspen/ui';
 </script>
 \`\`\`
 
@@ -257,7 +257,7 @@ import { Button, ThemeProvider, ThemeToggle } from '@haspen-ui/ui';
 
 \`\`\`vue
 <script setup lang="ts">
-import { useTheme } from '@haspen-ui/composables';
+import { useTheme } from '@haspen/composables';
 
 const { theme, mode, isDark, toggleMode } = useTheme();
 
@@ -290,7 +290,7 @@ toggleMode();
 
 **Solution**: Ensure you import the CSS file:
 \`\`\`typescript
-import '@haspen-ui/design-tokens/dist/index.css';
+import '@haspen/design-tokens/dist/index.css';
 \`\`\`
 
 ### Components Not Rendering
@@ -308,12 +308,12 @@ import '@haspen-ui/design-tokens/dist/index.css';
 
 **Solution**: Add type reference:
 \`\`\`typescript
-/// <reference types="@haspen-ui/ui" />
+/// <reference types="@haspen/ui" />
 \`\`\`
 
 ### Build Errors with Vite
 
-**Problem**: Vite fails to resolve \`@haspen-ui\` packages
+**Problem**: Vite fails to resolve \`@haspen\` packages
 
 **Solution**: Add to \`vite.config.ts\`:
 \`\`\`typescript
@@ -367,13 +367,13 @@ export const Overview: Story = {
           <p>Choose your framework:</p>
           <ul style="list-style: none; padding: 0;">
             <li style="margin-bottom: 0.5rem;">
-              <strong>Vue 3:</strong> <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px;">pnpm add @haspen-ui/ui @haspen-ui/design-tokens</code>
+              <strong>Vue 3:</strong> <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px;">pnpm add @haspen/ui @haspen/design-tokens</code>
             </li>
             <li style="margin-bottom: 0.5rem;">
-              <strong>Nuxt 3:</strong> <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px;">pnpm add @haspen-ui/nuxt</code>
+              <strong>Nuxt 3:</strong> <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px;">pnpm add @haspen/nuxt</code>
             </li>
             <li>
-              <strong>Design Tokens Only:</strong> <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px;">pnpm add @haspen-ui/design-tokens</code>
+              <strong>Design Tokens Only:</strong> <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px;">pnpm add @haspen/design-tokens</code>
             </li>
           </ul>
         </div>

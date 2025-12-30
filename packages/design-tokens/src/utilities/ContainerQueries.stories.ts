@@ -423,7 +423,7 @@ Use the \`useContainerQuery\` composable for programmatic container query detect
 
 <script setup>
 import { ref } from 'vue'
-import { useContainerQuery } from '@haspen-ui/composables'
+import { useContainerQuery } from '@haspen/composables'
 
 const containerRef = ref()
 const { matches } = useContainerQuery({

@@ -26,16 +26,16 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'vue',
-        '@haspen-ui/core',
-        '@haspen-ui/shared',
-        '@haspen-ui/composables',
+        '@haspen/core',
+        '@haspen/shared',
+        '@haspen/composables',
       ],
       output: {
         globals: {
           vue: 'Vue',
-          '@haspen-ui/core': 'HaspenUICore',
-          '@haspen-ui/shared': 'HaspenUIShared',
-          '@haspen-ui/composables': 'HaspenUIComposables',
+          '@haspen/core': 'HaspenCore',
+          '@haspen/shared': 'HaspenShared',
+          '@haspen/composables': 'HaspenComposables',
         },
       },
     },

@@ -71,7 +71,7 @@
     isValidEmail,
     isValidPhoneNumber,
     debounce,
-  } from '@haspen-ui/shared';
+  } from '@haspen/shared';
 
   const clickCount = ref(0);
   const handleDebouncedClick = debounce(() => {

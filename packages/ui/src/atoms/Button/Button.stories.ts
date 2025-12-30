@@ -35,7 +35,7 @@ A versatile button component with multiple variants, sizes, and states for consi
 </template>
 
 <script setup>
-import { Button } from '@haspen-ui/ui';
+import { Button } from '@haspen/ui';
 
 const handleClick = () => {
   // Button click handler - add your application logic here

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref, computed, onMounted } from 'vue';
-import { useTheme } from '@haspen-ui/composables';
+import { useTheme } from '@haspen/composables';
 import ThemeProvider from '../molecules/ThemeProvider/ThemeProvider.vue';
 import ThemeToggle from '../atoms/ThemeToggle/ThemeToggle.vue';
 import Button from '../atoms/Button/Button.vue';

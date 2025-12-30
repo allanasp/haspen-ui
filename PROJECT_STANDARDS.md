@@ -87,7 +87,7 @@ ComponentName/
 - **Strict mode enabled** across all packages
 - **No `any` types** - all props, events, and methods must be properly typed
 - **Interface-based props** - use interfaces, never inline types
-- **Path aliases**: `@haspen-ui/*` maps to `packages/*/src`
+- **Path aliases**: `@haspen/*` maps to `packages/*/src`
 
 ### Testing Requirements (MANDATORY)
 
