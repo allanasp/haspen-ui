@@ -206,8 +206,8 @@ Every component must include:
 ### Release Process
 
 - **Semantic versioning**: Follow semver strictly
-- **Automated releases**: via `auto-it` with conventional commits
-- **Changelog generation**: Automated based on conventional commits
+- **Automated releases**: via Changesets for version management
+- **Changelog generation**: Automated based on changeset descriptions
 - **NPM publishing**: Automated via CI/CD pipeline
 
 ## CI/CD Standards

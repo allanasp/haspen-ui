@@ -22,21 +22,26 @@
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "auto shipit",
-    "version": "auto version",
-    "changelog": "auto changelog"
+    "changeset": "changeset",
+    "changeset:add": "changeset add",
+    "changeset:status": "changeset status --verbose",
+    "changeset:empty": "changeset add --empty",
+    "version-packages": "changeset version && pnpm install --lockfile-only",
+    "release": "pnpm build:packages && changeset publish",
+    "release:snapshot": "pnpm build:packages && changeset version --snapshot && changeset publish --tag snapshot --no-git-tag",
+    "release:snapshot:tagged": "pnpm build:packages && changeset version --snapshot",
+    "prerelease:enter": "changeset pre enter",
+    "prerelease:exit": "changeset pre exit",
+    "prerelease:next": "changeset pre enter next",
+    "prerelease:beta": "changeset pre enter beta",
+    "prerelease:alpha": "changeset pre enter alpha"
   },
   "dependencies": {
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@auto-it/all-contributors": "^11.3.6",
-    "@auto-it/conventional-commits": "^11.3.6",
-    "@auto-it/first-time-contributor": "^11.3.6",
-    "@auto-it/magic-zero": "^11.3.6",
-    "@auto-it/omit-commits": "^11.3.6",
-    "@auto-it/released": "^11.3.6",
-    "@auto-it/upload-assets": "^11.3.6",
+    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/cli": "^2.29.8",
     "@chromatic-com/storybook": "^4.1.1",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
@@ -53,7 +58,6 @@
     "@typescript-eslint/parser": "8.39.0",
     "@vitest/browser": "3.1.3",
     "@vitest/coverage-v8": "3.1.3",
-    "auto": "^11.3.6",
     "chromatic": "^13.3.4",
     "eslint": "9.33.0",
     "eslint-config-prettier": "^10.1.8",
@@ -107,5 +111,7 @@
       "@octokit/request": ">=8.4.1",
       "@octokit/plugin-paginate-rest": ">=9.2.2"
     }
-  }
+  },
+  "repository": "allanasp/haspen-ui",
+  "author": "Allan Asp <mail@allanasp.dk>"
 }
