@@ -30,7 +30,8 @@
   "scripts": {
     "build": "tsup && sass scss/index.scss dist/index.css",
     "dev": "tsup --watch",
-    "clean": "rm -rf .turbo node_modules dist"
+    "clean": "rm -rf .turbo node_modules dist",
+    "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
     "@storybook/csf": "^0.1.13",

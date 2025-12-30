@@ -29,7 +29,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "clean": "rm -rf .turbo node_modules dist",
-    "test": "vitest --passWithNoTests"
+    "test": "vitest --passWithNoTests",
+    "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
     "vue": "^3.5.13"

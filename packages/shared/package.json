@@ -24,7 +24,8 @@
     "dev": "tsup --watch",
     "lint": "eslint src",
     "test": "vitest --passWithNoTests",
-    "clean": "rimraf .turbo node_modules dist"
+    "clean": "rimraf .turbo node_modules dist",
+    "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
     "@haspen/core": "workspace:*"
