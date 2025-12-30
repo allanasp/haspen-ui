@@ -1,6 +1,8 @@
 {
-  "name": "@haspen-ui/ui",
+  "name": "@haspen/ui",
   "version": "0.1.0",
+  "description": "Vue 3 UI components for Haspen UI",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
@@ -16,6 +18,14 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/haspen-ui.git",
+    "directory": "packages/ui"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
@@ -26,12 +36,12 @@
     "vue": "^3.5.13"
   },
   "dependencies": {
-    "@haspen-ui/core": "workspace:*",
-    "@haspen-ui/shared": "workspace:*"
+    "@haspen/core": "workspace:*",
+    "@haspen/shared": "workspace:*"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
-    "@haspen-ui/composables": "workspace:*",
+    "@haspen/composables": "workspace:*",
     "@testing-library/jest-dom": "^6.8.0",
     "@vitejs/plugin-vue": "^5.0.3",
     "@vue/test-utils": "^2.4.0",

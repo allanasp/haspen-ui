@@ -1,6 +1,8 @@
 {
-  "name": "@haspen-ui/design-tokens",
+  "name": "@haspen/design-tokens",
   "version": "0.1.0",
+  "description": "Design tokens for Haspen UI - colors, typography, spacing, and more",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -17,6 +19,14 @@
     "dist",
     "scss"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/haspen-ui.git",
+    "directory": "packages/design-tokens"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup && sass scss/index.scss dist/index.css",
     "dev": "tsup --watch",

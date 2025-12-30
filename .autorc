@@ -10,12 +10,6 @@
     "released",
     "first-time-contributor",
     [
-      "all-contributors",
-      {
-        "exclude": ["dependabot", "dependabot[bot]"]
-      }
-    ],
-    [
       "upload-assets",
       {
         "assets": ["dist/**/*"]
@@ -26,8 +20,7 @@
       {
         "subject": ["^chore", "^ci", "^build", "^style"]
       }
-    ],
-    "magic-zero"
+    ]
   ],
   "labels": [
     {
