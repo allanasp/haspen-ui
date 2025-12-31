@@ -1,6 +1,6 @@
 {
   "name": "@haspen/design-tokens",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Design tokens for Haspen UI - colors, typography, spacing, and more",
   "license": "MIT",
   "type": "module",

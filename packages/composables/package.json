@@ -1,6 +1,6 @@
 {
   "name": "@haspen/composables",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Vue 3 composables for Haspen UI",
   "license": "MIT",
   "type": "module",
