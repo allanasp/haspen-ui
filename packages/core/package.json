@@ -1,7 +1,7 @@
 {
-  "name": "@ipeeon/core",
+  "name": "@grundtone/core",
   "version": "1.0.0",
-  "description": "Core types and utilities for Haspen UI",
+  "description": "Core types and utilities for Grundtone",
   "license": "MIT",
   "private": false,
   "main": "./dist/index.js",
@@ -9,11 +9,20 @@
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "files": [
-    "dist/**"
+    "dist/**",
+    "assets/**"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./assets/*": "./assets/*"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/allanasp/haspen-ui.git",
+    "url": "https://github.com/allanasp/grundtone.git",
     "directory": "packages/core"
   },
   "publishConfig": {

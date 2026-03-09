@@ -1,7 +1,10 @@
-# Haspen UI Design Tokens
+# Grundtone Design Tokens
 
-Modern SASS-based design token system following 2025 best practices with comprehensive color
-palette, semantic naming, and powerful helper functions.
+Web-only styling layer: SCSS utilities, CSS output, grid system, and mixins for the Grundtone design
+system.
+
+> **React Native?** Use `@grundtone/core` + `@grundtone/react-native` instead. This package is for
+> web (Vue, Vite, or any project using SCSS/CSS).
 
 ## Features
 
@@ -16,7 +19,7 @@ palette, semantic naming, and powerful helper functions.
 
 ```bash
 # Already included in the monorepo
-import '@haspen/design-tokens';
+import '@grundtone/design-tokens';
 ```
 
 ## Color System
@@ -50,7 +53,7 @@ Pre-defined semantic colors for common use cases:
 #### Basic Color Access
 
 ```scss
-@use '@haspen/design-tokens' as tokens;
+@use '@grundtone/design-tokens' as tokens;
 
 .button {
   // Access specific color shades
@@ -272,7 +275,7 @@ All functions include comprehensive error handling:
 
 ## Migration from Old System
 
-### Before (Old DKFDS)
+### Before (Old System)
 
 ```scss
 .button {
@@ -307,12 +310,10 @@ When adding new colors:
 1. Follow the 9-shade naming convention (50-900)
 2. Ensure WCAG AA compliance for text/background combinations
 3. Add semantic aliases for common use cases
-4. Update documentation and Storybook examples
+4. Update documentation
 5. Add appropriate helper functions if needed
 
 ## Documentation
-
-All design tokens are fully documented in Storybook with interactive examples:
 
 ### Core Token Documentation
 
@@ -333,7 +334,6 @@ All design tokens are fully documented in Storybook with interactive examples:
 
 ### Quick Links
 
-- [View Storybook Documentation](https://storybook.haspenui.dev)
 - [Accessibility Functions](./src/core/_accessibility.scss)
 - [SCSS Mixins](./src/mixins/_index.scss)
 - [TypeScript Exports](./src/index.ts)
@@ -343,7 +343,7 @@ All design tokens are fully documented in Storybook with interactive examples:
 Import and use design tokens directly in TypeScript/JavaScript:
 
 ```typescript
-import { colors, spacing, typography } from '@haspen/design-tokens';
+import { colors, spacing, typography } from '@grundtone/design-tokens';
 
 // Access color values
 const primaryBlue = colors.primary[500]; // '#3b82f6'
@@ -357,14 +357,14 @@ const baseFont = typography.fontFamily.sans; // ['Inter', 'system-ui', ...]
 const fontSize = typography.fontSize.base; // '1rem'
 ```
 
-See [TypeScript API documentation](./src/TypeScriptAPI.stories.ts) for complete examples.
+See [TypeScript API documentation](./src/index.ts) for complete examples.
 
 ## Accessibility Features
 
 Built-in WCAG 2.1 accessibility functions:
 
 ```scss
-@use '@haspen/design-tokens/core/accessibility' as a11y;
+@use '@grundtone/design-tokens/core/accessibility' as a11y;
 
 // Calculate contrast ratios
 $ratio: a11y.contrast-ratio(#333333, #ffffff); // 12.63:1
@@ -392,7 +392,7 @@ $is-aa: a11y.is-wcag-aa-compliant(#767676, #ffffff); // true
 }
 ```
 
-See [Accessibility documentation](./src/core/Accessibility.stories.ts) for complete reference.
+See [Accessibility documentation](./src/core/_accessibility.scss) for complete reference.
 
 ## Changelog
 
@@ -405,6 +405,5 @@ See [Accessibility documentation](./src/core/Accessibility.stories.ts) for compl
 - Semantic color mapping
 - Full TypeScript support
 - WCAG 2.1 accessibility functions
-- Complete Storybook documentation
 - SCSS mixins library
 - CSS variables reference

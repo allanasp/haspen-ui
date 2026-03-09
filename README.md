@@ -1,22 +1,22 @@
-# Haspen UI - Design System
+# Grundtone - Design System
 
 A comprehensive Vue 3 design system monorepo built with TypeScript, featuring the complete Danish
-Design System (DKFDS) implementation, atomic design principles, and automated workflows.
+design system implementation, atomic design principles, and automated workflows.
 
 ## 🏗️ Architecture Overview
 
 ### Core Philosophy
 
-Haspen UI follows **atomic design methodology** and **design token-driven development**, providing a
+Grundtone follows **atomic design methodology** and **design token-driven development**, providing a
 scalable foundation for building consistent user interfaces with Danish government design standards.
 
 ### Monorepo Structure
 
 ```
-haspen-ui/
+grundtone/
 ├── packages/
 │   ├── core/              # Base styles and reset
-│   ├── design-tokens/     # DKFDS tokens, functions, mixins
+│   ├── design-tokens/     # Design tokens, functions, mixins
 │   ├── shared/            # Utilities and helpers
 │   ├── ui/                # Vue 3 components (atoms → organisms)
 │   ├── composables/       # Vue 3 composables/hooks
@@ -26,8 +26,8 @@ haspen-ui/
 │   ├── core-test/         # Testing app for core package
 │   ├── shared-test/       # Testing app for shared utilities
 │   └── components-test/   # Component integration testing
-├── .storybook/            # Storybook configuration
-└── docs/                  # Generated documentation
+├── apps/docs/             # VitePress documentation
+└── docs/                  # Additional documentation
 ```
 
 ## 🚀 Quick Start
@@ -43,7 +43,7 @@ haspen-ui/
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd haspen-ui
+cd grundtone
 
 # Install dependencies
 pnpm install
@@ -61,7 +61,7 @@ pnpm dev
 # Development servers
 pnpm dev                    # Start all development servers
 pnpm dev:playground         # Start playground app only
-pnpm storybook             # Start Storybook (port 6006)
+pnpm docs:dev              # Start documentation site
 
 # Building
 pnpm build                 # Build all packages and apps
@@ -75,22 +75,22 @@ pnpm lint                  # Lint all packages
 pnpm format                # Format all files
 
 # Package-specific commands
-pnpm test --filter=@haspen/ui  # Test specific package
-turbo run dev --filter=@haspen/ui  # Build specific package in watch mode
+pnpm test --filter=@grundtone/vue  # Test specific package
+turbo run dev --filter=@grundtone/vue  # Build specific package in watch mode
 ```
 
 ## 🏛️ Design System Features
 
-### DKFDS (Det Fælles Designsystem) Integration
+### Design System Integration
 
-Complete implementation of the Danish government design system:
+Complete implementation of the design system:
 
-- **100+ DKFDS colors** with semantic naming
+- **100+ colors** with semantic naming
 - **IBM Plex Sans typography** with responsive scales
 - **8px-based spacing** system
 - **Complete utility classes** for rapid development
 - **SCSS functions and mixins** for advanced styling
-- **Comprehensive Storybook documentation**
+- **Comprehensive VitePress documentation**
 
 ### Component Architecture
 
@@ -107,38 +107,38 @@ Every component follows atomic design principles:
 ### Vue 3 Integration
 
 ```bash
-npm install @haspen/ui @haspen/design-tokens
+npm install @grundtone/vue @grundtone/design-tokens
 ```
 
 ```javascript
 // main.ts
 import { createApp } from 'vue';
-import HaspenUI from '@haspen/ui';
-import '@haspen/ui/dist/style.css';
+import GrundtoneUI from '@grundtone/vue';
+import '@grundtone/vue/dist/style.css';
 import App from './App.vue';
 
 const app = createApp(App);
-app.use(HaspenUI);
+app.use(GrundtoneUI);
 app.mount('#app');
 ```
 
 ### Nuxt 3 Integration
 
 ```bash
-npm install @haspen/nuxt
+npm install @grundtone/nuxt
 ```
 
 ```javascript
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@haspen/nuxt'],
+  modules: ['@grundtone/nuxt'],
 });
 ```
 
 ### Design Tokens Usage
 
 ```scss
-@use '@haspen/design-tokens' as tokens;
+@use '@grundtone/design-tokens' as tokens;
 
 .my-component {
   color: tokens.color('primary');
@@ -153,14 +153,14 @@ export default defineNuxtConfig({
 ### CPR Number Validation
 
 ```typescript
-import { isValidCPR } from '@haspen/shared';
+import { isValidCPR } from '@grundtone/shared';
 isValidCPR('123456-7890'); // true
 ```
 
 ### Danish Currency & Date Formatting
 
 ```typescript
-import { formatCurrency, formatDanishDate } from '@haspen/shared';
+import { formatCurrency, formatDanishDate } from '@grundtone/shared';
 formatCurrency(1234.56); // '1.234,56 kr.'
 formatDanishDate(new Date()); // 'DD/MM/YYYY'
 ```
@@ -171,7 +171,7 @@ formatDanishDate(new Date()); // 'DD/MM/YYYY'
 
 - **90% minimum test coverage** across all packages
 - **Unit tests** with Vitest and Vue Test Utils
-- **Component documentation** with Storybook
+- **Design system documentation** with VitePress
 - **E2E testing** with Playwright
 - **Accessibility compliance** with WCAG 2.1 AA
 
@@ -192,45 +192,38 @@ formatDanishDate(new Date()); // 'DD/MM/YYYY'
 - **GitHub Actions** for CI/CD pipeline
 - **NPM publishing** with proper package distribution
 
-### Storybook Deployment
-
-```bash
-pnpm build-storybook  # Build for static hosting
-```
-
 ## 🔧 Troubleshooting
 
 ### Common Issues
 
 **Build Failures**: Ensure correct package.json exports **TypeScript Errors**: Build packages in
-dependency order **Storybook Issues**: Check addon compatibility **Test Failures**: Verify vitest
-configuration
+dependency order **Test Failures**: Verify vitest configuration
 
-See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for detailed solutions.
+See [TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md) for detailed solutions.
 
 ## 📖 Documentation
 
-- **[Architecture Guide](./ARCHITECTURE.md)**: System design and patterns
-- **[Contributing Guide](./CONTRIBUTING.md)**: Development workflow and standards
-- **[Troubleshooting](./TROUBLESHOOTING.md)**: Common issues and solutions
+- **[Architecture Guide](./docs/ARCHITECTURE.md)**: System design and patterns
+- **[Contributing Guide](./docs/CONTRIBUTING.md)**: Development workflow and standards
+- **[Troubleshooting](./docs/TROUBLESHOOTING.md)**: Common issues and solutions
 - **[Component API](./docs/api/)**: Generated API documentation
-- **[Storybook](http://localhost:6006)**: Interactive component documentation
+- **[Documentation](https://grundtone.vercel.app)**: Design system documentation
 
 ## 🤝 Contributing
 
-We welcome contributions! Please read our [Contributing Guide](./CONTRIBUTING.md) for:
+We welcome contributions! Please read our [Contributing Guide](./docs/CONTRIBUTING.md) for:
 
 - Development setup and workflow
 - Component creation standards
 - Testing requirements
 - Code review process
-- DKFDS compliance guidelines
+- Design system compliance guidelines
 
 ### Development Workflow
 
 ```bash
 # 1. Fork and clone
-git clone https://github.com/yourusername/haspen-ui.git
+git clone https://github.com/yourusername/grundtone.git
 
 # 2. Create feature branch
 git checkout -b feature/new-component
@@ -246,13 +239,13 @@ git push origin feature/new-component
 
 ### Package Status
 
-- ✅ **@haspen/core**: Stable - CSS reset and base styles
-- ✅ **@haspen/design-tokens**: Stable - Complete DKFDS implementation
-- ✅ **@haspen/shared**: Stable - Danish utilities and helpers
-- ✅ **@haspen/ui**: Stable - Vue 3 component library
-- ✅ **@haspen/composables**: Stable - Vue 3 composables
-- ✅ **@haspen/nuxt**: Stable - Nuxt 3 integration module
-- ✅ **@haspen/playground**: Development - Demo application
+- ✅ **@grundtone/core**: Stable - CSS reset and base styles
+- ✅ **@grundtone/design-tokens**: Stable - Complete design token implementation
+- ✅ **@grundtone/shared**: Stable - Danish utilities and helpers
+- ✅ **@grundtone/vue**: Stable - Vue 3 component library
+- ✅ **@grundtone/composables**: Stable - Vue 3 composables
+- ✅ **@grundtone/nuxt**: Stable - Nuxt 3 integration module
+- ✅ **@grundtone/playground**: Development - Demo application
 
 ### Build Status
 
@@ -260,13 +253,13 @@ git push origin feature/new-component
 - ✅ Tests passing (90%+ coverage)
 - ✅ TypeScript compilation clean
 - ✅ Linting and formatting consistent
-- ✅ Storybook documentation complete
+- ✅ VitePress documentation deployed
 
 ## 🌟 Features
 
 ### Design System
 
-- ✅ Complete DKFDS color system (100+ colors)
+- ✅ Complete color system (100+ colors)
 - ✅ Responsive typography with IBM Plex Sans
 - ✅ 8px-based spacing scale
 - ✅ Comprehensive utility classes
@@ -279,7 +272,7 @@ git push origin feature/new-component
 - ✅ Vue 3 Composition API
 - ✅ Hot module replacement
 - ✅ Automated testing with Vitest
-- ✅ Interactive Storybook documentation
+- ✅ VitePress documentation site
 - ✅ Automated releases with conventional commits
 
 ### Accessibility & Compliance
@@ -296,7 +289,7 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## 🙏 Acknowledgments
 
-- **[DKFDS Team](https://designsystem.dk/)**: For the comprehensive Danish Design System
+- **Design system inspiration**: For comprehensive design standards
 - **[Vue.js Team](https://vuejs.org/)**: For the amazing Vue 3 framework
 - **[TypeScript Team](https://www.typescriptlang.org/)**: For robust type safety
 - **Contributors**: Everyone who has contributed to this project
@@ -306,4 +299,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 **Built with ❤️ for the Danish development community**
 
 _This design system provides modern Vue 3 components following Danish government design standards
-(DKFDS) with comprehensive tooling for scalable application development._
+with comprehensive tooling for scalable application development._

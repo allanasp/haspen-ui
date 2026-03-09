@@ -1,10 +1,10 @@
 ---
-'@ipeeon/design-tokens': minor
-'@ipeeon/composables': patch
-'@ipeeon/shared': patch
-'@ipeeon/core': patch
-'@ipeeon/nuxt': patch
-'@ipeeon/ui': patch
+'@grundtone/design-tokens': minor
+'@grundtone/composables': patch
+'@grundtone/shared': patch
+'@grundtone/core': patch
+'@grundtone/nuxt': patch
+'@grundtone/vue': patch
 ---
 
 Add comprehensive platform-specific documentation and 12-column grid system
@@ -14,7 +14,7 @@ Major updates:
 - Added platform-specific usage examples (Web, iOS, Android, React Native) to all design token pages
 - Created new conceptual guide "Design Tokens vs Utilities" explaining cross-platform workflow
 - Added complete 12-column CSS Grid system with responsive utilities
-- Refactored spacing scale from DKFDS-specific to industry-standard 0-6 system
+- Refactored spacing scale to industry-standard 0-6 system
 
 New features:
 
